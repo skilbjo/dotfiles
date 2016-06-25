@@ -1,0 +1,66 @@
+#--------------+
+# Vim Files |
+#--------------+
+*.swn
+*.swo
+*.swp
+
+#-----------------+
+# Compiled Source |
+#-----------------+ 
+*.class
+*.com
+*.dll
+*.exe
+*.o           
+*.pyc
+*.so
+
+#--------------------+
+# Logs and Databases |
+#--------------------+
+nohup.out
+*.log
+*.sqlite
+
+#----------------------+
+# Tag Files from ctags |
+#----------------------+
+tags
+
+#--------------------+
+# OS Generated Files |
+#--------------------+
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+#------------------+
+# Managed Packages |
+#------------------+
+node_modules
+
+#-----------------------+
+# Android Project Files |
+#-----------------------+
+local.properties
+
+#--------+
+# Python |
+#--------+
+*.egg-info/
+
+#------+
+# Misc |
+#------+
+.dropbox
+
+#-----+
+# IDE |
+#-----+
+.idea/
+*.iml for OSX
+
+
+

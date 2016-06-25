@@ -1,0 +1,21 @@
+[user]
+	name = John Skilbeck
+	email = john.skilbeck@gmail.com
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[color]
+	ui = always
+[diff]
+	tool = vimdiff
+[push]
+	default = simple
+[alias]
+	cmt = commit
+	ckt = checkout
+	dl = difftool HEAD~ HEAD
+	dt = difftool
+	st = status
+	mt = mergetool
+	tg = tag -n
+	ws = rebase --whitespace=fix
