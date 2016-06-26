@@ -3,9 +3,9 @@
 folder="~/Dropbox/"
 bashrc=".bashrc"
 profile=".profile"
-gitcfg=".gitconfig"
 vimrc=".vimrc"
-
+gitcfg=".gitconfig"
+gitign=".gitignore"
 
 cd ~
 
