@@ -29,6 +29,10 @@ function vim {
 	cp $drpbx/plugin_settings.vim ~/.vim/plugin_settings.vim	
 }
 
+function clojure {
+	ln -s ~/Dropbox/dotfiles/profiles.clj ~/.lein/profiles.clj
+}
+
 remove_existing
 link_dropbox_dotfiles
 vim

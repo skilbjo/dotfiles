@@ -15,6 +15,7 @@ call neobundle#begin(expand('/Users/john.skilbeck/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
+" " Vim Bundles
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
@@ -22,6 +23,10 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'Shougo/unite.vim'
+
+"" Clojure Bundles
+NeoBundle 'https://github.com/guns/vim-clojure-static'
+NeoBundle 'https://github.com/tpope/vim-fireplace'
 
 
 " You can specify revision/branch/tag.
