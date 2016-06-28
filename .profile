@@ -30,8 +30,8 @@ dw=hx   # Director writable to others, without sticky bit
 export LSCOLORS="$di$ln$so$pi$ex$bd$cf$eu$eg$ds$dw"
 
 # Load the irregular .dotfiles
-source_if_exists "$HOME/.aliases"      # Aliases
-source_if_exists "$HOME/.aws"          # AWS config
-
+source_if_exists "$HOME/.aliases"				# Aliases
+source_if_exists "$HOME/.aws"						# AWS config
+source_if_exists "$HOME/.profilelocal"	# env variables
 
 

@@ -23,6 +23,8 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'https://github.com/scrooloose/nerdtree'
+
 
 "" Clojure Bundles
 NeoBundle 'https://github.com/guns/vim-clojure-static'
