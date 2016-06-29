@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-drpbx="~/Dropbox/"
+drpbx="~/Documents/Dropbox/dotfiles"
 bashrc=".bashrc"
 profile=".profile"
 vimrc=".vimrc"
@@ -15,27 +15,36 @@ function remove_existing {
 
 function link_dropbox_dotfiles {
 	## Dotfiles
-	ln -s $drpbx$bashrc $bashrc
-	ln -s $drpbx$profile $profile
-	ln -s $drpbx$vimrc $vimrc
-	ln -s $drpbx$gitcfg $gitcfg
-	ln -s $drpbx$gitign $gitign	
+	ln -s $drpbx/$bashrc $bashrc
+	ln -s $drpbx/$profile $profile
+	ln -s $drpbx/$vimrc $vimrc
+	ln -s $drpbx/$gitcfg $gitcfg
+	ln -s $drpbx/$gitign $gitign	
 }
 
 function vim {
-	ln -s ~/Dropbox/dotfiles/plugins.vim ~/.vim/plugins.vim
-	ln -s ~/Dropbox/dotfiles/plugin_settings.vim ~/.vim/plugin_settings.vim
-	cp $drpbx/plugins.vim ~/.vim/plugins.vim
-	cp $drpbx/plugin_settings.vim ~/.vim/plugin_settings.vim	
+	ln -s $drpbx/plugins.vim ~/.vim/plugins.vim
+	ln -s $drpbx/plugin_settings.vim ~/.vim/plugin_settings.vim
+	ln -s $drpbx/settings.vim ~/.vim/settings.vim
 }
 
 function clojure {
-	ln -s ~/Dropbox/dotfiles/profiles.clj ~/.lein/profiles.clj
+	ln -s $drpbx/.profiles.clj ~/.lein/profiles.clj
 }
+
+function tmux {
+	ln -s $drpbx.tmux.conf ~/.tmux.conf
+}
+
+function sublime_text {
+	echo "/Users/john.skilbeck/Library/Application Support/Sublime Text 3/Packages/User"
+}
+
 
 remove_existing
 link_dropbox_dotfiles
 vim
+tmux
 
 exit
 

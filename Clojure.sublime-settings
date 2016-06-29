@@ -1,0 +1,12 @@
+// installed Clojure packages
+
+// BracketHighlighter
+// lispindent
+// SublimeREPL
+
+{
+  "word_separators": "/\\()\"',;!@$%^&|+=[]{}`~?"
+}
+
+
+

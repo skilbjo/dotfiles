@@ -1,4 +1,3 @@
-
 syntax on
 
 set number
@@ -9,4 +8,7 @@ set softtabstop=2
 set smarttab
 
 set nowrap
+
+set ruler title laststatus=2 
+set hlsearch
 

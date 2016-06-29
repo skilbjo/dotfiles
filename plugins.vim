@@ -18,13 +18,20 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " " Vim Bundles
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/unite.vim'
+
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'https://github.com/scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Valloric/YouCompleteMe'
 
+" " Research
+NeoBundle 'vim-airline/vim-airline-theme'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'fholgado/minibufexpl.vim'
+NeoBundle 'wincent/command-t'
 
 "" Clojure Bundles
 NeoBundle 'https://github.com/guns/vim-clojure-static'

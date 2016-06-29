@@ -4,7 +4,7 @@
 
 export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin'
 
-export PS1="\W \$ "
+export PS1="\W λ "
 
 # Alias
 alias grep="grep --color=always"
