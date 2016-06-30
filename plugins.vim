@@ -5,10 +5,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=/Users/john.skilbeck/.vim/bundle/neobundle.vim/
+set runtimepath^=/Users/$USER/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/Users/john.skilbeck/.vim/bundle'))
+call neobundle#begin(expand('/Users/$USER/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -25,13 +25,16 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Valloric/YouCompleteMe'
 
 " " Research
-NeoBundle 'vim-airline/vim-airline-theme'
+NeoBundle 'vim-airline/vim-airline' 
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'wincent/command-t'
+
+" " Doesn't work with binary vim
+" NeoBundle 'Valloric/YouCompleteMe'
 
 "" Clojure Bundles
 NeoBundle 'https://github.com/guns/vim-clojure-static'

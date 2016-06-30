@@ -17,6 +17,7 @@ function link_dropbox_dotfiles {
 	## Dotfiles
 	ln -s $drpbx/$bashrc $bashrc
 	ln -s $drpbx/$profile $profile
+	ln -s $drpbx/.aliases ~/.aliases
 	ln -s $drpbx/$vimrc $vimrc
 	ln -s $drpbx/$gitcfg $gitcfg
 	ln -s $drpbx/$gitign $gitign	
