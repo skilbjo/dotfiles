@@ -22,8 +22,19 @@ alias psqlstart="postgres -D /usr/local/var/postgres/ &"
 alias psqlstop="killall postgres"
 
 # Work specific pem keys (place pem keys in ~/.ssh
-for file in $(ls ~/.ssh/*.pem); do 
-	ssh-add $file > /dev/null 2>&1;
-done
+work() {
+	for file in $(ls ~/.ssh/*.pem); do 
+		ssh-add $file > /dev/null 2>&1;
+	done
+}
 
+computer_specific() {
+	case $(whoami) in
+		('john.skilbeck') work;;
+		(skilbjo) ;; 
+	esac
+	#if [ $(whoami) = 'john.skilbeck' ]; then #fi
+}
+
+computer_specific
 

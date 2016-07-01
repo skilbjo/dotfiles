@@ -5,7 +5,8 @@ set laststatus=2  "always show status line for the last window
 "set laststatus=0  "always show status line for the last window
 
 let g:airline_theme='wombat'
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Command-T

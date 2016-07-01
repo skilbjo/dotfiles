@@ -35,6 +35,7 @@ function clojure {
 
 function tmux {
 	ln -s $drpbx.tmux.conf ~/.tmux.conf
+	ln -s ~/Dropbox/dotfiles/.tmux-osx.conf .tmux-osx.conf
 }
 
 function sublime_text {
