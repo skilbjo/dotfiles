@@ -11,8 +11,8 @@
 [push]
 	default = simple
 [alias]
-	cmt = commit
-	ckt = checkout
+	cm = commit
+	ck = checkout
 	dl = difftool HEAD~ HEAD
 	dt = difftool
 	st = status
