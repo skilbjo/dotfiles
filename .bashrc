@@ -18,14 +18,16 @@ alias ff="find . -type f -name"
 alias fh="find ~ -type f -name"
 alias fr="find / -type f -name"
 alias search="find . -type f -print0 | xargs -0 grep -i"
-alias psqlstart="postgres -D /usr/local/var/postgres/ &"
-alias psqlstop="killall postgres"
+alias psql-start="postgres -D /usr/local/var/postgres/ &"
+alias psql-stop="killall postgres"
 
 # Work specific pem keys (place pem keys in ~/.ssh
 work() {
 	for file in $(ls ~/.ssh/*.pem); do 
 		ssh-add $file > /dev/null 2>&1;
 	done
+
+	eval "$(docker-machine env default)"
 }
 
 computer_specific() {

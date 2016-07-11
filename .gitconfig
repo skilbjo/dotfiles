@@ -11,11 +11,11 @@
 [push]
 	default = simple
 [alias]
-	cm = commit
+	c = commit
 	ck = checkout
 	dl = difftool HEAD~ HEAD
 	dt = difftool
-	st = status
+	s = status
 	mt = mergetool
 	tg = tag -n
 	ws = rebase --whitespace=fix

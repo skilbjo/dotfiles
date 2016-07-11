@@ -51,6 +51,14 @@ local.properties
 #--------+
 *.egg-info/
 
+#---------+
+# Clojure |
+#---------+
+.lein-failures
+.lein-repl-history
+.nrepl-port
+repl-port
+
 #------+
 # Misc |
 #------+
