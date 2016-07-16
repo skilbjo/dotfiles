@@ -14,23 +14,24 @@ set whichwrap+=<,>,[,]
 " Arrow keys movement
 map <Esc>b B
 map <Esc>f W
-" nnoremap <M-Left> B
-" nnoremap <M-Left> <Left>
-" nnoremap <M-Right> <Right>
 
-" Tab navigation like Firefox.
+" Tab Opening/closing
 nnoremap <C-t>				:tabnew<CR>
 nnoremap <C-w>				:tabclose<CR>
-"nnoremap <C-Left> :tabprevious<CR>
-"nnoremap <C-Right> :tabnext<CR>
+
+" Working tab navigation
+nnoremap <C-j> gT
+nnoremap <C-k> gt
 
 " Not working tab navigation
-nnoremap <C-j>		<Esc>:tabp<CR>
-nnoremap <C-k>			<Esc>:tabn<CR>
 " nnoremap <C-S-Tab> :tabprevious<CR>
 " nnoremap <C-Tab>   :tabnext<CR>
 " inoremap <C-S-Tab> <Esc>:tabprevious<CR>i
 " nnoremap <C-Tab>   <Esc>:tabnext<CR>i
+
+" Tab movement but I use this for text movement instead
+"nnoremap <C-Left> :tabprevious<CR>
+"nnoremap <C-Right> :tabnext<CR>
 
 "map <Esc>[1;9D :tabn<CR>
 
