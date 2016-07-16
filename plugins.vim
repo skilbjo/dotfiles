@@ -29,9 +29,9 @@ NeoBundle 'scrooloose/nerdtree'
 " " Research
 NeoBundle 'vim-airline/vim-airline' 
 NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'fholgado/minibufexpl.vim'
-NeoBundle 'wincent/command-t'
+" NeoBundle 'junegunn/vim-easy-align'
+" NeoBundle 'fholgado/minibufexpl.vim'
+" NeoBundle 'wincent/command-t'
 
 " " Doesn't work with binary vim
 " NeoBundle 'Valloric/YouCompleteMe'

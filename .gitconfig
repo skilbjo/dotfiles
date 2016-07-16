@@ -12,10 +12,11 @@
 	default = simple
 [alias]
 	c = commit
+	s = status
+	p = push
 	ck = checkout
 	dl = difftool HEAD~ HEAD
 	dt = difftool
-	s = status
 	mt = mergetool
 	tg = tag -n
 	ws = rebase --whitespace=fix
