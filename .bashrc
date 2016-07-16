@@ -18,8 +18,8 @@ alias ff="find . -type f -name"
 alias fh="find ~ -type f -name"
 alias fr="find / -type f -name"
 alias search="find . -type f -print0 | xargs -0 grep -i"
-alias psql-start="postgres -D /usr/local/var/postgres/ &"
-alias psql-stop="killall postgres"
+alias "psql.start"="postgres -D /usr/local/var/postgres/ &"
+alias "psql.stop"="killall postgres"
 
 # Work specific pem keys (place pem keys in ~/.ssh
 work() {
