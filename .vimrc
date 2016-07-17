@@ -10,7 +10,8 @@ set softtabstop=2
 set smarttab
 
 if !&diff && version >= 703
+	execute 'source '.vim_dir.'/settings.vim'
+	execute 'source '.vim_dir.'/keybindings.vim'
 	execute 'source '.vim_dir.'/plugins.vim'
 	execute 'source '.vim_dir.'/plugin_settings.vim'
-	execute 'source '.vim_dir.'/settings.vim'
 end
