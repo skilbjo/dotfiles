@@ -25,6 +25,8 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle	'vim-scripts/AutoComplPop'
+NeoBundle 'scrooloose/syntastic'
 
 " " Research
 NeoBundle 'vim-airline/vim-airline' 
@@ -33,8 +35,6 @@ NeoBundle 'vim-airline/vim-airline-themes'
 " NeoBundle 'fholgado/minibufexpl.vim'
 " NeoBundle 'wincent/command-t'
 
-" " Doesn't work with binary vim
-" NeoBundle 'Valloric/YouCompleteMe'
 
 "" Clojure Bundles
 NeoBundle 'https://github.com/guns/vim-clojure-static'

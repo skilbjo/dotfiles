@@ -1,3 +1,20 @@
+# Alias for terminal commandd
+alias grep="grep --color=always"
+alias st="git status"
+alias h="cd ~"
+alias br="git branch"
+alias df="git diff"
+alias pl="git pull"
+alias pu="git push"
+alias ff="find . -type f -name"
+alias fh="find ~ -type f -name"
+alias fr="find / -type f -name"
+alias search="find . -type f -print0 | xargs -0 grep -i"
+alias "psql.start"="postgres -D /usr/local/var/postgres/ &"
+alias "psql.stop"="killall postgres"
+alias "docker.psql.install"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
+alias "docker.psql.start"="docker run postgres"
+alias "docker.psql.stop"="docker stop postgres"
 
 # calendor for OSX
 alias cal='cal | grep --color -EC6 "\b$(date +%e | sed "s/ //g")"'

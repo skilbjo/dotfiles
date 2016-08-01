@@ -14,7 +14,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:CommandTMatchWindowReverse = 1
 let g:CommandTMaxHeight = 20
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EasyAlign
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -25,6 +24,10 @@ vnoremap <silent><CR>  :EasyAlign<CR>
 """"""""""""""""""""
 map <SPACE> <Plug>(easymotion-bd-w)
 
+""""""""""""""""""""
+" => AutoComplPop
+""""""""""""""""""""
+inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fireplace
@@ -53,10 +56,10 @@ let g:clojure_align_subforms = 0
 let g:miniBufExplCycleArround = 1
 let g:miniBufExplSplitBelow = 0
 let g:miniBufExplUseSingleClick = 1
-nnoremap H  :MBEbp<CR>
-nnoremap L  :MBEbn<CR>
-nnoremap ˙  :MBEbb<CR>
-nnoremap ¬  :MBEbf<CR>
+" nnoremap H  :MBEbp<CR>
+" nnoremap L  :MBEbn<CR>
+" nnoremap ˙  :MBEbb<CR>
+" nnoremap ¬  :MBEbf<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
@@ -98,17 +101,5 @@ if exists(':Unite')
     "let g:unite_source_grep_recursive_opt = ''
   "endif
 endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Don't open doc window for omnicomplete by default
-"set completeopt-=preview
-"Turn on/off omnicomple preview window
-"noremap <Leader>docon  :set completeopt+=preview<CR>
-
-"noremap <Leader>docoff :set completeopt-=preview<CR>
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 
