@@ -12,9 +12,17 @@ alias fr="find / -type f -name"
 alias search="find . -type f -print0 | xargs -0 grep -i"
 alias "psql.start"="postgres -D /usr/local/var/postgres/ &"
 alias "psql.stop"="killall postgres"
+
+# Docker
 alias "docker.psql.install"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
-alias "docker.psql.start"="docker run postgres"
+alias "docker.psql.setup"="cat ~/Code/Docker/postgres/create_roles.sql ~/Code/Docker/postgres/create_databases.sql | psql -h docker -U postgres -a -f -" 
+alias "docker.psql.start"="docker start postgres"
 alias "docker.psql.stop"="docker stop postgres"
+
+alias "docker.kill"="docker kill $(docker ps -q)"
+alias "docker.rm"="docker rm $(docker ps -a -q)"
+alias "docker.rmi"="docker rmi $(docker images -q)"
+alias "ssh.docker"="ssh docker@$(docker-machine ip default)"
 
 # calendor for OSX
 alias cal='cal | grep --color -EC6 "\b$(date +%e | sed "s/ //g")"'
