@@ -19,6 +19,7 @@ alias "docker.psql.setup"="cat ~/Code/Docker/postgres/create_roles.sql ~/Code/Do
 alias "docker.psql.start"="docker start postgres"
 alias "docker.psql.stop"="docker stop postgres"
 
+alias "docker.start"="docker-machine start default; eval '$(docker-machine env default)'"
 alias "docker.kill"="docker kill $(docker ps -q)"
 alias "docker.rm"="docker rm $(docker ps -a -q)"
 alias "docker.rmi"="docker rmi $(docker images -q)"

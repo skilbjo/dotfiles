@@ -31,6 +31,7 @@ NeoBundle 'scrooloose/syntastic'
 " " Research
 NeoBundle 'vim-airline/vim-airline' 
 NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'NLKNguyen/papercolor-theme'
 " NeoBundle 'junegunn/vim-easy-align'
 " NeoBundle 'fholgado/minibufexpl.vim'
 " NeoBundle 'wincent/command-t'

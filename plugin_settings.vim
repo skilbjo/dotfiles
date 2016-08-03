@@ -1,44 +1,39 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Airline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -- Airline ----------------------------------------------------
 set laststatus=2  "always show status line for the last window
-"set laststatus=0  "always show status line for the last window
-
-let g:airline_theme='wombat'
+let g:airline_theme='papercolor'
 "let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Command-T
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" -- Themes -----------------------------------------------------
+set background=light
+let g:PaperColor_Light_Override = { 'background' : '#ffffff' }
+colorscheme PaperColor
+
+
+" -- Command-T --------------------------------------------------
 let g:CommandTMatchWindowReverse = 1
 let g:CommandTMaxHeight = 20
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => EasyAlign
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" -- EasyAlign --------------------------------------------------
 vnoremap <silent><CR>  :EasyAlign<CR>
 
-""""""""""""""""""""
-" => EasyMotion
-""""""""""""""""""""
+
+" -- EasyMotion -------------------------------------------------
+# -- keybindings ------------------------------------------------
 map <SPACE> <Plug>(easymotion-bd-w)
 
-""""""""""""""""""""
-" => AutoComplPop
-""""""""""""""""""""
+
+" -- AutoComplPop -----------------------------------------------
+# -- keybindings ------------------------------------------------
 inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Fireplace
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Pretty print last result
+
+" -- vim-Fireplace ----------------------------------------------
 nnoremap <Leader>cp :execute "Eval (do (require 'clojure.pprint) (clojure.pprint/pp))"<cr>
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Clojure-Static 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -- Clojure-static ---------------------------------------------
 let g:clojure_syntax_keywords = {
     \ 'clojureMacro': ["defproject", "defcustom"],
     \ 'clojureFunc': ["string/join", "string/replace"]
@@ -49,21 +44,12 @@ let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
 let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
 let g:clojure_align_subforms = 0
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => MiniBufExpl
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -- Minibufexp -------------------------------------------------
 let g:miniBufExplCycleArround = 1
 let g:miniBufExplSplitBelow = 0
 let g:miniBufExplUseSingleClick = 1
-" nnoremap H  :MBEbp<CR>
-" nnoremap L  :MBEbn<CR>
-" nnoremap ˙  :MBEbb<CR>
-" nnoremap ¬  :MBEbf<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NERDTree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -- NERDTree ---------------------------------------------------
 let g:NERDTreeMouseMode = 3
 let g:NERDChristmasTree = 1
 "Open NerdTREE on current buffer's folder
@@ -71,10 +57,7 @@ nnoremap <silent><F3>  :NERDTreeFind<CR>
 nnoremap <silent><F4>  :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Unite
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -- Unite ------------------------------------------------------
 if exists(':Unite')
   call unite#custom#profile('default', 'context', { 'direction': 'botright' })
 

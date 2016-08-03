@@ -1,60 +1,132 @@
-#### COLOUR
+# -- display -------------------------------------------------------------------
 
-tm_icon="🙊"
-tm_color_active=colour51
-tm_color_inactive=colour241
-tm_color_feature=colour198
-tm_color_music=colour41
-tm_active_border_color=colour51
+set -g base-index 1         # start windows numbering at 1
+setw -g pane-base-index 1   # make pane numbering consistent with windows
 
-# separators
-tm_separator_left_bold="◀"
-tm_separator_left_thin="❮"
-tm_separator_right_bold="▶"
-tm_separator_right_thin="❯"
+setw -g automatic-rename on # rename window to reflect current program
+# renumber windows when a window is closed
+set -g renumber-windows on
 
-set -g status-left-length 32
-set -g status-right-length 150
-set -g status-interval 5
+set -g set-titles on                        # set terminal title
+set -g set-titles-string '#h ❐ #S ● #I #W'
+
+set -g display-panes-time 800 # slightly longer pane indicators display time
+set -g display-time 1000      # slightly longer status messages display time
+
+set -g status-interval 10     # redraw status line every 10 seconds
+
+# 24 hour clock
+setw -g clock-mode-style 24
+
+# clear both screen and history
+bind -n C-l send-keys C-l \; run 'tmux clear-history'
+
+# activity
+set -g monitor-activity on
+set -g visual-activity off
 
 
-# default statusbar colors
-# set-option -g status-bg colour0
-set-option -g status-fg $tm_color_active
-set-option -g status-bg default
-set-option -g status-attr default
+# (‑●‑●)> released under the WTFPL v2 license, by Gregory Pakosz (@gpakosz)
 
-# default window title colors
-set-window-option -g window-status-fg $tm_color_inactive
-set-window-option -g window-status-bg default
-set -g window-status-format "#I #W"
+# use the powerline patched font variant of the theme, possible values are:
+#   - default
+#   - powerline
+tmux_conf_theme=default
+#tmux_conf_theme=powerline
 
-# active window title colors
-set-window-option -g window-status-current-fg $tm_color_active
-set-window-option -g window-status-current-bg default
-set-window-option -g  window-status-current-format "#[bold]#I #W"
+# display an indicator in the status line when the prefix key has been pressed,
+# possible values are:
+#   - enabled
+#   - disabled
+tmux_conf_theme_prefix=disabled
+#tmux_conf_theme_prefix=enabled
 
-# pane border
-set-option -g pane-border-fg $tm_color_inactive
-set-option -g pane-active-border-fg $tm_active_border_color
+# display the battery information in the status line, possible values are:
+#   - enabled
+#   - disabled
+tmux_conf_theme_battery=enabled
+#tmux_conf_theme_battery=disabled
 
-# message text
-set-option -g message-bg default
-set-option -g message-fg $tm_color_active
+# style to use for the battery status, possible values are:
+#   - bar
+#   - percentage
+tmux_conf_battery_style=bar
+#tmux_conf_battery_style=percentage
 
-# pane number display
-set-option -g display-panes-active-colour $tm_color_active
-set-option -g display-panes-colour $tm_color_inactive
+# symbols to use for battery status, possible values are:
+#   - block
+#   - heart
+tmux_conf_battery_symbol=block
+#tmux_conf_battery_symbol=heart
 
-# clock
-set-window-option -g clock-mode-colour $tm_color_active
+# number of symbols to use for battery status
+tmux_conf_battery_symbol_count=auto
+#tmux_conf_battery_symbol_count=5
 
-tm_tunes="#[fg=$tm_color_music]#(osascript ~/.dotfiles/applescripts/tunes.scpt)"
-tm_battery="#(~/.dotfiles/bin/battery_indicator.sh)"
+# palette used for the battery status, possible values are:
+#   - 'colour_full_fg,colour_empty_fg,colour_bg'
+#   - heat
+#   - gradient
+tmux_conf_battery_palette='#d70000,#e4e4e4,#000000'
+#tmux_conf_battery_palette=colour160,colour254,colour16
+#tmux_conf_battery_palette=heat
+#tmux_conf_battery_palette=gradient
 
-tm_date="#[fg=$tm_color_inactive] %R %d %b"
-tm_host="#[fg=$tm_color_feature,bold]#h"
-tm_session_name="#[fg=$tm_color_feature,bold]$tm_icon #S"
+# display the battery status: charging (U+26A1) / discharging (U+1F50B)
+tmux_conf_battery_status=enabled
+#tmux_conf_battery_status=disabled
 
-set -g status-left $tm_session_name' '
-set -g status-right $tm_tunes' '$tm_date' '$tm_host
+# or alternatively use an external tool, e.g. https://github.com/Goles/Battery
+#tmux_conf_battery='#(battery -t) '
+
+# display the time in the status line, possible values are:
+#   - enabled
+#   - disabled
+tmux_conf_theme_time=enabled
+#tmux_conf_theme_time=disabled
+
+# display the date in the status line, possible values are:
+#   - enabled
+#   - disabled
+tmux_conf_theme_date=enabled
+#tmux_conf_theme_date=disabled
+
+# display the username in the status line, possible values are:
+#   - enabled
+#   - disabled
+#   - ssh
+tmux_conf_theme_username=enabled
+#tmux_conf_theme_username=disabled
+#tmux_conf_theme_username=ssh
+
+# display the hostname in the status line, possible values are:
+#   - enabled
+#   - disabled
+#   - ssh
+tmux_conf_theme_hostname=enabled
+#tmux_conf_theme_hostname=disabled
+#tmux_conf_theme_hostname=ssh
+
+# highlight focuse pane, possible values are:
+#   - enabled
+#   - disabled
+tmux_conf_theme_highlight_focused_pane=disabled
+#tmux_conf_theme_highlight_focused_pane=enabled
+
+# should new windows retain current path, possible values are:
+#   - true
+#   - false
+tmux_conf_new_windows_retain_current_path=false
+#tmux_conf_new_windows_retain_current_path=true
+
+# should new panes reatin current path, possible values are:
+#   - true
+#   - false
+tmux_conf_new_panes_retain_current_path=true
+#tmux_conf_new_panes_retain_current_path=false
+
+# prompt for session name when creating a new session, possible values are:
+#   - true
+#   - false
+tmux_conf_new_session_prompt=false
+#tmux_conf_new_session_prompt=true

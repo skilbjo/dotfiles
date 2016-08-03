@@ -1,11 +1,7 @@
-""""""""
-" => main
-""""""""
+" -- general ----------------------------------------------------
 nnoremap ; :
 
-""""""""
-" => Wordmovement
-"""""""
+" -- wordmovement -----------------------------------------------
 " Arrow keys movement
 map <ESC>[H <Home>
 map <ESC>[F <End>
@@ -23,9 +19,7 @@ cmap <ESC>f el
 "map <M-Left> [1;5D
 "map <M-Right> [1;5C
 
-"""""""""
-" => Tabs
-"""""""""
+" -- tabs -------------------------------------------------------
 " Tab Opening/closing
 nnoremap <C-t>				:tabnew<CR>
 nnoremap <C-w>				:tabclose<CR>
@@ -34,16 +28,4 @@ nnoremap <C-w>				:tabclose<CR>
 nnoremap <C-[> gT
 nnoremap <C-]> gt
 
-" Tab movement but I use this for text movement instead
-"nnoremap <C-Left> :tabprevious<CR>
-"nnoremap <C-Right> :tabnext<CR>
-
-"map <Esc>[1;9D :tabn<CR>
-
-
-" Not working tab navigation
-" nnoremap <C-S-Tab> :tabprevious<CR>
-" nnoremap <C-Tab>   :tabnext<CR>
-" inoremap <C-S-Tab> <Esc>:tabprevious<CR>i
-" nnoremap <C-Tab>   <Esc>:tabnext<CR>i
 
