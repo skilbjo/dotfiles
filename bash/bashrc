@@ -1,11 +1,14 @@
+#!/usr/bin/env bash
+# -- docs -------------------------------------------------------
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# -- path, command prompt ---------------------------------------
 export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:~/bin'
-
 export PS1="\W λ "
 
+# -- computer-specific stuffs -----------------------------------
 # Work specific pem keys (place pem keys in ~/.ssh
 work() {
 	for file in $(ls ~/.ssh/*.pem); do 
@@ -20,7 +23,6 @@ computer_specific() {
 		('john.skilbeck') work;;
 		(skilbjo) ;; 
 	esac
-	#if [ $(whoami) = 'john.skilbeck' ]; then #fi
 }
 
 computer_specific

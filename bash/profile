@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# -- docs -------------------------------------------------------
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+
+if [ -f ~/.bashrc ]; then 
+    source ~/.bashrc 
+fi
+
+# -- helpful functions ------------------------------------------
+source_if_exists() {
+    [[ -f $1 ]] && source $1
+}
+
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+	    . /opt/local/etc/profile.d/bash_completion.sh 	# bash-completion
+fi
+
+# -- environment vars & dotfiles --------------------------------
+export EDITOR=vim
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source_if_exists /usr/local/bin/virtualenvwrapper.sh
+source_if_exists "$HOME/.aliases"				# Aliases
+
+# -- computer-specific stuffs -----------------------------------
+work() {
+	source_if_exists "$HOME/.aws"						# AWS config
+	source_if_exists "$HOME/.profilelocal"	# env variables
+	source_if_exists "$HOME/.aliases-work"	# Aliases
+}
+
+computer_specific() {
+	case $(whoami) in
+		('john.skilbeck') work;;
+		(skilbjo) ;; 
+	esac
+}
+
+computer_specific

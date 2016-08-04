@@ -1,0 +1,18 @@
+# -- Docker PSQL ------------------------------------------------
+alias "docker.psql.install"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
+alias "docker.psql.setup"="cat ~/Code/Docker/postgres/create_roles.sql ~/Code/Docker/postgres/create_databases.sql | psql -h docker -U postgres -a -f -" 
+alias "docker.psql.start"="docker start postgres"
+alias "docker.psql.stop"="docker stop postgres"
+
+# -- Docker -----------------------------------------------------
+alias "docker.start"="docker-machine start default; eval '$(docker-machine env default)'"
+alias "docker.kill"="docker kill $(docker ps -q)"
+alias "docker.rm"="docker rm $(docker ps -a -q)"
+alias "docker.rmi"="docker rmi $(docker images -q)"
+alias "ssh.docker"="ssh docker@$(docker-machine ip default)"
+
+# -- Docker Kafka -----------------------------------------------
+alias "docker.kafka.install"="cd ~/dev/finops/ && eval \"$(docker-machine env default)\" && docker-compose up -d"
+alias "docker.kafka.start"="docker start finops_zookeeper_1 finops_kafka_1 finops_schema-registry_1"
+alias "docker.kafka.stop"="docker stop finops_zookeeper_1 finops_kafka_1 finops_schema-registry_1" 
+alias "docker.kafka.rm"="docker ps -a | grep -v postgres | awk '{print $1}' | grep -v CONTAINER | xargs docker rm"
