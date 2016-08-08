@@ -5,8 +5,9 @@ db="~/Documents/Dropbox/dotfiles"
 function remove_existing {
 	cd ~
 	rm .bashrc ; rm .profile ; 
-	rm .gitconfig ; .gitignore 
-	rm .vimrc	
+	rm .gitconfig ; .gitignore ; 
+	rm .vimrc ; rm .aliases ;  
+	rm .tmux.conf  ; rm .tmux-osx.conf 
 }
 
 function bash {

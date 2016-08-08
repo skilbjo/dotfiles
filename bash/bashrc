@@ -5,7 +5,6 @@
 # for examples
 
 # -- path, command prompt ---------------------------------------
-export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:~/bin'
 export PS1="\W λ "
 
 # -- computer-specific stuffs -----------------------------------
