@@ -31,6 +31,8 @@ source_if_exists "$HOME/.aliases"				# Aliases
 
 # -- computer-specific stuffs -----------------------------------
 work() {
+	docker-machine start 
+	eval "$(docker-machine env default)"
 	export PATH=$PATH:~/Code/Other/kafka08/bin/
 	source_if_exists "$HOME/.aws"						# AWS config
 	source_if_exists "$HOME/.profilelocal"	# env variables

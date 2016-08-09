@@ -1,6 +1,5 @@
 let vim_dir = fnameescape($HOME.'/.vim')
 
-syntax on
 set number
 set nowrap
 

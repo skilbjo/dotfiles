@@ -1,6 +1,6 @@
 " -- general ----------------------------------------------------
 
-filetype plugin indent on
+syntax on
 set ruler title laststatus=2 
 set backspace=2
 set list 
@@ -9,10 +9,10 @@ set pastetoggle=<F10>
 set autoread
 set encoding=utf-8
 
-if has('mouse')
-	set mouse=a
-	set ttymouse=xterm2
-endif
+"if has('mouse')
+"	set mouse=a
+"	set ttymouse=xterm2
+"endif
 
 set clipboard=unnamed
 
@@ -26,16 +26,16 @@ set nowb
 
 set autowrite
 
-" -- search -----------------------------------------------------
 
+" -- search -----------------------------------------------------
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
 set hlsearch
 
-" -- window size ------------------------------------------------
 
+" -- window size ------------------------------------------------
 " set winheight=5
 " set winheight=999
 " set winminheight=5

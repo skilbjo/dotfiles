@@ -1,5 +1,4 @@
 " -- Airline ----------------------------------------------------
-
 set laststatus=2  "always show status line for the last window
 let g:airline_theme='papercolor'
 "let g:airline_powerline_fonts = 1
@@ -7,39 +6,33 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 " -- Themes -----------------------------------------------------
-
 set background=light
 let g:PaperColor_Light_Override = { 'background' : '#ffffff' }
 colorscheme PaperColor
 
 
 " -- Command-T --------------------------------------------------
-
 let g:CommandTMatchWindowReverse = 1
 let g:CommandTMaxHeight = 20
 
 
 " -- EasyAlign --------------------------------------------------
-
 vnoremap <silent><CR>  :EasyAlign<CR>
 
 
 " -- EasyMotion -------------------------------------------------
-
 map <SPACE> <Plug>(easymotion-bd-w)
 
 
 " -- AutoComplPop -----------------------------------------------
-
 inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
 
 
 " -- vim-Fireplace ----------------------------------------------
-
 nnoremap <Leader>cp :execute "Eval (do (require 'clojure.pprint) (clojure.pprint/pp))"<cr>
 
-" -- Clojure-static ---------------------------------------------
 
+" -- Clojure-static ---------------------------------------------
 let g:clojure_syntax_keywords = {
     \ 'clojureMacro': ["defproject", "defcustom"],
     \ 'clojureFunc': ["string/join", "string/replace"]
@@ -50,14 +43,14 @@ let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
 let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
 let g:clojure_align_subforms = 0
 
-" -- Minibufexp -------------------------------------------------
 
-let g:miniBufExplCycleArround = 1
-let g:miniBufExplSplitBelow = 0
-let g:miniBufExplUseSingleClick = 1
+" -- Minibufexp -------------------------------------------------
+"let g:miniBufExplCycleArround = 1
+"let g:miniBufExplSplitBelow = 0
+"let g:miniBufExplUseSingleClick = 1
+
 
 " -- NERDTree ---------------------------------------------------
-
 let g:NERDTreeMouseMode = 3
 let g:NERDChristmasTree = 1
 "Open NerdTREE on current buffer's folder
@@ -65,8 +58,8 @@ nnoremap <silent><F3>  :NERDTreeFind<CR>
 nnoremap <silent><F4>  :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" -- Unite ------------------------------------------------------
 
+" -- Unite ------------------------------------------------------
 if exists(':Unite')
   call unite#custom#profile('default', 'context', { 'direction': 'botright' })
 
