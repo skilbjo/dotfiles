@@ -4,15 +4,18 @@ syntax on
 set ruler title laststatus=2 
 set backspace=2
 set list 
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬,nbsp:⋅,trail:•
 set pastetoggle=<F10>
 set autoread
 set encoding=utf-8
+set showmatch
 
-"if has('mouse')
-"	set mouse=a
-"	set ttymouse=xterm2
-"endif
+"set t_Co=256
+
+if has('mouse')
+	set mouse=a
+	set ttymouse=xterm2
+endif
 
 set clipboard=unnamed
 

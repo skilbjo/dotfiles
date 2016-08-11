@@ -8,8 +8,8 @@
 (typeof self == 'object' && self.self === self && self)
 
 (function(factory) {
-
-  // Establish the root object, `window` (`self`) in the browser, or `global` on the server.
+  blah blah h
+	// Establish the root object, `window` (`self`) in the browser, or `global` on the server.
   // We use `self` instead of `window` for `WebWorker` support.
   var root = (typeof self == 'object' && self.self === self && self) ||
             (typeof global == 'object' && global.global === global && global);
@@ -21,8 +21,6 @@
       // others that may still expect a global Backbone.
       roots.Backbone = factory(roots, exports, _, $);
     });
-
-
 
   // Next for Node.js or CommonJS. jQuery may not be needed as a module.
   } else if (typeof exports !== 'undefined') {

@@ -29,6 +29,13 @@ export PROJECT_HOME=$HOME/Devel
 source_if_exists /usr/local/bin/virtualenvwrapper.sh
 source_if_exists "$HOME/.aliases"				# Aliases
 
+# -- shortcuts --------------------------------
+# -- use ctrl + <Left> / <Right> --------------------------------
+bind '"\e[5C": forward-word'
+bind '"\e[5D": backward-word'
+bind '"\e[1;5C": forward-word'
+bind '"\e[1;5D": backward-word'
+
 # -- computer-specific stuffs -----------------------------------
 work() {
 	start_docker
@@ -39,7 +46,7 @@ work() {
 }
 
 start_docker() {
-	if [[ $(docker-machine ls | grep -c "default") -eq 1 ]]; then 
+	if [[ $(docker-machine ls | grep "default" | grep -c "Running") -eq 1 ]]; then 
 		eval "$(docker-machine env default)"
 	else
 		docker-machine start

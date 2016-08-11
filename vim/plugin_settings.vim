@@ -24,6 +24,11 @@ vnoremap <silent><CR>  :EasyAlign<CR>
 map <SPACE> <Plug>(easymotion-bd-w)
 
 
+" -- IncSearch --------------------------------------------------
+map /  <Plug>(incsearch-fuzzy-/)
+map ?  <Plug>(incsearch-fuzzy-?)
+
+
 " -- AutoComplPop -----------------------------------------------
 inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
 
@@ -54,7 +59,7 @@ let g:clojure_align_subforms = 0
 let g:NERDTreeMouseMode = 3
 let g:NERDChristmasTree = 1
 "Open NerdTREE on current buffer's folder
-nnoremap <silent><F3>  :NERDTreeFind<CR>
+"nnoremap <silent><F3>  :NERDTreeFind<CR>
 nnoremap <silent><F4>  :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
