@@ -80,6 +80,72 @@ map! <F2> :call TrimWhiteSpace()<CR>
 
 
 " -- normal-mode mappings ---------------------------------------
-"nnoremap <C-s> :w<CR>
+nnoremap <C-s> :w<CR>
+
+
+" -- insert-mode mappings -------------------------------------
+inoremap <C-s> <Esc>:w<CR>a
+
+" quick save
+nmap <leader>s :w<CR>
+inoremap <leader>s <ESC>:w<CR>
+
+" -- visual-mode mappings 20i------------------------------------
+" Make shifted cursor keys work, to select text.
+nmap <S-Up>    v<Up>
+nmap <S-Down>  v<Down>
+nmap <S-Left>  v<Left>
+nmap <S-Right> v<Right>
+nmap <S-Home>  v<Home>
+nmap <S-End>   v<End>
+vmap <S-Up>    <Up>
+vmap <S-Down>  <Down>
+vmap <S-Left>  <Left>
+vmap <S-Right> <Right>
+vmap <S-Home>  <Home>
+vmap <S-End>   <End>
+
+" Handle Control+Shift cursors keys.
+nmap <C-S-Right> vE
+vmap <C-S-Right> E
+nmap <C-S-Left>  lvB
+vmap <C-S-Left>  B
+
+" Tab in visual (or select) mode indents the selected block (and keeps it selected).
+vnoremap <Tab>   >gv
+vnoremap <S-Tab> <gv
+
+" Backspace in Visual mode deletes selection.
+
+vnoremap <BS> d
+
+" Control+S saves the current file (if it's been changed).
+"
+noremap  <C-S>  :update<CR>
+vnoremap <C-S>  <C-C>:update<CR>
+inoremap <C-S>  <C-O>:update<CR>
+
+" Control+Z is Undo, in Normal and Insert mode.
+"
+noremap  <C-Z>  u
+inoremap <C-Z>  <C-O>u
+
+" Control+A is Select All.
+"
+noremap  <C-A>  gggH<C-O>G
+inoremap <C-A>  <C-O>gg<C-O>gH<C-O>G
+cnoremap <C-A>  <C-C>gggH<C-O>G
+onoremap <C-A>  <C-C>gggH<C-O>G
+snoremap <C-A>  <C-C>gggH<C-O>G
+xnoremap <C-A>  <C-C>ggVG
+
+" Center the display line after searches. (This makes it *much* easier to see
+" the matched line.)
+"
+" More info: http://www.vim.org/tips/tip.php?tip_id=528
+"
+
+nnoremap n   nzz
+nnoremap N   Nzz
 
 
