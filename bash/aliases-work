@@ -16,3 +16,7 @@ alias "docker.kafka.install"="cd ~/dev/finops/ && eval \"$(docker-machine env de
 alias "docker.kafka.start"="docker start finops_zookeeper_1 finops_kafka_1 finops_schema-registry_1"
 alias "docker.kafka.stop"="docker stop finops_zookeeper_1 finops_kafka_1 finops_schema-registry_1" 
 alias "docker.kafka.rm"="docker ps -a | grep -v postgres | awk '{print $1}' | grep -v CONTAINER | xargs docker rm"
+
+## -- Postgres
+alias "psql.dw.run"="psql $PRODUCTION_PSQL_URI -c 'select * from dw.loan_dim limit 1';"
+

@@ -63,6 +63,12 @@ let g:NERDChristmasTree = 1
 nnoremap <silent><F4>  :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" -- NerdTREE Comment---------------------------------------------
+"nmap <C-\> <leader>c<Space>
+map <C-\> <Leader>c<Space>
+imap <C-\> <C-o>:call NERDComment(0,"toggle")<C-m>
+"nmap <C-_> <C-o>:call NERDComment(0,"toggle")<C-m>
+"vmap <C-_> <leader>c<Space>
 
 " -- Unite ------------------------------------------------------
 if exists(':Unite')

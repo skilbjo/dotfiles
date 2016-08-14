@@ -49,16 +49,20 @@ cmap <ESC>b <Home>
 
 " Tab Opening/closing
 nnoremap <C-t>				:tabnew<CR>
-nnoremap <C-w>				:tabclose<CR>
+nnoremap <C-w>				:tabclose!<CR>
 
 " Working tab navigation
 nnoremap _ gT
 nnoremap + gt
+"nnoremap <leader>_ gT
+"nnoremap <leader>+ gt
 
 "inoremap _ <ESC>gT
 "inoremap + <ESC>gt
 inoremap _ <C-o>gT
 inoremap + <C-o>gt
+"inoremap <leader>_ <C-o>gT
+"inoremap <leader>+ <C-o>gt
 
 " -- splits -----------------------------------------------------
 
@@ -80,15 +84,20 @@ map! <F2> :call TrimWhiteSpace()<CR>
 
 
 " -- normal-mode mappings ---------------------------------------
-nnoremap <C-s> :w<CR>
+noremap <C-s> :w<CR> 
 
 
 " -- insert-mode mappings -------------------------------------
-inoremap <C-s> <Esc>:w<CR>a
+inoremap <C-s> <Esc>:w<CR>
 
 " quick save
-nmap <leader>s :w<CR>
-inoremap <leader>s <ESC>:w<CR>
+map <leader>s :w<CR>
+imap <leader>s <ESC>:w<CR>
+map <leader>q :q!<CR>
+imap <leader>q <ESC>:q!<CR>
+map <leader>x :x<CR>
+imap <leader>x <ESC>:x<CR>
+
 
 " -- visual-mode mappings 20i------------------------------------
 " Make shifted cursor keys work, to select text.
@@ -105,33 +114,29 @@ vmap <S-Right> <Right>
 vmap <S-Home>  <Home>
 vmap <S-End>   <End>
 
-" Handle Control+Shift cursors keys.
-nmap <C-S-Right> vE
-vmap <C-S-Right> E
-nmap <C-S-Left>  lvB
-vmap <C-S-Left>  B
+" Handle Control+Shift cursors keys. Not working
+"nmap <C-S-Right> vE
+"vmap <C-S-Right> E
+"nmap <C-S-Left>  lvB
+"vmap <C-S-Left>  B
 
 " Tab in visual (or select) mode indents the selected block (and keeps it selected).
 vnoremap <Tab>   >gv
 vnoremap <S-Tab> <gv
 
 " Backspace in Visual mode deletes selection.
-
 vnoremap <BS> d
 
-" Control+S saves the current file (if it's been changed).
-"
-noremap  <C-S>  :update<CR>
-vnoremap <C-S>  <C-C>:update<CR>
-inoremap <C-S>  <C-O>:update<CR>
+" Control+S saves the current file (if it's been changed). Not working.
+"noremap  <C-S>  :update<CR>
+"vnoremap <C-S>  <C-C>:update<CR>
+"inoremap <C-S>  <C-O>:update<CR>
 
 " Control+Z is Undo, in Normal and Insert mode.
-"
 noremap  <C-Z>  u
 inoremap <C-Z>  <C-O>u
 
 " Control+A is Select All.
-"
 noremap  <C-A>  gggH<C-O>G
 inoremap <C-A>  <C-O>gg<C-O>gH<C-O>G
 cnoremap <C-A>  <C-C>gggH<C-O>G
@@ -141,10 +146,7 @@ xnoremap <C-A>  <C-C>ggVG
 
 " Center the display line after searches. (This makes it *much* easier to see
 " the matched line.)
-"
 " More info: http://www.vim.org/tips/tip.php?tip_id=528
-"
-
 nnoremap n   nzz
 nnoremap N   Nzz
 
