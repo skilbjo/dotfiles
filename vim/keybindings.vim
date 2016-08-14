@@ -85,7 +85,7 @@ map! <F2> :call TrimWhiteSpace()<CR>
 
 " -- normal-mode mappings ---------------------------------------
 noremap <C-s> :w<CR> 
-
+nmap <leader>i i
 
 " -- insert-mode mappings -------------------------------------
 inoremap <C-s> <Esc>:w<CR>
@@ -98,7 +98,7 @@ imap <leader>q <ESC>:q!<CR>
 map <leader>x :x<CR>
 imap <leader>x <ESC>:x<CR>
 
-
+imap <leader>i <ESC>
 " -- visual-mode mappings 20i------------------------------------
 " Make shifted cursor keys work, to select text.
 nmap <S-Up>    v<Up>

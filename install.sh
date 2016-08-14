@@ -4,15 +4,15 @@ db="~/Documents/Dropbox/dotfiles"
 
 function remove_existing {
 	cd ~
-	rm .bashrc ; rm .profile ; 
-	rm .gitconfig ; .gitignore ; 
-	rm .vimrc ; rm .aliases ;  
-	rm .tmux.conf  ; rm .tmux-osx.conf 
+	rm .bashrc ; rm .profile ;
+	rm .gitconfig ; .gitignore ;
+	rm .vimrc ; rm .aliases ;
+	rm .tmux.conf  ; rm .tmux-osx.conf
 }
 
 function bash {
 	ln -s $db/bash/bashrc ~/.bashrc
-	ln -s $db/bash/profile ~/.profile 
+	ln -s $db/bash/profile ~/.profile
 	ln -s $db/bash/aliases ~/.aliases
 }
 
@@ -36,6 +36,11 @@ function lein {
 function tmux {
 	ln -s $db/tmux/tmux.conf ~/.tmux.conf
 	ln -s $db/tmux/tmux.conf ~/.tmux-osx.conf
+	ln -s $db/tmux/osx.tmux ~/.tmux/osx.tmux
+	ln -s $db/tmux/keybindings.tmux keybindings.tmux
+	ln -s $db/tmux/settings.tmux settings.tmux
+	ln -s $db/tmux/theme.tmux theme.tmux
+	ln -s $db/tmux/plugins.tmux plugins.tmux
 }
 
 function sublime_text {
@@ -47,7 +52,7 @@ remove_existing
 bash
 git
 vim
-lein 
+lein
 tmux
 
 exit

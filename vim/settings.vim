@@ -21,7 +21,6 @@ set clipboard=unnamed
 
 set ttyfast
 set lazyredraw
-set re=1
 
 set noswapfile
 set nobackup
