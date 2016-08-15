@@ -18,8 +18,8 @@ source_if_exists() {
     [[ -f $1 ]] && source $1
 }
 
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-	    . /opt/local/etc/profile.d/bash_completion.sh 	# bash-completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+		source $(brew --prefix)/etc/bash_completion 	# bash-completion
 fi
 
 # -- environment vars & dotfiles --------------------------------

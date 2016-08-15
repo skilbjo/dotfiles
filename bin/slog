@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+process_name=/tmp/process-name
+app_log=/tmp/slog.log
+
+error_on_usage() {
+    printf 'usage: %s app_name environment\n' "$(basename "$0")" >&2
+    exit 1
+}
+
+error_on_missing_dependency() {
+    printf 'ERROR: Need to install "%s"\n' "$1" >&2
+    exit 1
+}
+
+error_on_required_arg() {
+    printf 'ERROR: %s requires an argument\n' "$1" >&2
+    exit 1
+}
+
+error_on_not_on_marathon() {
+    printf 'ERROR: Could not find "%s" on marathon\n' "$1" >&2
+    exit 1
+}
+
+
+syslog_tag=
+
+while true
+do
+    case $1 in
+        -t|--syslog-tag)
+            if [[ -n $2 ]]
+            then
+                syslog_tag="$2"
+                shift
+            else
+                error_on_required_arg --syslog-tag
+            fi
+            ;;
+        --syslog-tag=?*)
+            syslog_tag=${1#*=}
+            ;;
+        --syslog-tag=)
+            error_on_required_arg --syslog-tag
+            ;;
+        -?*)
+            printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
+            ;;
+        *)
+            break
+    esac
+
+    shift
+done
+
+[[ $# -lt 2 ]] && error_on_usage
+which jq &>/dev/null || error_on_missing_dependency jq
+
+app_name=$1
+environment=$2
+: ${syslog_tag:=$app_name}
+
+if [[ $environment = prod ]]; then
+    pem="$HOME/.ssh/prod-06-10-2016"
+else
+    pem="$HOME/.ssh/uk-team.pem"
+fi
+
+mesosslave=$(curl -X GET https://marathon.fc-${environment}.us/v2/apps/${app_name}/ | jq --raw-output '.app.tasks[0].host')
+host="centos@${mesosslave}"
+proxy_cmd="ProxyCommand=ssh -W %h:%p -i $pem centos@bastion.fc-${environment}.us"
+[[ $mesosslave = null ]] && error_on_not_on_marathon "$app_name"
+
+printf '> Finding process name\n'
+ssh -t -o "$proxy_cmd" $host "sudo cat /var/log/messages | fgrep 'docker/${syslog_tag}' | awk '{ print \$5 }' | tail -1 > $process_name"
+
+ssh -t -o "$proxy_cmd" $host "cat $process_name"
+
+printf '> Filtering log\n'
+ssh -t -o "$proxy_cmd" $host "sudo cat /var/log/messages | fgrep \$(cat $process_name) | sed 's/^\(.\{15\}\).*docker\\/${syslog_tag}[^:]*: /\1: /' > $app_log"
+
+scp -o "$proxy_cmd" $host:$app_log /tmp
+ssh -o "$proxy_cmd" $host "rm $process_name $app_log"

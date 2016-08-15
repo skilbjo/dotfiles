@@ -12,10 +12,17 @@ set showmatch
 
 "set t_Co=256
 
+set wildmenu                    " enable tab completion menu
+set wildmode=longest:full,full  " complete till longest common string, then full
+set wildignore+=.git            " ignore the .git directory
+set wildignore+=*.DS_Store      " ignore Mac finder/spotlight crap
+
 if has('mouse')
 	set mouse=a
 	set ttymouse=xterm2
 endif
+
+set nocompatible
 
 set clipboard=unnamed
 
@@ -48,8 +55,28 @@ set hlsearch
 " set winheight=999
 " set winminheight=5
 
+"if has("vertsplit")
+  "" split current window vertically
+  "nnoremap <leader>_ <C-w>v<C-w>l
+  "set splitright  " when splitting vertically, split to the right
+"endif
+"if has("windows")
+  "" split current window horizontally
+  "nnoremap <leader>- <C-w>s
+  "set splitbelow  " when splitting horizontally, split below
+"endif
 
+"" window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
+" switch between windows by hitting <Tab> twice
+nnoremap <silent> <Tab><Tab> <C-w>w
+
+" create a new tab
+nnoremap <silent> <leader>t :tabnew<CR>
 
  
 
