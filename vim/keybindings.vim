@@ -84,11 +84,11 @@ map! <F2> :call TrimWhiteSpace()<CR>
 
 
 " -- normal-mode mappings ---------------------------------------
-noremap <C-s> :w<CR> 
+"noremap <C-s> :w<CR> 
 nmap <leader>i i
 
 " -- insert-mode mappings -------------------------------------
-inoremap <C-s> <Esc>:w<CR>
+"inoremap <C-s> <Esc>:w<CR>
 
 " quick save
 map <leader>s :w<CR>
@@ -128,9 +128,9 @@ vnoremap <S-Tab> <gv
 vnoremap <BS> d
 
 " Control+S saves the current file (if it's been changed). Not working.
-"noremap  <C-S>  :update<CR>
-"vnoremap <C-S>  <C-C>:update<CR>
-"inoremap <C-S>  <C-O>:update<CR>
+noremap  <C-S>  :update<CR>
+vnoremap <C-S>  <C-C>:update<CR>
+inoremap <C-S>  <C-o>:update<CR>
 
 " Control+Z is Undo, in Normal and Insert mode.
 noremap  <C-Z>  u

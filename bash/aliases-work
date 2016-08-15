@@ -18,5 +18,6 @@ alias "docker.kafka.stop"="docker stop finops_zookeeper_1 finops_kafka_1 finops_
 alias "docker.kafka.rm"="docker ps -a | grep -v postgres | awk '{print $1}' | grep -v CONTAINER | xargs docker rm"
 
 ## -- Postgres
-alias "psql.dw.run"="psql $PRODUCTION_PSQL_URI -c 'select * from dw.loan_dim limit 1';"
-
+#alias "psql.dw.run"="psql $PRODUCTION_PSQL_URI -c 'select * from dw.loan_dim limit 1';"
+#alias "psql.dw.run"="function _psql(){ psql $PRODUCTION_PSQL_URI -c $1; };_psql"
+alias "psql.dw.run"='function _psql(){ psql "$PRODUCTION_PSQL_URI" -c "$1"; };_psql'

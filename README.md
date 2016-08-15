@@ -39,6 +39,7 @@ Batch renaming of files:
 for f in *.pdf ; do mv $f $(echo $f | sed -e 's/eStmt_//') ; done
 ```
 
+See the first n results in a directory: ls -l -t | tail -n 2 | head -2
 
 
 
