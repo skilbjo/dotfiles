@@ -2,6 +2,13 @@
 
 Dropbox + github workflow for environment standardization
 
+## OS X / Terminal.app
+
+Add these keycodes to the Terminal profile:
+
+⇧↑ \033[1;2A
+⇧↓ \033[1;2B
+
 ## Linked programs
 
 - vim

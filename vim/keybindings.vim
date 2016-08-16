@@ -48,8 +48,9 @@ cmap <ESC>b <Home>
 " -- tabs -------------------------------------------------------
 
 " Tab Opening/closing
-nnoremap <C-t>				:tabnew<CR>
-nnoremap <C-w>				:tabclose!<CR>
+noremap <C-t>				:tabnew<CR>
+"nnoremap <C-w>				:tabclose!<CR>
+noremap  <C-x>  :tabclose!<CR>
 
 " Working tab navigation
 nnoremap _ gT
@@ -93,6 +94,8 @@ nmap <leader>i i
 " quick save
 map <leader>s :w<CR>
 imap <leader>s <ESC>:w<CR>
+map <leader>w :w<CR>
+imap <leader>w <ESC>:w<CR>
 map <leader>q :q!<CR>
 imap <leader>q <ESC>:q!<CR>
 map <leader>x :x<CR>
@@ -101,18 +104,55 @@ imap <leader>x <ESC>:x<CR>
 imap <leader>i <ESC>
 " -- visual-mode mappings 20i------------------------------------
 " Make shifted cursor keys work, to select text.
-nmap <S-Up>    v<Up>
-nmap <S-Down>  v<Down>
-nmap <S-Left>  v<Left>
+"nmap <S-Up>    v<Up>
+"nmap <S-Down>  v<Down>
+"nmap <S-Left>  v<Left>
+"nmap <S-Right> v<Right>
+"nmap <S-Home>  v<Home>
+"nmap <S-End>   v<End>
+"vmap <S-Up>    <Up>
+"vmap <S-Down>  <Down>
+"vmap <S-Left>  <Left>
+"vmap <S-Right> <Right>
+"vmap <S-Home>  <Home>
+"vmap <S-End>   <End>
+
+" shift+arrow selection
+"imap <S-Up> <esc>vk
+"map <S-Up> vk
+"vmap <S-Up> k
+"imap <S-Down> <esc>vj
+"map <S-Down> vj
+
+"map  <Esc>[1;2A <S-Up>
+"imap <Esc>[1;2A <S-Up>
+"map  <Esc>[1;2B <S-Down>
+"imap <Esc>[1;2B <S-Down>
+"map  <Esc>OF  <End>
+"imap <Esc>OF  <End>
+"map  <Esc>[7~ <Home>
+"imap <Esc>[7~ <Home>
+"map  <Esc>OH  <Home>
+"imap <Esc>OH  <Home>
+
+nmap <S-Up> v<Up>
+nmap <S-Down> v<Down>
+nmap <S-Left> v<Left>
 nmap <S-Right> v<Right>
-nmap <S-Home>  v<Home>
-nmap <S-End>   v<End>
-vmap <S-Up>    <Up>
-vmap <S-Down>  <Down>
-vmap <S-Left>  <Left>
+vmap <S-Up> <Up>
+vmap <S-Down> <Down>
+vmap <S-Left> <Left>
 vmap <S-Right> <Right>
-vmap <S-Home>  <Home>
-vmap <S-End>   <End>
+imap <S-Up> <Esc>v<Up> 
+imap <S-Down> <Esc>v<Down>
+imap <S-Left> <Esc>v<Left>
+imap <S-Right> <Esc>v<Right>
+vmap <C-c> y<Esc>i
+vmap <C-x> d<Esc>i
+"map <C-v> pi
+"imap <C-v> <Esc>pi
+"imap <C-z> <Esc>ui
+
 
 " Handle Control+Shift cursors keys. Not working
 "nmap <C-S-Right> vE
@@ -131,6 +171,14 @@ vnoremap <BS> d
 noremap  <C-S>  :update<CR>
 vnoremap <C-S>  <C-C>:update<CR>
 inoremap <C-S>  <C-o>:update<CR>
+
+noremap  <C-q>  :quit<CR>
+vnoremap <C-q>  <C-C>:quit<CR>
+inoremap <C-q>  <C-o>:quit<CR>
+
+noremap  <C-x>  :exit<CR>
+vnoremap <C-x>  <C-C>:exit<CR>
+inoremap <C-x>  <C-o>:exit<CR>
 
 " Control+Z is Undo, in Normal and Insert mode.
 noremap  <C-Z>  u
