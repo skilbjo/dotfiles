@@ -42,6 +42,9 @@ silent !stty -ixon
 " " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
 
+set splitbelow
+set splitright
+
 
 " -- search -----------------------------------------------------
 set ignorecase

@@ -10,12 +10,7 @@ let mapleader = ","
 " -- wordmovement -----------------------------------------------
 
 " Arrow keys movement
-" http://superuser.com/questions/123937/how-to-jump-to-the-beginning-or-end-of-line-in-vim-os-x
-" http://stackoverflow.com/questions/5345612/vim-in-mac-os-x-terminal-move-cursor-word-by-word
-" http://superuser.com/questions/614553/is-there-any-way-to-go-word-by-word-using-ctrl/614555#614555
-" http://stackoverflow.com/questions/81272/is-there-any-way-in-the-os-x-terminal-to-move-the-cursor-word-by-word
-" http://superuser.com/questions/635482/why-does-optionleft-arrow-work-in-vim-but-not-right-arrow-on-mac-os-x
-" http://apple.stackexchange.com/questions/1626/os-x-terminal-equivalent-of-ctrlleft-ctrlright
+" http://superuser.com/questions/123937/how-to-jump-to-the-beginning-or-end-of-line-in-vim-os-x ; http://stackoverflow.com/questions/5345612/vim-in-mac-os-x-terminal-move-cursor-word-by-word; http://superuser.com/questions/614553/is-there-any-way-to-go-word-by-word-using-ctrl/614555#614555; http://stackoverflow.com/questions/81272/is-there-any-way-in-the-os-x-terminal-to-move-the-cursor-word-by-word; http://superuser.com/questions/635482/why-does-optionleft-arrow-work-in-vim-but-not-right-arrow-on-mac-os-x; http://apple.stackexchange.com/questions/1626/os-x-terminal-equivalent-of-ctrlleft-ctrlright
 " <Ctrl>-<Left> , <Ctrl>-<Right>
 map <ESC>[H <Home>
 map <ESC>[F <End>
@@ -33,7 +28,7 @@ cmap <ESC>f <End>
 cmap <ESC>b <Home>
 
 
-" -- tabs -------------------------------------------------------
+" -- tabs / splits ----------------------------------------------
 
 " Tab Opening/closing
 noremap <C-t>				:tabnew<CR>
@@ -53,10 +48,9 @@ inoremap + <C-o>gt
 "inoremap <leader>_ <C-o>gT
 "inoremap <leader>+ <C-o>gt
 
-" -- splits -----------------------------------------------------
-
 " Vertical split and move to new window
 nnoremap <leader>v <C-W>v<C-W>l
+nnoremap <leader>t <C-W>v<C-W>l
 
 " Horizontal split and move to new window
 nnoremap <leader>h :split<CR><C-W>j
@@ -66,6 +60,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <C-n> <C-W><C-W>
+inoremap <C-n> <C-w><C-w>
 
 " -- functions --------------------------------------------------
 map <F2> :call TrimWhiteSpace()<CR>
@@ -90,6 +86,12 @@ map <leader>x :x<CR>
 imap <leader>x <ESC>:x<CR>
 
 imap <leader>i <ESC>
+
+inoremap <leader>; ;
+inoremap <leader>: :
+inoremap <leader>_ _
+inoremap <leader>+ +
+
 " -- visual-mode mappings 20i------------------------------------
 " Make shifted cursor keys work to select text.
 nmap <S-Up> v<Up>

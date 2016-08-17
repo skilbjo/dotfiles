@@ -26,7 +26,7 @@ map <SPACE> <Plug>(easymotion-bd-w)
 
 " -- IncSearch --------------------------------------------------
 map /  <Plug>(incsearch-fuzzy-/)
-map ?  <Plug>(incsearch-fuzzy-?)
+map ?  <Plug>(incsearch-forward)
 
 
 " -- AutoComplPop -----------------------------------------------

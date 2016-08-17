@@ -6,8 +6,8 @@ Dropbox + github workflow for environment standardization
 ### OS X / Terminal.app config
 Add these keycodes to the Terminal profile:
 
-		⇧↑ \033[1;2A
-		⇧↓ \033[1;2B
+	⇧↑ \033[1;2A
+	⇧↓ \033[1;2B
 
 ### Show keycodes
 

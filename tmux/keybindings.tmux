@@ -13,7 +13,7 @@ bind-key \; command-prompt
 ## Tabbing through windows
 bind ` select-pane -t :.+                 # quick pane cycling
 bind | split-window -h -c "#{pane_current_path}"		# bind % split-window
-bind - split-window -v -c "#{pane_current_path}" 		# bind '"' split-window -h
+bind _ split-window -v -c "#{pane_current_path}" 		# bind '"' split-window -h
 #bind -n - select-window -t :-
 bind = select-window -t :+
 #bind -n = select-window -t :+
