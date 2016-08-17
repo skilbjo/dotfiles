@@ -10,14 +10,6 @@ let mapleader = ","
 " -- wordmovement -----------------------------------------------
 
 " Arrow keys movement
-"nnoremap <Left> h
-"nnoremap <Right> l
-"nnoremap <Up> k
-"nnoremap <Down> j
-"inoremap <up> k
-"inoremap <down> j
-"inoremap <left> h
-"inoremap <right> l
 " http://superuser.com/questions/123937/how-to-jump-to-the-beginning-or-end-of-line-in-vim-os-x
 " http://stackoverflow.com/questions/5345612/vim-in-mac-os-x-terminal-move-cursor-word-by-word
 " http://superuser.com/questions/614553/is-there-any-way-to-go-word-by-word-using-ctrl/614555#614555
@@ -40,10 +32,6 @@ imap <ESC>f <C-o>e
 cmap <ESC>f <End>
 cmap <ESC>b <Home>
 
-"map <Esc>b B
-"map <Esc>f W
-"map <M-Left> [1;5D
-"map <M-Right> [1;5C
 
 " -- tabs -------------------------------------------------------
 
@@ -68,16 +56,16 @@ inoremap + <C-o>gt
 " -- splits -----------------------------------------------------
 
 " Vertical split and move to new window
-"nnoremap <leader>v <C-W>v<C-W>l
+nnoremap <leader>v <C-W>v<C-W>l
 
 " Horizontal split and move to new window
-"nnoremap <leader>h :split<CR><C-W>j
+nnoremap <leader>h :split<CR><C-W>j
 
 " Easier split navigation
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " -- functions --------------------------------------------------
 map <F2> :call TrimWhiteSpace()<CR>
@@ -103,38 +91,7 @@ imap <leader>x <ESC>:x<CR>
 
 imap <leader>i <ESC>
 " -- visual-mode mappings 20i------------------------------------
-" Make shifted cursor keys work, to select text.
-"nmap <S-Up>    v<Up>
-"nmap <S-Down>  v<Down>
-"nmap <S-Left>  v<Left>
-"nmap <S-Right> v<Right>
-"nmap <S-Home>  v<Home>
-"nmap <S-End>   v<End>
-"vmap <S-Up>    <Up>
-"vmap <S-Down>  <Down>
-"vmap <S-Left>  <Left>
-"vmap <S-Right> <Right>
-"vmap <S-Home>  <Home>
-"vmap <S-End>   <End>
-
-" shift+arrow selection
-"imap <S-Up> <esc>vk
-"map <S-Up> vk
-"vmap <S-Up> k
-"imap <S-Down> <esc>vj
-"map <S-Down> vj
-
-"map  <Esc>[1;2A <S-Up>
-"imap <Esc>[1;2A <S-Up>
-"map  <Esc>[1;2B <S-Down>
-"imap <Esc>[1;2B <S-Down>
-"map  <Esc>OF  <End>
-"imap <Esc>OF  <End>
-"map  <Esc>[7~ <Home>
-"imap <Esc>[7~ <Home>
-"map  <Esc>OH  <Home>
-"imap <Esc>OH  <Home>
-
+" Make shifted cursor keys work to select text.
 nmap <S-Up> v<Up>
 nmap <S-Down> v<Down>
 nmap <S-Left> v<Left>
@@ -147,18 +104,11 @@ imap <S-Up> <Esc>v<Up>
 imap <S-Down> <Esc>v<Down>
 imap <S-Left> <Esc>v<Left>
 imap <S-Right> <Esc>v<Right>
-vmap <C-c> y<Esc>i
-vmap <C-x> d<Esc>i
-"map <C-v> pi
-"imap <C-v> <Esc>pi
-"imap <C-z> <Esc>ui
+"vmap <C-c> y<Esc>i
+"vmap <C-x> d<Esc>i
 
-
-" Handle Control+Shift cursors keys. Not working
-"nmap <C-S-Right> vE
-"vmap <C-S-Right> E
-"nmap <C-S-Left>  lvB
-"vmap <C-S-Left>  B
+" Ctrl-C for visual block mode inserts
+vmap <C-c> <Esc>
 
 " Tab in visual (or select) mode indents the selected block (and keeps it selected).
 vnoremap <Tab>   >gv

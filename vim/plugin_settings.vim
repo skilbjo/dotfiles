@@ -65,6 +65,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " -- NerdTREE Comment---------------------------------------------
 "nmap <C-\> <leader>c<Space>
+map ÷ <Leader>c<Space>
+imap ÷  <C-o>:call NERDComment(0,"toggle")<C-m>
 map <C-\> <Leader>c<Space>
 imap <C-\> <C-o>:call NERDComment(0,"toggle")<C-m>
 "nmap <C-_> <C-o>:call NERDComment(0,"toggle")<C-m>
