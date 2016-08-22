@@ -10,24 +10,35 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 " Add or remove your Bundles here:
-NeoBundle 'Shougo/unite.vim'
+"" Themese
 NeoBundle 'vim-airline/vim-airline' 
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'NLKNguyen/papercolor-theme'
-NeoBundle 'tpope/vim-fugitive'
+
+"" Utility
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle	'vim-scripts/AutoComplPop'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'tpope/vim-surround'
+
+"" Sublime Text
+NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+
+
+"" Lanugage specific
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'tpope/vim-fireplace'
 
+
 " " Research
-NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'haya14busa/incsearch-fuzzy.vim'
 " NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'ctrlpvim/ctrlp.vim'
 " NeoBundle 'junegunn/vim-easy-align'
 " NeoBundle 'fholgado/minibufexpl.vim'
 " NeoBundle 'wincent/command-t'

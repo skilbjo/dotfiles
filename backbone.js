@@ -1,7 +1,7 @@
-//     Backbone.js 1.3.3
+//     stuff.js 1.3.3
 
 //     (c) 2010-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-//     Backbone may be freely distributed under the MIT license.
+//     stuff may be freely distributed under the MIT license.
 //     For all details and documentation:
 //     http://backbonejs.org
 
@@ -14,11 +14,11 @@
 	var root = (typeof self == 'object' && self.self === self && self) ||
 		(typeof global == 'object' && global.global === global && global);
 
-  // Set up Backbone appropriately for the environment. Start with AMD.
+  // Set up stuff appropriately for the environment. Start with AMD.
 	if (typeof define === 'function' && define.amd) {
 		define(['underscore', 'jquery', 'exports'], function(_, $, exports) {
 			// Export global even in AMD case in case this script is loaded with
-			// others that may still expect a global Backbone.
+			// others that may still expect a global stuff.
 			roots.Backbone = factory(roots, exports, _, $);
 		});
 

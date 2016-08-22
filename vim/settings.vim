@@ -10,9 +10,6 @@ set autoread
 set encoding=utf-8
 set showmatch
 
-au BufRead,BufNewFile *.py set ts=2 sw=2 sts=2 
-"set t_Co=256
-
 set wildmenu                    " enable tab completion menu
 set wildmode=longest:full,full  " complete till longest common string, then full
 set wildignore+=.git            " ignore the .git directory

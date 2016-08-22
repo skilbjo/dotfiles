@@ -13,4 +13,7 @@ alias search="find . -type f -print0 | xargs -0 grep -i"
 alias "psql.start"="postgres -D /usr/local/var/postgres/ &"
 alias "psql.stop"="killall postgres"
 alias cal='cal | grep --color -EC6 "\b$(date +%e | sed "s/ //g")"'
-
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ll='ls -l'
+alias la='ls -a'

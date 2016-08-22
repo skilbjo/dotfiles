@@ -40,6 +40,8 @@ Batch renaming of files: `for f in *.pdf ; do mv $f $(echo $f | sed -e 's/eStmt_
 
 See the first n results in a directory: `ls -l -t | tail -n 2 | head -2`
 
+for i in {1..7}; do cd ..; done
+
 ### Docker
 ssh into a Docker container: `$ docker -u root exec -it <container-id> bash`
 
