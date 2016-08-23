@@ -99,6 +99,7 @@ imap <leader>i <ESC>
 " Escape characters {{{
 inoremap <leader>_ _
 inoremap <leader>+ +
+inoremap <leader>~ `
 " }}}
 
 " -- visual-mode mappings ------------------------------------

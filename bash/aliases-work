@@ -7,8 +7,8 @@ alias "docker.psql.stop"="docker stop postgres"
 # -- Docker -----------------------------------------------------
 alias "docker.start"="docker-machine start default; eval '$(docker-machine env default)'"
 alias "docker.kill"="docker kill $(docker ps -q)"
-alias "docker.rm"="docker rm $(docker ps -a -q)"
-alias "docker.rmi"="docker rmi $(docker images -q)"
+alias "docker.rm"="docker rm $(docker ps -a --format={{.ID}})"
+alias "docker.rmi"="docker rmi $(docker images -a --format={{.ID}})"
 alias "ssh.docker"="ssh docker@$(docker-machine ip default)"
 alias "docker.ls"="docker ps --format={{.Names}}"
 

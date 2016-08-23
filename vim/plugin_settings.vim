@@ -2,7 +2,8 @@
 " -- Airline {{{
 set laststatus=2  "always show status line for the last window
 let g:airline_theme='papercolor'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled=1
+"let g:airline_powerline_fonts=1
 ""}}}
 
 " -- PaperColor 
@@ -38,6 +39,10 @@ map ÷ <Leader>c<Space>
 imap ÷  <C-o>:call NERDComment(0,"toggle")<C-m>
 "map <C-\> <Leader>c<Space> imap <C-\> <C-o>:call NERDComment(0,"toggle")<C-m> "nmap <C-_> <C-o>:call NERDComment(0,"toggle")<C-m> "vmap <C-_> <leader>c<Space> "nmap <C-\> <leader>c<Space>
 " }}}
+
+" -- Syntastic {{{
+let g:syntastic_javascript_checkers = ['jshint']"
+"  }}}
 
 
 " -- Sublime Text -----------------------------------------------

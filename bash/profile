@@ -29,7 +29,10 @@ export PROJECT_HOME=$HOME/Devel
 source_if_exists /usr/local/bin/virtualenvwrapper.sh
 source_if_exists "$HOME/.aliases"				# Aliases
 
-# -- shortcuts --------------------------------
+# -- Bash bindings / settings ----------------------------------
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+
 # -- use ctrl + <Left> / <Right> --------------------------------
 bind '"\e[5C": forward-word'
 bind '"\e[5D": backward-word'

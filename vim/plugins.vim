@@ -25,6 +25,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-repeat.git'
 
 "" Sublime Text
 NeoBundle 'haya14busa/incsearch.vim'
@@ -35,7 +36,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 "" Lanugage specific
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'tpope/vim-fireplace'
-
+NeoBundle 'vim-scripts/paredit.vim'
 
 " " Research
 " NeoBundle 'flazz/vim-colorschemes'

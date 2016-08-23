@@ -44,11 +44,12 @@ for i in {1..7}; do cd ..; done
 
 ### Docker
 ssh into a Docker container: `$ docker -u root exec -it <container-id> bash`
+create a docker container that can run other docker containers: `docker run --privileged -t -i jpetazzo/dind`
 
 ### Kafka
-Grab data from a kafka topic: `kafka-console-consumer --zookeeper zookeeper.service.consul --topic opportunity-soap-untrusted --from-beginning > opportunitysoap.xml`
-Grab that file locally: `$ scp server:file .`
-Write that to local Docker: `cat opportunity-soap.xml | kafka-console-producer --zookeeper docker:2181 --topic opportunity-soap-untrusted`
-Change retention time: `kafka-configs --zookeeper zookeeper.service.consul:2181 --alter --entity-type topics --entity-name opportunity-updated --add-config retention.ms=3000000000000`
+- Grab data from a kafka topic: `kafka-console-consumer --zookeeper zookeeper.service.consul --topic opportunity-soap-untrusted --from-beginning > opportunitysoap.xml`
+- Grab that file locally: `$ scp server:file .`
+- Write that to local Docker: `cat opportunity-soap.xml | kafka-console-producer --zookeeper docker:2181 --topic opportunity-soap-untrusted`
+- Change retention time: `kafka-configs --zookeeper zookeeper.service.consul:2181 --alter --entity-type topics --entity-name opportunity-updated --add-config retention.ms=3000000000000`
 
 
