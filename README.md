@@ -52,4 +52,5 @@ create a docker container that can run other docker containers: `docker run --pr
 - Write that to local Docker: `cat opportunity-soap.xml | kafka-console-producer --zookeeper docker:2181 --topic opportunity-soap-untrusted`
 - Change retention time: `kafka-configs --zookeeper zookeeper.service.consul:2181 --alter --entity-type topics --entity-name opportunity-updated --add-config retention.ms=3000000000000`
 
-
+### Git
+- Feature branch out of sync with latest remote/master: `git fetch origin ; git rebase origin/master`
