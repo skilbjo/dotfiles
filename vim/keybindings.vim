@@ -63,8 +63,12 @@ inoremap <C-n> <C-w><C-w>
 
 " -- functions --------------------------------------------------
 " {{{ 
-map <F2> :call TrimWhiteSpace()<CR>
-map! <F2> :call TrimWhiteSpace()<CR>
+map <F2> :Require!<CR>
+map! <F2> :Require!<CR>
+map <F3> :call TrimWhiteSpace()<CR>
+map! <F3> :call TrimWhiteSpace()<CR>
+map <F4> :retab<CR>
+map! <F4> :retab<CR>
 " }}}
 
 " -- Normal-mode mappings ---------------------------------------

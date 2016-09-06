@@ -45,6 +45,8 @@ for i in {1..7}; do cd ..; done
 ### Docker
 ssh into a Docker container: `$ docker -u root exec -it <container-id> bash`
 create a docker container that can run other docker containers: `docker run --privileged -t -i jpetazzo/dind`
+load ddl to docker: `psql -h docker -U postgres -c 'create database dev;' ; psql -h docker -U postgres -d dev -c 'CREATE EXTENSION IF NOT EXISTS "uuid-ossp";' && ./bin/create│
+_dw_ddl | psql -h docker -U postgres -d dev`
 
 ### Kafka
 - Grab data from a kafka topic: `kafka-console-consumer --zookeeper zookeeper.service.consul --topic opportunity-soap-untrusted --from-beginning > opportunitysoap.xml`
@@ -54,3 +56,8 @@ create a docker container that can run other docker containers: `docker run --pr
 
 ### Git
 - Feature branch out of sync with latest remote/master: `git fetch origin ; git rebase origin/master`
+
+### Heroku Force
+- docker run -e "SALESFORCE_USER=$SALESFORCE_USER" -e "SALESFORCE_PASSWORD=$SALESFORCE_PASSWORD" quay.io/fundingcircle/heroku-force "select applicant_email__c, decline_codes__c from Opportunity limit 5" | uniq -c | sort
+
+
