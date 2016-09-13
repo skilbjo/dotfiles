@@ -74,7 +74,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " switch between windows by hitting <Tab> twice
-nnoremap <silent> <Tab><Tab> <C-w>w
+"nnoremap <silent> <Tab><Tab> <C-w>w
 
 " create a new tab
 nnoremap <silent> <leader>t :tabnew<CR>

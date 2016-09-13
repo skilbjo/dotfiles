@@ -1,23 +1,45 @@
-" -- Themes ----------------------------------------------------- 
+" -- Themes -----------------------------------------------------
 " -- Airline {{{
 set laststatus=2  "always show status line for the last window
 let g:airline_theme='papercolor'
 let g:airline#extensions#tabline#enabled=1
-"let g:airline_powerline_fonts=1
+let g:Powerline_symbols = 'unicode'
+"let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+"" unicode symbols
+"let g:airline_left_sep=''
+"let g:airline_right_sep=''
+"let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_symbols.space = "\ua0"
 ""}}}
 
-" -- PaperColor 
+" -- PaperColor
 set background=light
 let g:PaperColor_Light_Override = { 'background' : '#ffffff' }
 colorscheme PaperColor
 
-" -- Utility ----------------------------------------------------- 
+" -- Utility -----------------------------------------------------
 " -- Command-T {{{
 let g:CommandTMatchWindowReverse = 1
 let g:CommandTMaxHeight = 20
 " }}}
 
-" -- EasyAlign 
+" -- EasyAlign
 vnoremap <silent><CR>  :EasyAlign<CR>
 " }}}
 
@@ -37,7 +59,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " -- NerdTREE Comment {{{
 map ÷ <Leader>c<Space>
 imap ÷  <C-o>:call NERDComment(0,"toggle")<C-m>
-"map <C-\> <Leader>c<Space> imap <C-\> <C-o>:call NERDComment(0,"toggle")<C-m> "nmap <C-_> <C-o>:call NERDComment(0,"toggle")<C-m> "vmap <C-_> <leader>c<Space> "nmap <C-\> <leader>c<Space>
 " }}}
 
 " -- Syntastic {{{
@@ -67,6 +88,7 @@ let g:multi_cursor_quit_key='<Esc>'
 " -- Language Spesific -----------------------------------------------
 " -- vim-Fireplace {{{
 nnoremap <Leader>cp :execute "Eval (do (require 'clojure.pprint) (clojure.pprint/pp))"<cr>
+nmap <C-L> [d
 " }}}
 
 " -- Clojure-static {{{
@@ -79,6 +101,7 @@ let g:clojure_fuzzy_indent = 1
 let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
 let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
 let g:clojure_align_subforms = 0
+let g:clojure_align_multiline_strings = 1
 " }}}
 
 " -- Minibufexp {{{

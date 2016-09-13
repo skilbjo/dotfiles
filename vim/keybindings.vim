@@ -2,6 +2,7 @@
 noremap ; :
 imap ; <ESC>:
 let mapleader = ","
+let maplocalleader = "-"
 inoremap <leader>; ;
 inoremap <leader>: :
 
@@ -53,12 +54,12 @@ nnoremap <leader>t <C-W>v<C-W>l
 nnoremap <leader>h :split<CR><C-W>j
 
 " Easier split navigation {{{ 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-n> <C-W><C-W>
-inoremap <C-n> <C-w><C-w>
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
+"nnoremap <C-n> <C-W><C-W>
+"inoremap <C-n> <C-w><C-w>
 " }}}
 
 " -- functions --------------------------------------------------

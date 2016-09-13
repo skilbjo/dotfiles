@@ -42,7 +42,8 @@ bind '"\e[1;5D": backward-word'
 # -- computer-specific stuffs -----------------------------------
 work() {
 	start_docker
-	export PATH=$PATH:~/Code/Other/kafka08/bin/
+	#export PATH=$PATH:~/Code/Other/kafka08/bin/
+	export PATH=$PATH:~/Code/Other/kafka08/bin
 	source_if_exists "$HOME/.aws"						# AWS config
 	source_if_exists "$HOME/.profilelocal"	# env variables
 	source_if_exists "$HOME/.aliases-work"	# Aliases

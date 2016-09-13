@@ -26,6 +26,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat.git'
+NeoBundle 'airblade/vim-gitgutter'
+"NeoBundle 'https://github.com/kien/rainbow_parentheses.vim'
 
 "" Sublime Text
 NeoBundle 'haya14busa/incsearch.vim'
@@ -36,6 +38,9 @@ NeoBundle 'terryma/vim-multiple-cursors'
 "" Lanugage specific
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'tpope/vim-fireplace'
+NeoBundle 'venantius/vim-cljfmt'
+NeoBundle 'tpope/vim-salve'
+NeoBundle 'venantius/vim-eastwood'
 "NeoBundle 'vim-scripts/paredit.vim'
 
 " " Research
@@ -46,6 +51,7 @@ NeoBundle 'tpope/vim-fireplace'
 
 " Required:
 call neobundle#end()
+
 filetype plugin indent on
 NeoBundleCheck
 
