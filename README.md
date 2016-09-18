@@ -6,16 +6,16 @@ Dropbox + github workflow for environment standardization
 ### OS X / Terminal.app config
 Add these keycodes to the Terminal profile:
 
-  ⇧↑ \033[1;2A
-  ⇧↓ \033[1;2B
+    ⇧↑ \033[1;2A
+    ⇧↓ \033[1;2B
 
 ### Show keycodes
 
-  - $ xxd
-  - $ cat >/dev/null 
-  - $ sed -n l
-  - $ od -c
-  - $ vim -> i -> <C-v><key>
+  - `$ xxd`
+  - `$ cat >/dev/null`
+  - `$ sed -n l`
+  - `$ od -c`
+  - `$ vim -> i -> <C-v><key>`
 
 ### Show used key mappings
 `ack ctrl- | perl -ne 'm/(CTRL-.?)/g; print $1."\n";' | sort| uniq`
