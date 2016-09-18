@@ -6,27 +6,27 @@ Dropbox + github workflow for environment standardization
 ### OS X / Terminal.app config
 Add these keycodes to the Terminal profile:
 
-	⇧↑ \033[1;2A
-	⇧↓ \033[1;2B
+  ⇧↑ \033[1;2A
+  ⇧↓ \033[1;2B
 
 ### Show keycodes
 
-- $ xxd
-- $ cat >/dev/null 
-- $ sed -n l
-- $ od -c
-- $ vim -> i -> <C-v><key>
+  - $ xxd
+  - $ cat >/dev/null 
+  - $ sed -n l
+  - $ od -c
+  - $ vim -> i -> <C-v><key>
 
 ### Show used key mappings
 `ack ctrl- | perl -ne 'm/(CTRL-.?)/g; print $1."\n";' | sort| uniq`
 
 ## Linked programs
-- vim
-- tmux
-- bash
-- git
-- lein
-- sublime
+- [vim](https://github.com/vim/vim)
+- [tmux](https://github.com/tmux/tmux)
+- [bash](http://www.gnu.org/software/bash)
+- [git](https://github.com/git/git)
+- [lein](https://github.com/technomancy/leiningen)
+- [sublime](https://www.sublimetext.com)
 
 ## Custom Scripts
 - tm (tmux session chooser)
@@ -40,13 +40,12 @@ Batch renaming of files: `for f in *.pdf ; do mv $f $(echo $f | sed -e 's/eStmt_
 
 See the first n results in a directory: `ls -l -t | tail -n 2 | head -2`
 
-for i in {1..7}; do cd ..; done
+`for i in {1..7}; do cd ..; done`
 
 ### Docker
 ssh into a Docker container: `$ docker -u root exec -it <container-id> bash`
 create a docker container that can run other docker containers: `docker run --privileged -t -i jpetazzo/dind`
-load ddl to docker: `psql -h docker -U postgres -c 'create database dev;' ; psql -h docker -U postgres -d dev -c 'CREATE EXTENSION IF NOT EXISTS "uuid-ossp";' && ./bin/create│
-_dw_ddl | psql -h docker -U postgres -d dev`
+load ddl to docker: `psql -h docker -U postgres -c 'create database dev;' ; psql -h docker -U postgres -d dev -c 'CREATE EXTENSION IF NOT EXISTS "uuid-ossp";' && ./bin/create│ _dw_ddl | psql -h docker -U postgres -d dev`
 
 ### Kafka
 - Grab data from a kafka topic: `kafka-console-consumer --zookeeper zookeeper.service.consul --topic opportunity-soap-untrusted --from-beginning > opportunitysoap.xml`

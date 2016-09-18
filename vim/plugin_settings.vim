@@ -72,8 +72,8 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
 " }}}
 
 " -- IncSearch {{{
-map /  <Plug>(incsearch-fuzzy-/)
-map ?  <Plug>(incsearch-forward)
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-fuzzy-/)
 " }}}
 
 " -- Multicursor {{{

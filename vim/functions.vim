@@ -10,4 +10,4 @@ function! SetupPython() " Here, you can have the final say on what is set.  So
     setlocal tabstop=2
     setlocal shiftwidth=2
 :endfunction
-"command! -bar SetupPython call SetupPython()
+command! -bar SetupPython call SetupPython()

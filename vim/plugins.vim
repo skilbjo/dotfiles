@@ -13,7 +13,7 @@ NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 "" Themese
 NeoBundle 'vim-airline/vim-airline' 
 NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'NLKNguyen/papercolor-theme'
+NeoBundle 'NLKNguyen/papercolor-theme', { 'rev' : '867b051d3a' }
 
 "" Utility
 NeoBundle 'Shougo/unite.vim'
