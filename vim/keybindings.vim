@@ -39,10 +39,10 @@ noremap  <C-x>  		:tabclose!<CR>
 
 " Tab navigation {{{
 "nnoremap <leader>_ gT "nnoremap <leader>+ gt "inoremap <leader>_ <C-o>gT"inoremap <leader>+ <C-o>gt "inoremap _ <ESC>gT "inoremap + <ESC>gt
-nnoremap _ gT
-nnoremap + gt
-inoremap _ <C-o>gT
-inoremap + <C-o>gt
+nnoremap – gT
+nnoremap ≠ gt
+inoremap – <C-o>gT
+inoremap ≠ <C-o>gt
 " }}}
 
 " Vertical split and move to new window {{{
