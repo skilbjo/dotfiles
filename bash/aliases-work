@@ -7,13 +7,14 @@ alias "docker.psql.stop"="docker stop postgres"
 # -- Docker -----------------------------------------------------
 alias "docker.start"="docker-machine start default; eval '$(docker-machine env default)'"
 alias "docker.kill"="docker kill $(docker ps -q)"
-#alias "docker.rm"="docker rm $(docker ps -a --format={{.ID}})"
 alias "docker.rm"="docker ps -q -a | xargs docker rm"
-alias "docker.rmi"="docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
-#alias "docker.rmi"="docker rmi $(docker images -a --format={{.ID}})"
+alias "docker.rmi"="docker rmi \$(docker images | grep '^<none>' | awk '{print $3}')"
 alias "ssh.docker"="ssh docker $(docker-machine ip default)"
-#alias "ssh.docker"="ssh docker@$(docker-machine ip default)"
+alias "docker.ssh"="docker-machine ssh default"
 alias "docker.ls"="docker ps --format={{.Names}}"
+
+alias "docker.rmm"="docker ps -a | awk '{print $1}' | xargs docker rm"
+alias "docker.rmii"="docker images | grep intuit | awk '{print $3}' | xargs docker rmi"
 
 # -- Docker Kafka -----------------------------------------------
 alias "docker.kafka.install"="cd ~/dev/finops/ && eval \"$(docker-machine env default)\" && docker-compose up -d"
@@ -22,6 +23,4 @@ alias "docker.kafka.stop"="docker stop finops_zookeeper_1 finops_kafka_1 finops_
 alias "docker.kafka.rm"="docker ps -a | grep -v postgres | awk '{print $1}' | grep -v CONTAINER | xargs docker rm"
 
 ## -- Postgres
-#alias "psql.dw.run"="psql $PRODUCTION_PSQL_URI -c 'select * from dw.loan_dim limit 1';"
-#alias "psql.dw.run"="function _psql(){ psql $PRODUCTION_PSQL_URI -c $1; };_psql"
 alias "psql.dw.run"='function _psql(){ psql "$PRODUCTION_PSQL_URI" -c "$1"; };_psql'

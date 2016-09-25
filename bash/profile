@@ -26,6 +26,7 @@ fi
 export EDITOR=vim
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
+export EVENT_NOKQUEUE=1 # tmux kqueue error
 source_if_exists /usr/local/bin/virtualenvwrapper.sh
 source_if_exists "$HOME/.aliases"				# Aliases
 

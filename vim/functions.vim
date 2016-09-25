@@ -1,5 +1,5 @@
 
-function TrimWhiteSpace()
+function! TrimWhiteSpace()
   %s/\s*$//
   ''
 :endfunction

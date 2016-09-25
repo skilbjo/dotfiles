@@ -78,7 +78,7 @@ nnoremap n            nzz
 nnoremap N            Nzz
 " }}}
 
-" -- Insert-mode mappings -------------------------------------
+" -- All-mode mappings -------------------------------------
 
 " Quick save {{{ 
 map <leader>s         :w<CR>
@@ -95,9 +95,22 @@ imap <leader>x        <ESC>:x<CR>
 imap <leader>i        <ESC>
 " }}}
 
+" Control+Z is Undo, in Normal and Insert mode. {{{
+noremap  <C-Z>        u
+inoremap <C-Z>        <C-O>u
+" }}}
 
+" Control+A is select all {{{
+noremap  <C-A>        gggH<C-O>G
+inoremap <C-A>        <C-O>gg<C-O>gH<C-O>G
+cnoremap <C-A>        <C-C>gggH<C-O>G
+onoremap <C-A>        <C-C>gggH<C-O>G
+snoremap <C-A>        <C-C>gggH<C-O>G
+xnoremap <C-A>        <C-C>ggVG
+" }}}
 
 " -- visual-mode mappings ------------------------------------
+
 " Make shifted cursor keys work to select text {{{
 nmap <S-Up>           <Esc>v<Up>
 nmap <S-Down>         v<Down>
@@ -138,18 +151,6 @@ vnoremap <C-x>        <C-C>:exit<CR>
 inoremap <C-x>        <C-o>:exit<CR>
 " }}}
 
-" Control+Z is Undo, in Normal and Insert mode. {{{
-noremap  <C-Z>        u
-inoremap <C-Z>        <C-O>u
-" }}}
-
-" Control+A is select all {{{
-noremap  <C-A>        gggH<C-O>G
-inoremap <C-A>        <C-O>gg<C-O>gH<C-O>G
-cnoremap <C-A>        <C-C>gggH<C-O>G
-onoremap <C-A>        <C-C>gggH<C-O>G
-snoremap <C-A>        <C-C>gggH<C-O>G
-xnoremap <C-A>        <C-C>ggVG
-" }}}
-
+" -- command-mode mappings ------------------------------------
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
