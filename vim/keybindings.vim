@@ -11,17 +11,22 @@ inoremap Ú            :
 "inoremap <leader>;     ;
 "inoremap <leader>:     :
 " }}}
+nnoremap <Bslash> ;
 
 " -- wordmovement -----------------------------------------------
 
 " Arrow keys movement <Ctrl>-<Left> , <Ctrl>-<Right> {{{
 " http://superuser.com/questions/123937/how-to-jump-to-the-beginning-or-end-of-line-in-vim-os-x ; http://stackoverflow.com/questions/5345612/vim-in-mac-os-x-terminal-move-cursor-word-by-word; http://superuser.com/questions/614553/is-there-any-way-to-go-word-by-word-using-ctrl/614555#614555; http://stackoverflow.com/questions/81272/is-there-any-way-in-the-os-x-terminal-to-move-the-cursor-word-by-word; http://superuser.com/questions/635482/why-does-optionleft-arrow-work-in-vim-but-not-right-arrow-on-mac-os-x; http://apple.stackexchange.com/questions/1626/os-x-terminal-equivalent-of-ctrlleft-ctrlright
-map <ESC>[H           <Home>
-map <ESC>[F           <End>
-imap <ESC>[H          <C-o><Home>
-imap <ESC>[F          <C-o><End>
-cmap <ESC>[H          <Home>
-cmap <ESC>[F          <End>
+"nnoremap <C-Left> B
+map <C-Right>         E
+imap <C-Right>        <C-o>E
+"map <ESC>[H           <Home>
+"map <ESC>[F           E
+"map <ESC>[F          <End>
+"imap <ESC>[H          <C-o><Home>
+"imap <ESC>[F          <C-o><End>
+"cmap <ESC>[H          <Home>
+"cmap <ESC>[F          <End>
 " }}}
 
 " Option Left = ESC b, Option Right = ESC f {{{
