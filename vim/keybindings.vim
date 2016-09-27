@@ -144,6 +144,10 @@ vnoremap <S-Tab>      <gv
 vnoremap <BS>         d
 " }}}
 
+" * in visual mode does selection select
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
 " Control+S saves     the current file (if it's been changed). Not working. {{{
 noremap  <C-S>        :update<CR>
 vnoremap <C-S>        <C-C>:update<CR>

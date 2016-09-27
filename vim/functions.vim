@@ -11,3 +11,11 @@ function! SetupPython() " Here, you can have the final say on what is set.  So
     setlocal shiftwidth=2
 :endfunction
 command! -bar SetupPython call SetupPython()
+
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
