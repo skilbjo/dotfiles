@@ -6,8 +6,8 @@
 # exists.
 # see /usr/share/doc/bash/examples/startup-files for examples.
 
-if [ -f ~/.bashrc ]; then 
-    source ~/.bashrc 
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
 fi
 
 # -- path, command prompt ---------------------------------------
@@ -18,51 +18,65 @@ source_if_exists() {
     [[ -f $1 ]] && source $1
 }
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-		source $(brew --prefix)/etc/bash_completion 	# bash-completion
-fi
-
 # -- environment vars & dotfiles --------------------------------
 export EDITOR=vim
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-export EVENT_NOKQUEUE=1 # tmux kqueue error
-source_if_exists /usr/local/bin/virtualenvwrapper.sh
-source_if_exists "$HOME/.aliases"				# Aliases
+export LESS='-i-P%f (%i/%m) Line %lt/%L'
+source_if_exists "$HOME/.aliases"       # Aliases
 
 # -- Bash bindings / settings ----------------------------------
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
-# -- use ctrl + <Left> / <Right> --------------------------------
-bind '"\e[5C": forward-word'
-bind '"\e[5D": backward-word'
-bind '"\e[1;5C": forward-word'
-bind '"\e[1;5D": backward-word'
+if [ "$(uname)" == "Darwin" ]; then
+  export EVENT_NOKQUEUE=1 # tmux kqueue error
+  export WORKON_HOME=$HOME/.virtualenvs
+  export PROJECT_HOME=$HOME/Devel
+  source_if_exists /usr/local/bin/virtualenvwrapper.sh
+
+  # -- use ctrl + <Left> / <Right> --------------------------------
+  bind '"\e[5C": forward-word'
+  bind '"\e[5D": backward-word'
+  bind '"\e[1;5C": forward-word'
+  bind '"\e[1;5D": backward-word'
+
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+      source $(brew --prefix)/etc/bash_completion   # bash-completion
+  fi
+
+fi
+
+if [ "$(uname)" == "Linux" ]; then
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
 
 # -- computer-specific stuffs -----------------------------------
 work() {
-	start_docker
-	export PATH=$PATH:~/Code/Other/kafka08/bin
-	source_if_exists "$HOME/.aws"						# AWS config
-	source_if_exists "$HOME/.profilelocal"	# env variables
-	source_if_exists "$HOME/.aliases-work"	# Aliases
+  start_docker
+  export PATH=$PATH:~/Code/Other/kafka08/bin
+  source_if_exists "$HOME/.aws"           # AWS config
+  source_if_exists "$HOME/.profilelocal"  # env variables
+  source_if_exists "$HOME/.aliases-work"  # Aliases
+}
+
+skilbjo() {
+  export GPG_TTY=$(tty)
 }
 
 start_docker() {
-	if [[ $(docker-machine ls | grep "default" | grep -c "Running") -eq 1 ]]; then 
-		eval "$(docker-machine env default)"
-	else
-		docker-machine start
-		eval "$(docker-machine env default)"
-	fi
+  if [[ $(docker-machine ls | grep "default" | grep -c "Running") -eq 1 ]]; then
+    eval "$(docker-machine env default)"
+  else
+    docker-machine start
+    eval "$(docker-machine env default)"
+  fi
 }
 
 computer_specific() {
-	case $(whoami) in
-		('john.skilbeck') work;;
-		(skilbjo) ;; 
-	esac
+  case $(whoami) in
+    ('john.skilbeck') work;;
+    (skilbjo) skilbjo;;
+  esac
 }
 
 computer_specific
