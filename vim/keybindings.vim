@@ -56,6 +56,8 @@ inoremap ≠            <C-o>gt
 
 " Vertical split and move to new window {{{
 nnoremap <leader>t    <C-W>v<C-W>l
+" create a new tab
+nnoremap <silent> <leader>t :tabnew<CR>
 " }}}
 
 " Horizontal split and move to new window
