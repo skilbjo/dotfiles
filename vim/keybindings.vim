@@ -57,19 +57,19 @@ inoremap ≠            <C-o>gt
 " Vertical split and move to new window {{{
 nnoremap <leader>t    <C-W>v<C-W>l
 " create a new tab
-nnoremap <silent> <leader>t :tabnew<CR>
+"nnoremap <silent> <leader>t :tabnew<CR>
 " }}}
 
 " Horizontal split and move to new window
 nnoremap <leader>h    :split<CR><C-W>j
 
-" Easier split navigation {{{ 
+" Easier split navigation {{{
 nnoremap <C-n>        <C-W><C-W>
 inoremap <C-n>        <C-w><C-w>
 " }}}
 
 " -- functions --------------------------------------------------
-" {{{ 
+" {{{
 map <F2>              :Require!<CR>
 map! <F2>             :Require!<CR>
 map <F3>              :call TrimWhiteSpace()<CR>
@@ -87,7 +87,7 @@ nnoremap N            Nzz
 
 " -- All-mode mappings -------------------------------------
 
-" Quick save {{{ 
+" Quick save {{{
 map <leader>s         :w<CR>
 imap <leader>s        <ESC>:w<CR>
 map <leader>w         :w<CR>
@@ -119,15 +119,15 @@ xnoremap <C-A>        <C-C>ggVG
 " -- visual-mode mappings ------------------------------------
 
 " Make shifted cursor keys work to select text {{{
-nmap <S-Up>           <Esc>v<Up>
-nmap <S-Down>         v<Down>
-nmap <S-Left>         v<Left>
-nmap <S-Right>        v<Right>
+nmap <S-Up>           <Esc>V<Up>
+nmap <S-Down>         V<Down>
+nmap <S-Left>         V<Left>
+nmap <S-Right>        V<Right>
 vmap <S-Up>           <Up>
 vmap <S-Down>         <Down>
 vmap <S-Left>         <Left>
 vmap <S-Right>        <Right>
-imap <S-Up>           <Esc>v<Up> 
+imap <S-Up>           <Esc>v<Up>
 imap <S-Down>         <Esc>v<Down>
 imap <S-Left>         <Esc>v<Left>
 imap <S-Right>        <Esc>v<Right>
