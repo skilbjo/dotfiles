@@ -12,7 +12,7 @@ alias "docker.ssh"="docker-machine ssh default"
 alias "docker.ls"="docker ps --format={{.Names}}"
 alias "docker.stop"="docker ps -qa | xargs docker kill"
 alias "docker.remove"="docker ps -qa | xargs docker rm"
-alias "docker.delete"="function _docker_delete(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi;};_docker_delete"
+alias "docker.delete"="function _docker_delete(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_docker_delete"
 alias "docker.rm.this"="function _docker_rmi(){ docker images | grep \"$1\" | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi; };_docker_rmi"
 
 # -- Docker Kafka -----------------------------------------------

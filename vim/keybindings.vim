@@ -8,8 +8,6 @@ let maplocalleader =  "-"
 inoremap <leader>~    `
 inoremap …            ;
 inoremap Ú            :
-"inoremap <leader>;     ;
-"inoremap <leader>:     :
 " }}}
 nnoremap <Bslash> ;
 
@@ -20,13 +18,6 @@ nnoremap <Bslash> ;
 "nnoremap <C-Left> B
 map <C-Right>         E
 imap <C-Right>        <C-o>E
-"map <ESC>[H           <Home>
-"map <ESC>[F           E
-"map <ESC>[F          <End>
-"imap <ESC>[H          <C-o><Home>
-"imap <ESC>[F          <C-o><End>
-"cmap <ESC>[H          <Home>
-"cmap <ESC>[F          <End>
 " }}}
 
 " Option Left = ESC b, Option Right = ESC f {{{
@@ -44,8 +35,7 @@ cmap <ESC>b           <Home>
 " Tab opening/closing {{{
 noremap <C-t>         :tabnew<CR>
 nnoremap <C-w>        :tabclose!<CR>
-noremap  <C-x>        :tabclose!<CR>
-" }}}
+noremap  <C-x>        :tabclose!<CR> " }}}
 
 " Tab navigation {{{
 nnoremap –            gT
@@ -108,8 +98,8 @@ inoremap <C-Z>        <C-O>u
 " }}}
 
 " Control+A is select all {{{
-noremap  <C-A>        gggH<C-O>G
-inoremap <C-A>        <C-O>gg<C-O>gH<C-O>G
+noremap  <C-A>        ggVG
+inoremap <C-A>        <ESC>ggVG
 cnoremap <C-A>        <C-C>gggH<C-O>G
 onoremap <C-A>        <C-C>gggH<C-O>G
 snoremap <C-A>        <C-C>gggH<C-O>G
