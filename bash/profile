@@ -57,6 +57,9 @@ work() {
   source_if_exists "$HOME/.aws"           # AWS config
   source_if_exists "$HOME/.profilelocal"  # env variables
   source_if_exists "$HOME/.aliases-work"  # Aliases
+
+  #Uncomment for the below to add personal pem key everytime a shell launches
+  #ssh-add ~/.ssh/id_rsa
 }
 
 skilbjo() {

@@ -4,14 +4,14 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=/Users/$USER/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('/Users/$USER/.vim/bundle'))
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 " Add or remove your Bundles here:
 "" Themese
-NeoBundle 'vim-airline/vim-airline' 
+NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'NLKNguyen/papercolor-theme', { 'rev' : '867b051d3a' }
 
@@ -20,7 +20,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle	'vim-scripts/AutoComplPop'
+NeoBundle 'vim-scripts/AutoComplPop'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
