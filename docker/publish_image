@@ -1,0 +1,34 @@
+#!/bin/bash
+set -eux
+
+: ${APP_NAME:='app-name-here'}
+: ${DOCKER_REGISTRY:='quay.io'}
+: ${DOCKER_REMOTE:='quay.io/skilbjo/$APP_NAME'}
+: ${CONSUL_PREFIX:="$(echo $APP_NAME | tr '-' '_')/config"}
+: ${CONSUL_SECRET_PREFIX:="$(echo $APP_NAME | tr '-' '_')/secrets"}
+: ${IMAGE_TAG:='latest'}
+: ${DOCKER_FILE:='./../../Dockerfile'}
+
+# Use default Dockerfile if one doesn't exist
+if [[ ! -f './Dockerfile' ]]
+then
+  cat './../default/Dockerfile' | \
+    sed "s;__CONSUL_PREFIX__;${CONSUL_PREFIX};" | \
+    sed "s;__CONSUL_SECRET_PREFIX__;${CONSUL_SECRET_PREFIX};" \
+    > $DOCKER_FILE
+fi
+
+DOCKER_IMAGE=${DOCKER_REMOTE}:${IMAGE_TAG}
+
+cd ./../../
+
+# Build
+docker build --rm -t $DOCKER_IMAGE .
+
+# Tag
+docker tag $DOCKER_IMAGE $DOCKER_REMOTE:`git rev-parse HEAD`
+
+docker push $DOCKER_IMAGE
+
+# Cleanup
+rm Dockerfile

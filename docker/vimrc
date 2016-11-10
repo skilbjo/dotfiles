@@ -1,0 +1,35 @@
+syntax on
+set number
+set ruler title laststatus=2 
+set backspace=2
+set list 
+set listchars=tab:▸\ ,eol:¬,nbsp:⋅,trail:•
+set nocompatible
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set hlsearch
+noremap ;             :
+imap ;                 <ESC>:
+let mapleader =       ","
+inoremap …            ;
+inoremap Ú            :
+noremap <C-t>         :tabnew<CR>
+nnoremap <C-w>        :tabclose!<CR>
+noremap  <C-x>        :tabclose!<CR>
+nnoremap –            gT
+nnoremap ≠            gt
+inoremap –            <C-o>gT
+inoremap ≠            <C-o>gt
+nnoremap <leader>t    <C-W>v<C-W>l
+nnoremap n            nzz
+nnoremap N            Nzz
+map <leader>s         :w<CR>
+imap <leader>s        <ESC>:w<CR>
+map <leader>w         :w<CR>
+imap <leader>w        <ESC>:w<CR>
+map <leader>q         :q!<CR>
+imap <leader>q        <ESC>:q!<CR>
+map <leader>x         :x<CR>
+imap <leader>x        <ESC>:x<CR>
