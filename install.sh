@@ -14,11 +14,13 @@ function remove_existing {
   #rm .tmux.conf  ; rm .tmux-osx.conf
   rm .bashrc
   rm .bash_profile
+
   ln -s ~/dev/dotfiles/bash/bashrc .bashrc
   ln -s ~/dev/dotfiles/bash/profile .profile
   ln -s ~/dev/dotfiles/git/gitconfig .gitconfig
   ln -s ~/dev/dotfiles/git/gitignore .gitignore
   ln -s ~/dev/dotfiles/bash/aliases .aliases
+
   mkdir .vim
   ln -s ~/dev/dotfiles/vim/vimrc .vimrc
   ln -s ~/dev/dotfiles/vim/plugins.vim .vim/plugins.vim
@@ -26,6 +28,16 @@ function remove_existing {
   ln -s ~/dev/dotfiles/vim/settings.vim .vim/settings.vim
   ln -s ~/dev/dotfiles/vim/keybindings.vim .vim/keybindings.vim
   ln -s ~/dev/dotfiles/vim/functions.vim .vim/functions.vim
+
+  mkdir ~/.tmux
+  ln -s ~/dev/dotfiles/tmux/tmux.conf ~/.tmux.conf
+  ln -s ~/dev/dotfiles/tmux/keybindings.tmux ~/.tmux/keybindings.tmux
+  ln -s ~/dev/dotfiles/tmux/plugins.tmux ~/.tmux/plugins.tmux
+  ln -s ~/dev/dotfiles/tmux/settings.tmux ~/.tmux/settings.tmux
+  ln -s ~/dev/dotfiles/tmux/theme.tmux ~/.tmux/theme.tmux
+
+  mkdir ~/bin
+  ln -s ~/dev/dotfiles/bin/tm ~/bin/tm
 }
 
 function bash {

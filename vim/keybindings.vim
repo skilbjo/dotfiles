@@ -140,9 +140,6 @@ vnoremap <BS>         d
 noremap  <C-S>        :update<CR>
 vnoremap <C-S>        <C-C>:update<CR>
 inoremap <C-S>        <C-o>:update<CR>
-noremap  <C-q>        :quit<CR>
-vnoremap <C-q>        <C-C>:quit<CR>
-inoremap <C-q>        <C-o>:quit<CR>
 noremap  <C-x>        :exit<CR>
 vnoremap <C-x>        <C-C>:exit<CR>
 inoremap <C-x>        <C-o>:exit<CR>
@@ -150,4 +147,3 @@ inoremap <C-x>        <C-o>:exit<CR>
 
 " -- command-mode mappings ------------------------------------
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
