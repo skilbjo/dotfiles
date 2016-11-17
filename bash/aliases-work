@@ -16,9 +16,7 @@ alias "docker.delete"="function _docker_delete(){ docker images | awk '{print \$
 alias "docker.rm.this"="function _docker_rmi(){ docker images | grep \"$1\" | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi; };_docker_rmi"
 
 # -- Docker Kafka -----------------------------------------------
-alias "docker.kafka.install"="cd ~/dev/finops/ && eval \"$(docker-machine env default)\" && docker-compose up -d"
-alias "docker.kafka.start"="docker start finops_zookeeper_1 finops_kafka_1 finops_schema-registry_1"
-alias "docker.kafka.stop"="docker stop finops_zookeeper_1 finops_kafka_1 finops_schema-registry_1"
+alias "kafka.consumer"='function _(){ kafka-console-consumer --zookeeper docker:2181 --topic $1 --from-beginning;};_'
 alias "docker.kafka.rm"="docker ps -a | grep -v postgres | awk '{print $1}' | grep -v CONTAINER | xargs docker rm"
 
 ## -- Postgres

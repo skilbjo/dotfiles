@@ -26,6 +26,8 @@ source_if_exists "$HOME/.aliases"       # Aliases
 # -- Bash bindings / settings ----------------------------------
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
+bind 'set visible-stats on'
+bind 'set page-completions off'
 
 if [ "$(uname)" == "Darwin" ]; then
   export EVENT_NOKQUEUE=1 # tmux kqueue error
@@ -53,7 +55,7 @@ fi
 # -- computer-specific stuffs -----------------------------------
 work() {
   start_docker
-  export PATH=$PATH:~/Code/Other/kafka08/bin
+  #export PATH=$PATH:~/Code/Other/kafka/bin
   source_if_exists "$HOME/.aws"           # AWS config
   source_if_exists "$HOME/.profilelocal"  # env variables
   source_if_exists "$HOME/.aliases-work"  # Aliases
