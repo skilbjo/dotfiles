@@ -88,7 +88,14 @@ let g:multi_cursor_quit_key='<Esc>'
 " -- Language Spesific -----------------------------------------------
 " -- vim-Fireplace {{{
 nnoremap <Leader>cp :execute "Eval (do (require 'clojure.pprint) (clojure.pprint/pp))"<cr>
-nmap <C-L> [d
+" Below is for dock of function
+nmap ˚ [d
+" Below is for source of function
+nmap ¬ [d
+" Brings up a quasi-repl
+nmap … cqq
+" Evaluates code block
+nmap æ cpp
 " }}}
 
 " -- Clojure-static {{{
