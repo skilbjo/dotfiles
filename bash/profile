@@ -30,28 +30,43 @@ bind 'set completion-ignore-case on'
 bind 'set visible-stats on'
 bind 'set page-completions off'
 
-if [ "$(uname)" == "Darwin" ]; then
-  export EVENT_NOKQUEUE=1 # tmux kqueue error
-  export WORKON_HOME=$HOME/.virtualenvs
-  export PROJECT_HOME=$HOME/Devel
-  source_if_exists /usr/local/bin/virtualenvwrapper.sh
+# -- OS  settings -----------------------------------------------
+osx() {
+  if [ "$(uname)" == "Darwin" ]; then
+    export EVENT_NOKQUEUE=1 # tmux kqueue error
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/Devel
+    source_if_exists /usr/local/bin/virtualenvwrapper.sh
 
-  # -- use ctrl + <Left> / <Right> --------------------------------
-  bind '"\e[5C": forward-word'
-  bind '"\e[5D": backward-word'
-  bind '"\e[1;5C": forward-word'
-  bind '"\e[1;5D": backward-word'
+    # -- use ctrl + <Left> / <Right> ----------------------------
+    bind '"\e[5C": forward-word'
+    bind '"\e[5D": backward-word'
+    bind '"\e[1;5C": forward-word'
+    bind '"\e[1;5D": backward-word'
 
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-      source $(brew --prefix)/etc/bash_completion   # bash-completion
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        source $(brew --prefix)/etc/bash_completion   # bash-completion
+    fi
+
   fi
+}
 
-fi
+linux() {
+  if [ "$(uname)" == "Linux" ]; then
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+    alias ls='ls --color=auto'
+  fi
+}
 
-if [ "$(uname)" == "Linux" ]; then
-  alias pbcopy='xsel --clipboard --input'
-  alias pbpaste='xsel --clipboard --output'
-fi
+os_specific() {
+  case $(uname) in
+    ('Darwin') osx;;
+    ('Linux') linux;;
+  esac
+}
+
+os_specific
 
 # -- computer-specific stuffs -----------------------------------
 work() {
@@ -65,10 +80,6 @@ work() {
   #ssh-add ~/.ssh/id_rsa
 }
 
-skilbjo() {
-  export GPG_TTY=$(tty)
-}
-
 start_docker() {
   if [[ $(docker-machine ls | grep "default" | grep -c "Running") -eq 1 ]]; then
     eval "$(docker-machine env default)"
@@ -76,6 +87,10 @@ start_docker() {
     docker-machine start
     eval "$(docker-machine env default)"
   fi
+}
+
+skilbjo() {
+  export GPG_TTY=$(tty)
 }
 
 computer_specific() {
