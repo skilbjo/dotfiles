@@ -1,4 +1,4 @@
-# -- visual customization -------------------------------------------------- 
+# -- visual customization --------------------------------------------------
 
 ## Status pane, similar to vim papertheme
 set -g status-position top
@@ -48,7 +48,8 @@ setw -g window-status-bell-attr bold
 #setw -g window-status-bell-bg colour1
 
 ### Right
-set -g status-right "#[fg=colour255,bold] ❯ %I:%M.%p ● %F "
+set -g status-right "#[fg=colour255,bold] ❯ %I:%M.%p ● %F #[bg=red]#{s/root//:client_key_table}"
+#set -g status-right "#[bg=red]#{s/root//:client_key_table}"
 #set -g status-right "#[fg=colour255,bold][%I:%M.%p - %a | %F]"
 #set -g status-right "#[fg=colour255,bold][ %a %I:%M.%p ● #[bg=colour67]%F#[bg=colour24] ]"
 #set -g status-right '#[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S '

@@ -5,21 +5,23 @@
 # for examples
 
 # -- path, command prompt ---------------------------------------
-export PS1="\W λ "
+export PS1='\h:\W $ '
+#export PS1='[\u@\h \W]\$ '
+#export PS1="\W λ "
 
 # -- computer-specific stuffs -----------------------------------
 # Work specific pem keys (place pem keys in ~/.ssh
 work() {
-	for file in $(ls ~/.ssh/*.pem); do 
-		ssh-add $file > /dev/null 2>&1;
-	done
+  for file in $(ls ~/.ssh/*.pem); do
+    ssh-add $file > /dev/null 2>&1;
+  done
 }
 
 computer_specific() {
-	case $(whoami) in
-		('john.skilbeck') work;;
-		(skilbjo) ;; 
-	esac
+  case $(whoami) in
+    ('john.skilbeck') work;;
+    (skilbjo) ;;
+  esac
 }
 
 computer_specific
