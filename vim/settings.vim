@@ -1,4 +1,6 @@
 " -- general ----------------------------------------------------
+scriptencoding utf-8
+set encoding=utf-8
 
 syntax on
 set ruler title laststatus=2
