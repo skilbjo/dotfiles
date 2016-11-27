@@ -54,7 +54,7 @@ osx() {
 linux() {
   if [ "$(uname)" == "Linux" ]; then
     echo -en '\E[0;37;40m\E[8]'
-    echo "\033[37;44m\033[8]"
+    #echo "\033[37;44m\033[8]"
     echo -en "\e]PFdedede" #white
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
