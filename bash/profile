@@ -56,8 +56,9 @@ linux() {
     echo -en '\E[0;37;40m\E[8]'
     #echo "\033[37;44m\033[8]"
     echo -en "\e]PFdedede" #white
-    alias pbcopy='xsel --clipboard --input'
-    alias pbpaste='xsel --clipboard --output'
+    ## Xsel and Xclip don't work in virtual terminal
+    #alias pbcopy='xsel --clipboard --input'
+    #alias pbpaste='xsel --clipboard --output'
     alias ls='ls --color=auto'
   fi
   if [ "$TERM" = "linux" ]; then
@@ -77,7 +78,7 @@ linux() {
     echo -en "\e]PEa1cdcd" #cyan
     echo -en "\e]P7ffffff" #lightgrey
     echo -en "\e]PFdedede" #white
-    clear #for background artifacting
+    #clear #for background artifacting
   fi
 }
 
