@@ -22,6 +22,7 @@ function remove_existing {
   ln -s ~/dev/dotfiles/bash/aliases .aliases
 
   mkdir .vim
+  git clone https://github.com/Shougo/neobundle.vim
   ln -s ~/dev/dotfiles/vim/vimrc .vimrc
   ln -s ~/dev/dotfiles/vim/plugins.vim .vim/plugins.vim
   ln -s ~/dev/dotfiles/vim/plugin_settings.vim .vim/plugin_settings.vim
@@ -30,6 +31,7 @@ function remove_existing {
   ln -s ~/dev/dotfiles/vim/functions.vim .vim/functions.vim
 
   mkdir ~/.tmux
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ln -s ~/dev/dotfiles/tmux/tmux.conf ~/.tmux.conf
   ln -s ~/dev/dotfiles/tmux/keybindings.tmux ~/.tmux/keybindings.tmux
   ln -s ~/dev/dotfiles/tmux/plugins.tmux ~/.tmux/plugins.tmux
