@@ -1,4 +1,9 @@
+## Settings
+set -g status-position bottom
 
+## Keybindings
 bind -t vi-copy 'y' copy-pipe 'xclip -in -selection clipboard'
 
-set -g status-position bottom
+## Theme
+set -g status-bg colour110
+
