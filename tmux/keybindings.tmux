@@ -5,8 +5,6 @@ unbind C-b
 set -g prefix `
 bind-key ` send-prefix    # Backtick as prefix
 
-bind-key -n ¡ send-prefix # Nested session alt+1 prefix
-
 ## Command mode toggle.. too damn lazy to hit <shift>
 #bind-key c new-window -n 'bash'
 unbind-key \;
