@@ -11,6 +11,10 @@ setw -g monitor-activity on
 setw -g automatic-rename on               # rename window to reflect current program
 set -g renumber-windows on
 
+# UTF is great, let us use that
+set -g utf8
+set-window-option -g utf8 on
+
 ## Window numbering at 0 (switch w/ prefix+0-9; create w/ prefix+c)
 set -g base-index 1
 set -g pane-base-index 1

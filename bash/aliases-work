@@ -13,9 +13,8 @@ alias "docker.ls"="docker ps --format={{.Names}}"
 alias "docker.show"="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}'"
 alias "docker.stop"="docker ps -qa | xargs docker kill"
 alias "docker.delete-container"="docker ps -qa | xargs docker rm"
-#alias "docker.delete-image"="docker ps -qa | xargs docker rm"
 alias "docker.delete-image"="function _(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_"
-#alias "docker.delete"="function _docker_delete(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_docker_delete"
+#alias "docker.delete-image"="docker ps -qa | xargs docker rm"
 alias "docker.rm.this"="function _docker_rmi(){ docker images | grep \"$1\" | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi; };_docker_rmi"
 
 # -- Docker Kafka -----------------------------------------------
@@ -24,3 +23,6 @@ alias "docker.kafka.rm"="docker ps -a | grep -v postgres | awk '{print $1}' | gr
 
 ## -- Postgres
 alias "psql.dw.run"='function _psql(){ psql "$PRODUCTION_PSQL_URI" -c "$1"; };_psql'
+
+## --  Clojure
+alias lein='LEIN_FAST_TRAMPOLINE=true lein trampoline'

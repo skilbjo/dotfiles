@@ -72,6 +72,8 @@ map <F3>              :call TrimWhiteSpace()<CR>
 map! <F3>             :call TrimWhiteSpace()<CR>
 map <F4>              :retab<CR>
 map! <F4>             :retab<CR>
+map <F9>              :noh<return><esc>
+map! <F9>             :noh<return><esc>
 " }}}
 
 " -- Normal-mode mappings ---------------------------------------
