@@ -80,6 +80,7 @@ linux() {
     #echo -en "\e]PFdedede" #white
     #clear #for background artifacting
   #fi
+  source_if_exists "$HOME/.profilelocal"  # env variables
 }
 
 os_specific() {
@@ -114,12 +115,18 @@ start_docker() {
 
 skilbjo() {
   export GPG_TTY=$(tty)
+  source_if_exists "$HOME/.profilelocal"  # env variables
+}
+
+pi() {
+  source_if_exists "$HOME/.profilelocal"  # env variables
 }
 
 computer_specific() {
   case $(whoami) in
     ('john.skilbeck') work;;
     (skilbjo) skilbjo;;
+    (pi) pi;;
   esac
 }
 

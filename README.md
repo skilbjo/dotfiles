@@ -61,6 +61,9 @@ or, with a `--syslog` tag:
     VBoxManage modifyvm default --memory 4096
     docker-machine start
 
+#### Helpful commands when testing on UAT
+    sudo docker rmi --force $(sudo docker images | grep intuit | awk '{print $3}')
+
 ### Kafka
 #### Grab data from a kafka topic:
     $ kafka-console-consumer --zookeeper zookeeper.service.consul --topic opportunity-soap-untrusted --from-beginning > opportunitysoap.xml

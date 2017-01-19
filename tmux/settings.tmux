@@ -12,8 +12,8 @@ setw -g automatic-rename on               # rename window to reflect current pro
 set -g renumber-windows on
 
 # UTF is great, let us use that
-set -g utf8
-set-window-option -g utf8 on
+#set -g utf8
+#set-window-option -g utf8 on
 
 ## Window numbering at 0 (switch w/ prefix+0-9; create w/ prefix+c)
 set -g base-index 1
