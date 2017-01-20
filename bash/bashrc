@@ -5,15 +5,17 @@
 # for examples
 # colors:$ for i in $(seq 0 7); do tput setaf $i && echo "$i - color"; done
 
-black="\[$(tput setaf 0)\]"
-red="\[$(tput setaf 1)\]"
-green="\[$(tput setaf 2)\]"
-yellow="\[$(tput setaf 3)\]"
-blue="\[$(tput setaf 4)\]"
-pink="\[$(tput setaf 5)\]"
-teal="\[$(tput setaf 6)\]"
-grey="\[$(tput setaf 7)\]"
-off="\[$(tput sgr0)\]"
+if [[ $- == *i* ]]; then
+  black="\[$(tput setaf 0)\]"
+  red="\[$(tput setaf 1)\]"
+  green="\[$(tput setaf 2)\]"
+  yellow="\[$(tput setaf 3)\]"
+  blue="\[$(tput setaf 4)\]"
+  pink="\[$(tput setaf 5)\]"
+  teal="\[$(tput setaf 6)\]"
+  grey="\[$(tput setaf 7)\]"
+  off="\[$(tput sgr0)\]"
+fi
 
 # -- path, command prompt ---------------------------------------
 export PS1="${red}@\h${off}:${yellow}\W ${off}$ "

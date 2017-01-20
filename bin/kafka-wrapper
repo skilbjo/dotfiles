@@ -1,0 +1,94 @@
+#!/bin/sh
+
+BROKER_LIST=kafka.service.consul:9092
+ZOOKEEPER_CONNECT=zookeeper.service.consul:2181
+
+function create_topic () {
+    kafka-topics --zookeeper $ZOOKEEPER_CONNECT \
+                 --create \
+                 --config retention.ms=2000 \
+                 --partitions 1 \
+                 --replication-factor 3 \
+                 --topic $1 \
+                 "${@:2}"
+}
+
+function delete_topic () {
+    kafka-topics --zookeeper $ZOOKEEPER_CONNECT \
+                 --delete \
+                 --topic $1
+}
+
+function list_topics () {
+    kafka-topics --zookeeper $ZOOKEEPER_CONNECT \
+                 --list
+}
+
+function test_produce () {
+    kafka-console-producer --broker-list $BROKER_LIST \
+                           --topic $1
+}
+
+function test_produce () {
+    kafka-avro-console-producer --broker-list $BROKER_LIST \
+                                --topic $1
+}
+
+# Consumers
+
+function consume () {
+    kafka-console-consumer --new-consumer \
+                           --bootstrap-server $BROKER_LIST \
+                           --property print.key=true \
+                           --topic $1 \
+                           "${@:2}"
+}
+
+function avro_consume () {
+    kafka-avro-console-consumer --new-consumer \
+                                --bootstrap-server $BROKER_LIST    \
+                                --property schema.registry.url=http://schema-registry.service.consul \
+                                --topic $1 \
+                                "${@:2}"
+}
+
+# Consumer groups
+function consumer_groups () {
+    kafka-consumer-groups --new-consumer \
+                          --bootstrap-server $BROKER_LIST \
+                          "$@"
+}
+
+# Old consumers
+
+function old_consume () {
+    kafka-console-consumer --zookeeper $ZOOKEEPER_CONNECT \
+                           --property print.key=true \
+                           --topic $1 \
+                           "${@:2}"
+
+}
+
+function old_avro_consume () {
+    kafka-avro-console-consumer --zookeeper $ZOOKEEPER_CONNECT \
+                                --property schema.registry.url=http://schema-registry.service.consul \
+                                --topic $1 \
+                                "${@:2}"
+
+}
+
+function describe () {
+    kafka-topics --zookeeper $ZOOKEEPER_CONNECT \
+                 --describe \
+                 --topic $1
+}
+
+# From http://dayooliyide.com/post/kafka-consumer-offsets-topic/
+function consume_offsets () {
+    echo "exclude.internal.topics=false" > /tmp/offset_consumer.config
+    kafka-console-consumer --consumer.config /tmp/offset_consumer.config \
+                           --formatter "kafka.coordinator.GroupMetadataManager\$OffsetsMessageFormatter" \
+                           --zookeeper $ZOOKEEPER_CONNECT \
+                           --topic __consumer_offsets \
+                           "$@"
+}
