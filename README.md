@@ -45,6 +45,12 @@ or, with a `--syslog` tag:
     ls -l -t | tail -n 2 | head -2
     for i in {1..7}; do cd ..; done
 
+#### Searching for words in code
+    grep -rn my_search_dir -e my_search_term
+
+#### Searching for folders named [search term]
+    find / -type d -name '*openvpn*' -print
+
 ### Linux
 #### (Debian/CentOS/Ubunto/macOS) See currently running jobs/threads
     ps -eo size,pid,user,command --sort -size | awk '{ hr=$1/1024 ; printf("%13.2f Mb ",hr) } { for ( x=2 ; x<=NF ; x++ ) { printf("%s ",$x) } print "" }'
@@ -87,6 +93,11 @@ or
 
 #### Change retention time:
     $ kafka-configs --zookeeper zookeeper.service.consul:2181 --alter --entity-type topics --entity-name opportunity-updated --add-config retention.ms=3000000000000
+
+#### Delete a zombie topic w/ Zookeeper
+    ssh zookeeper-3
+    /opt/mesosphere/zookeeper/bin/zkCli.sh
+    rmr /brokers/topics/dnb-joined-file-prepped-pre-release-1
 
 ### Git
 #### Feature branch out of sync with latest remote/master:
