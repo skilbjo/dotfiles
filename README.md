@@ -45,9 +45,20 @@ or, with a `--syslog` tag:
     ls -l -t | tail -n 2 | head -2
     for i in {1..7}; do cd ..; done
 
+### Linux
+#### (Debian/CentOS/Ubunto/macOS) See currently running jobs/threads
+    ps -eo size,pid,user,command --sort -size | awk '{ hr=$1/1024 ; printf("%13.2f Mb ",hr) } { for ( x=2 ; x<=NF ; x++ ) { printf("%s ",$x) } print "" }'
+
+#### (Alpine) See currently running jobs/threads
+    ps -o pid,user,rss,comm,args
+
 ### Docker
 #### SSH into a Docker container
     $ docker -u root exec -it <container-id> bash
+
+or
+
+    $ docker exec -it [container_id] bash [or sh]
 
 #### Create a docker container that can run other docker containers (docker-in-docker)
     docker run --privileged -t -i jpetazzo/dind
@@ -85,4 +96,7 @@ or, with a `--syslog` tag:
 #### Run Heroku Force
     $ docker run -e "SALESFORCE_USER=$SALESFORCE_USER" -e "SALESFORCE_PASSWORD=$SALESFORCE_PASSWORD" quay.io/fundingcircle/heroku-force "select applicant_email__c, decline_codes__c from Opportunity limit 5" | uniq -c | sort
 
+### UAT / Staging / Prod Mesos environments
+
+    $ for host in $(consul members | grep mesosslave-private | awk '{print $1}'); do ssh $host -t "sudo docker ps | head -n1"; done
 
