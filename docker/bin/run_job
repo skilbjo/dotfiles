@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+BASE_CMD="/usr/bin/envconsul-launch -once -prefix ${CONSUL_PREFIX} -secret-no-prefix=${CONSUL_SECRET_PREFIX}"
+CMD="$BASE_CMD src/monitor"
+
+exec $CMD $@

@@ -5,7 +5,7 @@ alias "docker.psql.start"="docker start postgres"
 alias "docker.psql.stop"="docker stop postgres"
 
 # -- Docker -----------------------------------------------------
-alias "docker.start"="docker-machine start default; eval '$(docker-machine env default)'"
+alias "docker.start"="docker-machine start default; eval $(docker-machine env default)"
 alias "docker.eval"="eval $(docker-machine env default)"
 alias "ssh.docker"="echo 'password is \`tcuser\`'; ssh docker@$(docker-machine ip default)"
 alias "docker.ssh"="docker-machine ssh default"

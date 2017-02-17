@@ -81,6 +81,9 @@ or
 #### Helpful commands when testing on UAT
     sudo docker rmi --force $(sudo docker images | grep intuit | awk '{print $3}')
 
+#### Running the container
+    sudo docker run -it --rm -e VAULT_TOKEN=$(vault_token_for us_data_monitoring) quay.io/fundingcircle/us-data-monitoring bash
+
 ### Kafka
 #### Grab data from a kafka topic:
     $ kafka-console-consumer --zookeeper zookeeper.service.consul --topic opportunity-soap-untrusted --from-beginning > opportunitysoap.xml
@@ -109,5 +112,14 @@ or
 
 ### UAT / Staging / Prod Mesos environments
 
+#### Gimme a mesosslave
+    consul members | grep mesosslave | awk '{print $1}' | head -n1 | xargs ssh
+
+#### Search for if Docker is running correctly on all the mesosslaves
     $ for host in $(consul members | grep mesosslave-private | awk '{print $1}'); do ssh $host -t "sudo docker ps | head -n1"; done
 
+#### Launch Docker container manually
+    sudo docker run -it --rm -e VAULT_TOKEN=$(vault_token_for my_app) quay.io/fundingcircle/my_app bash
+
+#### Delete locally cached Docker image (force pull)
+    sudo docker images | awk
