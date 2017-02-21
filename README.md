@@ -122,4 +122,4 @@ or
     sudo docker run -it --rm -e VAULT_TOKEN=$(vault_token_for my_app) quay.io/fundingcircle/my_app bash
 
 #### Delete locally cached Docker image (force pull)
-    sudo docker images | awk
+    sudo docker rmi --force $(sudo docker images | grep my_app | awk '{print $3}')
