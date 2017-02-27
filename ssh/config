@@ -1,0 +1,8 @@
+Host my_alias
+  User my_user
+  ForwardAgent yes
+  RequestTTY force
+  IdentityFile ~/.ssh/id_rsa
+  Hostname my_hostname
+
+

@@ -1,6 +1,9 @@
-#!/bin/sh 
+#!/bin/bash
 
-[ "$TMUX" == "" ] || exit 0
+#[ "$TMUX" == "" ] || exit 0
+if [ ! -z "$TMUX" ]; then
+  echo "No nested tmux sessions" && exit 1
+fi
 
 PS3="Choose your session: "
 options=($(tmux list-sessions -F "#S" 2>/dev/null) "New Session")
@@ -9,17 +12,16 @@ echo "Available sessions"
 echo "------------------"
 echo " "
 
-select opt in "${options[@]}"
-do
-	case $opt in
-		"New Session")
-			read -p "Enter new session name: " SESSION_NAME
-			tmux new -s "$SESSION_NAME" -n 'root'
-			break
-			;;
-		*)
-			tmux attach-session -t $opt
-			break
-			;;
-	esac
+select opt in "${options[@]}"; do
+  case $opt in
+    "New Session")
+      read -p "Enter new session name: " SESSION_NAME
+      tmux new -s "$SESSION_NAME" -n 'root'
+      break
+      ;;
+    *)
+      tmux attach-session -t $opt
+      break
+      ;;
+  esac
 done

@@ -4,8 +4,11 @@ Dropbox + github workflow for environment standardization
 ## Vim
 ### OS X / Terminal.app config
 Add these keycodes to the Terminal profile:
+
     ⇧↑ \033[1;2A
     ⇧↓ \033[1;2B
+
+<img src="./lib/terminal.app.png" alt="terminal.app">
 
 ### Show keycodes
   - `$ xxd`

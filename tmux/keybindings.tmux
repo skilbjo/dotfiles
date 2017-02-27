@@ -12,7 +12,9 @@ bind-key \; command-prompt
 
 ## Tabbing through windows
 bind ` select-pane -t :.+                 # quick pane cycling
-bind -n ˜ select-pane -t :.+                 # quick pane cycling
+
+## For Linux, prefix is: for nested sessions
+bind -n ˜ select-pane -t :.+              # quick pane cycling
 bind | split-window -h -c "#{pane_current_path}"    # bind % split-window
 bind _ split-window -v -c "#{pane_current_path}"    # bind '"' split-window -h
 bind = select-window -t :+
@@ -40,6 +42,7 @@ bind X kill-window
 ## Vim Keybindings
 unbind p
 unbind P
+unbind 9
 setw -g mode-keys vi
 bind p paste-buffer
 bind-key -t vi-copy 'v' begin-selection
