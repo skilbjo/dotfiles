@@ -20,6 +20,17 @@ Add these keycodes to the Terminal profile:
 ### Show used key mappings
 `ack ctrl- | perl -ne 'm/(CTRL-.?)/g; print $1."\n";' | sort| uniq`
 
+## Tmux
+###Reverse shell
+[in tmux session on local host]
+
+    ssh -p 143 -R 1234:localhost:22 router.
+
+[in tmux session on remote host, prefix is alt+1 + [ for remote copy mode]
+[select some text]
+
+    tmux save-buffer - | ssh -p 1234 localhost pbcopy
+
 ## Linked programs
 - [vim](https://github.com/vim/vim)
 - [tmux](https://github.com/tmux/tmux)
