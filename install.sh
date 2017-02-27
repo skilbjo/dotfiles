@@ -37,6 +37,8 @@ function remove_existing {
   ln -s ~/dev/dotfiles/tmux/plugins.tmux ~/.tmux/plugins.tmux
   ln -s ~/dev/dotfiles/tmux/settings.tmux ~/.tmux/settings.tmux
   ln -s ~/dev/dotfiles/tmux/theme.tmux ~/.tmux/theme.tmux
+  ln -s ~/dev/dotfiles/tmux/osx.tmux ~/.tmux/osx.tmux
+  ln -s ~/dev/dotfiles/tmux/linux.tmux ~/.tmux/linux.tmux
 
   mkdir ~/bin
   ln -s ~/dev/dotfiles/bin/tm ~/bin/tm
