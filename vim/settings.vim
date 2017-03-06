@@ -60,4 +60,6 @@ autocmd VimLeave * silent !stty ixon
 
 autocmd BufWritePre * :call TrimWhiteSpace()
 autocmd BufWritePre * :retab()
+" Indent on save hook
+"autocmd BufWritePre <buffer> :call Indent()
 

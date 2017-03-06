@@ -29,6 +29,17 @@ function remove_existing {
   ln -s ~/dev/dotfiles/vim/settings.vim .vim/settings.vim
   ln -s ~/dev/dotfiles/vim/keybindings.vim .vim/keybindings.vim
   ln -s ~/dev/dotfiles/vim/functions.vim .vim/functions.vim
+  # Arch Linux
+  ln -s ~/dev/dotfiles/vim/after/ftplugin/python.vim .vim/after/ftplugin/python.vim
+  ln -s ~/dev/dotfiles/vim/after/ftplugin/clojure.vim .vim/after/ftplugin/clojure.vim
+  # macOS-work
+  ln -s ~/Dropbox/dotfiles/vim/after/ftplugin/python.vim ~/.vim/after/ftplugin/python.vim
+  ln -s ~/Dropbox/dotfiles/vim/after/ftplugin/clojure.vim ~/.vim/after/ftplugin/clojure.vim
+  # macOS-personal
+  ln -s ~/Documents/Dropbox/dotfiles/vim/after/ftplugin/python.vim ~/.vim/after/ftplugin/python.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/after/ftplugin/clojure.vim ~/.vim/after/ftplugin/clojure.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/after/ftplugin/sh.vim ~/.vim/after/ftplugin/sh.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/after/ftplugin/sql.vim ~/.vim/after/ftplugin/sql.vim
 
   mkdir ~/.tmux
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

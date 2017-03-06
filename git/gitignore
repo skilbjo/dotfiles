@@ -28,13 +28,16 @@ node_modules
 
 # -- python -----------------------------------------------------
 *.egg-info/
+.pynb_checkpoints/
 
 # -- clojure ----------------------------------------------------
+.lein-env
 .lein-failures
 .lein-repl-history
 .nrepl-port
 repl-port
 repl-history
+target/
 
 # -- misc -------------------------------------------------------
 .dropbox
