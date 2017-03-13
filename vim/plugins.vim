@@ -38,7 +38,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 "" Lanugage specific
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'tpope/vim-fireplace'
-NeoBundle 'venantius/vim-cljfmt'
+"NeoBundle 'venantius/vim-cljfmt'
 NeoBundle 'tpope/vim-salve'
 NeoBundle 'venantius/vim-eastwood'
 "NeoBundle 'vim-scripts/paredit.vim'

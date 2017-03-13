@@ -93,10 +93,10 @@ or
     docker-machine start
 
 #### Helpful commands when testing on UAT
-    sudo docker rmi --force $(sudo docker images | grep intuit | awk '{print $3}')
+    sudo docker rmi --force $(sudo docker images | grep monitoring | awk '{print $3}')
 
 #### Running the container
-    sudo docker run -it --rm -e VAULT_TOKEN=$(vault_token_for us_data_monitoring) quay.io/fundingcircle/us-data-monitoring bash
+    sudo docker run -it --rm -e VAULT_TOKEN=$(vault_token_for us_datawarehouse_monitoring) quay.io/fundingcircle/us-datawarehouse-monitoring bash
 
 ### Kafka
 #### Grab data from a kafka topic:
