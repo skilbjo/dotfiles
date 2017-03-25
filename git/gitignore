@@ -29,6 +29,7 @@ node_modules
 # -- python -----------------------------------------------------
 *.egg-info/
 .pynb_checkpoints/
+.ipynb_checkpoints/
 
 # -- clojure ----------------------------------------------------
 .lein-env
