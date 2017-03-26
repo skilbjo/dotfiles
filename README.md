@@ -72,6 +72,16 @@ or, with a `--syslog` tag:
 #### (Alpine) See currently running jobs/threads
     ps -o pid,user,rss,comm,args
 
+### SSH
+#### Send a file from local to remote (if scp isn't working)
+    cat ubuntu.deb | ssh -p 43 router. "cat > ~/ubuntu.deb"
+
+#### Send a file from remote to local
+    ssh pi1 'cat /tmp/remotefile.conf' > file.conf
+
+#### SCP from local to remote
+    scp ubuntu.deb pi1:~/ubuntu.deb
+
 ### Docker
 #### SSH into a Docker container
     $ docker -u root exec -it <container-id> bash
