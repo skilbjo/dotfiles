@@ -20,6 +20,7 @@ function remove_existing {
   ln -s ~/dev/dotfiles/git/gitconfig .gitconfig
   ln -s ~/dev/dotfiles/git/gitignore .gitignore
   ln -s ~/dev/dotfiles/bash/aliases .aliases
+  ln -s ~/dev/dotfiles/bash/aliases-work .aliases-work
 
   mkdir .vim
   git clone https://github.com/Shougo/neobundle.vim

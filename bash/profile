@@ -115,7 +115,9 @@ start_docker() {
 
 skilbjo() {
   export GPG_TTY=$(tty)
+  start_docker
   source_if_exists "$HOME/.profilelocal"  # env variables
+  source_if_exists "$HOME/.aliases-work"  # Aliases
 }
 
 pi() {
