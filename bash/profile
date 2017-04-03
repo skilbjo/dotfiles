@@ -7,7 +7,7 @@
 # see /usr/share/doc/bash/examples/startup-files for examples.
 
 if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
+  source ~/.bashrc
 fi
 
 # -- path, command prompt ---------------------------------------
@@ -15,7 +15,7 @@ export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X
 
 # -- helpful functions ------------------------------------------
 source_if_exists() {
-    [[ -f $1 ]] && source $1
+  [[ -f $1 ]] && source $1
 }
 
 # -- environment vars & dotfiles --------------------------------
@@ -32,23 +32,23 @@ bind 'set page-completions off'
 
 # -- OS  settings -----------------------------------------------
 osx() {
-  if [ "$(uname)" == "Darwin" ]; then
-    export EVENT_NOKQUEUE=1 # tmux kqueue error
-    export WORKON_HOME=$HOME/.virtualenvs
-    export PROJECT_HOME=$HOME/Devel
-    source_if_exists /usr/local/bin/virtualenvwrapper.sh
+  export EVENT_NOKQUEUE=1                         # tmux kqueue error
+  export WORKON_HOME=$HOME/.virtualenvs
+  export PROJECT_HOME=$HOME/Devel
 
-    # -- use ctrl + <Left> / <Right> ----------------------------
-    bind '"\e[5C": forward-word'
-    bind '"\e[5D": backward-word'
-    bind '"\e[1;5C": forward-word'
-    bind '"\e[1;5D": backward-word'
+  # -- use ctrl + <Left> / <Right> ----------------------------
+  bind '"\e[5C": forward-word'
+  bind '"\e[5D": backward-word'
+  bind '"\e[1;5C": forward-word'
+  bind '"\e[1;5D": backward-word'
 
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        source $(brew --prefix)/etc/bash_completion   # bash-completion
-    fi
+  source_if_exists /usr/local/bin/virtualenvwrapper.sh
 
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    source $(brew --prefix)/etc/bash_completion   # bash-completion
   fi
+
+  start_docker
 }
 
 linux() {
@@ -115,7 +115,6 @@ start_docker() {
 
 skilbjo() {
   export GPG_TTY=$(tty)
-  start_docker
   source_if_exists "$HOME/.profilelocal"  # env variables
   source_if_exists "$HOME/.aliases-work"  # Aliases
 }
