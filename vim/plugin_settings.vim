@@ -29,6 +29,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 ""}}}
 
 " -- PaperColor
+set t_Co=256                      " only needed for vim in docker
 set background=light
 let g:PaperColor_Light_Override = { 'background' : '#ffffff' }
 colorscheme PaperColor
