@@ -7,7 +7,7 @@ RUN apk update && \
     apk add postgresql-client && \
     apk add postfix mutt && \
     apk add tzdata && \
-    apk add bash bash-completion curl vim && \
+    apk add bash bash-completion curl vim openssh && \
     apk add coreutils bc && \
     /bin/sh && ln -sf /bin/bash /bin/sh && \
     /bin/ash && ln -sf /bin/bash /bin/ash && \

@@ -18,6 +18,15 @@ source_if_exists() {
   [[ -f $1 ]] && source $1
 }
 
+start_docker() {
+  if [[ $(docker-machine ls | grep "default" | grep -c "Running") -eq 1 ]]; then
+    eval "$(docker-machine env default)"
+  else
+    docker-machine start
+    eval "$(docker-machine env default)"
+  fi
+}
+
 # -- environment vars & dotfiles --------------------------------
 export EDITOR=vim
 export LESS='-i-P%f (%i/%m) Line %lt/%L'
@@ -32,6 +41,10 @@ bind 'set page-completions off'
 
 # -- OS  settings -----------------------------------------------
 osx() {
+  # -- fns ------------------------------------------------------
+  start_docker
+
+  # -- env vars -------------------------------------------------
   export EVENT_NOKQUEUE=1                         # tmux kqueue error
   export WORKON_HOME=$HOME/.virtualenvs
   export PROJECT_HOME=$HOME/Devel
@@ -42,25 +55,24 @@ osx() {
   bind '"\e[1;5C": forward-word'
   bind '"\e[1;5D": backward-word'
 
+  # -- virtualenvwrapper --------------------------------------
   source_if_exists /usr/local/bin/virtualenvwrapper.sh
 
+  # -- bash completion ----------------------------------------
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion   # bash-completion
   fi
-
-  start_docker
 }
 
 linux() {
+  # -- linux-specific aliases ---------------------------------
   if [ "$(uname)" == "Linux" ]; then
-    #echo -en '\E[0;37;40m\E[8]'
-    #echo "\033[37;44m\033[8]"
-    #echo -en "\e]PFdedede" #white
-    ## Xsel and Xclip don't work in virtual terminal
-    #alias pbcopy='xsel --clipboard --input'
+    #alias pbcopy='xsel --clipboard --input'     ## Xsel and Xclip don't work in virtual terminal
     #alias pbpaste='xsel --clipboard --output'
     alias ls='ls --color=auto'
   fi
+
+  # -- virtual terminal (box connected to monitor) ------------
   #if [ "$TERM" = "linux" ]; then
     #echo -en "\e]P0222222" #black
     #echo -en "\e]P8222222" #darkgrey
@@ -80,7 +92,6 @@ linux() {
     #echo -en "\e]PFdedede" #white
     #clear #for background artifacting
   #fi
-  source_if_exists "$HOME/.profilelocal"  # env variables
 }
 
 os_specific() {
@@ -94,32 +105,30 @@ os_specific
 
 # -- computer-specific stuffs -----------------------------------
 work() {
-  start_docker
-  #export PATH=$PATH:~/Code/Other/kafka/bin
+  # -- fns ----------------------------------------------------
+
+  # -- files --------------------------------------------------
   source_if_exists "$HOME/.aws"           # AWS config
   source_if_exists "$HOME/.profilelocal"  # env variables
   source_if_exists "$HOME/.aliases-work"  # Aliases
 
-  #Uncomment for the below to add personal pem key everytime a shell launches
-  #ssh-add ~/.ssh/id_rsa
-}
-
-start_docker() {
-  if [[ $(docker-machine ls | grep "default" | grep -c "Running") -eq 1 ]]; then
-    eval "$(docker-machine env default)"
-  else
-    docker-machine start
-    eval "$(docker-machine env default)"
-  fi
+  # Add password-protected id_rsa key
+  ssh-add ~/.ssh/id_rsa
 }
 
 skilbjo() {
-  export GPG_TTY=$(tty)
+  #export GPG_TTY=$(tty)
+
+  # -- files --------------------------------------------------
   source_if_exists "$HOME/.profilelocal"  # env variables
   source_if_exists "$HOME/.aliases-work"  # Aliases
+
+  # Add password-protected id_rsa key
+  ssh-add ~/.ssh/id_rsa
 }
 
 pi() {
+  # -- files --------------------------------------------------
   source_if_exists "$HOME/.profilelocal"  # env variables
 }
 
