@@ -1,5 +1,5 @@
 # -- Docker PSQL ------------------------------------------------
-alias "docker.psql.install"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
+alias "docker.psql.get"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
 alias "docker.psql.start"="docker start postgres"
 alias "docker.psql.stop"="docker stop postgres"
 
@@ -22,5 +22,5 @@ alias "kafka.consumer"='function _(){ kafka-console-consumer --zookeeper docker:
 alias "psql.dw.run"='function _psql(){ psql "$PRODUCTION_PSQL_URI" -c "$1"; };_psql'
 
 ## --  Clojure
-#alias lein='LEIN_FAST_TRAMPOLINE=true lein trampoline'
+alias llein='LEIN_FAST_TRAMPOLINE=true lein trampoline'
 alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'

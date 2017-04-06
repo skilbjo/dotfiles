@@ -2,8 +2,7 @@
 
 # -- docs -------------------------------------------------------
 # ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login exists.
 # see /usr/share/doc/bash/examples/startup-files for examples.
 
 if [ -f ~/.bashrc ]; then
@@ -43,6 +42,13 @@ bind 'set page-completions off'
 osx() {
   # -- fns ------------------------------------------------------
   start_docker
+
+  # -- alias ----------------------------------------------------
+  alias "docker.psql.get"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
+  alias "docker.psql.start"="docker start postgres"
+  alias "docker.psql.stop"="docker stop postgres"
+  alias "docker.rm-container"="docker ps -qa | xargs docker rm"
+  alias "docker.rmi"="function _(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_"
 
   # -- env vars -------------------------------------------------
   export EVENT_NOKQUEUE=1                         # tmux kqueue error
@@ -113,12 +119,10 @@ work() {
   source_if_exists "$HOME/.aliases-work"  # Aliases
 
   # Add password-protected id_rsa key
-  ssh-add ~/.ssh/id_rsa
+  #ssh-add ~/.ssh/id_rsa
 }
 
 skilbjo() {
-  #export GPG_TTY=$(tty)
-
   # -- files --------------------------------------------------
   source_if_exists "$HOME/.profilelocal"  # env variables
   source_if_exists "$HOME/.aliases-work"  # Aliases
