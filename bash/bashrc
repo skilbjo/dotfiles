@@ -42,10 +42,16 @@ skilbjo() {
   ssh-add ~/.ssh/id_rsa
 }
 
+root() {
+  #[root@pi1 ~]# exit
+  export PS1="[${black}\u${red}@\h${off}:${yellow}\W ${off}]# "
+}
+
 computer_specific() {
   case $(whoami) in
     ('john.skilbeck') ;;
     (skilbjo) ;;
+    (root) root ;;
     #('john.skilbeck') work ;;
     #(skilbjo) skilbjo ;;
   esac

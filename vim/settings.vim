@@ -46,11 +46,24 @@ set gdefault
 set incsearch
 set hlsearch
 
-" -- window size ------------------------------------------------
+" -- window appearance ------------------------------------------
 " set winheight=5
 " set winheight=999
 " set winminheight=5
 
+if exists('+colorcolumn')
+  set colorcolumn=80   "Show margin
+endif
+
+" -- ftplugin - detect syntax -----------------------------------
+augroup filetypedetect
+    au BufRead,BufNewFile *.mips setfiletype conf
+    " associate *.foo with php filetype
+augroup END
+
+augroup filetypedetect
+    au BufRead,BufNewFile *.mips set filetype=conf
+  augroup END
 
 " -- functions on open / close ----------------------------------
 " Allow us to use Ctrl-s and Ctrl-q as keybinds

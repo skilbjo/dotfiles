@@ -22,6 +22,7 @@ function remove_existing {
   ln -s ~/dev/dotfiles/bash/aliases .aliases
   ln -s ~/dev/dotfiles/bash/aliases-work .aliases-work
 
+  # user
   mkdir .vim
   git clone https://github.com/Shougo/neobundle.vim
   ln -s ~/dev/dotfiles/vim/vimrc .vimrc
@@ -30,6 +31,18 @@ function remove_existing {
   ln -s ~/dev/dotfiles/vim/settings.vim .vim/settings.vim
   ln -s ~/dev/dotfiles/vim/keybindings.vim .vim/keybindings.vim
   ln -s ~/dev/dotfiles/vim/functions.vim .vim/functions.vim
+
+  # root
+  ln -s /home/skilbjo/dev/dotfiles/bash/bashrc .bashrc
+  mkdir .vim
+  git clone https://github.com/Shougo/neobundle.vim
+  ln -s /home/skilbjo/dev/dotfiles/vim/vimrc .vimrc
+  ln -s /home/skilbjo/dev/dotfiles/vim/plugins.vim .vim/plugins.vim
+  ln -s /home/skilbjo/dev/dotfiles/vim/plugin_settings.vim .vim/plugin_settings.vim
+  ln -s /home/skilbjo/dev/dotfiles/vim/settings.vim .vim/settings.vim
+  ln -s /home/skilbjo/dev/dotfiles/vim/keybindings.vim .vim/keybindings.vim
+  ln -s /home/skilbjo/dev/dotfiles/vim/functions.vim .vim/functions.vim
+
   # Arch Linux
   ln -s ~/dev/dotfiles/vim/after/ftplugin/python.vim .vim/after/ftplugin/python.vim
   ln -s ~/dev/dotfiles/vim/after/ftplugin/clojure.vim .vim/after/ftplugin/clojure.vim
