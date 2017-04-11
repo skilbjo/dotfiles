@@ -44,7 +44,7 @@ skilbjo() {
 
 root() {
   #[root@pi1 ~]# exit
-  export PS1="[${black}\u${red}@\h${off}:${yellow}\W ${off}]# "
+  export PS1="[${black}\u@\h:${yellow}\W ${off}]# "
 }
 
 computer_specific() {
