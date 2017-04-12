@@ -44,11 +44,15 @@ osx() {
   start_docker
 
   # -- alias ----------------------------------------------------
+  ## - docker --------
   alias "docker.psql.get"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
   alias "docker.psql.start"="docker start postgres"
   alias "docker.psql.stop"="docker stop postgres"
   alias "docker.rm-container"="docker ps -qa | xargs docker rm"
   alias "docker.rmi"="function _(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_"
+  ## - clojure -------
+  alias llein='LEIN_FAST_TRAMPOLINE=true lein trampoline'
+  alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'
 
   # -- env vars -------------------------------------------------
   export EVENT_NOKQUEUE=1                         # tmux kqueue error
