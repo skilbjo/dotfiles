@@ -22,7 +22,17 @@ if [[ $- == *i* ]]; then
 fi
 
 # -- computer-specific stuffs -----------------------------------
+skilbjo() {
+  # -- path, command prompt ---------------------------------------
+  export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
+  #export PS1='[\u@\h \W]\$ '
+  #export PS1="\W λ "
+}
+
 work() {
+  # -- path, command prompt ---------------------------------------
+  export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
+
   # Add pem files to keychain
   for file in $(ls ~/.ssh/*.pem); do
     ssh-add $file > /dev/null 2>&1;
@@ -39,16 +49,11 @@ root() {
 
 computer_specific() {
   case $(whoami) in
-    ('john.skilbeck') ;;
-    (skilbjo) ;;
+    ('john.skilbeck') work ;;
+    (skilbjo) skilbjo ;;
     (root) root ;;
   esac
 }
 
 computer_specific
-
-# -- path, command prompt ---------------------------------------
-export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
-#export PS1='[\u@\h \W]\$ '
-#export PS1="\W λ "
 
