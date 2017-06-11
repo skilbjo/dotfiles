@@ -5,7 +5,6 @@ set -g default-terminal "xterm-256color"  # colors!
 setw -g xterm-keys on                     # everything xterm
 set -s escape-time 0                      # fastest command sequences
 set -sg repeat-time 600                   # increase repeat timeout
-set -s quiet on                           # disable various messages
 set -g visual-activity on
 setw -g monitor-activity on
 setw -g automatic-rename on               # rename window to reflect current program
@@ -24,8 +23,6 @@ unbind p
 unbind P
 setw -g mode-keys vi
 bind p paste-buffer
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
 
 ## Enable mouse
 set -g mouse on
