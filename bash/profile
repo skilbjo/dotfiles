@@ -15,9 +15,9 @@ export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X
 
 # -- helpful functions ------------------------------------------
 source_if_exists() {
-  #set +u
+  set +u
   [[ -f $1 ]] && source $1
-  #set -u
+  set -u
 }
 
 set -u
