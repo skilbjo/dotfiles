@@ -45,13 +45,13 @@ osx() {
 
   # -- alias ----------------------------------------------------
   ## - docker --------
-  alias "docker.psql.get"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
-  alias "docker.psql.start"="docker start postgres"
-  alias "docker.psql.stop"="docker stop postgres"
-
   alias "ssh.docker"="echo 'password is \`tcuser\`'; ssh docker@$(docker-machine ip default)"
   alias "docker.ssh"="docker-machine ssh default"
   alias "docker.ls"="docker ps -a --format='table {{.ID}}\t{{.Image}}'"
+
+  alias "docker.psql.get"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
+  alias "docker.psql.start"="docker start postgres"
+  alias "docker.psql.stop"="docker stop postgres"
 
   alias "docker.rm-container"="docker ps -qa | xargs docker rm"
   alias "docker.rmi"="function _(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_"
@@ -135,13 +135,12 @@ work() {
 skilbjo() {
   # -- files --------------------------------------------------
   source_if_exists "$HOME/.profilelocal"  # env variables
-  source_if_exists "$HOME/.aliases-work"  # Aliases
 
   # Add password-protected id_rsa key
-  if [[ $(ps aux | grep ssh-agent | wc -l) -le 1 ]]; then
+  if [[ $(ps aux | grep ssh-agent | wc -l) -lt 1 ]]; then
     eval $(ssh-agent -s)
+    ssh-add ~/.ssh/id_rsa
   fi
-  ssh-add ~/.ssh/id_rsa
 }
 
 pi() {
