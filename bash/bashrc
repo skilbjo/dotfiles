@@ -26,7 +26,6 @@ export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
 #export PS1="\W λ "
 
 # -- computer-specific stuffs -----------------------------------
-# Work specific pem keys (place pem keys in ~/.ssh
 work() {
   # Add pem files to keychain
   for file in $(ls ~/.ssh/*.pem); do
@@ -34,12 +33,7 @@ work() {
   done
 
   # Add password-protected id_rsa key
-  ssh-add ~/.ssh/id_rsa
-  #ssh-add ~/.ssh/id_rsa > /dev/null 2>&1;
-}
-
-skilbjo() {
-  ssh-add ~/.ssh/id_rsa
+  ssh-add ~/.ssh/id_rsa #>/dev/null 2>&1
 }
 
 root() {
@@ -52,8 +46,6 @@ computer_specific() {
     ('john.skilbeck') ;;
     (skilbjo) ;;
     (root) root ;;
-    #('john.skilbeck') work ;;
-    #(skilbjo) skilbjo ;;
   esac
 }
 

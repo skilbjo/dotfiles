@@ -8,7 +8,7 @@ Add these keycodes to the Terminal profile:
     ⇧↑ \033[1;2A
     ⇧↓ \033[1;2B
 
-<img src="./lib/terminal.app.png" alt="terminal.app">
+<img src="./macOS-tools/terminal.app.png" alt="terminal.app">
 
 ### Show keycodes
   - `$ xxd`
