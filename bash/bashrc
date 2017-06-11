@@ -6,6 +6,21 @@ set -u
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# -- use color vars below ---------------------------------------
+# colors:$ for i in $(seq 0 7); do tput setaf $i && echo "$i - color"; done
+if [[ $- == *i* ]]; then
+  black="\[$(tput setaf 0)\]"
+  red="\[$(tput setaf 1)\]"
+  green="\[$(tput setaf 2)\]"
+  yellow="\[$(tput setaf 3)\]"
+  blue="\[$(tput setaf 4)\]"
+  pink="\[$(tput setaf 5)\]"
+  teal="\[$(tput setaf 6)\]"
+  grey="\[$(tput setaf 7)\]"
+  off="\[$(tput sgr0)\]"
+  bold="\[01;32m"
+fi
+
 # -- computer-specific stuffs -----------------------------------
 work() {
   # Add pem files to keychain
@@ -31,21 +46,6 @@ computer_specific() {
 }
 
 computer_specific
-
-# -- use color vars below ---------------------------------------
-# colors:$ for i in $(seq 0 7); do tput setaf $i && echo "$i - color"; done
-if [[ $- == *i* ]]; then
-  black="\[$(tput setaf 0)\]"
-  red="\[$(tput setaf 1)\]"
-  green="\[$(tput setaf 2)\]"
-  yellow="\[$(tput setaf 3)\]"
-  blue="\[$(tput setaf 4)\]"
-  pink="\[$(tput setaf 5)\]"
-  teal="\[$(tput setaf 6)\]"
-  grey="\[$(tput setaf 7)\]"
-  off="\[$(tput sgr0)\]"
-  bold="\[01;32m"
-fi
 
 # -- path, command prompt ---------------------------------------
 export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
