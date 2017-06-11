@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -uo pipefail
 
 # -- docs -------------------------------------------------------
 # ~/.profile: executed by the command interpreter for login shells.
@@ -14,9 +15,12 @@ export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X
 
 # -- helpful functions ------------------------------------------
 source_if_exists() {
+  #set +u
   [[ -f $1 ]] && source $1
+  #set -u
 }
 
+set -u
 start_docker() {
   if [[ $(docker-machine ls | grep "default" | grep -c "Running") -eq 1 ]]; then
     eval "$(docker-machine env default)"
@@ -55,7 +59,9 @@ osx() {
 
   alias "docker.rm-container"="docker ps -qa | xargs docker rm"
   alias "docker.rmi"="function _(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_"
+  set +u
   alias "docker.rm.this"="function _(){ docker images | grep \"$1\" | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi; };_"
+  set -u
   ## - clojure -------
   alias llein='LEIN_FAST_TRAMPOLINE=true lein trampoline'
   alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'
@@ -72,12 +78,16 @@ osx() {
   bind '"\e[1;5D": backward-word'
 
   # -- virtualenvwrapper --------------------------------------
+  set +u
   source_if_exists /usr/local/bin/virtualenvwrapper.sh
+  set -u
 
   # -- bash completion ----------------------------------------
+  set +u
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion   # bash-completion
   fi
+  set -u
 }
 
 linux() {
@@ -138,7 +148,7 @@ skilbjo() {
 
   # Add password-protected id_rsa key
   if [[ $(ps aux | grep ssh-agent | wc -l) -lt 1 ]]; then
-    eval $(ssh-agent -s)
+    eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_rsa
   fi
 }
@@ -157,3 +167,4 @@ computer_specific() {
 }
 
 computer_specific
+set +u
