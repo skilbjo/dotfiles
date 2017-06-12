@@ -22,8 +22,7 @@ if [[ $- == *i* ]]; then
 fi
 
 linux() {
-  echo hi
-  #eval "$(keychain --eval id_rsa)"
+  eval "$(keychain --eval id_rsa)"
 }
 
 os_specific() {
