@@ -118,6 +118,8 @@ linux() {
     #echo -en "\e]PFdedede" #white
     #clear #for background artifacting
   #fi
+
+  ssh-agent bash
 }
 
 os_specific() {

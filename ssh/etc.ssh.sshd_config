@@ -1,0 +1,21 @@
+
+# Force ssh-key-only authentication
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+
+# Disable root login
+PermitRootLogin no
+
+# Security recommendations
+UsePAM no
+IgnoreRhosts yes
+PermitEmptyPasswords no
+AllowUsers skilbjo
+
+
+##### on Arch
+PasswordAuthentication no
+PermitRootLogin no
+IgnoreRhosts yes
+PermitEmptyPasswords no
+AllowUsers skilbjo

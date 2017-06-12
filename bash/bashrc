@@ -21,6 +21,18 @@ if [[ $- == *i* ]]; then
   bold="\[01;32m"
 fi
 
+linux() {
+  eval "$(keychain --eval id_rsa)"
+}
+
+os_specific() {
+  case $(uname) in
+    ('Linux') linux;;
+  esac
+}
+
+os_specific
+
 # -- computer-specific stuffs -----------------------------------
 skilbjo() {
   # -- path, command prompt ---------------------------------------
