@@ -6,10 +6,6 @@ set -uo pipefail
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login exists.
 # see /usr/share/doc/bash/examples/startup-files for examples.
 
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
-fi
-
 # -- path, command prompt ---------------------------------------
 export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:~/bin'
 
@@ -171,4 +167,8 @@ computer_specific() {
 }
 
 computer_specific
-set +u
+
+if [ -f ~/.bashrc ]; then
+  source ~/.bashrc
+fi
+
