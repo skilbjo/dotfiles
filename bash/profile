@@ -96,8 +96,6 @@ linux() {
     #alias pbcopy='xsel --clipboard --input'     ## Xsel and Xclip don't work in virtual terminal
     #alias pbpaste='xsel --clipboard --output'
     alias ls='ls --color=auto'
-    alias ll'='ls -l --color=auto'
-    alias la'='ls -la --color=auto'
   fi
 
   # -- virtual terminal (box connected to monitor) ------------
