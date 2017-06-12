@@ -24,6 +24,12 @@ fi
 linux() {
   set +u
   eval "$(keychain --eval id_rsa)"
+
+  bind 'set show-all-if-ambiguous on'
+  bind 'TAB:menu-complete'
+  bind 'set completion-ignore-case on'
+  bind 'set visible-stats on'
+  bind 'set page-completions off'
 }
 
 os_specific() {
