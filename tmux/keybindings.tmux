@@ -15,6 +15,7 @@ bind ` select-pane -t :.+                 # quick pane cycling
 
 ## For Linux (on OS X), prefix is: alt+1 for nested sessions
 bind -n ˜ select-pane -t :.+              # quick pane cycling
+bind -n Â select-pane -t :.+              # quick pane cycling on remote
 bind | split-window -h -c "#{pane_current_path}"    # bind % split-window
 bind _ split-window -v -c "#{pane_current_path}"    # bind '"' split-window -h
 bind = select-window -t :+
