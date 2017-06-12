@@ -21,9 +21,6 @@ bind _ split-window -v -c "#{pane_current_path}"    # bind '"' split-window -h
 bind = select-window -t :+
 bind -n — select-window -t :-
 bind -n ± select-window -t :+
-#
-## Logs / Generic
-bind P pipe-pane -o "cat >>~#W.log" \; display  "Toggled logging to ~/#W.log"
 
 ## Unbinds
 unbind %
@@ -37,12 +34,32 @@ bind R command-prompt 'rename-session %%'
 bind r command-prompt 'rename-window %%'
 
 ## Close
-bind x kill-pane #P
+bind x kill-pane
 bind X kill-window
+
+
+#### Tmux 2.5
+## Vim Keybindings
+  unbind p
+  unbind P
+  unbind 9
+  setw -g mode-keys vi
+  bind p paste-buffer
+  bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+  bind-key -Tcopy-mode-vi 'y' send -X copy-selection
+  bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
+  bind-key -T copy-mode-vi Escape send -X cancel
+
+### Vim Nativation
+  bind-key -Tcopy-mode-vi '1' send -X end-of-line
+  bind-key -Tcopy-mode-vi '2' send -X back-to-indentation
+  bind-key -Tcopy-mode-vi '9' send -X back-to-indentation
+
+### Finding stuff again
+  bind-key -Tcopy-mode-vi '\' send -X jump-again
 
 #### Tmux 2.3
 ## Vim Keybindings
-
   #unbind p
   #unbind P
   #unbind 9
@@ -52,31 +69,12 @@ bind X kill-window
   #bind-key -t vi-copy 'y' copy-selection
 
 ### Vim Nativation
-
   #bind-key -t vi-copy '1' end-of-line
   #bind-key -t vi-copy '2' back-to-indentation
   #bind-key -t vi-copy '9' back-to-indentation
 
 ### Finding stuff again
-
   #bind-key -t vi-copy '\' jump-again
-
-#### Tmux 2.5
-
-unbind p
-unbind P
-unbind 9
-setw -g mode-keys vi
-bind p paste-buffer
-bind-key -Tcopy-mode-vi 'v' send -X begin-selection
-bind-key -Tcopy-mode-vi 'y' send -X copy-selection
-
-bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
-bind-key -T copy-mode-vi Escape send -X cancel
-bind-key -Tcopy-mode-vi '1' send -X end-of-line
-bind-key -Tcopy-mode-vi '2' send -X back-to-indentation
-bind-key -Tcopy-mode-vi '9' send -X back-to-indentation
-bind-key -Tcopy-mode-vi '\' send -X jump-again
 
 #Function                     vi
 #Append selection             A
