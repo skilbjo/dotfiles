@@ -22,16 +22,15 @@ if [[ $- == *i* ]]; then
 fi
 
 linux() {
+  set +u
   eval "$(keychain --eval id_rsa)"
 }
 
 os_specific() {
   case $(uname) in
-    ('Linux') ;;
+    ('Linux') linux ;;
   esac
 }
-
-    #('Linux') linux;;
 
 os_specific
 
