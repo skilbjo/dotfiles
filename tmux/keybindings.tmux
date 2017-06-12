@@ -45,13 +45,16 @@ if-shell -b '[ "$(echo "$TMUX_VERSION >= 2.4" | bc)" = 1 ]' \
   setw -g mode-keys vi; \
   bind p paste-buffer; \
   bind-key -Tcopy-mode-vi 'v' send -X begin-selection; \
-  bind-key -Tcopy-mode-vi 'y' send -X copy-selection; \
+  bind-key -Tcopy-mode-vi 'y' send -X copy-pipe-and-cancel; \
+  bind -t vi-copy y copy-pipe 'pbcopy'; \
   bind-key -Tcopy-mode-vi 'r' send -X rectangle-toggle; \
   bind-key -Tcopy-mode-vi Escape send -X cancel; \
   bind-key -Tcopy-mode-vi '1' send -X end-of-line; \
   bind-key -Tcopy-mode-vi '2' send -X back-to-indentation; \
   bind-key -Tcopy-mode-vi '9' send -X back-to-indentation; \
   bind-key -Tcopy-mode-vi '\' send -X jump-again;"
+
+  #bind-key -Tcopy-mode-vi 'y' send -X copy-selection; \
 
 if-shell -b '[ "$(echo "$TMUX_VERSION < 2.4" | bc)" = 1 ]' \
  "unbind p; \
