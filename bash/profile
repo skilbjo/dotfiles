@@ -119,9 +119,7 @@ linux() {
     #clear #for background artifacting
   #fi
 
-  #ssh-agent bash
-
-  # avoid bash completion
+  #ssh-agent bash # this causes a bunch of problems, but only way to add keychain/linux
 }
 
 os_specific() {
