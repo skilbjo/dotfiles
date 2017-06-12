@@ -119,7 +119,7 @@ linux() {
     #clear #for background artifacting
   #fi
 
-  ssh-agent bash
+  #ssh-agent bash
 
   # avoid bash completion
 }
