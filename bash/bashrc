@@ -27,7 +27,8 @@ linux() {
 
 os_specific() {
   case $(uname) in
-    ('Linux') linux;;
+    ('Linux') ;;
+    #('Linux') linux;;
   esac
 }
 
