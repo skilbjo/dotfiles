@@ -51,7 +51,7 @@ work() {
   done
 
   # Add password-protected id_rsa key
-  ssh-add ~/.ssh/id_rsa #>/dev/null 2>&1
+  ssh-add -K ~/.ssh/id_rsa #>/dev/null 2>&1
 }
 
 root() {

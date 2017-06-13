@@ -39,24 +39,26 @@ bind X kill-window
 
 run-shell "tmux setenv -g TMUX_VERSION $(tmux -V | cut -c 6-)"
 if-shell -b '[ "$(echo "$TMUX_VERSION >= 2.4" | bc)" = 1 ]' \
-  "unbind p; \
-  unbind P; \
-  unbind 9; \
-  setw -g mode-keys vi; \
-  bind p paste-buffer; \
+  "setw -g mode-keys vi; \
+  unbind -Tcopy-mode 1; \
+  unbind -Tcopy-mode 2; \
+  unbind -Tcopy-mode 9; \
+  bind-key -Troot p paste-buffer; \
   bind-key -Tcopy-mode-vi 'v' send -X begin-selection; \
-  bind-key -Tcopy-mode-vi 'y' send -X copy-pipe-and-cancel; \
-  bind -t vi-copy y copy-pipe 'pbcopy'; \
+  bind-key -Tcopy-mode-vi 'V' send -X select-line; \
+  bind-key -t vi-copy y copy-pipe 'pbcopy'; \
   bind-key -Tcopy-mode-vi 'r' send -X rectangle-toggle; \
   bind-key -Tcopy-mode-vi Escape send -X cancel; \
   bind-key -Tcopy-mode-vi '1' send -X end-of-line; \
-  bind-key -Tcopy-mode-vi '2' send -X back-to-indentation; \
+  bind-key -Tcopy-mode-vi '2' send -X end-of-line; \
   bind-key -Tcopy-mode-vi '9' send -X back-to-indentation; \
   bind-key -Tcopy-mode-vi '\' send -X jump-again;"
 
+  #bind-key -t vi-copy y copy-pipe 'pbcopy'; \
+  #bind-key -Tcopy-mode-vi 'y' send -X copy-pipe-and-cancel; \
   #bind-key -Tcopy-mode-vi 'y' send -X copy-selection; \
 
-if-shell -b '[ "$(echo "$TMUX_VERSION < 2.4" | bc)" = 1 ]' \
+#if-shell -b '[ "$(echo "$TMUX_VERSION < 2.4" | bc)" = 1 ]' \
  "unbind p; \
   unbind P; \
   unbind 9; \
@@ -73,7 +75,8 @@ if-shell -b '[ "$(echo "$TMUX_VERSION < 2.4" | bc)" = 1 ]' \
 ## Vim Keybindings
   #unbind p
   #unbind P
-  #unbind 9
+  #unbind -n 9
+  #unbind -n 1
   #setw -g mode-keys vi
   #bind p paste-buffer
   #bind-key -Tcopy-mode-vi 'v' send -X begin-selection
@@ -81,12 +84,12 @@ if-shell -b '[ "$(echo "$TMUX_VERSION < 2.4" | bc)" = 1 ]' \
   #bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
   #bind-key -T copy-mode-vi Escape send -X cancel
 
-### Vim Nativation
+## Vim Nativation
   #bind-key -Tcopy-mode-vi '1' send -X end-of-line
   #bind-key -Tcopy-mode-vi '2' send -X back-to-indentation
   #bind-key -Tcopy-mode-vi '9' send -X back-to-indentation
 
-### Finding stuff again
+## Finding stuff again
   #bind-key -Tcopy-mode-vi '\' send -X jump-again
 
 #### Tmux 2.3
