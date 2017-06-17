@@ -37,60 +37,24 @@ bind r command-prompt 'rename-window %%'
 bind x kill-pane
 bind X kill-window
 
-run-shell "tmux setenv -g TMUX_VERSION $(tmux -V | cut -c 6-)"
-if-shell -b '[ "$(echo "$TMUX_VERSION >= 2.4" | bc)" = 1 ]' \
-  "setw -g mode-keys vi; \
-  unbind -Tcopy-mode 1; \
-  unbind -Tcopy-mode 2; \
-  unbind -Tcopy-mode 9; \
-  bind-key -Troot p paste-buffer; \
-  bind-key -Tcopy-mode-vi 'v' send -X begin-selection; \
-  bind-key -Tcopy-mode-vi 'V' send -X select-line; \
-  bind-key -t vi-copy y copy-pipe 'pbcopy'; \
-  bind-key -Tcopy-mode-vi 'r' send -X rectangle-toggle; \
-  bind-key -Tcopy-mode-vi Escape send -X cancel; \
-  bind-key -Tcopy-mode-vi '1' send -X end-of-line; \
-  bind-key -Tcopy-mode-vi '2' send -X end-of-line; \
-  bind-key -Tcopy-mode-vi '9' send -X back-to-indentation; \
-  bind-key -Tcopy-mode-vi '\' send -X jump-again;"
-
-  #bind-key -t vi-copy y copy-pipe 'pbcopy'; \
-  #bind-key -Tcopy-mode-vi 'y' send -X copy-pipe-and-cancel; \
-  #bind-key -Tcopy-mode-vi 'y' send -X copy-selection; \
-
-#if-shell -b '[ "$(echo "$TMUX_VERSION < 2.4" | bc)" = 1 ]' \
- "unbind p; \
-  unbind P; \
-  unbind 9; \
-  setw -g mode-keys vi; \
-  bind p paste-buffer; \
-  bind-key -t vi-copy 'v' begin-selection; \
-  bind-key -t vi-copy 'y' copy-selection; \
-  bind-key -t vi-copy '1' end-of-line; \
-  bind-key -t vi-copy '2' back-to-indentation; \
-  bind-key -t vi-copy '9' back-to-indentation; \
-  bind-key -t vi-copy '\' jump-again;"
-
 #### Tmux 2.5
 ## Vim Keybindings
-  #unbind p
-  #unbind P
-  #unbind -n 9
-  #unbind -n 1
-  #setw -g mode-keys vi
-  #bind p paste-buffer
-  #bind-key -Tcopy-mode-vi 'v' send -X begin-selection
-  #bind-key -Tcopy-mode-vi 'y' send -X copy-selection
-  #bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
-  #bind-key -T copy-mode-vi Escape send -X cancel
-
+  unbind -n 1
+  unbind -n 2
+  unbind -n 9
+  setw -g mode-keys vi
+  bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+  bind-key -Tcopy-mode-vi 'V' send -X select-line
+  bind-key -Tcopy-mode-vi 'y' send -X copy-selection
+  bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
+  bind-key -T copy-mode-vi Escape send -X cancel
 ## Vim Nativation
-  #bind-key -Tcopy-mode-vi '1' send -X end-of-line
-  #bind-key -Tcopy-mode-vi '2' send -X back-to-indentation
-  #bind-key -Tcopy-mode-vi '9' send -X back-to-indentation
-
+  bind-key -Tcopy-mode-vi '1' send -X end-of-line
+  bind-key -Tcopy-mode-vi '2' send -X back-to-indentation
+  bind-key -Tcopy-mode-vi '9' send -X back-to-indentation
 ## Finding stuff again
-  #bind-key -Tcopy-mode-vi '\' send -X jump-again
+  bind-key -Tcopy-mode-vi '\' send -X jump-again
+  bind-key -Tcopy-mode-vi '|' send -X jump-reverse
 
 #### Tmux 2.3
 ## Vim Keybindings
@@ -109,6 +73,40 @@ if-shell -b '[ "$(echo "$TMUX_VERSION >= 2.4" | bc)" = 1 ]' \
 
 ### Finding stuff again
   #bind-key -t vi-copy '\' jump-again
+
+## Don't bother with this run-shell shit, it doesn't work
+#run-shell "tmux setenv -g TMUX_VERSION $(tmux -V | cut -c 6-)"
+#if-shell -b '[ "$(echo "$TMUX_VERSION >= 2.4" | bc)" = 1 ]' \
+  #"setw -g mode-keys vi; \
+  #unbind -Tprefix 1; \
+  #unbind -Tprefix 2; \
+  #unbind -Tprefix 9; \
+  #unbind -Tcopy-mode 1; \
+  #unbind -Tcopy-mode 2; \
+  #unbind -Tcopy-mode 9; \
+  #unbind -Tcopy-mode-vi 'v'; \
+  #bind-key -Tcopy-mode-vi 'v' send -X begin-selection; \
+  #bind-key -Tcopy-mode-vi 'V' send -X select-line; \
+  #bind-key -t vi-copy y copy-pipe 'pbcopy'; \
+  #bind-key -Tcopy-mode-vi 'r' send -X rectangle-toggle; \
+  #bind-key -Tcopy-mode-vi Escape send -X cancel; \
+  #bind-key -Tcopy-mode-vi '1' send -X end-of-line; \
+  #bind-key -Tcopy-mode-vi '2' send -X end-of-line; \
+  #bind-key -Tcopy-mode-vi '9' send -X back-to-indentation; \
+  #bind-key -Tcopy-mode-vi '\' send -X jump-again;"
+
+#if-shell -b '[ "$(echo "$TMUX_VERSION < 2.4" | bc)" = 1 ]' \
+ #"unbind p; \
+  #unbind P; \
+  #unbind 9; \
+  #setw -g mode-keys vi; \
+  #bind p paste-buffer; \
+  #bind-key -t vi-copy 'v' begin-selection; \
+  #bind-key -t vi-copy 'y' copy-selection; \
+  #bind-key -t vi-copy '1' end-of-line; \
+  #bind-key -t vi-copy '2' back-to-indentation; \
+  #bind-key -t vi-copy '9' back-to-indentation; \
+  #bind-key -t vi-copy '\' jump-again;"
 
 #Function                     vi
 #Append selection             A

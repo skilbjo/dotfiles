@@ -10,6 +10,7 @@ inoremap …            ;
 inoremap Ú            :
 " }}}
 nnoremap <Bslash> ;
+nnoremap \| ,
 
 " -- wordmovement -----------------------------------------------
 
