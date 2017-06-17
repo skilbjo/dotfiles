@@ -1,0 +1,143 @@
+suppress gen_id 1, sig_id 536
+suppress gen_id 1, sig_id 648
+suppress gen_id 1, sig_id 653
+suppress gen_id 1, sig_id 1390
+suppress gen_id 1, sig_id 2452
+suppress gen_id 1, sig_id 8375
+suppress gen_id 1, sig_id 11192
+suppress gen_id 1, sig_id 12286
+suppress gen_id 1, sig_id 15147
+suppress gen_id 1, sig_id 15306
+suppress gen_id 1, sig_id 15362
+suppress gen_id 1, sig_id 16313
+suppress gen_id 1, sig_id 16482
+suppress gen_id 1, sig_id 17458
+suppress gen_id 1, sig_id 20583
+suppress gen_id 1, sig_id 23098
+suppress gen_id 1, sig_id 23256
+suppress gen_id 1, sig_id 24889
+suppress gen_id 1, sig_id 2000334
+suppress gen_id 1, sig_id 2000419
+suppress gen_id 1, sig_id 2003195
+suppress gen_id 1, sig_id 2008120
+suppress gen_id 1, sig_id 2008578
+suppress gen_id 1, sig_id 2010516
+suppress gen_id 1, sig_id 2010935
+suppress gen_id 1, sig_id 2010937
+suppress gen_id 1, sig_id 2011716
+suppress gen_id 1, sig_id 2012086
+suppress gen_id 1, sig_id 2012087
+suppress gen_id 1, sig_id 2012088
+suppress gen_id 1, sig_id 2012089
+suppress gen_id 1, sig_id 2012141
+suppress gen_id 1, sig_id 2012252
+suppress gen_id 1, sig_id 2012758
+suppress gen_id 1, sig_id 2013222
+suppress gen_id 1, sig_id 2013414
+suppress gen_id 1, sig_id 2014518
+suppress gen_id 1, sig_id 2014520
+suppress gen_id 1, sig_id 2014726
+suppress gen_id 1, sig_id 2014819
+suppress gen_id 1, sig_id 2015561
+suppress gen_id 1, sig_id 2100366
+suppress gen_id 1, sig_id 2100368
+suppress gen_id 1, sig_id 2100651
+suppress gen_id 1, sig_id 2101390
+suppress gen_id 1, sig_id 2101424
+suppress gen_id 1, sig_id 2102314
+suppress gen_id 1, sig_id 2103134
+suppress gen_id 1, sig_id 2103192
+suppress gen_id 1, sig_id 2013504
+suppress gen_id 1, sig_id 2406003
+suppress gen_id 1, sig_id 2406067
+suppress gen_id 1, sig_id 2406069
+suppress gen_id 1, sig_id 2406424
+suppress gen_id 1, sig_id 2500056
+suppress gen_id 1, sig_id 100000230
+suppress gen_id 3, sig_id 14772
+#(http_inspect) DOUBLE DECODING ATTACK
+suppress gen_id 119, sig_id 2
+#(http_inspect) BARE BYTE UNICODE ENCODING
+suppress gen_id 119, sig_id 4
+#(http_inspect) IIS UNICODE CODEPOINT ENCODING
+suppress gen_id 119, sig_id 7
+#(http_inspect) NON-RFC DEFINED CHAR [**]
+suppress gen_id 119, sig_id 14
+#(http_inspect) UNKNOWN METHOD
+suppress gen_id 119, sig_id 31
+#(http_inspect) SIMPLE REQUEST
+suppress gen_id 119, sig_id 32
+#(http_inspect) NO CONTENT-LENGTH OR TRANSFER-ENCODING IN HTTP RESPONSE
+suppress gen_id 120, sig_id 2
+#(http_inspect) NO CONTENT-LENGTH OR TRANSFER-ENCODING IN HTTP RESPONSE
+suppress gen_id 120, sig_id 3
+#(http_inspect) HTTP RESPONSE HAS UTF CHARSET WHICH FAILED TO NORMALIZE
+suppress gen_id 120, sig_id 4
+#(http_inspect) HTTP RESPONSE GZIP DECOMPRESSION FAILED
+suppress gen_id 120, sig_id 6
+#(http_inspect) INVALID CONTENT-LENGTH OR CHUNK SIZE
+suppress gen_id 120, sig_id 8
+#(http_inspect) JAVASCRIPT OBFUSCATION LEVELS EXCEEDS 1
+suppress gen_id 120, sig_id 9
+# Unknown
+suppress gen_id 120, sig_id 10
+suppress gen_id 122, sig_id 19
+suppress gen_id 122, sig_id 21
+suppress gen_id 122, sig_id 22
+suppress gen_id 122, sig_id 23
+suppress gen_id 122, sig_id 26
+#(spp_frag3) Bogus fragmentation packet. Possible BSD attack
+suppress gen_id 123, sig_id 10
+#(smtp) Attempted response buffer overflow: 1448 chars
+suppress gen_id 124, sig_id 3
+#(ftp_telnet) Invalid FTP Command
+suppress gen_id 125, sig_id 2
+#(ssp_ssl) Invalid Client HELLO after Server HELLO Detected
+suppress gen_id 137, sig_id 1
+# Credit Card Numbers
+suppress gen_id 138, sig_id 2
+# U.S. Social Security Numbers (with dashes)
+suppress gen_id 138, sig_id 3
+# U.S. Social Security Numbers (w/out dashes)
+suppress gen_id 138, sig_id 4
+# Email Addresses
+suppress gen_id 138, sig_id 5
+# U.S. Phone Numbers
+suppress gen_id 138, sig_id 6
+#(spp_sip) Maximum dialogs within a session reached
+suppress gen_id 140, sig_id 27
+#(IMAP) Unknown IMAP4 command
+suppress gen_id 141, sig_id 1
+suppress gen_id 141, sig_id 2
+#(spp_frag3) Fragmentation overlap
+suppress gen_id 123, sig_id 8, track by_src, ip 81.167.251.235
+#(http_inspect) UNESCAPED SPACE IN HTTP URI
+suppress gen_id 119, sig_id 33
+#(spp_sip) Empty request URI
+suppress gen_id 140, sig_id 2
+#(http_inspect) U ENCODING
+suppress gen_id 119, sig_id 3
+#(spp_sip) Content length mismatch
+suppress gen_id 140, sig_id 18
+#(dcerpc2) Connection-oriented DCE/RPC - Bind: Remaining fragment length (3) less than size needed (20)
+suppress gen_id 133, sig_id 31
+#(ftp_telnet) FTP bounce attempt
+suppress gen_id 125, sig_id 8
+#(spp_frag3) Fragmentation overlap
+suppress gen_id 123, sig_id 8
+#(spp_sip) URI is too long
+suppress gen_id 140, sig_id 3
+#(http_inspect) POST W/O CONTENT-LENGTH OR CHUNKS
+suppress gen_id 119, sig_id 28
+#MALWARE-OTHER dns request with long host name segment - possible data exfiltration attempt
+suppress gen_id 3, sig_id 30881
+#(spp_ssh) Challenge-Response Overflow exploit
+suppress gen_id 128, sig_id 1
+#ET CHAT Skype User-Agent detected
+suppress gen_id 1, sig_id 2002157
+#ET CHAT Google IM traffic Jabber client sign-on
+suppress gen_id 1, sig_id 2002334
+#ET CHAT Google Talk (Jabber) Client Login
+suppress gen_id 1, sig_id 2002327
+#ET MALWARE Suspicious User-Agent (1 space)
+suppress gen_id 1, sig_id 2007994
