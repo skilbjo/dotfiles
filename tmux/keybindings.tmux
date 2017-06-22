@@ -55,6 +55,8 @@ bind X kill-window
 ## Finding stuff again
   bind-key -Tcopy-mode-vi '\' send -X jump-again
   bind-key -Tcopy-mode-vi '|' send -X jump-reverse
+## Stay in copy mode on drag end
+  unbind-key -Tcopy-mode-vi MouseDragEnd1Pane
 
 #### Tmux 2.3
 ## Vim Keybindings
