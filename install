@@ -40,6 +40,8 @@ function remove_existing {
   ~/.vim/bundle/bin/neoinstall
 
   # root
+  cd ~/dev/dotfiles && git pull
+  sudo -s
   cd ~
   ln -s /home/skilbjo/dev/dotfiles/bash/bashrc .bashrc
   mkdir .vim
