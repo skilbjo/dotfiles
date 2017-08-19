@@ -1,10 +1,50 @@
-Host my_alias
-  User my_user
+Host odroid
+  User
+  Port
+  Hostname
   ForwardAgent yes
   UseKeychain yes
   AddKeysToAgent yes
   RequestTTY force
   IdentityFile ~/.ssh/id_rsa
-  Hostname my_hostname
 
+Host pi1
+  User
+  Port
+  Hostname
+  ForwardAgent yes
+  UseKeychain yes
+  AddKeysToAgent yes
+  RequestTTY force
+  IdentityFile ~/.ssh/id_rsa
+
+Host pi2
+  User
+  Port
+  Hostname
+  ForwardAgent yes
+  UseKeychain yes
+  AddKeysToAgent yes
+  RequestTTY force
+  IdentityFile ~/.ssh/id_rsa
+
+Host pi3
+  User
+  Port
+  Hostname
+  ForwardAgent yes
+  UseKeychain yes
+  AddKeysToAgent yes
+  RequestTTY force
+  IdentityFile ~/.ssh/id_rsa
+
+Host pi4
+  User
+  Port
+  Hostname
+  ForwardAgent yes
+  UseKeychain yes
+  AddKeysToAgent yes
+  RequestTTY force
+  IdentityFile ~/.ssh/id_rsa
 

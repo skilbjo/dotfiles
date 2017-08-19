@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -eoux pipefail
+
+endpoints=(odroid pi1 pi)
+
+#for endpoint in "${endpoints[@]}"; do
+  #get remote add "${endpoint}-home" ssh://skilbjo@router.:
+
+# if new project
+git remote add pi1-vpn         "ssh://skilbjo@router.:43/~/deploy/git/$(basename $(pwd)).git"
+git remote add pi-vpn          "ssh://skilbjo@router.:48/~/deploy/git/$(basename $(pwd)).git"
+git remote add odroid-vpn      "ssh://skilbjo@router.:49/~/deploy/git/$(basename $(pwd)).git"
+
+git remote add pi1-home        "ssh://skilbjo@pi1./~/deploy/git/$(basename $(pwd)).git"
+git remote add pi-home         "ssh://pi@rspi2./~/deploy/git/$(basename $(pwd)).git"
+git remote add odroid-home     "ssh://skilbjo@odroid./~/deploy/git/$(basename $(pwd)).git"
+
+# if existing project
+git remote set-url pi1-vpn     "ssh://skilbjo@router.:43/~/deploy/git/$(basename $(pwd)).git"
+git remote set-url pi-vpn      "ssh://skilbjo@router.:48/~/deploy/git/$(basename $(pwd)).git"
+git remote set-url odroid-vpn  "ssh://skilbjo@router.:49/~/deploy/git/$(basename $(pwd)).git"
+
+git remote set-url pi1-home    "ssh://skilbjo@pi1./~/deploy/git/$(basename $(pwd)).git"
+git remote set-url pi-home     "ssh://pi@rspi2./~/deploy/git/$(basename $(pwd)).git"
+git remote set-url odroid-home "ssh://skilbjo@odroid./~/deploy/git/$(basename $(pwd)).git"
