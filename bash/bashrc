@@ -22,7 +22,8 @@ if [[ $- == *i* ]]; then
 fi
 
 linux() {
-  eval "$(keychain --eval id_rsa)"
+  eval "$(keychain --eval /home/skilbjo/.ssh/id_rsa)"
+  alias ls='ls --color=auto'
 }
 
 os_specific() {
