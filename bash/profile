@@ -95,7 +95,7 @@ linux() {
   if [ "$(uname)" == "Linux" ]; then
     #alias pbcopy='xsel --clipboard --input'     ## Xsel and Xclip don't work in virtual terminal
     #alias pbpaste='xsel --clipboard --output'
-    alias ls='ls --color=auto'
+    alias ll='ls -la'
   fi
 
   # -- virtual terminal (box connected to monitor) ------------
