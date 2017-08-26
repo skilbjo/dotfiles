@@ -92,11 +92,9 @@ osx() {
 
 linux() {
   # -- linux-specific aliases ---------------------------------
-  if [ "$(uname)" == "Linux" ]; then
-    #alias pbcopy='xsel --clipboard --input'     ## Xsel and Xclip don't work in virtual terminal
-    #alias pbpaste='xsel --clipboard --output'
-    alias ll='ls -la'
-  fi
+  #alias pbcopy='xsel --clipboard --input'     ## Xsel and Xclip don't work in virtual terminal
+  #alias pbpaste='xsel --clipboard --output'
+  alias ll='ls -la'
 
   # -- virtual terminal (box connected to monitor) ------------
   #if [ "$TERM" = "linux" ]; then
@@ -118,14 +116,32 @@ linux() {
     #echo -en "\e]PFdedede" #white
     #clear #for background artifacting
   #fi
+}
 
-  #ssh-agent bash # this causes a bunch of problems, but only way to add keychain/linux
+freebsd() {
+  # These are normally set through /etc/login.conf.  You may override them here
+  # if wanted.
+  # PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$HOME/bin; export PATH
+  # BLOCKSIZE=K;  export BLOCKSIZE
+
+  # Setting TERM is normally done through /etc/ttys.  Do only override
+  # if you're sure that you'll never log in via telnet or xterm or a
+  # serial line.
+  # TERM=xterm;   export TERM
+  EDITOR=vi;      export EDITOR
+  PAGER=more;     export PAGER
+
+  # set ENV to a file invoked each time sh is started for interactive use.
+  ENV=$HOME/.shrc; export ENV
+
+  if [ -x /usr/bin/fortune ] ; then /usr/bin/fortune freebsd-tips ; fi
 }
 
 os_specific() {
   case $(uname) in
     ('Darwin') osx;;
     ('Linux') linux;;
+    ('FreeBSD') freebsd;;
   esac
 }
 
