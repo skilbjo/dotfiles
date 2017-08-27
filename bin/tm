@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #[ "$TMUX" == "" ] || exit 0
 if [ ! -z "$TMUX" ]; then
