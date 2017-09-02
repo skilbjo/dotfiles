@@ -3,7 +3,7 @@ set -eoux pipefail
 
 db="~/Documents/Dropbox/dotfiles"
 
-function remove_existing {
+user() {
   # create dir
   cd ~; mkdir dev; cd dev
   git clone https://github.com/skilbjo/dotfiles.git
@@ -39,22 +39,6 @@ function remove_existing {
   ~/.vim/bundle/bin/install.sh
   ~/.vim/bundle/bin/neoinstall
 
-  # root
-  cd ~/dev/dotfiles && git pull
-  sudo -s
-  cd ~
-  ln -s /home/skilbjo/dev/dotfiles/bash/bashrc .bashrc
-  mkdir .vim
-  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle
-  ln -s /home/skilbjo/dev/dotfiles/vim/vimrc .vimrc
-  ln -s /home/skilbjo/dev/dotfiles/vim/plugins.vim .vim/plugins.vim
-  ln -s /home/skilbjo/dev/dotfiles/vim/plugin_settings.vim .vim/plugin_settings.vim
-  ln -s /home/skilbjo/dev/dotfiles/vim/settings.vim .vim/settings.vim
-  ln -s /home/skilbjo/dev/dotfiles/vim/keybindings.vim .vim/keybindings.vim
-  ln -s /home/skilbjo/dev/dotfiles/vim/functions.vim .vim/functions.vim
-  ~/.vim/bundle/bin/install.sh
-  ~/.vim/bundle/bin/neoinstall
-
   # Arch Linux
   ln -s ~/dev/dotfiles/vim/after/ftplugin/python.vim .vim/after/ftplugin/python.vim
   ln -s ~/dev/dotfiles/vim/after/ftplugin/clojure.vim .vim/after/ftplugin/clojure.vim
@@ -80,6 +64,26 @@ function remove_existing {
 
   mkdir ~/bin
   ln -s ~/dev/dotfiles/bin/tm ~/bin/tm
+}
+
+root() {
+  # root
+  cd ~/dev/dotfiles && git pull
+  sudo -s
+  cd ~
+  ln -s /home/skilbjo/dev/dotfiles/bash/bashrc .bashrc
+  ln -s /home/skilbjo/dev/dotfiles/bash/profile .profile
+  ln -s /home/skilbjo/dev/dotfiles/bash/aliases .aliases
+  mkdir .vim
+  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle
+  ln -s /home/skilbjo/dev/dotfiles/vim/vimrc .vimrc
+  ln -s /home/skilbjo/dev/dotfiles/vim/plugins.vim .vim/plugins.vim
+  ln -s /home/skilbjo/dev/dotfiles/vim/plugin_settings.vim .vim/plugin_settings.vim
+  ln -s /home/skilbjo/dev/dotfiles/vim/settings.vim .vim/settings.vim
+  ln -s /home/skilbjo/dev/dotfiles/vim/keybindings.vim .vim/keybindings.vim
+  ln -s /home/skilbjo/dev/dotfiles/vim/functions.vim .vim/functions.vim
+  ~/.vim/bundle/bin/install.sh
+  ~/.vim/bundle/bin/neoinstall
 }
 
 function bash {

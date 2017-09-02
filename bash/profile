@@ -179,11 +179,17 @@ pi() {
   source_if_exists "$HOME/.profilelocal"  # env variables
 }
 
+aws() {
+  # -- files --------------------------------------------------
+  source_if_exists "$HOME/.profilelocal"  # env variables
+}
+
 computer_specific() {
   case $(whoami) in
     ('john.skilbeck') work;;
     (skilbjo) skilbjo;;
     (pi) pi;;
+    (ec2-user) aws;;
   esac
 }
 

@@ -34,7 +34,11 @@ freebsd() {
 
 os_specific() {
   case $(uname) in
-    ('Linux') linux ;;
+    ('Linux')
+      case $(uname -a) in
+        *amzn*) ;;
+        *) linux ;;
+      esac ;;
     ('FreeBSD') freebsd ;;
   esac
 }
@@ -67,11 +71,19 @@ root() {
   export PS1="[${black}\u@\h:${yellow}\W ${off}]# "
 }
 
+aws() {
+  # -- path, command prompt ---------------------------------------
+  export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
+  #export PS1='[\u@\h \W]\$ '
+  #export PS1="\W λ "
+}
+
 computer_specific() {
   case $(whoami) in
     ('john.skilbeck') work ;;
     (skilbjo) skilbjo ;;
     (root) root ;;
+    (ec2-user) aws;;
   esac
 }
 

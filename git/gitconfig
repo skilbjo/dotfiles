@@ -11,19 +11,20 @@
 [push]
   default = simple
 [alias]
-  s = status
-  stat = status
   b = branch
   br = branch
   c = commit
-  ct = commit
+  ck = checkout
   cm = commit
   cmt = commit
-  pl = pull
-  pu = push
-  ck = checkout
+  ct = commit
   dl = difftool HEAD~ HEAD
   dt = difftool
   mt = mergetool
+  pl = pull
+  pu = push
+  s = status
+  stat = status
   tg = tag -n
+  vimdiff=difftool -y -t vimdiff -R
   ws = rebase --whitespace=fix
