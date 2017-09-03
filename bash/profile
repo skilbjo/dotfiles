@@ -136,10 +136,10 @@ freebsd() {
 
   if [ -x /usr/bin/fortune ] ; then /usr/bin/fortune freebsd-tips ; fi
 
-  echo 'bout to run bash completion'
+  set +u
   [[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
     source /usr/local/share/bash-completion/bash_completion.sh
-  echo 'ran bash completion'
+  set -u
 }
 
 os_specific() {
