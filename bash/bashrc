@@ -69,7 +69,7 @@ work() {
 root() {
   #[root@pi1 ~]# exit
   export PS1="[${black}\u@\h:${yellow}\W ${off}]# "
-  . ~/.profile
+  set +u
 }
 
 aws() {
