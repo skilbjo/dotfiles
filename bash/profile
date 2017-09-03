@@ -131,6 +131,7 @@ freebsd() {
   EDITOR=vi;      export EDITOR
   #PAGER=more;     export PAGER
 
+  echo 'here'
   # set ENV to a file invoked each time sh is started for interactive use.
   #ENV=$HOME/.shrc; export ENV
 
@@ -138,6 +139,8 @@ freebsd() {
 
   [[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
     source /usr/local/share/bash-completion/bash_completion.sh
+
+  echo 'past bash completion'
 }
 
 os_specific() {
