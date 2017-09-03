@@ -129,10 +129,10 @@ freebsd() {
   # serial line.
   # TERM=xterm;   export TERM
   EDITOR=vi;      export EDITOR
-  PAGER=more;     export PAGER
+  #PAGER=more;     export PAGER
 
   # set ENV to a file invoked each time sh is started for interactive use.
-  ENV=$HOME/.shrc; export ENV
+  #ENV=$HOME/.shrc; export ENV
 
   if [ -x /usr/bin/fortune ] ; then /usr/bin/fortune freebsd-tips ; fi
 
