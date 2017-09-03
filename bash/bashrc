@@ -69,6 +69,13 @@ work() {
 root() {
   #[root@pi1 ~]# exit
   export PS1="[${black}\u@\h:${yellow}\W ${off}]# "
+
+  bind 'set show-all-if-ambiguous on'
+  bind 'TAB:menu-complete'
+  bind 'set completion-ignore-case on'
+  bind 'set visible-stats on'
+  bind 'set page-completions off'
+
   set +u
 }
 
