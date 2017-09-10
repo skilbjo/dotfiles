@@ -11,7 +11,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # -- path, command prompt ---------------------------------------
-export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:~/bin'
+export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin'
 
 # -- helpful functions ------------------------------------------
 source_if_exists() {
@@ -43,6 +43,10 @@ bind 'set visible-stats on'
 bind 'set page-completions off'
 
 # -- OS  settings -----------------------------------------------
+all_os() {
+  source_if_exists "$HOME/.profilelocal"  # env variables
+}
+
 osx() {
   # -- fns ------------------------------------------------------
   start_docker
@@ -119,6 +123,7 @@ linux() {
 }
 
 freebsd() {
+  # -- original .profile ----------------------------------------
   # These are normally set through /etc/login.conf.  You may override them here
   # if wanted.
   # PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$HOME/bin; export PATH
@@ -136,6 +141,10 @@ freebsd() {
 
   if [ -x /usr/bin/fortune ] ; then /usr/bin/fortune freebsd-tips ; fi
 
+  # -- fns ------------------------------------------------------
+  start_docker
+
+  # -- bash completion ----------------------------------------
   set +u
   [[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
     source /usr/local/share/bash-completion/bash_completion.sh
@@ -143,22 +152,20 @@ freebsd() {
 }
 
 os_specific() {
+  all_os
+
   case $(uname) in
     ('Darwin') osx;;
     ('Linux') linux;;
     ('FreeBSD') freebsd;;
   esac
 }
-
 os_specific
 
 # -- computer-specific stuffs -----------------------------------
 work() {
-  # -- fns ----------------------------------------------------
-
   # -- files --------------------------------------------------
   source_if_exists "$HOME/.aws"           # AWS config
-  source_if_exists "$HOME/.profilelocal"  # env variables
   source_if_exists "$HOME/.aliases-work"  # Aliases
 
   # Add password-protected id_rsa key
@@ -166,9 +173,6 @@ work() {
 }
 
 skilbjo() {
-  # -- files --------------------------------------------------
-  source_if_exists "$HOME/.profilelocal"  # env variables
-
   # Add password-protected id_rsa key
   if [[ $(ps aux | grep ssh-agent | wc -l) -lt 1 ]]; then
     eval "$(ssh-agent -s)"
@@ -176,14 +180,8 @@ skilbjo() {
   fi
 }
 
-pi() {
-  # -- files --------------------------------------------------
-  source_if_exists "$HOME/.profilelocal"  # env variables
-}
-
 aws() {
-  # -- files --------------------------------------------------
-  source_if_exists "$HOME/.profilelocal"  # env variables
+  return
 }
 
 computer_specific() {

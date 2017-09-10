@@ -23,13 +23,10 @@ fi
 
 linux() {
   eval "$(keychain --eval /home/skilbjo/.ssh/id_rsa)"
-  alias ll='ls -la --color=auto'
 }
 
 freebsd() {
   eval "$(keychain --eval /home/skilbjo/.ssh/id_rsa)"
-
-  alias ll='ls -la'
 }
 
 os_specific() {
