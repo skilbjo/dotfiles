@@ -10,4 +10,9 @@
                  [lein-auto "0.1.2"]
                  [lein-autoreload "0.1.1"]
                  [venantius/ultra "0.5.1"]]}
- :repl-options {:init (require 'cljfmt.core)}}
+ :pretty {:plugins [[io.aviso/pretty "0.1.34"]]
+          :dependencies [[io.aviso/pretty "0.1.34"]]}
+ :repl-options {:init (do
+                        (require 'cljfmt.core)
+                        (require '[clojure.string :as string]))
+                :caught clj-stacktrace.repl/pst+}}

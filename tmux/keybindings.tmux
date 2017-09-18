@@ -44,8 +44,7 @@ bind X kill-window
   unbind -n 9
   setw -g mode-keys vi
   bind-key -Tcopy-mode-vi 'v' send -X begin-selection
-  #bind-key -Tcopy-mode-vi 'C-v' send -X begin-selection      # bind-key -Tcopy-mode-vi 'C-v' send -X rectangle-toggle don't work :/
-  #bind-key -Tcopy-mode-vi 'C-v' send -X begin-selection       # bind-key -Tcopy-mode-vi 'C-v' send -X rectangle-toggle don't work :/
+  bind-key -Tcopy-mode-vi 'C-v' send -X begin-selection \; send -X rectangle-toggle
   bind-key -Tcopy-mode-vi 'V' send -X select-line
   bind-key -Tcopy-mode-vi 'y' send -X copy-selection
   bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
