@@ -4,7 +4,7 @@
                  [io.aviso/pretty "0.1.34"]
                  [jonase/eastwood "0.2.4" :exclusions  [org.clojure/clojure]]]
   :plugins      [;[jonase/eastwood "0.2.4" :exclusions  [org.clojure/clojure]]
-                 [cider/cider-nrepl "0.15.0"]
+                 [cider/cider-nrepl "0.15.1"]
                  [cljfmt "0.5.6"]
                  [io.aviso/pretty "0.1.34"]
                  [lein-auto "0.1.2"]
