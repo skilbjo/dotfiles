@@ -68,7 +68,7 @@ user() {
 
 mesos(){
   # bring over dotfiles
-  sudo yum -y install git automake
+  sudo yum -y install git automake ncurses-devel glibc-static
 
   cd ~; mkdir dev; cd dev;
   git clone https://github.com/skilbjo/dotfiles.git
@@ -86,6 +86,7 @@ mesos(){
   cd tmux
   sh autogen.sh
   ./configure && make
+  mv ./tmux ~/bin/
 
   # tmux dotfiles
   cd ~
