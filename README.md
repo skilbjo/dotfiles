@@ -139,6 +139,8 @@ or
 #### Gimme a mesosslave
     consul members | grep mesosslave | awk '{print $1}' | head -n1 | xargs ssh
 
+    consul members | grep mesosslave | head -n1 | awk '{print $1}' | xargs ssh -tt
+
 #### Search for if Docker is running correctly on all the mesosslaves
     $ for host in $(consul members | grep mesosslave-private | awk '{print $1}'); do ssh $host -t "sudo docker ps | head -n1"; done
 

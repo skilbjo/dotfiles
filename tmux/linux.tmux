@@ -8,3 +8,4 @@ set -g status-position bottom
 ## Theme
 set -g status-bg colour110
 
+## Turn off copy mode

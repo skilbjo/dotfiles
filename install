@@ -66,6 +66,42 @@ user() {
   ln -s ~/dev/dotfiles/bin/tm ~/bin/tm
 }
 
+mesos(){
+  # create dir
+  cd ~; mkdir dev; cd dev
+  git clone https://github.com/skilbjo/dotfiles.git
+
+  # libevent
+  wget https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz
+  tar xzvf libevent-2.0.21-stable.tar.gz
+  cd libevent-2.0.21-stable
+  ./configure && make
+  sudo make install
+  cd ~
+
+  # tmux
+  git clone https://github.com/tmux/tmux.git
+  cd tmux
+  sh autogen.sh
+  ./configure && make
+
+  # tmux dotfiles
+  cd ~
+  mkdir ~/.tmux
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ln -s ~/dev/dotfiles/tmux/tmux.conf ~/.tmux.conf
+  ln -s ~/dev/dotfiles/tmux/keybindings.tmux ~/.tmux/keybindings.tmux
+  ln -s ~/dev/dotfiles/tmux/plugins.tmux ~/.tmux/plugins.tmux
+  ln -s ~/dev/dotfiles/tmux/settings.tmux ~/.tmux/settings.tmux
+  ln -s ~/dev/dotfiles/tmux/theme.tmux ~/.tmux/theme.tmux
+  ln -s ~/dev/dotfiles/tmux/osx.tmux ~/.tmux/osx.tmux
+  ln -s ~/dev/dotfiles/tmux/linux.tmux ~/.tmux/linux.tmux
+  ln -s ~/dev/dotfiles/tmux/freebsd.tmux ~/.tmux/freebsd.tmux
+
+  mkdir ~/bin
+  ln -s ~/dev/dotfiles/bin/tm ~/bin/tm
+}
+
 root() {
   # root
   cd ~/dev/dotfiles && git pull
