@@ -68,7 +68,7 @@ user() {
 
 mesos(){
   # bring over dotfiles
-  sudo yum -y install git
+  sudo yum -y install git automake
 
   cd ~; mkdir dev; cd dev;
   git clone https://github.com/skilbjo/dotfiles.git
