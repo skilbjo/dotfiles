@@ -86,7 +86,7 @@ mesos(){
   cd tmux
   sh autogen.sh
   ./configure && make
-  mv ./tmux ~/bin/
+  mv tmux ~/bin/
 
   # tmux dotfiles
   cd ~

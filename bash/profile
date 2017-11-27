@@ -73,7 +73,10 @@ osx() {
   # -- env vars -------------------------------------------------
   export EVENT_NOKQUEUE=1                         # tmux kqueue error
   export WORKON_HOME=$HOME/.virtualenvs
-  export PROJECT_HOME=$HOME/Devel
+  export PROJECT_HOME=$HOME/dev
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
+  export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+  export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
   # -- use ctrl + <Left> / <Right> ----------------------------
   bind '"\e[5C": forward-word'
@@ -176,6 +179,8 @@ skilbjo() {
   # Add password-protected id_rsa key
   if [[ $(ps aux | grep ssh-agent | wc -l) -lt 1 ]]; then
     eval "$(ssh-agent -s)"
+    ssh-add -K ~/.ssh/id_rsa
+  else
     ssh-add -K ~/.ssh/id_rsa
   fi
 }
