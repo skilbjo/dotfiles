@@ -4,8 +4,19 @@ set -eoux pipefail
 install_packages(){
   sudo yum update -y
 
-  # docker?
-  sudo yum install -y git bash postgresql
+  # docker?  # dhcp? # java ?
+  sudo yum install -y git bash postgresql vim tree
+}
+
+package_setup(){
+  # docker
+  sudo service docker start
+  sudo usermod -a -G docker ec2-user
+}
+
+user_setup() {
+  # stuff to run sudo w/o password here
+  echo ''
 }
 
 aws_cli(){
@@ -66,6 +77,14 @@ dotfiles(){
   ln -s ~/dev/dotfiles/vim/functions.vim .vim/functions.vim
   ~/.vim/bundle/bin/install.sh
   ~/.vim/bundle/bin/neoinstall
+
+  # libevent
+  wget https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz
+  tar xzvf libevent-2.0.21-stable.tar.gz
+  cd libevent-2.0.21-stable
+  ./configure && make
+  sudo make install
+  cd ~
 
   # tmux
   git clone https://github.com/tmux/tmux.git
