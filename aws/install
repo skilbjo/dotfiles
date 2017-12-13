@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -eoux pipefail
+
+aws_cli(){
+  mkdir -p ~/bin
+  curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+  unzip awscli-bundle.zip
+  ./awscli-bundle/install -b ~/bin/aws
+}
+
+get_java_key_store(){
+  cd ~
+  aws s3 cp s3://skilbjo/java_key_store java_key_store
+}
+
+dotfiles(){
+  mkdir -p ~/dev && cd ~/dev
+  git clone git@github.com:skilbjo/dotfiles.git
+}

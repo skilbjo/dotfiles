@@ -11,5 +11,5 @@
                        [venantius/ultra "0.5.1"]]}
  :repl {:repl-options {:init (do
                                (require 'cljfmt.core)
-                               (require '[clojure.string :as string]))
-                       :caught clj-stacktrace.repl/pst+}}}
+                               (require '[clojure.string :as string])
+                               (require '[clojure.java.io :as io]))}}}
