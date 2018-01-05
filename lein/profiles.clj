@@ -8,6 +8,7 @@
                        #_[jonase/eastwood "0.2.4" :exclusions [org.clojure/clojure]]
                        [lein-auto "0.1.2"]
                        [lein-autoreload "0.1.1"]
+                       [lein-kibit "0.1.5"]
                        [venantius/ultra "0.5.1"]]}
  :repl {:repl-options {:init (do
                                (require 'cljfmt.core)
