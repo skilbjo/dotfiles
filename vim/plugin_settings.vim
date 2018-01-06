@@ -35,17 +35,9 @@ let g:PaperColor_Light_Override = { 'background' : '#ffffff' }
 colorscheme PaperColor
 
 " -- Utility -----------------------------------------------------
-" -- Command-T {{{
-let g:CommandTMatchWindowReverse = 1
-let g:CommandTMaxHeight = 20
-" }}}
-
-" -- EasyAlign
-vnoremap <silent><CR>  :EasyAlign<CR>
-" }}}
-
-" -- EasyMotion {{{
-map <SPACE> <Plug>(easymotion-bd-w)
+" -- NerdTREE Comment {{{
+map ÷ <Leader>c<Space>
+imap ÷  <C-o>:call NERDComment(0,"toggle")<C-m>
 " }}}
 
 " -- NERDTree {{{
@@ -57,48 +49,27 @@ nnoremap <silent><F1>  :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
 
-" -- NerdTREE Comment {{{
-map ÷ <Leader>c<Space>
-imap ÷  <C-o>:call NERDComment(0,"toggle")<C-m>
-" }}}
-
 " -- Syntastic {{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:syntastic_javascript_checkers = ['jshint']"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 "  }}}
-
-
-" -- Sublime Text -----------------------------------------------
+"
 " -- AutoComplPop {{{
 inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
 " }}}
 
-" -- IncSearch {{{
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-fuzzy-/)
+" -- EasyMotion {{{
+"map <SPACE> <Plug>(easymotion-bd-w)
 " }}}
-
-" -- Multicursor {{{
-let g:multicursorusedefaultmapping=0
-let g:multi_cursor_next_key='<C-f>'
-let g:multi_cursor_prev_key='<C-g>'
-"let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-" }}}
-
 
 " -- Language Spesific -----------------------------------------------
-" -- vim-Fireplace {{{
-nnoremap <Leader>cp :execute "Eval (do (require 'clojure.pprint) (clojure.pprint/pp))"<cr>
-" Below is for dock of function
-nmap ˚ [d
-" Below is for source of function
-nmap ¬ [d
-" Brings up a quasi-repl
-nmap … cqq
-" Evaluates code block
-nmap æ cpp
-" }}}
-
 " -- Clojure-static {{{
 let g:clojure_syntax_keywords = {
     \ 'clojureMacro': ["defproject", "defcustom"],
@@ -112,10 +83,29 @@ let g:clojure_align_subforms = 0
 let g:clojure_align_multiline_strings = 1
 " }}}
 
+" -- vim-Fireplace {{{
+nnoremap <Leader>cp :execute "Eval (do (require 'clojure.pprint) (clojure.pprint/pp))"<cr>
+" Below is for dock of function
+nmap ˚ [d
+" Below is for source of function
+nmap ¬ [d
+" Brings up a quasi-repl
+nmap … cqq
+" Evaluates code block
+nmap æ cpp
+" }}}
+
+" -- vim-cljfmt {{{
+let g:clj_fmt_autosave = 0
+" }}}
+
+" -- Research -------- -----------------------------------------------
+" -- EasyAlign
+"vnoremap <silent><CR>  :EasyAlign<CR>
+" }}}
+
 " -- Minibufexp {{{
 "let g:miniBufExplCycleArround = 1
 "let g:miniBufExplSplitBelow = 0
 "let g:miniBufExplUseSingleClick = 1
 " }}}
-
-

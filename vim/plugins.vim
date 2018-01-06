@@ -16,42 +16,31 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'NLKNguyen/papercolor-theme', { 'rev' : '867b051d3a' }
 
 "" Utility
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'vim-scripts/AutoComplPop'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat.git'
-NeoBundle 'airblade/vim-gitgutter'
-"NeoBundle 'https://github.com/kien/rainbow_parentheses.vim'
-
-"" Sublime Text
-NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'haya14busa/incsearch-fuzzy.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
-
+NeoBundle 'airblade/vim-gitgutter'      " lets you know what changed
+NeoBundle 'scrooloose/nerdcommenter'    " quick toggle of comments
+NeoBundle 'scrooloose/nerdtree'         " file system explorer
+NeoBundle 'scrooloose/syntastic'        " linter framework
+NeoBundle 'tpope/vim-fugitive'          " run git commands in vim: :Gblame, etc
+NeoBundle 'tpope/vim-repeat.git'        " can use the . command for plugin maps
+NeoBundle 'tpope/vim-surround'          " :ysiW to surround word in quotes
+NeoBundle 'vim-scripts/AutoComplPop'    " autocomplete
 
 "" Lanugage specific
-NeoBundle 'guns/vim-clojure-static'
-NeoBundle 'tpope/vim-fireplace'
-"NeoBundle 'venantius/vim-cljfmt'
-NeoBundle 'tpope/vim-salve'
-NeoBundle 'venantius/vim-eastwood'
+"http://blog.venanti.us/clojure-vim/
 "NeoBundle 'vim-scripts/paredit.vim'
+NeoBundle 'guns/vim-clojure-static'     " not sure... linter?
+NeoBundle 'tpope/vim-fireplace'         " clojure REPL in vim
+NeoBundle 'tpope/vim-salve'             " clojure quasi-REPL fallback
+NeoBundle 'venantius/vim-cljfmt'        " :cljfmt in vim
+NeoBundle 'venantius/vim-eastwood'      " clojure linter
 
 " " Research
+" NeoBundle 'fholgado/minibufexpl.vim'
 " NeoBundle 'flazz/vim-colorschemes'
 " NeoBundle 'junegunn/vim-easy-align'
-" NeoBundle 'fholgado/minibufexpl.vim'
-" NeoBundle 'wincent/command-t'
 
 " Required:
 call neobundle#end()
 
 filetype plugin indent on
 NeoBundleCheck
-
