@@ -71,12 +71,13 @@ osx() {
   alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'
 
   # -- env vars -------------------------------------------------
-  export EVENT_NOKQUEUE=1                         # tmux kqueue error
+  export EVENT_NOKQUEUE=1                 # tmux kqueue error
   export WORKON_HOME=$HOME/.virtualenvs
   export PROJECT_HOME=$HOME/dev
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
   export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
   export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+  export GPG_TTY=$(tty)       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
 
   # -- use ctrl + <Left> / <Right> ----------------------------
   bind '"\e[5C": forward-word'

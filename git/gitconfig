@@ -1,30 +1,42 @@
 [user]
   name = John Skilbeck
   email = john.skilbeck@gmail.com
+  signingKey = 7B27A6228DE17F53
 [core]
   editor = vim
   excludesfile = ~/.gitignore
 [color]
   ui = always
+[log]
+  date=short
+[push]
+  default=current
 [diff]
   tool = vimdiff
 [push]
   default = simple
 [alias]
-  b = branch
+  # admin
   br = branch
-  c = commit
+  branches = branch -a --color -v
   ck = checkout
-  cm = commit
-  cmt = commit
-  ct = commit
-  dl = difftool HEAD~ HEAD
-  dt = difftool
-  mt = mergetool
-  pl = pull
-  pu = push
-  s = status
-  stat = status
-  tg = tag -n
+  s = status -sb
   vimdiff=difftool -y -t vimdiff -R
-  ws = rebase --whitespace=fix
+
+  # stage
+  addp = add --patch
+
+  # commit
+  cm = commit
+  commit = commit
+  label = tag -a
+  pu = push
+  tag = tag -n
+  tag-release = !sh -c 'git tag release/`date +%Y/%m/%d/%H%M`'
+
+  # undo
+  ammend = commit --ammend -C HEAD
+  undo = reset --soft HEAD^
+  unstage = reset HEAD --
+[commit]
+  gpgsign = true
