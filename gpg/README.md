@@ -1,5 +1,10 @@
 # GPG
 
+## Instructions
+- install gpg and related tools
+- add vars to `~/.profile`
+- `ln -s ./gpg.conf  ~/.gnupg/gpg.conf && ln -s gpg-agent.conf ~/.gnupg/gpg-agent.conf`
+
 ## also check out these
 
 - https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b
@@ -17,7 +22,7 @@ export GPG_TTY=$(tty)
 
 ## Install
 ```bash
-brew install gpg
+brew install gpg gpg-agent pinentry-mac
 ```
 * Generate a new gpg [key](https://help.github.com/articles/generating-a-new-gpg-key/)
 ```
