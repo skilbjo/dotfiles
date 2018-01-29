@@ -1,3 +1,4 @@
 bin/aws
 bin/okta_aws
+bin/kindlegen
 bash/aliases-work
