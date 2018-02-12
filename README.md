@@ -149,3 +149,7 @@ or
 
 #### Delete locally cached Docker image (force pull)
     sudo docker rmi --force $(sudo docker images | grep my_app | awk '{print $3}')
+
+#### Find a container
+
+    for s in $(consul members | grep mesosslave-private | grep alive | awk '{print $1}'); do ssh $s "sudo docker ps | grep marketplace-etl"; done

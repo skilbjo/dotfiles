@@ -23,6 +23,7 @@ NeoBundle 'scrooloose/syntastic'        " linter framework
 NeoBundle 'tpope/vim-fugitive'          " run git commands in vim: :Gblame, etc
 NeoBundle 'tpope/vim-repeat.git'        " can use the . command for plugin maps
 NeoBundle 'tpope/vim-surround'          " :ysiW to surround word in quotes
+NeoBundle 'tpope/vim-obsession'         " save the current state of vim
 NeoBundle 'vim-scripts/AutoComplPop'    " autocomplete
 
 "" Lanugage specific

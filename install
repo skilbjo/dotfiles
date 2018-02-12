@@ -88,8 +88,9 @@ mesos(){
   git clone https://github.com/tmux/tmux.git
   cd tmux
   sh autogen.sh
-  ./configure && make
-  cd ~/tmux/
+  (./configure && make)
+  sleep 5
+  cd ~/tmux
   mv tmux ~/bin/
 
   # tmux dotfiles

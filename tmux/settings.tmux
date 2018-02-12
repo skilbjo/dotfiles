@@ -37,5 +37,3 @@ bind m run "\
     tmux display-message \"mouse is now: \$toggle\";  \
     tmux set-option -w mouse \$toggle; \
     tmux set-option -g mouse \$toggle"
-
-

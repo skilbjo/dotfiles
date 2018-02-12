@@ -2,6 +2,7 @@
 *.swn
 *.swo
 *.swp
+Session.vim
 
 # -- compiled source --------------------------------------------
 *.class
