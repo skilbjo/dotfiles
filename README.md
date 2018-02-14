@@ -152,4 +152,70 @@ or
 
 #### Find a container
 
-    for s in $(consul members | grep mesosslave-private | grep alive | awk '{print $1}'); do ssh $s "sudo docker ps | grep marketplace-etl"; done
+    for s in $(consul members | grep mesosslave-private | grep alive | awk '{print $1}'); do ssh -oStrictHostKeyChecking=no $s "sudo docker ps | grep marketplace-etl"; done
+
+#### Using jstack
+
+```bash
+ssh bastion
+container_id=$(for s in $(consul members | grep mesosslave-private | grep alive | awk '{print $1}'); do ssh -oStrictHostKeyChecking=no $s "sudo docker ps | grep marketplace-etl"; done | awk '{print $1}')
+ssh mesosslave-private
+sudo docker cp /usr/java/jdk1.8.0_162 $container_id:/
+sudo docker exec -it $container_id bash
+bash-4.4# ps
+PID   USER     TIME   COMMAND
+    1 root       0:00 /bin/sh -c /usr/local/deploy/bin/run-job -m jobs.bank-tra
+    7 root       0:00 bash /usr/local/deploy/bin/run-job -m jobs.bank-transacti
+   10 root       0:01 /usr/bin/envconsul -consul=192.20.0.1:1520 -config /etc/e
+   42 root       0:30 java -Duser.timezone=UTC -Xms256m -Xmx2g -XX:MaxMetaspace
+   82 root       0:00 bash
+   90 root       0:00 ps
+bash-4.4# jdk1.8.0_162/bin/jstack
+Usage:
+    jstack [-l] <pid>
+        (to connect to running process)
+    jstack -F [-m] [-l] <pid>
+        (to connect to a hung process)
+    jstack [-m] [-l] <executable> <core>
+        (to connect to a core file)
+    jstack [-m] [-l] [server_id@]<remote server IP or hostname>
+        (to connect to a remote debug server)
+bash-4.4# jdk1.8.0_162/bin/jstack -l 42
+
+"main" #1 prio=5 os_prio=0 tid=0x00007f419000a000 nid=0x2b runnable [0x00007f4198e7e000]
+   java.lang.Thread.State: RUNNABLE
+        at java.net.SocketInputStream.socketRead0(Native Method)
+        at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+        at java.net.SocketInputStream.read(SocketInputStream.java:171)
+        at java.net.SocketInputStream.read(SocketInputStream.java:141)
+        at org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:140)
+        at org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:109)
+        at org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:67)
+        at org.postgresql.core.PGStream.receiveChar(PGStream.java:288)
+        at org.postgresql.core.v3.ConnectionFactoryImpl.enableSSL(ConnectionFactoryImpl.java:329)
+        at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:148)
+        at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49)
+        at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:194)
+        at org.postgresql.Driver.makeConnection(Driver.java:450)
+        at org.postgresql.Driver.connect(Driver.java:252)
+        at java.sql.DriverManager.getConnection(DriverManager.java:664)
+        at java.sql.DriverManager.getConnection(DriverManager.java:208)
+        at clojure.java.jdbc$get_connection.invokeStatic(jdbc.clj:255)
+        at clojure.java.jdbc$get_connection.invoke(jdbc.clj:176)
+        at clojure.java.jdbc$get_connection.invokeStatic(jdbc.clj:239)
+        at clojure.java.jdbc$get_connection.invoke(jdbc.clj:176)
+        at clojure.java.jdbc$get_connection.invokeStatic(jdbc.clj:242)
+        at jobs.bank_transaction_received$_main.invokeStatic(bank_transaction_received.clj:229)
+        at jobs.bank_transaction_received$_main.doInvoke(bank_transaction_received.clj:225)
+        at clojure.lang.RestFn.invoke(RestFn.java:397)
+        at clojure.lang.AFn.applyToHelper(AFn.java:152)
+        at clojure.lang.RestFn.applyTo(RestFn.java:132)
+        at clojure.lang.Var.applyTo(Var.java:702)
+        at clojure.core$apply.invokeStatic(core.clj:657)
+        at clojure.main$main_opt.invokeStatic(main.clj:317)
+        at clojure.main$main_opt.invoke(main.clj:313)
+        at clojure.main$main.invokeStatic(main.clj:424)
+        at clojure.main$main.doInvoke(main.clj:387)
+        at clojure.lang.RestFn.applyTo(RestFn.java:137)
+        at clojure.lang.Var.applyTo(Var.java:702)
+```
