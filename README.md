@@ -137,9 +137,7 @@ or
 ### UAT / Staging / Prod Mesos environments
 
 #### Gimme a mesosslave
-    consul members | grep mesosslave | awk '{print $1}' | head -n1 | xargs ssh
-
-    consul members | grep mesosslave | head -n1 | awk '{print $1}' | xargs ssh -tt
+    ssh $(consul members | grep slave | grep alive | awk '{print $1}' | head -n1)
 
 #### Search for if Docker is running correctly on all the mesosslaves
     $ for host in $(consul members | grep mesosslave-private | awk '{print $1}'); do ssh $host -t "sudo docker ps | head -n1"; done
@@ -151,11 +149,16 @@ or
     sudo docker rmi --force $(sudo docker images | grep my_app | awk '{print $3}')
 
 #### Find a container
-
     for s in $(consul members | grep mesosslave-private | grep alive | awk '{print $1}'); do ssh -oStrictHostKeyChecking=no $s "sudo docker ps | grep marketplace-etl"; done
 
 #### Using jstack
 
+#### Locally
+```bash
+jstack -l $(ps | grep 'java -classpath' | tail -n2 | head -n1 | awk '{print $1}') | grep main
+```
+
+#### In Running Container
 ```bash
 ssh bastion
 container_id=$(for s in $(consul members | grep mesosslave-private | grep alive | awk '{print $1}'); do ssh -oStrictHostKeyChecking=no $s "sudo docker ps | grep marketplace-etl"; done | awk '{print $1}')
