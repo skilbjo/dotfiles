@@ -79,7 +79,7 @@ root() {
   set +u
 }
 
-aws() {
+_aws() {
   # -- path, command prompt ---------------------------------------
   export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
   #export PS1='[\u@\h \W]\$ '
@@ -91,7 +91,7 @@ computer_specific() {
     ('john.skilbeck') work ;;
     (skilbjo) skilbjo ;;
     (root) root ;;
-    (ec2-user) aws;;
+    (ec2-user) _aws;;
   esac
 }
 

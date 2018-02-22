@@ -17,6 +17,10 @@ alias vim='vim -p'
 alias 'psql.start'='postgres -D /usr/local/var/postgres/ &'
 alias 'psql.stop'='killall postgres'
 alias pretty='lein with-profile +pretty'
+# https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html
+## curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+## unzip awscli-bundle.zip
+## ./awscli-bundle/install -b ~/bin/aws
 alias aws='~/bin/aws'
 alias aws.fc='~/bin/aws --profile fc'
 alias aws.p='~/bin/aws --profile personal'

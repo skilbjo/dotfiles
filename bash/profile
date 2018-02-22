@@ -195,7 +195,7 @@ skilbjo() {
   fi
 }
 
-aws() {
+_aws() {
   return
 }
 
@@ -204,7 +204,7 @@ computer_specific() {
     ('john.skilbeck') work;;
     (skilbjo) skilbjo;;
     (pi) pi;;
-    (ec2-user) aws;;
+    (ec2-user) _aws;;
   esac
 }
 
