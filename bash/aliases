@@ -1,7 +1,6 @@
 # -- unix utils -------------------------------------------------
 alias ..='cd ..'
 alias ...='cd ../..'
-#alias cal='cal | grep --color -EC6 "\b$(date +%e | sed "s/ //g")"' # not working in OS X High Sierra
 alias grep='grep --color=always'
 alias ff='find . -type f -name'
 alias fh='find ~ -type f -name'
@@ -12,15 +11,10 @@ alias ll='ls -lh'
 alias la='ls -la'
 alias mkdir='mkdir -p'
 alias vim='vim -p'
+alias man='function _(){ /usr/bin/man "$1" | col -xb | vim -;};_'
 
 # -- application specific ---------------------------------------
-alias 'psql.start'='postgres -D /usr/local/var/postgres/ &'
-alias 'psql.stop'='killall postgres'
-alias pretty='lein with-profile +pretty'
 # https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html
-## curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-## unzip awscli-bundle.zip
-## ./awscli-bundle/install -b ~/bin/aws
 alias aws='~/bin/aws'
 alias aws.fc='~/bin/aws --profile fc'
 alias aws.p='~/bin/aws --profile personal'
