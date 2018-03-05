@@ -83,6 +83,16 @@ or, with a `--syslog` tag:
     scp ubuntu.deb pi1:~/ubuntu.deb
 
 ### Docker
+#### Create a docker-machine with 192.168.99.100
+```bash
+docker-machine create --driver "virtualbox" --virtualbox-hostonly-cidr "192.168.99.1/24" default
+docker-machine stop default
+docker-machine start default
+docker-machine regenerate-certs default
+VBoxManage controlvm "default" natpf1 "tcp-port8080,tcp,,8080,,8080";
+VBoxManage controlvm "default" natpf1 "tcp-port8443,tcp,,8443,,8443";
+```
+
 #### SSH into a Docker container
     $ docker -u root exec -it <container-id> bash
 
