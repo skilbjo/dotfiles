@@ -186,12 +186,14 @@ work() {
 
 skilbjo() {
   # Add password-protected id_rsa key
-  if [[ $(ps aux | grep ssh-agent | wc -l) -lt 1 ]]; then
-    eval "$(ssh-agent -s)" && \
-      ssh-add -K ~/.ssh/id_rsa 2>/dev/null || \
-      ssh-add ~/.ssh/id_rsa
-  else
-    ssh-add -K ~/.ssh/id_rsa 2>/dev/null || ssh-add ~/.ssh/id_rsa
+  if [[ "Darwin" == $(uname) ]]; then
+    if [[ $(ps aux | grep ssh-agent | wc -l) -lt 1 ]]; then
+      eval "$(ssh-agent -s)" && \
+        ssh-add -K ~/.ssh/id_rsa 2>/dev/null || \
+        ssh-add ~/.ssh/id_rsa
+    else
+      ssh-add -K ~/.ssh/id_rsa 2>/dev/null || ssh-add ~/.ssh/id_rsa
+    fi
   fi
 }
 
