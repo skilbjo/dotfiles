@@ -91,6 +91,7 @@ mesos(){
   (./configure && make)
   sleep 5
   cd ~/tmux
+  mkdir ~/bin
   mv tmux ~/bin/
 
   # tmux dotfiles
@@ -106,7 +107,6 @@ mesos(){
   ln -s ~/dev/dotfiles/tmux/linux.tmux ~/.tmux/linux.tmux
   ln -s ~/dev/dotfiles/tmux/freebsd.tmux ~/.tmux/freebsd.tmux
 
-  mkdir ~/bin
   ln -s ~/dev/dotfiles/bin/tm ~/bin/tm
 }
 

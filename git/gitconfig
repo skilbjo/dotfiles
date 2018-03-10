@@ -22,6 +22,7 @@
   ck = checkout
   s = status -sb
   vimdiff=difftool -y -t vimdiff -R
+  purge = fetch --all --prune
 
   # stage
   addp = add --patch
