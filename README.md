@@ -232,3 +232,13 @@ bash-4.4# jdk1.8.0_162/bin/jstack -l 42
         at clojure.lang.RestFn.applyTo(RestFn.java:137)
         at clojure.lang.Var.applyTo(Var.java:702)
 ```
+
+### Debian VM
+Linux is often useful as a build tool. Here are some helpful links to get
+started:
+
+- <https://askubuntu.com/questions/539243/how-to-change-visudo-editor-from-nano-to-vim>
+- <https://askubuntu.com/questions/192050/how-to-run-sudo-command-with-no-password>
+- <https://linuxconfig.org/how-to-install-docker-engine-on-debian-9-stretch-linux>
+- <https://stackoverflow.com/questions/5906441/how-to-ssh-to-a-virtualbox-guest-externally-through-a-host>
+- <https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo>

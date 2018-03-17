@@ -12,6 +12,7 @@ alias la='ls -la'
 alias mkdir='mkdir -p'
 alias vim='vim -p'
 alias man='function _(){ /usr/bin/man "$1" | col -xb | vim -;};_'
+alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 "$1" & cd -;};_'
 
 # -- application specific ---------------------------------------
 # https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html

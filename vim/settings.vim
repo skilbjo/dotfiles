@@ -63,7 +63,7 @@ augroup END
 
 augroup filetypedetect
     au BufRead,BufNewFile *.mips set filetype=conf
-  augroup END
+augroup END
 
 " -- functions on open / close ----------------------------------
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
