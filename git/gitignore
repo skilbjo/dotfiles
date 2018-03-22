@@ -41,6 +41,9 @@ repl-port
 repl-history
 target/
 
+# -- clojurescript ----------------------------------------------
+resources/public/js/
+
 # -- misc -------------------------------------------------------
 .dropbox
 

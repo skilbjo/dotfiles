@@ -53,16 +53,6 @@ osx() {
 
   # -- alias ----------------------------------------------------
   ## - docker --------
-  alias "ssh.docker"="echo 'password is \`tcuser\`'; ssh docker@$(docker-machine ip default)"
-  alias "docker.ssh"="docker-machine ssh default"
-  alias "docker.ls"="docker ps -a --format='table {{.ID}}\t{{.Image}}'"
-
-  alias "docker.psql.get"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
-  alias "docker.psql.start"="docker start postgres"
-  alias "docker.psql.stop"="docker stop postgres"
-
-  alias "docker.rm-container"="docker ps -qa | xargs docker rm"
-  alias "docker.rmi"="function _(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_"
   set +u
   alias "docker.rm.this"="function _(){ docker images | grep \"$1\" | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi; };_"
   set -u
