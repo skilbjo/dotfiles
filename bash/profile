@@ -194,6 +194,7 @@ _aws() {
 computer_specific() {
   case $(whoami) in
     ('john.skilbeck') work;;
+    ('johnskilbeck') work;;
     (skilbjo) skilbjo;;
     (pi) pi;;
     (ec2-user) _aws;;
