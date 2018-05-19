@@ -1,9 +1,15 @@
 # GPG
 
+### skilbjo notes
 ## Instructions
 - install gpg and related tools
-- add vars to `~/.profile`
-- `ln -s ./gpg.conf  ~/.gnupg/gpg.conf && ln -s gpg-agent.conf ~/.gnupg/gpg-agent.conf`
+- add vars to `~/.profile` (`ln -s ~/Dropbox/bash/profile ~/.profile`)
+- add `.conf` files
+
+```bash
+ln -s ~/Dropbox/dotfiles/gpg/gpg.conf ~/.gnupg/gpg.conf
+ln -s ~/Dropbox/dotfiles/gpg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+```
 
 ## also check out these
 
@@ -20,6 +26,7 @@ export GPG_TTY=$(tty)
 ```
 -[https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0](https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0)
 
+### copypasta from "the internet"
 ## Install
 ```bash
 brew install gpg gpg-agent pinentry-mac

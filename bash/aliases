@@ -38,3 +38,7 @@ alias aws='~/bin/aws'
 alias aws.fc='~/bin/aws --profile fc'
 alias aws.p='~/bin/aws --profile personal'
 alias aws.lo='~/bin/aws --profile lockedon'
+
+alias l='bash --login'
+alias x='exit'
+alias c='cd ~/dev/crawlingchaos'
