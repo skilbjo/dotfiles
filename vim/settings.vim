@@ -71,6 +71,8 @@ silent !stty -ixon
 " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
 
+autocmd BufNewFile,BufRead * call DetectEnv()
+
 autocmd BufWritePre * :call TrimWhiteSpace()
 autocmd BufWritePre * :retab()
 " Indent on save hook

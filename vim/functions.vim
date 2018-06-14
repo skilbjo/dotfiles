@@ -44,3 +44,11 @@ endfunction
 function! Indent()
   call Preserve('normal gg=G')
 endfunction
+
+" format files based on shebang - #!/usr/bin/env clj is formatted as clojure
+function! DetectEnv()
+  let tokens = split(getline(1))
+  if len(tokens) >= 2
+    setfiletype tokens[1]
+  endif
+endfun
