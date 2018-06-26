@@ -1,7 +1,7 @@
 [user]
   name = John Skilbeck
   email = john.skilbeck@gmail.com
-  signingKey = 7B27A6228DE17F53
+  signingKey = 08A53423EDB87FA3
 [core]
   editor = vim
   excludesfile = ~/.gitignore
@@ -20,9 +20,10 @@
   br = branch
   branches = branch -a --color -v
   ck = checkout
+  l = log --graph --decorate --oneline
+  purge = fetch --all --prune
   s = status -sb
   vimdiff=difftool -y -t vimdiff -R
-  purge = fetch --all --prune
 
   # stage
   addp = add --patch
@@ -41,3 +42,7 @@
   unstage = reset HEAD --
 [commit]
   gpgsign = true
+[pager]
+  branch = false
+[gpg]
+  program = gpg

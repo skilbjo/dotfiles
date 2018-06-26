@@ -1,7 +1,6 @@
 ## Settings
-#set -g default-command "login-shell"
-set-option -g default-shell $SHELL
-#set-option -g default-command "/bin/bash --login"
+set-option -g default-shell /usr/local/bin/bash
+#set -g default-command "login-shell" || #set-option -g default-shell $SHELL
 
 # tmux 2.5
 #bind -T copy-mode-vi 'y' send -X copy-pipe "reattach-to-user-namespace pbcopy"

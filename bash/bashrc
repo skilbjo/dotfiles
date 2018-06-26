@@ -51,6 +51,8 @@ skilbjo() {
   export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
   #export PS1='[\u@\h \W]\$ '
   #export PS1="\W λ "
+
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # Java 1.8
 }
 
 work() {

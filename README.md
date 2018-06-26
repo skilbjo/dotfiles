@@ -82,6 +82,20 @@ or, with a `--syslog` tag:
 #### SCP from local to remote
     scp ubuntu.deb pi1:~/ubuntu.deb
 
+### Clojure
+Using the REPL to re-load code:
+
+```clojure
+(refresh)
+(use '[clojure.tools.namespace.repl :only (refresh)])
+
+(require '[crawlingchaos.domain.document-management.api :as api])
+
+(def loan-name "L18-CA-0021179")
+
+(api/copy-loan-documents-to-capital-provider-folder loan-name)
+```
+
 ### Docker
 #### Create a docker-machine with 192.168.99.100
 ```bash

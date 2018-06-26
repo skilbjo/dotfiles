@@ -40,6 +40,7 @@ node_modules
 repl-port
 repl-history
 target/
+.rebel_readline_history
 
 # -- clojurescript ----------------------------------------------
 resources/public/js/
