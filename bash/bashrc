@@ -51,8 +51,6 @@ skilbjo() {
   export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
   #export PS1='[\u@\h \W]\$ '
   #export PS1="\W λ "
-
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # Java 1.8
 }
 
 work() {
@@ -61,10 +59,6 @@ work() {
 
   # Add password-protected id_rsa key
   ssh-add -K ~/.ssh/id_rsa || (eval "$(ssh-agent -s)" && ssh-add -K ~/.ssh/id_rsa)
-
-  #export JAVA_HOME=$(/usr/libexec/java_home -v 10) # Java 10
-  #export JAVA_HOME=$(/usr/libexec/java_home -v 9) # Java 9
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # Java 1.8
 }
 
 root() {

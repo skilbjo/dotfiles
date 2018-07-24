@@ -69,6 +69,11 @@ osx() {
   export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
   export GPG_TTY=$(tty)       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
 
+  # -- java -----------------------------------------------------
+  #export JAVA_HOME=$(/usr/libexec/java_home -v 10) # Java 10
+  #export JAVA_HOME=$(/usr/libexec/java_home -v 9) # Java 9
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # Java 1.8
+
   # -- use ctrl + <Left> / <Right> ----------------------------
   bind '"\e[5C": forward-word'
   bind '"\e[5D": backward-word'
