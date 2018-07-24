@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -eou pipefail
+
+host="$1"
+set +u
+cmd="$2"
+set -u
+
+ssh -i ~/.ssh/data_emr.pem \
+  -o Hostname="$host" \
+  jumped \
+  "$cmd"

@@ -167,12 +167,18 @@ skilbjo() {
   # Add password-protected id_rsa key
   if [[ "Darwin" == $(uname) ]]; then
     if [[ $(ps aux | grep ssh-agent | wc -l) -lt 1 ]]; then
+      ## Add regular private key
       eval "$(ssh-agent -s)" && \
         ssh-add -K ~/.ssh/id_rsa 2>/dev/null || \
         ssh-add ~/.ssh/id_rsa
     else
       ssh-add -K ~/.ssh/id_rsa 2>/dev/null || ssh-add ~/.ssh/id_rsa
     fi
+
+    case $(hostname) in
+      mbp | mbp2 )
+        ssh-add -K ~/.ssh/id_rsa_circle_ci 2>/dev/null ;; ## Add cirlceci private key
+    esac
   fi
 }
 

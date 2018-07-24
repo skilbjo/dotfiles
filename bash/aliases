@@ -35,10 +35,12 @@ alias 'vbox.debian.ssh'='ssh -p2222 localhost'  # vboxmanage modifyvm debian --n
 # -- application specific ---------------------------------------
 # https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html
 alias aws='~/bin/aws'
-alias aws.fc='~/bin/aws --profile fc'
+alias aws.c='~/bin/aws --profile circleci'
 alias aws.p='~/bin/aws --profile personal'
 alias aws.lo='~/bin/aws --profile lockedon'
 
 alias x='exit'
-alias c='cd ~/dev/crawlingchaos'
+alias a='cd ~/dev/aeon/'
+alias m='cd ~/dev/markets-etl/'
 alias d='cd ~/dev'
+alias dk='cd ~/Desktop'

@@ -44,5 +44,3 @@
   gpgsign = true
 [pager]
   branch = false
-[gpg]
-  program = gpg

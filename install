@@ -108,6 +108,21 @@ mesos(){
   ln -s ~/dev/dotfiles/tmux/freebsd.tmux ~/.tmux/freebsd.tmux
 
   ln -s ~/dev/dotfiles/bin/tm ~/bin/tm
+
+  export PATH='/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:~/bin'
+
+  cd ~; mkdir dev; cd dev
+  git clone https://github.com/skilbjo/dotfiles.git
+  cd ~; mkdir .vim
+  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle
+  ln -s ~/dev/dotfiles/vim/vimrc .vimrc
+  ln -s ~/dev/dotfiles/vim/plugins.vim .vim/plugins.vim
+  ln -s ~/dev/dotfiles/vim/plugin_settings.vim .vim/plugin_settings.vim
+  ln -s ~/dev/dotfiles/vim/settings.vim .vim/settings.vim
+  ln -s ~/dev/dotfiles/vim/keybindings.vim .vim/keybindings.vim
+  ln -s ~/dev/dotfiles/vim/functions.vim .vim/functions.vim
+  ~/.vim/bundle/bin/install.sh
+  ~/.vim/bundle/bin/neoinstall
 }
 
 root() {
