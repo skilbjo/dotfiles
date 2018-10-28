@@ -2,6 +2,6 @@ bin/aws
 bin/okta_aws
 bin/kindlegen
 bash/aliases-work
-bash/ssh-config
-bash/profilelocal-mbp
-bash/profilelocal-devices
+bash/ssh-config.sh
+bash/profilelocal-mbp.sh
+bash/profilelocal-devices.sh
