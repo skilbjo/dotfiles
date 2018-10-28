@@ -13,7 +13,10 @@ alias mkdir='mkdir -p'
 alias vim='vim -p'
 alias man='function _(){ /usr/bin/man "$1" | col -xb | vim -;};_'
 alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 "$1" & cd -;};_'
-#
+
+# -- PostgresSQL ------------------------------------------------
+alias "psql.dw"='function _psql(){ psql "$db_uri" -c "$1"; };_psql'
+
 # -- Docker -----------------------------------------------------
 alias "docker.ssh"="docker-machine ssh default"  # or, alias "ssh.docker"="echo 'password is \`tcuser\`'; ssh docker@$(docker-machine ip default)"
 alias "docker.ls"="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}'"
@@ -35,9 +38,9 @@ alias 'vbox.debian.ssh'='ssh -p2222 localhost'  # vboxmanage modifyvm debian --n
 # -- application specific ---------------------------------------
 # https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html
 alias aws='~/bin/aws'
-alias aws.c='~/bin/aws --profile circleci'
-alias aws.p='~/bin/aws --profile personal'
-alias aws.lo='~/bin/aws --profile lockedon'
+alias aws.c='~/bin/aws --profile circleci --region us-east-1'
+alias aws.p='~/bin/aws --profile personal --region us-east-1'
+alias aws.lo='~/bin/aws --profile lockedon --region us-east-1'
 
 alias x='exit'
 alias a='cd ~/dev/aeon/'
