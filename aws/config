@@ -1,0 +1,17 @@
+[default]
+region = us-east-1
+
+[personal]
+region = us-east-1
+
+[circleci]
+region = us-east-1
+
+[circleci-robot]
+region = us-east-1
+
+[circleci-unknown]
+region = us-east-1
+
+[docker-image-publisher]
+region = us-east-1

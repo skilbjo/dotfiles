@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -eou pipefail
+
+declare -a _jobs=("fast-etl" "pipeline" "datawarehouse-monitor")
+
+for _job in "${_jobs[@]}"; do
+  (
+    cd "/Users/skilbjo/dev/${_job}"
+    deploy/bin/k8s
+  )
+done

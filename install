@@ -29,6 +29,9 @@ user() {
   ln -s ~/Documents/Dropbox/dotfiles/bash/ssh-config.sh ~/.ssh/config
   ln -s ~/Documents/Dropbox/dotfiles/bash/profilelocal-mbp.sh ~/.profilelocal
 
+  ln -s ~/Documents/Dropbox/dotfiles/aws/config      ~/.aws/config
+  ln -s ~/Documents/Dropbox/dotfiles/aws/credentials ~/.aws/credentials
+
   # gpg
   ln -s ~/Documents/Dropbox/dotfiles/gpg/gpg-agent.conf gpg-agent.conf
 

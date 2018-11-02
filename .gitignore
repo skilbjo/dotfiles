@@ -5,3 +5,5 @@ bash/aliases-work
 bash/ssh-config.sh
 bash/profilelocal-mbp.sh
 bash/profilelocal-devices.sh
+k8s/create-secrets
+aws/credentials
