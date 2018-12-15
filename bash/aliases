@@ -14,6 +14,7 @@ alias vim='vim -p'
 alias man='function _(){ /usr/bin/man "$1" | col -xb | vim -;};_'
 alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 "$1" & cd -;};_'
 alias p='vim ~/.profilelocal && . ~/.profilelocal'
+alias bell="echo -ne '\007'; echo -ne '\007'; echo -ne '\007'"
 
 # -- PostgresSQL ------------------------------------------------
 alias "psql.dw"='function _psql(){ psql "$db_uri" -c "$1"; };_psql'
@@ -46,5 +47,6 @@ alias aws.lo='~/bin/aws --profile lockedon --region us-east-1'
 alias x='exit'
 alias a='cd ~/dev/aeon/'
 alias m='cd ~/dev/markets-etl/'
+alias f='cd ~/dev/fast-etl/'
 alias d='cd ~/dev'
 alias dk='cd ~/Desktop'
