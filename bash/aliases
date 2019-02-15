@@ -50,3 +50,7 @@ alias m='cd ~/dev/markets-etl/'
 alias b='cd ~/dev/bash-etl/'
 alias d='cd ~/dev'
 alias dk='cd ~/Desktop'
+
+alias os='ssh a@localhost -p2222'
+alias ubuntu='ssh a@localhost -p2222'
+alias sshos='ssh a@localhost -p2222'

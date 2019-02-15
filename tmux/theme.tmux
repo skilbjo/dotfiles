@@ -58,5 +58,3 @@ set -g status-right "#[fg=colour255,bold] ❯ %I:%M.%p ● %F #[bg=red]#{s/root/
 set -g set-titles-string '#h ❐ #S ● #I #W'
 set -g set-titles on
 #set -g set-titles-string '#H:#S.#I.#P #W #T'
-
-
