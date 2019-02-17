@@ -50,7 +50,8 @@ setw -g window-status-bell-attr bold
 ### Right
 set -g status-interval 5
 set -g status-right-length 120
-set -g status-right "#[fg=colour255,bold] UTC ❯❯ #(date -u +'%%T ● %%F') PST ❯❯ %I:%M.%p ● %F #[bg=red]#{s/root//:client_key_table}"
+set -g status-right "#[fg=colour255,bold] PST ❯❯ %I:%M.%p ● %F UTC ❯❯ #(date -u +'%%T ● %%F') #[bg=red]#{s/root//:client_key_table}"
+#set -g status-right "#[fg=colour255,bold] UTC ❯❯ #(date -u +'%%T ● %%F') PST ❯❯ %I:%M.%p ● %F #[bg=red]#{s/root//:client_key_table}"
 #set -g status-right "#[bg=red]#{s/root//:client_key_table}"
 #set -g status-right "#[fg=colour255,bold][%I:%M.%p - %a | %F]"
 #set -g status-right "#[fg=colour255,bold][ %a %I:%M.%p ● #[bg=colour67]%F#[bg=colour24] ]"
