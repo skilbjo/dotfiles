@@ -52,3 +52,7 @@ function! DetectEnv()
     setfiletype tokens[1]
   endif
 endfun
+
+"fu! ResetSpaces()
+  "%retab!
+"endfunction

@@ -23,9 +23,8 @@ alias "psql.dw"='function _psql(){ psql "$db_uri" -c "$1"; };_psql'
 alias "docker.ssh"="docker-machine ssh default"  # or, alias "ssh.docker"="echo 'password is \`tcuser\`'; ssh docker@$(docker-machine ip default)"
 alias "docker.ls"="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}'"
 
-alias "docker.psql.dl"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
-alias "docker.psql.start"="docker start postgres"
-alias "docker.psql.stop"="docker stop postgres"
+alias "docker.psql.start"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
+alias "docker.psql.stop"="docker rm postgres"
 
 alias "docker.stop.all"="docker ps -qa | xargs docker rm -f"
 alias "docker.stop.this"='function _(){ docker ps -a | grep "$1" | awk {"print \$1"} |  xargs docker rm -f;};_'
@@ -50,7 +49,6 @@ alias m='cd ~/dev/markets-etl/'
 alias b='cd ~/dev/bash-etl/'
 alias d='cd ~/dev'
 alias dk='cd ~/Desktop'
+alias k8s='vim deploy/bin/k8s'
 
-alias os='ssh a@localhost -p2222'
-alias ubuntu='ssh a@localhost -p2222'
-alias sshos='ssh a@localhost -p2222'
+alias 'netstat.osx'='echo "Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)" && netstat -an | grep LISTEN'

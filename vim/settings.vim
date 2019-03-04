@@ -74,7 +74,10 @@ autocmd VimLeave * silent !stty ixon
 autocmd BufNewFile,BufRead * call DetectEnv()
 
 autocmd BufWritePre * :call TrimWhiteSpace()
-autocmd BufWritePre * :retab()
+"autocmd BufWritePre * :call ResetSpaces()
+autocmd BufWritePre * :retab
+
+"" Seems broken with vim 8
+"autocmd BufWritePre * :call :retab()
 " Indent on save hook
 "autocmd BufWritePre <buffer> :call Indent()
-
