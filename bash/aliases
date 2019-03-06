@@ -49,6 +49,9 @@ alias m='cd ~/dev/markets-etl/'
 alias b='cd ~/dev/bash-etl/'
 alias d='cd ~/dev'
 alias dk='cd ~/Desktop'
-alias k8s='vim deploy/bin/k8s'
+alias ks='vim deploy/bin/k8s'
 
 alias 'netstat.osx'='echo "Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)" && netstat -an | grep LISTEN'
+
+## vbox debian
+alias udocker='~/dev/lambdas/iris/resources/udocker'
