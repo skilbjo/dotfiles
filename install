@@ -74,6 +74,27 @@ user() {
   ln -s ~/dev/dotfiles/bin/tm ~/bin/tm
 }
 
+debian(){
+  cd ~
+
+  # the goods
+  sudo apt install -y bash bash-completion jq htop python3-pip
+  pip3 install awscli --user --upgrade
+
+  # tmux
+  sudo apt install -y automake build-essential pkg-config libevent-dev libcurses5-dev
+
+  # tmux
+  git clone https://github.com/tmux/tmux.git
+  cd tmux
+  sh autogen.sh
+  (./configure && make)
+  sleep 5
+  cd ~/tmux
+  mkdir ~/bin
+  mv tmux ~/bin/
+}
+
 mesos(){
   # bring over dotfiles
   sudo yum -y install git automake ncurses-devel glibc-static

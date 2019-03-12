@@ -1,11 +1,11 @@
 {:user {:dependencies [#_[io.aviso/pretty "0.1.34"]
-                       [jonase/eastwood "0.2.5" :exclusions [org.clojure/clojure]]
+                       [jonase/eastwood "0.3.5" :exclusions [org.clojure/clojure]]
                        #_[org.clojure/tools.reader "1.3.0-alpha3"]
                        #_[org.clojure/tools.namespace "0.2.11"]]  ; (refresh) in repl
         :plugins      [#_[cider/cider-nrepl "0.16.0" :exclusions [org.clojure/tools.nrepl]]
-                       [cljfmt "0.5.7"]
+                       [cljfmt "0.6.4"]
                        #_[io.aviso/pretty "0.1.34"]
-                       #_[lein-ancient "0.6.15" :exclusions [org.apache.httpcomponents/httpcore]]
+                       [lein-ancient "0.6.15" :exclusions [org.apache.httpcomponents/httpcore]]
                        #_[lein-auto "0.1.3"]
                        #_[lein-autoreload "0.1.1" :exclusions [org.clojure/clojure
                                                                org.apache.maven.wagon/wagon-provider-api
