@@ -141,7 +141,10 @@ freebsd() {
   if [ -x /usr/bin/fortune ] ; then /usr/bin/fortune freebsd-tips ; fi
 
   # -- fns ------------------------------------------------------
-  start_docker
+  export PATH="${PATH}/~./local/bin"
+
+  # -- fns ------------------------------------------------------
+  # start_docker  # turn off until virtualbox is resolved
 
   # -- bash completion ----------------------------------------
   set +u

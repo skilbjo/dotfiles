@@ -21,6 +21,7 @@ alias "psql.dw"='function _psql(){ psql "$db_uri" -c "$1"; };_psql'
 
 # -- Java -------------------------------------------------------
 alias "java.ps"='_jstack(){ if [[ -z "$1" ]]; then threads=1; else threads="$1"; fi; pgrep java | tail -n"$threads" | xargs jstack | grep -A500 -E "\"main\" \#[0-9]";};_jstack'
+alias 'llein'='LEIN_FAST_TRAMPOLINE=y lein trampoline'
 
 # -- Docker -----------------------------------------------------
 alias "docker.ssh"="docker-machine ssh default"  # or, alias "ssh.docker"="echo 'password is \`tcuser\`'; ssh docker@$(docker-machine ip default)"

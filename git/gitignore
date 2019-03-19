@@ -33,6 +33,7 @@ node_modules
 .ipynb_checkpoints/
 
 # -- clojure ----------------------------------------------------
+.cpcache
 .lein-env
 .lein-failures
 .lein-repl-history
