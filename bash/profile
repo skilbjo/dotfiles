@@ -141,7 +141,7 @@ freebsd() {
   if [ -x /usr/bin/fortune ] ; then /usr/bin/fortune freebsd-tips ; fi
 
   # -- fns ------------------------------------------------------
-  export PATH="${PATH}/~./local/bin"
+  #export PATH="${PATH}:/~./local/bin"  # not needed, just pip install awscli --user; cd ~/bin/; ln -s /home/skilbjo/.local/bin/aws aws
 
   # -- fns ------------------------------------------------------
   # start_docker  # turn off until virtualbox is resolved
