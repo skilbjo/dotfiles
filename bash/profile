@@ -99,6 +99,7 @@ linux() {
   #alias pbpaste='xsel --clipboard --output'
   alias ll='ls -la'
 
+  export GPG_TTY=$(tty)       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
   # -- virtual terminal (box connected to monitor) ------------
   #if [ "$TERM" = "linux" ]; then
     #echo -en "\e]P0222222" #black
@@ -151,6 +152,9 @@ freebsd() {
   [[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
     source /usr/local/share/bash-completion/bash_completion.sh
   set -u
+
+  #https://superuser.com/questions/715125/openssh-freebsd-screen-overwrite-when-closing-application
+  export TERM=xterm-clear
 }
 
 os_specific() {
