@@ -29,7 +29,7 @@ linux() {
 }
 
 freebsd() {
-  eval "$(keychain --eval /home/skilbjo/.ssh/id_rsa)"
+  eval "$(keychain --eval --agents ssh)" # /home/skilbjo/.ssh/id_rsa)"
 }
 
 os_specific() {
