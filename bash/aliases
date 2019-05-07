@@ -33,7 +33,10 @@ alias "docker.psql.stop"="docker rm postgres"
 alias "docker.stop.all"="docker ps -qa | xargs docker rm -f"
 alias "docker.stop.this"='function _(){ docker ps -a | grep "$1" | awk {"print \$1"} |  xargs docker rm -f;};_'
 alias "docker.rmi.all"="function _(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_"
-alias "docker.rmi.this"='function _(){ docker images | grep "$1" | awk {"print \$3"} | grep -v IMAGE | xargs docker -f rmi; };_'
+alias "docker.rmi.this"='function _(){ docker images | grep "$1" | awk {"print \$3"} | grep -v IMAGE | xargs docker rmi -f; };_'
+alias "d.rmi"='function _(){ docker images | grep "$1" | awk {"print \$3"} | grep -v IMAGE | xargs docker rmi -f; };_'
+
+alias 'di'='docker images'
 
 # -- VirtualBox -------------------------------------------------
 alias 'vbox.debian.start'='vboxmanage startvm debian --type headless'

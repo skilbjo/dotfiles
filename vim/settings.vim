@@ -57,12 +57,16 @@ endif
 
 " -- ftplugin - detect syntax -----------------------------------
 augroup filetypedetect
-    au BufRead,BufNewFile *.mips setfiletype conf
-    " associate *.foo with php filetype
+  au BufRead,BufNewFile *.mips setfiletype conf
+  " associate *.foo with php filetype
 augroup END
 
 augroup filetypedetect
-    au BufRead,BufNewFile *.mips set filetype=conf
+  au BufRead,BufNewFile *.mips set filetype=conf
+augroup END
+
+augroup filetypedetect
+  au BufRead,BufNewFile *.clj set filetype=clojure
 augroup END
 
 " -- functions on open / close ----------------------------------
