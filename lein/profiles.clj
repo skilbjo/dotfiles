@@ -4,6 +4,7 @@
                        #_[org.clojure/tools.namespace "0.2.11"]]  ; (refresh) in repl
         :plugins      [#_[cider/cider-nrepl "0.16.0" :exclusions [org.clojure/tools.nrepl]]
                        [cljfmt "0.6.4"]
+                       [org.clojure/core.unify "0.5.7"]
                        #_[io.aviso/pretty "0.1.34"]
                        [lein-ancient "0.6.15" :exclusions [org.apache.httpcomponents/httpcore]]
                        #_[lein-auto "0.1.3"]

@@ -8,12 +8,11 @@ let maplocalleader =  "-"
 inoremap <leader>~    `
 inoremap …            ;
 inoremap Ú            :
-" }}}
 nnoremap <Bslash> ;
 nnoremap \| ,
+" }}}
 
 " -- wordmovement -----------------------------------------------
-
 " Arrow keys movement <Ctrl>-<Left> , <Ctrl>-<Right> {{{
 " http://superuser.com/questions/123937/how-to-jump-to-the-beginning-or-end-of-line-in-vim-os-x ; http://stackoverflow.com/questions/5345612/vim-in-mac-os-x-terminal-move-cursor-word-by-word; http://superuser.com/questions/614553/is-there-any-way-to-go-word-by-word-using-ctrl/614555#614555; http://stackoverflow.com/questions/81272/is-there-any-way-in-the-os-x-terminal-to-move-the-cursor-word-by-word; http://superuser.com/questions/635482/why-does-optionleft-arrow-work-in-vim-but-not-right-arrow-on-mac-os-x; http://apple.stackexchange.com/questions/1626/os-x-terminal-equivalent-of-ctrlleft-ctrlright
 "nnoremap <C-Left> B
@@ -38,11 +37,11 @@ map 9           ^
 "map 3           ^
 
 " -- tabs / splits ----------------------------------------------
-
 " Tab opening/closing {{{
 noremap <C-t>         :tabnew<CR>
 nnoremap <C-w>        :tabclose!<CR>
-noremap  <C-x>        :tabclose!<CR> " }}}
+noremap  <C-x>        :tabclose!<CR>
+" }}}
 
 " Tab navigation {{{
 nnoremap –            gT

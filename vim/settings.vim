@@ -52,13 +52,12 @@ set hlsearch
 " set winminheight=5
 
 if exists('+colorcolumn')
-  set colorcolumn=80   "Show margin
+  set colorcolumn=80   " Show margin
 endif
 
 " -- ftplugin - detect syntax -----------------------------------
-augroup filetypedetect
+augroup filetypedetect  " associate *.foo with php filetype
   au BufRead,BufNewFile *.mips setfiletype conf
-  " associate *.foo with php filetype
 augroup END
 
 augroup filetypedetect
@@ -70,18 +69,14 @@ augroup filetypedetect
 augroup END
 
 " -- functions on open / close ----------------------------------
-" Allow us to use Ctrl-s and Ctrl-q as keybinds
-silent !stty -ixon
-" Restore default behaviour when leaving Vim.
-autocmd VimLeave * silent !stty ixon
+silent !stty -ixon                     " Allow us to use Ctrl-s and Ctrl-q as keybinds
+
+autocmd VimLeave * silent !stty ixon   " Restore default behaviour when leaving vim
 
 autocmd BufNewFile,BufRead * call DetectEnv()
 
 autocmd BufWritePre * :call TrimWhiteSpace()
-"autocmd BufWritePre * :call ResetSpaces()
 autocmd BufWritePre * :retab
 
-"" Seems broken with vim 8
-"autocmd BufWritePre * :call :retab()
 " Indent on save hook
 "autocmd BufWritePre <buffer> :call Indent()

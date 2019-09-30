@@ -7,7 +7,7 @@ let g:Powerline_symbols = 'unicode'
 "let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 
 "" unicode symbols
@@ -72,9 +72,9 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
 " -- Language Spesific -----------------------------------------------
 " -- Clojure-static {{{
 let g:clojure_syntax_keywords = {
-    \ 'clojureMacro': ["defproject", "defcustom"],
-    \ 'clojureFunc': ["string/join", "string/replace"]
-    \ }
+  \ 'clojureMacro': ["defproject", "defcustom"],
+  \ 'clojureFunc': ["string/join", "string/replace"]
+  \ }
 " Default
 let g:clojure_fuzzy_indent = 1
 let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
