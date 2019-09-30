@@ -69,9 +69,11 @@ augroup filetypedetect
 augroup END
 
 " -- functions on open / close ----------------------------------
-silent !stty -ixon                     " Allow us to use Ctrl-s and Ctrl-q as keybinds
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+silent !stty -ixon
 
-autocmd VimLeave * silent !stty ixon   " Restore default behaviour when leaving vim
+" Restore default behaviour when leaving vim
+autocmd VimLeave * silent !stty ixon
 
 autocmd BufNewFile,BufRead * call DetectEnv()
 
