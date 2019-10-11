@@ -7,4 +7,6 @@ bash/profilelocal-mbp.sh
 bash/profilelocal-devices.sh
 bash/muttrc
 k8s/create-secrets
+k8s/secrets/
+k8s/send-and-apply-secret
 aws/credentials
