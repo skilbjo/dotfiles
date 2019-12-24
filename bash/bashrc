@@ -33,9 +33,9 @@ freebsd() {
 }
 
 os_specific() {
-  case $(uname) in
+  case "$(uname)" in
     ('Linux')
-      case $(uname -a) in
+      case "$(uname -a)" in
         *amzn*) ;;
         *) linux ;;
       esac ;;
@@ -99,7 +99,7 @@ _aws() {
 }
 
 computer_specific() {
-  case $(whoami) in
+  case "$(whoami)" in
     ('john.skilbeck') work ;;
     ('johnskilbeck') work ;;
     (skilbjo) skilbjo ;;

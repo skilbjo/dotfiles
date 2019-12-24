@@ -31,7 +31,7 @@ start_docker() {
 }
 
 # -- environment vars & dotfiles --------------------------------
-export EDITOR=vim
+export EDITOR='vim'
 export LESS='-i-P%f (%i/%m) Line %lt/%L'
 source_if_exists "$HOME/.aliases"       # Aliases
 
@@ -61,18 +61,18 @@ osx() {
   alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'
 
   # -- env vars -------------------------------------------------
-  export EVENT_NOKQUEUE=1                 # tmux kqueue error
-  export WORKON_HOME=$HOME/.virtualenvs
-  export PROJECT_HOME=$HOME/dev
-  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
-  export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+  export EVENT_NOKQUEUE='1'                 # tmux kqueue error
+  export WORKON_HOME="$HOME/.virtualenvs"
+  export PROJECT_HOME="$HOME/dev"
+  export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python2'
+  export VIRTUALENVWRAPPER_VIRTUALENV='/usr/local/bin/virtualenv'
   export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-  export GPG_TTY=$(tty)       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
+  export GPG_TTY="$(tty)"       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
 
   # -- java -----------------------------------------------------
   #export JAVA_HOME=$(/usr/libexec/java_home -v 10) # Java 10
   #export JAVA_HOME=$(/usr/libexec/java_home -v 9) # Java 9
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # Java 1.8
+  export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)" # Java 1.8
 
   # -- use ctrl + <Left> / <Right> ----------------------------
   bind '"\e[5C": forward-word'
@@ -88,7 +88,7 @@ osx() {
   # -- bash completion ----------------------------------------
   set +u
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion   # bash-completion
+    source "$(brew --prefix)/etc/bash_completion"   # bash-completion
   fi
   set -u
 }
@@ -99,7 +99,7 @@ linux() {
   #alias pbpaste='xsel --clipboard --output'
   alias ll='ls -la'
 
-  export GPG_TTY=$(tty)       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
+  export GPG_TTY="$(tty)"       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
   # -- virtual terminal (box connected to monitor) ------------
   #if [ "$TERM" = "linux" ]; then
     #echo -en "\e]P0222222" #black
@@ -154,13 +154,13 @@ freebsd() {
   set -u
 
   #https://superuser.com/questions/715125/openssh-freebsd-screen-overwrite-when-closing-application
-  export TERM=xterm-clear
+  export TERM='xterm-clear'
 }
 
 os_specific() {
   all_os
 
-  case $(uname) in
+  case "$(uname)" in
     ('Darwin') osx;;
     ('Linux') linux;;
     ('FreeBSD') freebsd;;
@@ -187,8 +187,8 @@ skilbjo() {
       ssh-add -K ~/.ssh/id_rsa 2>/dev/null || ssh-add ~/.ssh/id_rsa
     fi
 
-    case $(hostname) in
-      mbp | mbp2 )
+    case "$(hostname)" in
+      mbp | mbp2 | mbp2.lan )
         ssh-add -K ~/.ssh/id_rsa_circle_ci 2>/dev/null ;; ## Add cirlceci private key
     esac
   fi
@@ -199,7 +199,7 @@ _aws() {
 }
 
 computer_specific() {
-  case $(whoami) in
+  case "$(whoami)" in
     ('john.skilbeck') work;;
     ('johnskilbeck') work;;
     (skilbjo) skilbjo;;
