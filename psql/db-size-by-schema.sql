@@ -16,9 +16,13 @@ from (
     from
       pg_class c
       left join pg_namespace n on n.oid = c.relnamespace
-    where relkind = 'r'
-    group by 1
+    where
+      relkind = 'r'
+    group by
+      1
   ) sub
 ) sub
-where schema not in ('pg_catalog','test','information_schema')
-order by 3 desc;
+where
+  schema not in ('pg_catalog','test','information_schema')
+order by
+  3 desc;
