@@ -56,9 +56,11 @@ osx() {
   set +u
   alias "docker.rm.this"="function _(){ docker images | grep \"$1\" | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi; };_"
   set -u
+
   ## - clojure -------
   alias llein='LEIN_FAST_TRAMPOLINE=true lein trampoline'
   alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'
+  alias 'netstat.osx'='echo "Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)" && netstat -an | grep LISTEN'
 
   # -- env vars -------------------------------------------------
   export EVENT_NOKQUEUE='1'                 # tmux kqueue error
@@ -70,8 +72,6 @@ osx() {
   export GPG_TTY="$(tty)"       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
 
   # -- java -----------------------------------------------------
-  #export JAVA_HOME=$(/usr/libexec/java_home -v 10) # Java 10
-  #export JAVA_HOME=$(/usr/libexec/java_home -v 9) # Java 9
   export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)" # Java 1.8
 
   # -- use ctrl + <Left> / <Right> ----------------------------
@@ -91,6 +91,11 @@ osx() {
     source "$(brew --prefix)/etc/bash_completion"   # bash-completion
   fi
   set -u
+
+  # -- custom functions ---------------------------------------
+  if [[ -f ~/.fns ]]; then
+    source ~/.fns
+  fi
 }
 
 linux() {
@@ -161,9 +166,9 @@ os_specific() {
   all_os
 
   case "$(uname)" in
-    ('Darwin') osx;;
-    ('Linux') linux;;
-    ('FreeBSD') freebsd;;
+    ('Darwin')  osx ;;
+    ('Linux')   linux ;;
+    ('FreeBSD') freebsd ;;
   esac
 }
 os_specific
@@ -200,11 +205,10 @@ _aws() {
 
 computer_specific() {
   case "$(whoami)" in
-    ('john.skilbeck') work;;
-    ('johnskilbeck') work;;
-    (skilbjo) skilbjo;;
-    (pi) pi;;
-    (ec2-user) _aws;;
+    johnskilbeck | 'john.skilbeck' ) work ;;
+    skilbjo )                        skilbjo ;;
+    pi )                             pi ;;
+    ec2-user )                       _aws ;;
   esac
 }
 

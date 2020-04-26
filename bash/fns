@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -u
+
+kmsd(){
+  # https://stackoverflow.com/a/53735748/2490091
+  aws kms decrypt \
+    --profile skilbjo \
+    --ciphertext-blob fileb://<( \
+      cat /dev/stdin | \
+      sed 's/.*kmscrypt:://' | \
+      tr -d '\n' | \
+      base64 -D
+    ) \
+    --output text \
+    --key-id "$aws_kms_key" \
+    --region us-east-1 \
+    --query Plaintext | \
+  base64 -D
+}
+
+kmse(){
+  # https://stackoverflow.com/a/53735748/2490091
+  aws kms encrypt \
+    --profile skilbjo \
+    --key-id "$aws_kms_key" \
+    --plaintext "$(cat /dev/stdin)" \
+    --region us-east-1 \
+    --query CiphertextBlob \
+    --output text
+}

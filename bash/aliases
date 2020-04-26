@@ -12,16 +12,28 @@ alias la='ls -la'
 alias mkdir='mkdir -p'
 alias vim='vim -p'
 alias man='function _(){ /usr/bin/man "$1" | col -xb | vim -;};_'
-alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 "$1" & cd -;};_'
+alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 --rm-cache-dir "$1" & cd -;};_'
 alias p='vim ~/.profilelocal && . ~/.profilelocal'
 alias bell="echo -ne '\007'; echo -ne '\007'; echo -ne '\007'"
+
+# -- Shortcuts --------------------------------------------------
+alias x='exit'
+alias s='cd ~/dev/skilbjo/'
+alias a='cd ~/dev/aeon/'
+alias m='cd ~/dev/markets-etl/'
+alias b='cd ~/dev/bash-etl/'
+alias d='cd ~/dev'
+alias dk='cd ~/Desktop'
 
 # -- PostgresSQL ------------------------------------------------
 alias "psql.dw"='function _psql(){ psql "$db_uri" -c "$1"; };_psql'
 
 # -- Java -------------------------------------------------------
 alias "java.ps"='_jstack(){ if [[ -z "$1" ]]; then threads=1; else threads="$1"; fi; pgrep java | tail -n"$threads" | xargs jstack | grep -A500 -E "\"main\" \#[0-9]";};_jstack'
-alias 'llein'='LEIN_FAST_TRAMPOLINE=y lein trampoline'
+alias jstatd.start='jstatd -p 1099 -J-Djava.security.policy=<(echo '"'"'grant codebase "file:${java.home}/../lib/tools.jar" {permission java.security.AllPermission;};'"'"')'
+alias jmap.this='jmap -dump:file=/tmp/java-heap-dump $(pgrep java)'
+alias jmap.get='scp udoo:/tmp/java-heap-dump ~/Desktop/java-heap-dump'
+#alias 'llein'='LEIN_FAST_TRAMPOLINE=y lein trampoline'
 
 # -- Docker -----------------------------------------------------
 alias "docker.ssh"="docker-machine ssh default"  # or, alias "ssh.docker"="echo 'password is \`tcuser\`'; ssh docker@$(docker-machine ip default)"
@@ -50,19 +62,9 @@ alias aws.c='~/bin/aws --profile circleci --region us-east-1'
 alias aws.p='~/bin/aws --profile personal --region us-east-1'
 alias aws.lo='~/bin/aws --profile lockedon --region us-east-1'
 
-alias x='exit'
-alias s='cd ~/dev/skilbjo/'
-alias a='cd ~/dev/aeon/'
-alias m='cd ~/dev/markets-etl/'
-alias b='cd ~/dev/bash-etl/'
-alias d='cd ~/dev'
-alias dk='cd ~/Desktop'
-alias ks='vim deploy/bin/k8s'
-
-alias 'netstat.osx'='echo "Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)" && netstat -an | grep LISTEN'
 alias 'sbcl'='rlwrap sbcl'
-alias k8s.dashboard='echo "go to url: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default" && ssh -L 8001:localhost:8080 -N k8s'
-alias orc='java -jar /Users/skilbjo/dev/data-engineering/src/orc-tools-1.5.5-uber.jar'
-alias jstatd.start='jstatd -p 1099 -J-Djava.security.policy=<(echo '"'"'grant codebase "file:${java.home}/../lib/tools.jar" {permission java.security.AllPermission;};'"'"')'
-alias jmap.this='jmap -dump:file=/tmp/java-heap-dump $(pgrep java)'
-alias jmap.get='scp udoo:/tmp/java-heap-dump ~/Desktop/java-heap-dump'
+
+# -- work, no longer used ---------------------------------------
+#alias ks='vim deploy/bin/k8s'
+#alias k8s.dashboard='echo "go to url: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default" && ssh -L 8001:localhost:8080 -N k8s'
+#alias orc='java -jar /Users/skilbjo/dev/data-engineering/src/orc-tools-1.6.0-uber.jar'

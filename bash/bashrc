@@ -24,21 +24,17 @@ if [[ $- == *i* ]]; then
   bold="\[01;32m"
 fi
 
-linux() {
+linux(){
   eval "$(keychain --eval /home/skilbjo/.ssh/id_rsa)"
 }
 
-freebsd() {
+freebsd(){
   eval "$(keychain --eval --agents ssh)" # /home/skilbjo/.ssh/id_rsa)"
 }
 
-os_specific() {
+os_specific(){
   case "$(uname)" in
-    ('Linux')
-      case "$(uname -a)" in
-        *amzn*) ;;
-        *) linux ;;
-      esac ;;
+    ('Linux')   linux   ;;
     ('FreeBSD') freebsd ;;
   esac
 }
@@ -46,14 +42,14 @@ os_specific() {
 os_specific
 
 # -- computer-specific stuffs -----------------------------------
-skilbjo() {
+skilbjo(){
   # -- path, command prompt ---------------------------------------
   export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
   #export PS1='[\u@\h \W]\$ '
   #export PS1="\W λ "
 }
 
-work() {
+work(){
   # -- path, command prompt ---------------------------------------
   export PS1="${red}@\h${off}:${yellow}\W ${off}$ "
 
@@ -61,7 +57,7 @@ work() {
   ssh-add -K ~/.ssh/id_rsa || (eval "$(ssh-agent -s)" && ssh-add -K ~/.ssh/id_rsa)
 }
 
-root() {
+root(){
   #[root@pi1 ~]# exit
   export PS1="[${black}\u@\h:${yellow}\W ${off}]# "
 
@@ -100,11 +96,10 @@ _aws() {
 
 computer_specific() {
   case "$(whoami)" in
-    ('john.skilbeck') work ;;
-    ('johnskilbeck') work ;;
-    (skilbjo) skilbjo ;;
-    (root) root ;;
-    (ec2-user) _aws;;
+    johnskilbeck | 'john.skilbeck' ) work ;;
+    skilbjo )                        skilbjo ;;
+    root)                            root ;;
+    ec2-user)                        _aws;;
   esac
 }
 

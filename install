@@ -20,13 +20,14 @@ user() {
   rm .bashrc
   rm .bash_profile
 
-  ln -s ~/dev/dotfiles/bash/bashrc .bashrc
-  ln -s ~/dev/dotfiles/bash/profile .profile
-  ln -s ~/dev/dotfiles/git/gitconfig .gitconfig
-  ln -s ~/dev/dotfiles/git/gitignore .gitignore
-  ln -s ~/dev/dotfiles/bash/aliases .aliases
+  ln -s ~/dev/dotfiles/bash/bashrc   ~/.bashrc
+  ln -s ~/dev/dotfiles/bash/profile  ~/.profile
+  ln -s ~/dev/dotfiles/git/gitconfig ~/.gitconfig
+  ln -s ~/dev/dotfiles/git/gitignore ~/.gitignore
+  ln -s ~/dev/dotfiles/bash/aliases  ~/.aliases
+  ln -s ~/dev/dotfiles/bash/fns      ~/.fns
 
-  ln -s ~/Documents/Dropbox/dotfiles/bash/ssh-config.sh ~/.ssh/config
+  ln -s ~/Documents/Dropbox/dotfiles/bash/ssh-config.sh       ~/.ssh/config
   ln -s ~/Documents/Dropbox/dotfiles/bash/profilelocal-mbp.sh ~/.profilelocal
 
   ln -s ~/Documents/Dropbox/dotfiles/aws/config      ~/.aws/config

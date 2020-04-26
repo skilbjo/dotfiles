@@ -12,7 +12,7 @@
                                                                org.apache.maven.wagon/wagon-provider-api
                                                                org.codehaus.plexus/plexus-utils]]
                        [lein-hiera "1.0.0"]
-                       #_[lein-kibit "0.1.6"  :exclusions [org.clojure/clojure
+                       [lein-kibit "0.1.6"  :exclusions [org.clojure/clojure
                                                          org.clojure/tools.namespace
                                                          org.clojure/tools.reader]]
                        #_[venantius/ultra "0.5.2" :exclusions [org.clojure/clojure
