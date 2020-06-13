@@ -1,0 +1,9 @@
+alias .. 'cd ..'
+alias h 'cd ~'
+alias d 'cd ~/root'
+alias ll 'ls -lh'
+alias la 'ls -la'
+alias vim 'vi'
+alias max 'du -ma | sort -nr | head -n 20'
+
+alias x 'exit'

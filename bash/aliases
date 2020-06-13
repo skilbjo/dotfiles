@@ -15,12 +15,14 @@ alias man='function _(){ /usr/bin/man "$1" | col -xb | vim -;};_'
 alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 --rm-cache-dir "$1" & cd -;};_'
 alias p='vim ~/.profilelocal && . ~/.profilelocal'
 alias bell="echo -ne '\007'; echo -ne '\007'; echo -ne '\007'"
+alias max='du -ma | sort -nr | head -n 20'
 
 # -- Shortcuts --------------------------------------------------
 alias x='exit'
 alias s='cd ~/dev/skilbjo/'
 alias a='cd ~/dev/aeon/'
 alias m='cd ~/dev/markets-etl/'
+alias i='cd ~/dev/interview/'
 alias b='cd ~/dev/bash-etl/'
 alias d='cd ~/dev'
 alias dk='cd ~/Desktop'
@@ -63,6 +65,7 @@ alias aws.p='~/bin/aws --profile personal --region us-east-1'
 alias aws.lo='~/bin/aws --profile lockedon --region us-east-1'
 
 alias 'sbcl'='rlwrap sbcl'
+alias 'netlify'='/Users/skilbjo/dev/aeon/node_modules/netlify-cli/bin/run'
 
 # -- work, no longer used ---------------------------------------
 #alias ks='vim deploy/bin/k8s'
