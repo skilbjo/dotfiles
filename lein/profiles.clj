@@ -17,7 +17,9 @@
                                                          org.clojure/tools.reader]]
                        #_[venantius/ultra "0.5.2" :exclusions [org.clojure/clojure
                                                              instaparse]]
-                       #_[venantius/yagni "0.1.4" :exclusions [org.clojure/tools.namespace]]]}
+                       #_[venantius/yagni "0.1.4" :exclusions [org.clojure/tools.namespace]]
+                       [org.clojure/core.unify "0.5.7"]       ; fixes issue on udoo about can't run lein ring server
+                       ]}
  :repl {:repl-options {:init (do
                                (require '[clojure.string :as string])
                                (require '[clojure.java.io :as io]))}}}

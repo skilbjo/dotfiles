@@ -66,6 +66,7 @@ alias aws.lo='~/bin/aws --profile lockedon --region us-east-1'
 
 alias 'sbcl'='rlwrap sbcl'
 alias 'netlify'='/Users/skilbjo/dev/aeon/node_modules/netlify-cli/bin/run'
+alias 'tsc'='/Users/skilbjo/dev/typescript-scratch/node_modules/.bin/tsc'
 
 # -- work, no longer used ---------------------------------------
 #alias ks='vim deploy/bin/k8s'
