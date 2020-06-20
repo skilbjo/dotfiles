@@ -60,7 +60,6 @@ osx() {
   ## - clojure -------
   alias llein='LEIN_FAST_TRAMPOLINE=true lein trampoline'
   alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'
-  alias 'netstat.osx'='echo "Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)" && netstat -an | grep LISTEN'
 
   # -- env vars -------------------------------------------------
   export EVENT_NOKQUEUE='1'                 # tmux kqueue error
@@ -68,6 +67,7 @@ osx() {
   export PROJECT_HOME="$HOME/dev"
   export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
   export VIRTUALENVWRAPPER_VIRTUALENV='/usr/local/bin/virtualenv'
+  export PYTHONIOENCODING='UTF-8'
   export GPG_TTY="$(tty)"       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
 
   # -- java -----------------------------------------------------
@@ -156,6 +156,14 @@ freebsd() {
   [[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
     source /usr/local/share/bash-completion/bash_completion.sh
   set -u
+
+  # -- env vars -------------------------------------------------
+  export EVENT_NOKQUEUE='1'                 # tmux kqueue error
+  export WORKON_HOME="$HOME/.virtualenvs"
+  export PROJECT_HOME="$HOME/dev"
+  export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
+  export VIRTUALENVWRAPPER_VIRTUALENV='/usr/local/bin/virtualenv'
+  export PYTHONIOENCODING='UTF-8'
 
   #https://superuser.com/questions/715125/openssh-freebsd-screen-overwrite-when-closing-application
   export TERM='xterm-clear'

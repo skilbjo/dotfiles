@@ -1,6 +1,24 @@
 #!/usr/bin/env bash
 set -u
 
+assume-role(){
+  local acct="$1"
+  local role_name="$2"
+  local duration=${3:-3600}
+
+  aws-mfa --duration "$duration" --profile "$acct" --assume-role "$("${EISH_HOME}/si-role-arn" -n "$acct" -r "$role_name")"
+}
+
+switch-to-aws-dev(){
+  assume-role stedi/dev wheel 43200
+}
+
+switch-role(){
+  local acct="$1"
+  local role="$1"
+  "${EISH_HOME}/si-switchrole-url" -n "$acct" -r "$role"
+}
+
 kmsd(){
   # https://stackoverflow.com/a/53735748/2490091
   aws kms decrypt \

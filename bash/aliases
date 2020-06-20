@@ -20,6 +20,7 @@ alias max='du -ma | sort -nr | head -n 20'
 # -- Shortcuts --------------------------------------------------
 alias x='exit'
 alias s='cd ~/dev/skilbjo/'
+alias s='cd ~/dev/stedi/'
 alias a='cd ~/dev/aeon/'
 alias m='cd ~/dev/markets-etl/'
 alias i='cd ~/dev/interview/'
@@ -57,12 +58,16 @@ alias 'vbox.debian.start'='vboxmanage startvm debian --type headless'
 alias 'vbox.debian.stop'='vboxmanage controlvm debian poweroff'
 alias 'vbox.debian.ssh'='ssh -p2222 localhost'  # vboxmanage modifyvm debian --natpf1 "ssh,tcp,,2222,,22"
 
+# -- macOS networking -------------------------------------------
+alias 'netstat.osx'='echo "Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)" && netstat -an | grep LISTEN'
+alias 'telnet-https'='openssl s_client -connect skilbjo.duckdns.org:443'
+
 # -- application specific ---------------------------------------
-# https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html
-alias aws='~/bin/aws'
-alias aws.c='~/bin/aws --profile circleci --region us-east-1'
-alias aws.p='~/bin/aws --profile personal --region us-east-1'
-alias aws.lo='~/bin/aws --profile lockedon --region us-east-1'
+alias aws='~/bin/aws' # https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html
+alias aws.p='~/bin/aws --profile personal-long-term --region us-east-1'
+alias aws.s='~/bin/aws --profile stedi --region us-east-1'
+alias aws-mfa='/Users/skilbjo/.virtualenvs/stedi/bin/aws-mfa'
+alias awscurl='/Users/skilbjo/.virtualenvs/stedi/bin/awscurl'
 
 alias 'sbcl'='rlwrap sbcl'
 alias 'netlify'='/Users/skilbjo/dev/aeon/node_modules/netlify-cli/bin/run'

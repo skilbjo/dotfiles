@@ -16,18 +16,20 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'NLKNguyen/papercolor-theme', { 'rev' : '867b051d3a' }
 
 "" Utility
-NeoBundle 'airblade/vim-gitgutter'      " lets you know what changed
+"NeoBundle 'airblade/vim-gitgutter'      " lets you know what changed
+NeoBundle 'mhinz/vim-signify'           " superior git gutter
 NeoBundle 'scrooloose/nerdcommenter'    " quick toggle of comments
-NeoBundle 'scrooloose/nerdtree'         " file system explorer
+"NeoBundle 'scrooloose/nerdtree'         " file system explorer
 "NeoBundle 'scrooloose/syntastic'        " linter framework
 NeoBundle 'tpope/vim-fugitive'          " run git commands in vim: :Gblame, etc
 NeoBundle 'tpope/vim-repeat.git'        " can use the . command for plugin maps
 NeoBundle 'tpope/vim-surround'          " :ysiW to surround word in quotes
-NeoBundle 'tpope/vim-obsession'         " save the current state of vim
-NeoBundle 'vim-scripts/AutoComplPop'    " autocomplete
+"NeoBundle 'tpope/vim-obsession'         " save the current state of vim
+"NeoBundle 'vim-scripts/AutoComplPop'    " autocomplete
 NeoBundle 'w0rp/ale'                    " vim linter
 
 "" Lanugage specific
+""" Clojure
 "http://blog.venanti.us/clojure-vim/
 "NeoBundle 'vim-scripts/paredit.vim'
 NeoBundle 'guns/vim-clojure-static'     " not sure... linter?
@@ -35,6 +37,13 @@ NeoBundle 'tpope/vim-fireplace'         " clojure REPL in vim
 NeoBundle 'tpope/vim-salve'             " clojure quasi-REPL fallback
 NeoBundle 'venantius/vim-cljfmt'        " :cljfmt in vim
 NeoBundle 'venantius/vim-eastwood'      " clojure linter
+
+""" Typescript
+NeoBundle 'neoclide/coc.nvim'           " code completion
+NeoBundle 'neoclide/coc-tsserver'       " typescript server
+NeoBundle 'neoclide/coc-eslint'         " javascript linter
+NeoBundle 'prettier/vim-prettier'       " prettier
+"NeoBundle 'airblade/vim-rooter'
 
 " " Research
 " NeoBundle 'fholgado/minibufexpl.vim'
