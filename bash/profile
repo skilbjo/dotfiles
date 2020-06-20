@@ -11,8 +11,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # -- path, command prompt ---------------------------------------
-#export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin'
-export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:~/.local/bin'
+export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin'
 
 # -- helpful functions ------------------------------------------
 source_if_exists() {
@@ -159,7 +158,6 @@ freebsd() {
   set -u
 
   # -- env vars -------------------------------------------------
-  export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:~/.local/bin'
   export EVENT_NOKQUEUE='1'                 # tmux kqueue error
   #export PATH="${PATH}:~/.local/bin/"       # to access pip installed packages locally
   export WORKON_HOME="$HOME/.virtualenvs"
