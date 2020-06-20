@@ -165,7 +165,7 @@ freebsd() {
   export WORKON_HOME="$HOME/.virtualenvs"
   export PROJECT_HOME="$HOME/dev"
   export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
-  export VIRTUALENVWRAPPER_VIRTUALENV='~/.local/bin/virtualenv'
+  export VIRTUALENVWRAPPER_VIRTUALENV='/home/skilbjo/.local/bin/virtualenv'
   export PYTHONIOENCODING='UTF-8'
 
   # -- virtualenvwrapper --------------------------------------
