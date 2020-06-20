@@ -11,7 +11,8 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # -- path, command prompt ---------------------------------------
-export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin'
+#export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin'
+export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:~/.local/bin'
 
 # -- helpful functions ------------------------------------------
 source_if_exists() {
