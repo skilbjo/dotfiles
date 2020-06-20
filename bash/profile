@@ -159,11 +159,17 @@ freebsd() {
 
   # -- env vars -------------------------------------------------
   export EVENT_NOKQUEUE='1'                 # tmux kqueue error
+  export PATH="${PATH}:~/.local/bin/"       # to access pip installed packages locally
   export WORKON_HOME="$HOME/.virtualenvs"
   export PROJECT_HOME="$HOME/dev"
   export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
-  export VIRTUALENVWRAPPER_VIRTUALENV='/usr/local/bin/virtualenv'
+  export VIRTUALENVWRAPPER_VIRTUALENV='~/.local/bin/virtualenv'
   export PYTHONIOENCODING='UTF-8'
+
+  # -- virtualenvwrapper --------------------------------------
+  set +u
+  source_if_exists ~/.local/bin/virtualenvwrapper.sh
+  set -u
 
   #https://superuser.com/questions/715125/openssh-freebsd-screen-overwrite-when-closing-application
   export TERM='xterm-clear'
