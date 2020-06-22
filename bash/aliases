@@ -12,7 +12,8 @@ alias la='ls -la'
 alias mkdir='mkdir -p'
 alias vim='vim -p'
 alias man='function _(){ /usr/bin/man "$1" | col -xb | vim -;};_'
-alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 --rm-cache-dir "$1" & cd -;};_'
+#alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 --rm-cache-dir "$1" & cd -;};_'
+alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 "$1" & cd -;};_'
 alias p='vim ~/.profilelocal && . ~/.profilelocal'
 alias bell="echo -ne '\007'; echo -ne '\007'; echo -ne '\007'"
 alias max='du -ma | sort -nr | head -n 20'
@@ -72,6 +73,7 @@ alias awscurl='/Users/skilbjo/.virtualenvs/stedi/bin/awscurl'
 alias 'sbcl'='rlwrap sbcl'
 alias 'netlify'='/Users/skilbjo/dev/aeon/node_modules/netlify-cli/bin/run'
 alias 'tsc'='/Users/skilbjo/dev/typescript-scratch/node_modules/.bin/tsc'
+alias 'serverless'='/Users/skilbjo/dev/scratch/serverless/my-first-app/node_modules/serverless/bin/serverless'
 
 # -- work, no longer used ---------------------------------------
 #alias ks='vim deploy/bin/k8s'

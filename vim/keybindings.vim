@@ -67,15 +67,19 @@ inoremap <C-n>        <C-w><C-w>
 " -- functions --------------------------------------------------
 " {{{
 "<F1 is NERDTree
-map <F2>              :Require!<CR>
-map! <F2>             :Require!<CR>
-map <F3>              :call TrimWhiteSpace()<CR>
-map! <F3>             :call TrimWhiteSpace()<CR>
-map <F4>              :retab<CR>
-map! <F4>             :retab<CR>
-map <F8>              :call Indent()<CR>
+"map  <F2>             :Require!<CR>  " why is this here? I forgot
+"map! <F2>             :Require!<CR>
+map  <F2>             :call LoadClojurePlugins()<CR>
+map! <F2>             :call LoadClojurePlugins()<CR>
+map  <F3>             :call PrettierAsync()<CR>
+map! <F3>             :call PrettierAsync()<CR>
+map  <F4>             :call TrimWhiteSpace()<CR>
+map! <F4>             :call TrimWhiteSpace()<CR>
+map  <F5>             :retab<CR>
+map! <F5>             :retab<CR>
+map  <F8>             :call Indent()<CR>
 map! <F8>             :call Indent()<CR>
-map <F9>              :noh<return><esc>
+map  <F9>             :noh<return><esc>
 map! <F9>             :noh<return><esc>
 "<F10 is nopaste - FYI only
 " }}}

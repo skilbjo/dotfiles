@@ -1,3 +1,15 @@
+function! LoadClojurePlugins()
+  NeoBundle 'guns/vim-clojure-static'     " not sure... linter?
+  NeoBundle 'tpope/vim-fireplace'         " clojure REPL in vim
+  NeoBundle 'tpope/vim-salve'             " clojure quasi-REPL fallback
+  NeoBundle 'venantius/vim-cljfmt'        " :cljfmt in vim
+  NeoBundle 'venantius/vim-eastwood'      " clojure linter
+:endfunction
+
+function! PrettierAsync()
+  PrettierAsync
+:endfunction
+
 function! TrimWhiteSpace()
   %s/\s*$//
   ''

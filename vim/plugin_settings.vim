@@ -101,7 +101,8 @@ let g:clj_fmt_autosave = 0
 
 " -- Typescript {{{
 " -- vim-prettier {{{
-autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
+"autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
+autocmd VimLeavePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
 " }}}
 
 " -- Research -------- -----------------------------------------------

@@ -159,7 +159,6 @@ freebsd() {
 
   # -- env vars -------------------------------------------------
   export EVENT_NOKQUEUE='1'                 # tmux kqueue error
-  #export PATH="${PATH}:~/.local/bin/"       # to access pip installed packages locally
   export WORKON_HOME="$HOME/.virtualenvs"
   export PROJECT_HOME="$HOME/dev"
   export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
