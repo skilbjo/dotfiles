@@ -69,10 +69,10 @@ inoremap <C-n>        <C-w><C-w>
 "<F1 is NERDTree
 "map  <F2>             :Require!<CR>  " why is this here? I forgot
 "map! <F2>             :Require!<CR>
-map  <F2>             :call LoadClojurePlugins()<CR>
-map! <F2>             :call LoadClojurePlugins()<CR>
-map  <F3>             :call PrettierAsync()<CR>
-map! <F3>             :call PrettierAsync()<CR>
+map  <F2>             :call PrettierAsync()<CR>
+map! <F2>             :call PrettierAsync()<CR>
+map  <F3>             :call LoadClojurePlugins()<CR>
+map! <F3>             :call LoadClojurePlugins()<CR>
 map  <F4>             :call TrimWhiteSpace()<CR>
 map! <F4>             :call TrimWhiteSpace()<CR>
 map  <F5>             :retab<CR>

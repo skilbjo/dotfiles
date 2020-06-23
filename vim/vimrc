@@ -15,6 +15,6 @@ if version >= 703
   execute 'source '.vim_dir.'/keybindings.vim'
   if !&diff
     execute 'source '.vim_dir.'/plugins.vim'
-    execute 'source '.vim_dir.'/plugin_settings.vim'
+    execute 'source '.vim_dir.'/plugin-settings.vim'
   end
 end

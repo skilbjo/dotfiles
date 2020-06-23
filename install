@@ -3,7 +3,58 @@ set -eoux pipefail
 
 db="~/Documents/Dropbox/dotfiles"
 
-user() {
+user(){
+  ln -s ~/Documents/Dropbox/dotfiles/bash/bashrc   ~/.bashrc
+  ln -s ~/Documents/Dropbox/dotfiles/bash/profile  ~/.profile
+  ln -s ~/Documents/Dropbox/dotfiles/git/gitconfig ~/.gitconfig
+  ln -s ~/Documents/Dropbox/dotfiles/git/gitignore ~/.gitignore
+  ln -s ~/Documents/Dropbox/dotfiles/bash/aliases  ~/.aliases
+  ln -s ~/Documents/Dropbox/dotfiles/bash/fns      ~/.fns
+  ln -s ~/Documents/Dropbox/dotfiles/bash/ackrc    ~/.ackrc
+
+  ln -s ~/Documents/Dropbox/dotfiles/bash/ssh-config.sh       ~/.ssh/config
+  ln -s ~/Documents/Dropbox/dotfiles/bash/profilelocal-mbp.sh ~/.profilelocal
+
+  ln -s ~/Documents/Dropbox/dotfiles/aws/config      ~/.aws/config
+  ln -s ~/Documents/Dropbox/dotfiles/aws/credentials ~/.aws/credentials
+
+  # gpg
+  ln -s ~/Documents/Dropbox/dotfiles/gpg/gpg-agent.conf gpg-agent.conf
+
+  # user
+  mkdir .vim
+  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle
+  ln -s ~/Documents/Dropbox/dotfiles/vim/vimrc               .vimrc
+  ln -s ~/Documents/Dropbox/dotfiles/vim/plugins.vim         .vim/plugins.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/plugin_settings.vim .vim/plugin_settings.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/settings.vim        .vim/settings.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/keybindings.vim     .vim/keybindings.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/functions.vim       .vim/functions.vim
+  ~/.vim/bundle/bin/install.sh
+  ~/.vim/bundle/bin/neoinstall
+
+  # macOS-personal
+  ln -s ~/Documents/Dropbox/dotfiles/vim/after/ftplugin/python.vim  ~/.vim/after/ftplugin/python.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/after/ftplugin/clojure.vim ~/.vim/after/ftplugin/clojure.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/after/ftplugin/sh.vim      ~/.vim/after/ftplugin/sh.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/after/ftplugin/sql.vim     ~/.vim/after/ftplugin/sql.vim
+
+  mkdir ~/.tmux
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ln -s ~/Documents/Dropbox/dotfiles/tmux/tmux.conf ~/.tmux.conf
+  ln -s ~/Documents/Dropbox/dotfiles/tmux/keybindings.tmux ~/.tmux/keybindings.tmux
+  ln -s ~/Documents/Dropbox/dotfiles/tmux/plugins.tmux ~/.tmux/plugins.tmux
+  ln -s ~/Documents/Dropbox/dotfiles/tmux/settings.tmux ~/.tmux/settings.tmux
+  ln -s ~/Documents/Dropbox/dotfiles/tmux/theme.tmux ~/.tmux/theme.tmux
+  ln -s ~/Documents/Dropbox/dotfiles/tmux/osx.tmux ~/.tmux/osx.tmux
+  ln -s ~/Documents/Dropbox/dotfiles/tmux/linux.tmux ~/.tmux/linux.tmux
+  ln -s ~/Documents/Dropbox/dotfiles/tmux/freebsd.tmux ~/.tmux/freebsd.tmux
+
+  mkdir ~/bin
+  ln -s ~/Documents/Dropbox/dotfiles/bin/tm ~/bin/tm
+}
+
+computer_user() {
   # create dir
   cd ~; mkdir dev; cd dev
   git clone https://github.com/skilbjo/dotfiles.git
@@ -26,6 +77,7 @@ user() {
   ln -s ~/dev/dotfiles/git/gitignore ~/.gitignore
   ln -s ~/dev/dotfiles/bash/aliases  ~/.aliases
   ln -s ~/dev/dotfiles/bash/fns      ~/.fns
+  ln -s ~/dev/dotfiles/bash/ackrc    ~/.ackrc
 
   ln -s ~/Documents/Dropbox/dotfiles/bash/ssh-config.sh       ~/.ssh/config
   ln -s ~/Documents/Dropbox/dotfiles/bash/profilelocal-mbp.sh ~/.profilelocal
@@ -39,12 +91,12 @@ user() {
   # user
   mkdir .vim
   git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle
-  ln -s ~/dev/dotfiles/vim/vimrc .vimrc
-  ln -s ~/dev/dotfiles/vim/plugins.vim .vim/plugins.vim
+  ln -s ~/dev/dotfiles/vim/vimrc               .vimrc
+  ln -s ~/dev/dotfiles/vim/plugins.vim         .vim/plugins.vim
   ln -s ~/dev/dotfiles/vim/plugin_settings.vim .vim/plugin_settings.vim
-  ln -s ~/dev/dotfiles/vim/settings.vim .vim/settings.vim
-  ln -s ~/dev/dotfiles/vim/keybindings.vim .vim/keybindings.vim
-  ln -s ~/dev/dotfiles/vim/functions.vim .vim/functions.vim
+  ln -s ~/dev/dotfiles/vim/settings.vim        .vim/settings.vim
+  ln -s ~/dev/dotfiles/vim/keybindings.vim     .vim/keybindings.vim
+  ln -s ~/dev/dotfiles/vim/functions.vim       .vim/functions.vim
   ~/.vim/bundle/bin/install.sh
   ~/.vim/bundle/bin/neoinstall
 
@@ -220,5 +272,3 @@ lein
 tmux
 
 exit
-
-

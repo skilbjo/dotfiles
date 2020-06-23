@@ -16,12 +16,12 @@ set -g status-fg colour231
 set -g message-bg colour67
 set -g message-fg colour255
 set -g message-attr bright
-set -g message-command-bg colour75
-set -g message-command-fg blue
+#set -g message-command-bg colour75              # tmux saying this not an option
+#set -g message-command-fg blue                  # tmux saying this not an option
 
 ## Panes
-set -g pane-border-fg black
-set -g pane-active-border-fg colour166
+#set -g pane-border-fg black                     # tmux saying this not an option
+#set -g pane-active-border-fg colour166          # tmux saying this not an option
 
 ## Status line
 ### Left
@@ -30,20 +30,20 @@ set -g status-left "#[fg=colour231,bold][#H.#S ● #I.#P]  "
 
 ## Center
 ### Active tab
-setw -g window-status-current-bg colour166
-setw -g window-status-current-fg colour15
-setw -g window-status-current-attr bold
+#setw -g window-status-current-bg colour166      # tmux saying this not an option
+#setw -g window-status-current-fg colour15       # tmux saying this not an option
+#setw -g window-status-current-attr bold         # tmux saying this not an option
 setw -g window-status-current-format '▶ #I #W '
 
 ### Nonactive tab
-setw -g window-status-attr bold
+#setw -g window-status-attr bold                # tmux saying this not an option
 setw -g window-status-format '#I #W#F'
 #setw -g window-status-fg colour138
 #setw -g window-status-bg colour235
 #setw -g window-status-attr none
 #setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
 
-setw -g window-status-bell-attr bold
+#setw -g window-status-bell-attr bold           # tmux saying this is not an option
 #setw -g window-status-bell-fg colour255
 #setw -g window-status-bell-bg colour1
 

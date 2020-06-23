@@ -32,7 +32,7 @@ start_docker() {
 
 # -- environment vars & dotfiles --------------------------------
 export EDITOR='vim'
-export LESS='-i-P%f (%i/%m) Line %lt/%L'
+export LESS='-R -i-P%f (%i/%m) Line %lt/%L'
 source_if_exists "$HOME/.aliases"       # Aliases
 
 # -- Bash bindings / settings ----------------------------------

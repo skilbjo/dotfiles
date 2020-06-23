@@ -50,11 +50,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " }}}
 
 " -- Syntastic {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+""" Turning this off for now, because I'm using w0rp/ale
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_javascript_checkers = ['jshint']"
+"let g:syntastic_javascript_checkers = ['jshint']"
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
@@ -67,6 +68,14 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
 
 " -- EasyMotion {{{
 "map <SPACE> <Plug>(easymotion-bd-w)
+" }}}
+
+" -- EasyMotion {{{
+" " Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 " }}}
 
 " -- Language Spesific -----------------------------------------------
@@ -85,13 +94,13 @@ let g:clojure_align_multiline_strings = 1
 
 " -- vim-Fireplace {{{
 nnoremap <Leader>cp :execute "Eval (do (require 'clojure.pprint) (clojure.pprint/pp))"<cr>
-" Below is for dock of function
+" Below is for documentation of function... ˚ is option + k
 nmap ˚ [d
-" Below is for source of function
+" Below is for source of function... ¬ is option + l (L)
 nmap ¬ [d
-" Brings up a quasi-repl
-nmap … cqq
-" Evaluates code block
+ "Brings up a quasi-repl... ® is option + r (repl)
+nmap ® cqq
+ "Evaluates code block... æ is option + quote '
 nmap æ cpp
 " }}}
 

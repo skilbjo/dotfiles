@@ -10,23 +10,20 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 " Add or remove your Bundles here:
-"" Themese
+"" Themes
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'NLKNguyen/papercolor-theme', { 'rev' : '867b051d3a' }
 
 "" Utility
-"NeoBundle 'airblade/vim-gitgutter'      " lets you know what changed
-NeoBundle 'mhinz/vim-signify'           " superior git gutter
-NeoBundle 'scrooloose/nerdcommenter'    " quick toggle of comments
-"NeoBundle 'scrooloose/nerdtree'         " file system explorer
-"NeoBundle 'scrooloose/syntastic'        " linter framework
-"NeoBundle 'tpope/vim-fugitive'          " run git commands in vim: :Gblame, etc
-NeoBundle 'jreybert/vimagit'            " git / magit in vim
-NeoBundle 'tpope/vim-repeat.git'        " can use the . command for plugin maps
-NeoBundle 'tpope/vim-surround'          " :ysiW to surround word in quotes
-"NeoBundle 'vim-scripts/AutoComplPop'    " autocomplete
-NeoBundle 'w0rp/ale'                    " vim linter
+NeoBundle 'airblade/vim-gitgutter'       " lets you know what changed
+NeoBundle 'junegunn/vim-easy-align'      " easy align (= and let). visual select then: ga and = or : (what you align around)
+NeoBundle 'scrooloose/nerdcommenter'     " quick toggle of comments
+NeoBundle 'scrooloose/nerdtree'          " file system explorer
+NeoBundle 'tpope/vim-repeat.git'         " can use the . command for plugin maps
+NeoBundle 'tpope/vim-surround'           " :ysiW to surround word in quotes
+NeoBundle 'vim-scripts/AutoComplPop'     " autocomplete
+NeoBundle 'w0rp/ale'                     " vim linter
 
 "" Lanugage specific
 """ Clojure
@@ -38,23 +35,23 @@ NeoBundle 'w0rp/ale'                    " vim linter
 "NeoBundle 'venantius/vim-cljfmt'        " :cljfmt in vim
 "NeoBundle 'venantius/vim-eastwood'      " clojure linter
 
-""" Typescript
-""""" But only if on macOS
+""" Typescript, but only if on macOS
 if has('macunix')
-  NeoBundle 'neoclide/coc.nvim'           " code completion
-  NeoBundle 'neoclide/coc-tsserver'       " typescript server
-  NeoBundle 'neoclide/coc-eslint'         " javascript linter
-  NeoBundle 'prettier/vim-prettier'       " prettier
-  "NeoBundle 'airblade/vim-rooter'
+  execute 'source '.vim_dir.'/plugins-osx.vim'
 endif
+
+" " Decided not to use, for now
+"NeoBundle 'mhinz/vim-signify'           " superior git gutter
+"NeoBundle 'scrooloose/syntastic'        " linter framework
+"NeoBundle 'tpope/vim-fugitive'          " run git commands in vim: :Gblame, etc
+"NeoBundle 'jreybert/vimagit'            " git / magit in vim
 
 " " Research
 " NeoBundle 'fholgado/minibufexpl.vim'
 " NeoBundle 'flazz/vim-colorschemes'
-" NeoBundle 'junegunn/vim-easy-align'
 
 " Required:
 call neobundle#end()
 
 filetype plugin indent on
-NeoBundleCheck
+"NeoBundleCheck

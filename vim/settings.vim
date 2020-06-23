@@ -39,6 +39,8 @@ set splitright
 set autowrite
 set autoindent
 
+set updatetime=100
+
 " -- search -----------------------------------------------------
 set ignorecase
 set smartcase
@@ -66,6 +68,10 @@ augroup END
 
 augroup filetypedetect
   au BufRead,BufNewFile *.clj set filetype=clojure
+augroup END
+
+augroup filetypedetect  " associate *.foo with php filetype
+  au BufRead,BufNewFile *.vim setfiletype=vim
 augroup END
 
 " -- functions on open / close ----------------------------------
