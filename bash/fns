@@ -1,24 +1,7 @@
 #!/usr/bin/env bash
 set -u
 
-assume-role(){
-  local acct="$1"
-  local role_name="$2"
-  local duration=${3:-3600}
-
-  aws-mfa --duration "$duration" --profile "$acct" --assume-role "$("${EISH_HOME}/si-role-arn" -n "$acct" -r "$role_name")"
-}
-
-switch-to-aws-dev(){
-  assume-role stedi/dev wheel 43200
-}
-
-switch-role(){
-  local acct="$1"
-  local role="$1"
-  "${EISH_HOME}/si-switchrole-url" -n "$acct" -r "$role"
-}
-
+# -- general ----------------------------------------------------
 kmsd(){
   # https://stackoverflow.com/a/53735748/2490091
   aws kms decrypt \
@@ -46,3 +29,39 @@ kmse(){
     --query CiphertextBlob \
     --output text
 }
+
+# -- stedi ------------------------------------------------------
+assume-role(){
+  local acct="$1"
+  local role_name="$2"
+  local duration=${3:-3600}
+
+  aws-mfa --duration "$duration" --profile "$acct" --assume-role "$("${EISH_HOME}/si-role-arn" -n "$acct" -r "$role_name")"
+}
+
+switch-to-aws-dev(){
+  assume-role stedi/dev wheel 43200
+}
+
+switch-to-aws-build(){
+  assume-role stedi/build ro 14400
+}
+
+switch-to-aws-build-wheel(){
+  assume-role stedi/build wheel 3600
+}
+
+switch-to-aws-prod(){
+  assume-role stedi/principal ro 14400
+}
+
+deploy-to-dev(){
+  AWS_DISCRIMINANT_QUALIFIER=john npx cdk deploy --profile stedi/dev john-CounselorServiceInteg
+}
+
+switch-role(){
+  local acct="$1"
+  local role="$1"
+  "${EISH_HOME}/si-switchrole-url" -n "$acct" -r "$role"
+}
+

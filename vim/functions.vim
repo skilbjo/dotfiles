@@ -1,3 +1,4 @@
+" Fn key
 function! LoadClojurePlugins()
   NeoBundle 'guns/vim-clojure-static'     " not sure... linter?
   NeoBundle 'tpope/vim-fireplace'         " clojure REPL in vim
@@ -6,15 +7,18 @@ function! LoadClojurePlugins()
   NeoBundle 'venantius/vim-eastwood'      " clojure linter
 :endfunction
 
+" Fn key
 function! PrettierAsync()
   PrettierAsync
 :endfunction
 
+" Fn key
 function! TrimWhiteSpace()
   %s/\s*$//
   ''
 :endfunction
 
+" vim autocmd
 function! SetupPython()  " Here, you can have the final say on what is set.  So
   setlocal softtabstop=2 " fixup any settings you don't like.
   setlocal tabstop=2

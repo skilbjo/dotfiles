@@ -45,7 +45,7 @@ let g:NERDTreeMouseMode = 3
 let g:NERDChristmasTree = 1
 "Open NerdTREE on current buffer's folder
 "nnoremap <silent><F3>  :NERDTreeFind<CR>
-nnoremap <silent><F1>  :NERDTreeToggle<CR>
+nnoremap <silent><F2>  :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
 
@@ -62,8 +62,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "let g:syntastic_check_on_wq = 0
 "  }}}
 
-" -- AutoComplPop {{{
-inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
+" -- AutoComplPop {{{                 " this conflicts with neoclide-coc
+"inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
 " }}}
 
 " -- EasyMotion {{{
@@ -113,6 +113,67 @@ let g:clj_fmt_autosave = 0
 "autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
 autocmd VimLeavePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
 " }}}
+
+" -- neoclide-coc {{{
+"inoremap <silent><expr> <TAB>
+      "\ pumvisible() ? "\<C-n>" :
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"inoremap <silent><expr> <c-space> coc#refresh()
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+"inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <Tab><Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+
+"if exists('*complete_info')
+  "inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"else
+  "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"endif
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" plugin specific fns; these cannot be put in functions.vim
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+"nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+"xmap <leader>f  <Plug>(coc-format-selected)
+"nmap <leader>f  <Plug>(coc-format-selected)
+
+"augroup mygroup
+  "autocmd!
+  "" Setup formatexpr specified filetype(s).
+  "autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  "" Update signature help on jump placeholder.
+  "autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+"augroup end
+" }}}
+
+
 
 " -- Research -------- -----------------------------------------------
 " -- EasyAlign

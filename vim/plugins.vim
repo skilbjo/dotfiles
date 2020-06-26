@@ -22,8 +22,9 @@ NeoBundle 'scrooloose/nerdcommenter'     " quick toggle of comments
 NeoBundle 'scrooloose/nerdtree'          " file system explorer
 NeoBundle 'tpope/vim-repeat.git'         " can use the . command for plugin maps
 NeoBundle 'tpope/vim-surround'           " :ysiW to surround word in quotes
-NeoBundle 'vim-scripts/AutoComplPop'     " autocomplete
-NeoBundle 'w0rp/ale'                     " vim linter
+"NeoBundle 'ervandew/supertab'
+"NeoBundle 'vim-scripts/AutoComplPop'     " autocomplete
+"NeoBundle 'w0rp/ale'                     " vim linter
 
 "" Lanugage specific
 """ Clojure
@@ -49,6 +50,7 @@ endif
 " " Research
 " NeoBundle 'fholgado/minibufexpl.vim'
 " NeoBundle 'flazz/vim-colorschemes'
+" NeoBundle 'metakirby5/codi.vim'       " quasi-repl, evaluates your code
 
 " Required:
 call neobundle#end()

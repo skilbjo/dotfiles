@@ -68,6 +68,7 @@ osx() {
   export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
   export VIRTUALENVWRAPPER_VIRTUALENV='/usr/local/bin/virtualenv'
   export PYTHONIOENCODING='UTF-8'
+  export NVM_DIR="$HOME/.nvm"
   export GPG_TTY="$(tty)"       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
 
   # -- java -----------------------------------------------------
@@ -79,16 +80,18 @@ osx() {
   bind '"\e[1;5C": forward-word'
   bind '"\e[1;5D": backward-word'
 
-  # -- virtualenvwrapper --------------------------------------
-  set +u
-  source_if_exists /usr/local/bin/virtualenvwrapper.sh
-  set -u
-
   # -- bash completion ----------------------------------------
   set +u
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source "$(brew --prefix)/etc/bash_completion"   # bash-completion
   fi
+  set -u
+
+  # -- addtl completion python virtualenvwrapper+node nvm -----
+  set +u
+  source_if_exists /usr/local/bin/virtualenvwrapper.sh
+  source_if_exists /usr/local/opt/nvm/nvm.sh
+  source_if_exists /usr/local/opt/nvm/etc/bash_completion.d/nvm
   set -u
 
   # -- custom functions ---------------------------------------
@@ -171,7 +174,7 @@ freebsd() {
   set -u
 
   #https://superuser.com/questions/715125/openssh-freebsd-screen-overwrite-when-closing-application
-  export TERM='xterm-clear'
+  export TERM='xterm-color'
 }
 
 os_specific() {
