@@ -4,3 +4,4 @@
 "autocmd BufWritePre <buffer> call Indent()
 
 SetupPython
+nnoremap <silent> K :call <SID>show_documentation()<CR>

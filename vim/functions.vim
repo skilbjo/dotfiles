@@ -3,7 +3,7 @@ function! LoadClojurePlugins()
   NeoBundle 'guns/vim-clojure-static'     " not sure... linter?
   NeoBundle 'tpope/vim-fireplace'         " clojure REPL in vim
   NeoBundle 'tpope/vim-salve'             " clojure quasi-REPL fallback
-  NeoBundle 'venantius/vim-cljfmt'        " :cljfmt in vim
+  "NeoBundle 'venantius/vim-cljfmt'       " :cljfmt in vim : vim-cljfmt: Could not locate cljfmt/core__init.class or cljfmt/core.clj on classpath.
   NeoBundle 'venantius/vim-eastwood'      " clojure linter
 :endfunction
 

@@ -55,6 +55,10 @@ switch-to-aws-prod(){
   assume-role stedi/principal ro 14400
 }
 
+switch-to-aws-prod-wheel(){
+  assume-role stedi/principal wheel 3600
+}
+
 deploy-to-dev(){
   AWS_DISCRIMINANT_QUALIFIER=john npx cdk deploy --profile stedi/dev john-CounselorServiceInteg
 }

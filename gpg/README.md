@@ -1,6 +1,38 @@
 # GPG
 
 ### skilbjo notes
+## Key is expired?
+
+```bash
+$printf '2y\n' | gpg --command-fd=0 --batch --edit-key [key] expire save
+
+Key expires at Wed Jul 13 23:56:25 2022 PDT
+
+sec  rsa2048/[key]
+     created: 2018-06-23  expires: 2022-07-14  usage: SC
+     trust: ultimate      validity: ultimate
+ssb  rsa2048/[key]
+     created: 2018-06-23  expired: 2020-06-22  usage: E
+[ultimate] (1). skilbjo <john.skilbeck@gmail.com>
+gpg: WARNING: Your encryption subkey expires soon.
+gpg: You may want to change its expiration date too.
+```
+
+Complains about subkey expiring:
+(importantly - write "key 1" not just "1".
+
+```bash
+gpg --command-fd=1 --batch --edit-key
+sec  rsa2048/[key]
+     created: 2018-06-23  expires: 2022-07-14  usage: SC
+     trust: ultimate      validity: ultimate
+ssb  rsa2048/[key]
+     created: 2018-06-23  expired: 2020-06-22  usage: E
+key 1
+expire 2y
+save
+```
+
 ## Instructions
 - install gpg and related tools
 - add vars to `~/.profile` (`ln -s ~/Dropbox/bash/profile ~/.profile`)

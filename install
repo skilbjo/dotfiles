@@ -30,6 +30,7 @@ user(){
   ln -s ~/Documents/Dropbox/dotfiles/vim/settings.vim        .vim/settings.vim
   ln -s ~/Documents/Dropbox/dotfiles/vim/keybindings.vim     .vim/keybindings.vim
   ln -s ~/Documents/Dropbox/dotfiles/vim/functions.vim       .vim/functions.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/coc-settings.json   .vim/coc-settings.json
   ~/.vim/bundle/bin/install.sh
   ~/.vim/bundle/bin/neoinstall
 

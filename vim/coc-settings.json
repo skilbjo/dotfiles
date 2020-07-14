@@ -1,0 +1,6 @@
+{
+  "eslint.enable": true,
+  "python.jediEnabled": true,
+  "python.linting.enabled": true,
+  "python.pythonPath": "/Users/skilbjo/.virtualenvs/flask/bin/python"
+}

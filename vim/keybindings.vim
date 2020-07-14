@@ -6,6 +6,7 @@ let maplocalleader =  "-"
 
 " Escape characters {{{
 inoremap <leader>~    `
+inoremap <leader>1    `
 inoremap …            ;
 inoremap Ú            :
 nnoremap <Bslash> ;
@@ -71,8 +72,9 @@ inoremap <C-n>        <C-w><C-w>
 "map! <F2>             :Require!<CR>
 map  <F1>             :call PrettierAsync()<CR>
 map! <F1>             :call PrettierAsync()<CR>
-map  <F3>             :call LoadClojurePlugins()<CR>
-map! <F3>             :call LoadClojurePlugins()<CR>
+map  <F2>             :call LoadClojurePlugins()<CR>
+map! <F2>             :call LoadClojurePlugins()<CR>
+nnoremap <silent><F3>  :NERDTreeToggle<CR>
 map  <F4>             :call TrimWhiteSpace()<CR>
 map! <F4>             :call TrimWhiteSpace()<CR>
 map  <F5>             :retab<CR>
