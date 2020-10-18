@@ -12,5 +12,14 @@
 NeoBundle 'neoclide/coc.nvim'           " code completion
 NeoBundle 'neoclide/coc-tsserver'       " typescript server
 NeoBundle 'neoclide/coc-eslint'         " javascript linter
+
 NeoBundle 'prettier/vim-prettier'       " prettier
 "NeoBundle 'airblade/vim-rooter'
+
+""" Typescript
+NeoBundle 'pangloss/vim-javascript'       " javascript support
+NeoBundle 'leafgarland/typescript-vim'    " typescript syntax
+NeoBundle 'maxmellon/vim-jsx-pretty'      " JS and JSX syntax
+
+""" Python
+NeoBundle 'neoclide/coc-python'         " python server

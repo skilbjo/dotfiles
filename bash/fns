@@ -5,7 +5,7 @@ set -u
 kmsd(){
   # https://stackoverflow.com/a/53735748/2490091
   aws kms decrypt \
-    --profile skilbjo \
+    --profile skilbjo-long-term \
     --ciphertext-blob fileb://<( \
       cat /dev/stdin | \
       sed 's/.*kmscrypt:://' | \
@@ -22,7 +22,7 @@ kmsd(){
 kmse(){
   # https://stackoverflow.com/a/53735748/2490091
   aws kms encrypt \
-    --profile skilbjo \
+    --profile skilbjo-long-term \
     --key-id "$aws_kms_key" \
     --plaintext "$(cat /dev/stdin)" \
     --region us-east-1 \
@@ -31,6 +31,46 @@ kmse(){
 }
 
 # -- stedi ------------------------------------------------------
+logs(){
+  local log_group_name="$1"
+  local log_stream_name="$2"
+
+  log_group_name='/aws/lambda/platform-txn-CounselorSer-ServiceSqsHandleTransact-QRF9BTCXUTXZ'
+  log_stream_name='2020/07/02/[$LATEST]7ffab4e9f53e4a8f992d3edcaf9aef3f'
+
+  aws --profile stedi/dev --region us-east-1 \
+    logs \
+    get-log-events \
+    --log-group-name "$log_group_name" \
+    --log-stream-name "$log_stream_name"
+}
+
+query_logs(){
+  local date="$1"
+  local start="$(gdate --date "$date - 2 minute" +%s)"
+  local end="$(gdate --date "$date + 2 minute" +%s)"
+    #--start-time "$start" \
+    #--end-time "$end" \
+  local log_group_name='/aws/lambda/platform-txn-CounselorSer-ServiceSqsHandleTransact-QRF9BTCXUTXZ'
+  local query='fields @message like /error/'
+  local query='fields @timestamp, @message | sort @timestamp desc | limit 20'
+
+  log_group_name='/aws/lambda/platform-txn-CounselorSer-ServiceSqsHandleTransact-QRF9BTCXUTXZ'
+  query='fields @timestamp, @message | sort @timestamp desc | limit 20'
+  query_id="$(aws --profile stedi/principal --region us-east-1 \
+    logs \
+    start-query \
+    --start-time 1593736067 \
+    --end-time 1593736313 \
+    --log-group-name "$log_group_name" \
+    --query-string "$query" | jq '.queryId')"
+
+  aws --profile stedi/principal --region us-east-1 \
+    logs \
+    get-query-results \
+    --query-id "$query_id"
+}
+
 assume-role(){
   local acct="$1"
   local role_name="$2"
@@ -39,23 +79,23 @@ assume-role(){
   aws-mfa --duration "$duration" --profile "$acct" --assume-role "$("${EISH_HOME}/si-role-arn" -n "$acct" -r "$role_name")"
 }
 
-switch-to-aws-dev(){
+assume-aws-dev(){
   assume-role stedi/dev wheel 43200
 }
 
-switch-to-aws-build(){
+assume-aws-build(){
   assume-role stedi/build ro 14400
 }
 
-switch-to-aws-build-wheel(){
+assume-aws-build-wheel(){
   assume-role stedi/build wheel 3600
 }
 
-switch-to-aws-prod(){
+assume-aws-prod(){
   assume-role stedi/principal ro 14400
 }
 
-switch-to-aws-prod-wheel(){
+assume-aws-prod-wheel(){
   assume-role stedi/principal wheel 3600
 }
 

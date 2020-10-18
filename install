@@ -3,6 +3,44 @@ set -eoux pipefail
 
 db="~/Documents/Dropbox/dotfiles"
 
+brew(){
+  brew install \
+    ack \
+    bash \
+    bash-completion \
+    clojure \
+    docker-machine \
+    ffmpeg \
+    findutils \
+    gcc \
+    git \
+    gnu-sed \
+    gnutls \
+    htop \
+    gnupg \
+    hub \
+    jq \
+    leiningen \
+    netcat \
+    node \
+    nvm \
+    openjdk \
+    openssl \
+    pinentry \
+    pinentry-mac \
+    postgresql \
+    python3 \
+    reattach-to-user-namespace \
+    ssh-copy-id \
+    telnet \
+    tmux \
+    tree \
+    zip \
+    vim \
+    yarn \
+    youtube-dl
+}
+
 user(){
   ln -s ~/Documents/Dropbox/dotfiles/bash/bashrc   ~/.bashrc
   ln -s ~/Documents/Dropbox/dotfiles/bash/profile  ~/.profile
@@ -19,14 +57,16 @@ user(){
   ln -s ~/Documents/Dropbox/dotfiles/aws/credentials ~/.aws/credentials
 
   # gpg
-  ln -s ~/Documents/Dropbox/dotfiles/gpg/gpg-agent.conf gpg-agent.conf
+  ln -s ~/Documents/Dropbox/dotfiles/gpg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+  ln -s ~/Documents/Dropbox/dotfiles/gpg/gpg.conf       ~/.gnupg/gpg.conf
 
   # user
   mkdir .vim
   git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle
   ln -s ~/Documents/Dropbox/dotfiles/vim/vimrc               .vimrc
   ln -s ~/Documents/Dropbox/dotfiles/vim/plugins.vim         .vim/plugins.vim
-  ln -s ~/Documents/Dropbox/dotfiles/vim/plugin_settings.vim .vim/plugin_settings.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/plugin-settings.vim .vim/plugin-settings.vim
+  ln -s ~/Documents/Dropbox/dotfiles/vim/plugins-osx.vim     .vim/plugins-osx.vim
   ln -s ~/Documents/Dropbox/dotfiles/vim/settings.vim        .vim/settings.vim
   ln -s ~/Documents/Dropbox/dotfiles/vim/keybindings.vim     .vim/keybindings.vim
   ln -s ~/Documents/Dropbox/dotfiles/vim/functions.vim       .vim/functions.vim

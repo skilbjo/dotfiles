@@ -2,7 +2,8 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 #alias grep='grep --color=always'
-alias ff='find . -type f -name'
+# alias ff='find . -type f -name'
+alias ff='function _(){ find . -type f -name "*${1}*";};_'
 alias fh='find ~ -type f -name'
 alias fr='find / -type f -name'
 alias h='cd ~'
@@ -20,8 +21,7 @@ alias max='du -ma | sort -nr | head -n 20'
 
 # -- Shortcuts --------------------------------------------------
 alias x='exit'
-alias s='cd ~/dev/skilbjo/'
-alias s='cd ~/dev/stedi/'
+# alias s='cd ~/dev/skilbjo/'
 alias a='cd ~/dev/aeon/'
 alias m='cd ~/dev/markets-etl/'
 alias i='cd ~/dev/interview/'
@@ -40,17 +40,20 @@ alias jmap.get='scp udoo:/tmp/java-heap-dump ~/Desktop/java-heap-dump'
 #alias 'llein'='LEIN_FAST_TRAMPOLINE=y lein trampoline'
 
 # -- Docker -----------------------------------------------------
+alias "docker.start"="start_docker" # turn vbox on/off
+alias "docker.stop"="docker-machine stop default" # turn vbox on/off
+
 alias "docker.ssh"="docker-machine ssh default"  # or, alias "ssh.docker"="echo 'password is \`tcuser\`'; ssh docker@$(docker-machine ip default)"
 alias "docker.ls"="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}'"
 
 alias "docker.psql.start"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
 alias "docker.psql.stop"="docker rm postgres"
 
-alias "docker.stop.all"="docker ps -qa | xargs docker rm -f"
+#alias "docker.stop.all"="docker ps -qa | xargs docker rm -f"
 alias "docker.stop.this"='function _(){ docker ps -a | grep "$1" | awk {"print \$1"} |  xargs docker rm -f;};_'
-alias "docker.rmi.all"="function _(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_"
-alias "docker.rmi.this"='function _(){ docker images | grep "$1" | awk {"print \$3"} | grep -v IMAGE | xargs docker rmi -f; };_'
-alias "d.rmi"='function _(){ docker images | grep "$1" | awk {"print \$3"} | grep -v IMAGE | xargs docker rmi -f; };_'
+#alias "docker.rmi.all"="function _(){ docker images | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi --force;};_"
+#alias "docker.rmi.this"='function _(){ docker images | grep "$1" | awk {"print \$3"} | grep -v IMAGE | xargs docker rmi -f; };_'
+#alias "d.rmi"='function _(){ docker images | grep "$1" | awk {"print \$3"} | grep -v IMAGE | xargs docker rmi -f; };_'
 
 alias 'di'='docker images'
 
@@ -67,14 +70,34 @@ alias 'telnet-https'='openssl s_client -connect skilbjo.duckdns.org:443'
 alias aws='~/bin/aws' # https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html
 alias aws.p='~/bin/aws --profile personal-long-term --region us-east-1'
 alias aws.s='~/bin/aws --profile stedi --region us-east-1'
-alias aws-mfa='/Users/skilbjo/.virtualenvs/stedi/bin/aws-mfa'
-alias awscurl='/Users/skilbjo/.virtualenvs/stedi/bin/awscurl'
 
 alias 'sbcl'='rlwrap sbcl'
 alias 'netlify'='/Users/skilbjo/dev/aeon/node_modules/netlify-cli/bin/run'
-alias 'tsc'='/Users/skilbjo/dev/typescript-scratch/node_modules/.bin/tsc'
-alias 'jest'='/Users/skilbjo/dev/stedi/platform-txn-Counselor/node_modules/.bin/jest'
 alias 'serverless'='/Users/skilbjo/dev/scratch/serverless/my-first-app/node_modules/serverless/bin/serverless'
+
+# -- work --------------- ---------------------------------------
+#alias aws-mfa='/Users/skilbjo/.virtualenvs/stedi/bin/aws-mfa'
+alias aws-mfa='/Users/johnskilbeck/.virtualenvs/stedi/bin/aws-mfa'
+#alias awscurl='/Users/skilbjo/.virtualenvs/stedi/bin/awscurl'
+alias awscurl='/Users/johnskilbeck/.virtualenvs/stedi/bin/awscurl'
+
+alias 'tsc'='/Users/johnskilbeck/dev/typescript-scratch/node_modules/.bin/tsc'
+alias 'cdk'='/Users/johnskilbeck/dev/typescript-scratch/node_modules/.bin/cdk'
+alias 'jest'='/Users/johnskilbeck/dev/counselor/node_modules/.bin/jest'
+alias 'prettier'='/Users/johnskilbeck/dev/counselor/node_modules/.bin/prettier'
+alias 'eslint'='/Users/johnskilbeck/dev/counselor/node_modules/.bin/eslint'
+alias 'tsfiles'="function _(){/usr/bin/find . -type f ! -path '*/node_modules/*' ! -path '*/target/*' ! -path '*/cdk.out/*' -name '*.ts'};_"
+
+# this takes a while-- look into and see what is not working
+# alias 'lint'="function _(){/Users/johnskilbeck/dev/counselor/node_modules/.bin/eslint \"$(find . -type f ! -path '*/node_modules/*' ! -path '*/target/*' ! -path '*/cdk.out/*' -name '*.ts')\";};_"
+
+alias s='cd ~/dev/search/'
+alias c='cd ~/dev/counselor/'
+alias l='cd ~/dev/ledger/'
+
+alias mmake="AWS_ACCESS_KEY_ID='a' AWS_SECRET_ACCESS_KEY='a' make"
+# alias codebuild-local='/Users/johnskilbeck/dev/aws-codebuild-docker-images/local_builds/codebuild_build.sh -i amazon/aws-codebuild-local'
+alias codebuild-local='/Users/johnskilbeck/dev/aws-codebuild-docker-images/local_builds/codebuild_build.sh'
 
 # -- work, no longer used ---------------------------------------
 #alias ks='vim deploy/bin/k8s'

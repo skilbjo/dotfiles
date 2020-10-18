@@ -40,7 +40,7 @@ map 9           ^
 " -- tabs / splits ----------------------------------------------
 " Tab opening/closing {{{
 noremap <C-t>         :tabnew<CR>
-nnoremap <C-w>        :tabclose!<CR>
+" nnoremap <C-w>        :tabclose!<CR>
 noremap  <C-x>        :tabclose!<CR>
 " }}}
 
@@ -70,15 +70,15 @@ inoremap <C-n>        <C-w><C-w>
 "<F2 is NERDTree
 "map  <F2>             :Require!<CR>  " why is this here? I forgot
 "map! <F2>             :Require!<CR>
-map  <F1>             :call PrettierAsync()<CR>
-map! <F1>             :call PrettierAsync()<CR>
-map  <F2>             :call LoadClojurePlugins()<CR>
-map! <F2>             :call LoadClojurePlugins()<CR>
-nnoremap <silent><F3>  :NERDTreeToggle<CR>
-map  <F4>             :call TrimWhiteSpace()<CR>
-map! <F4>             :call TrimWhiteSpace()<CR>
-map  <F5>             :retab<CR>
-map! <F5>             :retab<CR>
+map  <F3>             :call PrettierAsync()<CR>
+map! <F3>             :call PrettierAsync()<CR>
+map  <F4>             :call LoadClojurePlugins()<CR>
+map! <F4>             :call LoadClojurePlugins()<CR>
+" nnoremap <silent><F3>  :NERDTreeToggle<CR>
+" map  <F4>             :call TrimWhiteSpace()<CR>
+" map! <F4>             :call TrimWhiteSpace()<CR>
+" map  <F5>             :retab<CR>
+" map! <F5>             :retab<CR>
 map  <F8>             :call Indent()<CR>
 map! <F8>             :call Indent()<CR>
 map  <F9>             :noh<return><esc>

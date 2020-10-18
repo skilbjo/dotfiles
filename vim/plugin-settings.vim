@@ -38,6 +38,7 @@ colorscheme PaperColor
 " -- NerdTREE Comment {{{
 map ÷ <Leader>c<Space>
 imap ÷  <C-o>:call NERDComment(0,"toggle")<C-m>
+let NERDSpaceDelims=1
 " }}}
 
 " -- NERDTree {{{
@@ -45,7 +46,6 @@ let g:NERDTreeMouseMode = 3
 let g:NERDChristmasTree = 1
 "Open NerdTREE on current buffer's folder
 "nnoremap <silent><F3>  :NERDTreeFind<CR>
-nnoremap <silent><F2>  :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
 
@@ -78,6 +78,20 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " }}}
 
+" -- EasyMotion {{{
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)|dist|node_modules$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+" }}}
+
 " -- Language Spesific -----------------------------------------------
 " -- Clojure-static {{{
 let g:clojure_syntax_keywords = {
@@ -102,36 +116,42 @@ nmap ¬ [d
 nmap ® cqq
  "Evaluates code block... æ is option + quote '
 nmap æ cpp
+
+nmap <leader>F <Plug>FireplacePrint<Plug>(sexp_outer_top_list)``
+nmap <leader>f <Plug>FireplacePrint<Plug>(sexp_outer_list)``
+nmap <leader>e <Plug>FireplacePrint<Plug>(sexp_inner_element)``
+nmap <leader>d [<C-D>
+nmap <leader>E :%Eval<CR>
+nmap <leader>R cqp(require 'clojure.tools.namespace.repl) (clojure.tools.namespace.repl/refresh)<CR>
 " }}}
 
-" -- vim-cljfmt {{{
-let g:clj_fmt_autosave = 0
-" }}}
+  " -- vim-cljfmt {{{
+  let g:clj_fmt_autosave = 0
+  " }}}
 
 " -- Typescript {{{
 " -- vim-prettier {{{
-"autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
-autocmd VimLeavePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
+" autocmd VimLeavePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
 " }}}
 
 " -- neoclide-coc {{{
-"inoremap <silent><expr> <TAB>
-      "\ pumvisible() ? "\<C-n>" :
-      "\ <SID>check_back_space() ? "\<TAB>" :
-      "\ coc#refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"inoremap <silent><expr> <c-space> coc#refresh()
+let g:coc_global_extensions = [ 'coc-tsserver' ]
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-"inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr> <Tab><Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+nmap <silent> gc  <Plug>(coc-codeaction)
+nmap <silent> gf  <Plug>(coc-fix-current)
+
+"inoremap <expr><Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"      # if you want to tab to select it (my old behavior)
+inoremap <expr><C-@> pumvisible() ? "\<C-Y>" : "\<Tab>"       " <C-space> interpreted as <C-@> by vim
+inoremap <expr><leader><Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"  " tab to select it
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr><CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 
 "if exists('*complete_info')
   "inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -139,7 +159,9 @@ inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
   "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 "endif
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+"if (&ft=='js' || &ft=='jsx' || &ft=='ts' || &ft=='tsx' || &ft=='py')
+autocmd FileType js,ts,javascript,typescript,python nnoremap <silent> K :call <SID>show_documentation()<CR>
+"endif
 
 " plugin specific fns; these cannot be put in functions.vim
 function! s:check_back_space() abort
@@ -154,6 +176,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-@> coc#refresh()
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 

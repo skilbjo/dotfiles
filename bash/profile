@@ -12,11 +12,12 @@ fi
 
 # -- path, command prompt ---------------------------------------
 export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin'
+export PATH="$PATH:/Users/johnskilbeck/.local/bin" # pipx ensurepath
 
 # -- helpful functions ------------------------------------------
 source_if_exists() {
   set +u
-  [[ -f $1 ]] && source $1
+  [[ -f $1 ]] && source "$1"
   set -u
 }
 
@@ -33,6 +34,7 @@ start_docker() {
 # -- environment vars & dotfiles --------------------------------
 export EDITOR='vim'
 export LESS='-R -i-P%f (%i/%m) Line %lt/%L'
+
 source_if_exists "$HOME/.aliases"       # Aliases
 
 # -- Bash bindings / settings ----------------------------------
@@ -49,7 +51,7 @@ all_os() {
 
 osx() {
   # -- fns ------------------------------------------------------
-  #start_docker
+  start_docker
 
   # -- alias ----------------------------------------------------
   ## - docker --------
@@ -72,7 +74,7 @@ osx() {
   export GPG_TTY="$(tty)"       # https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
 
   # -- java -----------------------------------------------------
-  export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)" # Java 1.8
+  # export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)" # Java 1.8
 
   # -- use ctrl + <Left> / <Right> ----------------------------
   bind '"\e[5C": forward-word'
@@ -152,7 +154,7 @@ freebsd() {
   #export PATH="${PATH}:/~./local/bin"  # not needed, just pip install awscli --user; cd ~/bin/; ln -s /home/skilbjo/.local/bin/aws aws
 
   # -- fns ------------------------------------------------------
-  # start_docker  # turn off until virtualbox is resolved
+  start_docker  # turn off until virtualbox is resolved
 
   # -- bash completion ----------------------------------------
   set +u
@@ -189,12 +191,6 @@ os_specific() {
 os_specific
 
 # -- computer-specific stuffs -----------------------------------
-work() {
-  # -- files --------------------------------------------------
-  source_if_exists "$HOME/.aws"           # AWS config
-  source_if_exists "$HOME/.aliases-work"  # Aliases
-}
-
 skilbjo() {
   # Add password-protected id_rsa key
   if [[ "Darwin" == $(uname) ]]; then
@@ -209,9 +205,13 @@ skilbjo() {
 
     case "$(hostname)" in
       mbp | mbp2 | mbp2.lan )
-        ssh-add -K ~/.ssh/id_rsa_circle_ci 2>/dev/null ;; ## Add cirlceci private key
+        ssh-add -K ~/.ssh/id_rsa_stedi 2>/dev/null ;; ## Add cirlceci private key
     esac
   fi
+}
+
+work() {
+  skilbjo
 }
 
 _aws() {
