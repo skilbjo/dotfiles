@@ -1,9 +1,12 @@
 " -- Themes -----------------------------------------------------
 " -- Airline {{{
-set laststatus=2  "always show status line for the last window
 let g:airline_theme='papercolor'
 let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#fnamecollapse = 0
 let g:Powerline_symbols = 'unicode'
+" let g:airline_section_c = '+%F' " shows full file path but also gets rid of coc
+" let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 "let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
