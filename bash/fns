@@ -30,6 +30,14 @@ kmse(){
     --output text
 }
 
+git() {
+  if [[ $@ == 'push -f'* ]] || [[ $@ == 'pu -f'* ]]; then
+    echo 'use --force-with-lease instead'
+  else
+    command git "$@"
+  fi
+}
+
 # -- stedi ------------------------------------------------------
 logs(){
   local log_group_name="$1"
@@ -103,9 +111,47 @@ deploy-to-dev(){
   AWS_DISCRIMINANT_QUALIFIER=john npx cdk deploy --profile stedi/dev john-CounselorServiceInteg
 }
 
-switch-role(){
-  local acct="$1"
-  local role="$1"
-  "${EISH_HOME}/si-switchrole-url" -n "$acct" -r "$role"
+## google cloud
+gcp-psql(){
+  psql "sslmode=verify-ca sslrootcert=/Users/skilbjo/Downloads/server-ca.pem \
+      sslcert=/Users/skilbjo/client-cert.pem sslkey=/Users/skilbjo/Downloads/client-key.pem \
+      hostaddr=35.193.230.82 \
+      port=5432 \
+      user=postgres dbname=postgres"
 }
 
+sso(){
+  unset AWS_PROFILE
+  export AWS_PROFILE=$1
+  aws sts get-caller-identity &> /dev/null || aws sso login || (unset AWS_PROFILE && aws-configure-sso-profile --profile $1)
+  eval $(aws-export-credentials --env-export)
+}
+
+
+# -- fnch -------------------------------------------------------
+uri-encode() {
+  # uri-encode <string>
+  old_lc_collate=$LC_COLLATE
+  LC_COLLATE=C
+
+  local length="${#1}"
+  for (( i = 0; i < length; i++ )); do
+    local c="${1:$i:1}"
+    case $c in
+      [a-zA-Z0-9.~_-])
+        printf '%s' "$c" ;;
+      *)
+        printf '%%%02X' "'$c" ;;
+    esac
+  done
+  echo ''
+
+  LC_COLLATE=$old_lc_collate
+}
+
+uri-decode() {
+  # uri-decode <string>
+  local url_encoded="${1//+/ }"
+  printf '%b' "${url_encoded//%/\\x}"
+  echo ''
+}

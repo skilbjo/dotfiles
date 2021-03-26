@@ -27,6 +27,12 @@ Thumbs.db
 # -- managed packages -------------------------------------------
 node_modules
 
+# -- yarn -------------------------------------------------------
+.pnp.js
+.yarn/sdks/integrations.yml
+.vim/
+yarn.lock
+
 # -- python -----------------------------------------------------
 *.egg-info/
 .pynb_checkpoints/

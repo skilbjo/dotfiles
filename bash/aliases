@@ -1,6 +1,8 @@
 # -- Unix -------------------------------------------------------
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 #alias grep='grep --color=always'
 # alias ff='find . -type f -name'
 alias ff='function _(){ find . -type f -name "*${1}*";};_'
@@ -12,10 +14,11 @@ alias ll='ls -lh'
 alias la='ls -la'
 alias mkdir='mkdir -p'
 alias vim='vim -p'
+alias ack='ack --smart-case'
 alias man='function _(){ /usr/bin/man "$1" | col -xb | vim -;};_'
 #alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 --rm-cache-dir "$1" & cd -;};_'
 alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 "$1" & cd -;};_'
-alias p='vim ~/.profilelocal && . ~/.profilelocal'
+# alias p='vim ~/.profilelocal && . ~/.profilelocal'
 alias bell="echo -ne '\007'; echo -ne '\007'; echo -ne '\007'"
 alias max='du -ma | sort -nr | head -n 20'
 
@@ -48,6 +51,8 @@ alias "docker.ls"="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{
 
 alias "docker.psql.start"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
 alias "docker.psql.stop"="docker rm postgres"
+alias "psql.start"="brew services start postgresql@10"
+alias "psql.stop"="brew services stop postgresql@10"
 
 #alias "docker.stop.all"="docker ps -qa | xargs docker rm -f"
 alias "docker.stop.this"='function _(){ docker ps -a | grep "$1" | awk {"print \$1"} |  xargs docker rm -f;};_'
@@ -67,7 +72,7 @@ alias 'netstat.osx'='echo "Proto Recv-Q Send-Q  Local Address          Foreign A
 alias 'telnet-https'='openssl s_client -connect skilbjo.duckdns.org:443'
 
 # -- application specific ---------------------------------------
-alias aws='~/bin/aws' # https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html
+# alias aws='~/bin/aws' # https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html
 alias aws.p='~/bin/aws --profile personal-long-term --region us-east-1'
 alias aws.s='~/bin/aws --profile stedi --region us-east-1'
 
@@ -77,23 +82,23 @@ alias 'serverless'='/Users/skilbjo/dev/scratch/serverless/my-first-app/node_modu
 
 # -- work --------------- ---------------------------------------
 #alias aws-mfa='/Users/skilbjo/.virtualenvs/stedi/bin/aws-mfa'
-alias aws-mfa='/Users/johnskilbeck/.virtualenvs/stedi/bin/aws-mfa'
+# alias aws-mfa='/Users/johnskilbeck/.virtualenvs/stedi/bin/aws-mfa'
 #alias awscurl='/Users/skilbjo/.virtualenvs/stedi/bin/awscurl'
-alias awscurl='/Users/johnskilbeck/.virtualenvs/stedi/bin/awscurl'
+# alias awscurl='/Users/johnskilbeck/.virtualenvs/stedi/bin/awscurl'
 
 alias 'tsc'='/Users/johnskilbeck/dev/typescript-scratch/node_modules/.bin/tsc'
 alias 'cdk'='/Users/johnskilbeck/dev/typescript-scratch/node_modules/.bin/cdk'
-alias 'jest'='/Users/johnskilbeck/dev/counselor/node_modules/.bin/jest'
-alias 'prettier'='/Users/johnskilbeck/dev/counselor/node_modules/.bin/prettier'
-alias 'eslint'='/Users/johnskilbeck/dev/counselor/node_modules/.bin/eslint'
+# alias 'jest'='/Users/johnskilbeck/dev/counselor/node_modules/.bin/jest'
+# alias 'prettier'='/Users/johnskilbeck/dev/counselor/node_modules/.bin/prettier'
+# alias 'eslint'='/Users/johnskilbeck/dev/counselor/node_modules/.bin/eslint'
 alias 'tsfiles'="function _(){/usr/bin/find . -type f ! -path '*/node_modules/*' ! -path '*/target/*' ! -path '*/cdk.out/*' -name '*.ts'};_"
 
 # this takes a while-- look into and see what is not working
 # alias 'lint'="function _(){/Users/johnskilbeck/dev/counselor/node_modules/.bin/eslint \"$(find . -type f ! -path '*/node_modules/*' ! -path '*/target/*' ! -path '*/cdk.out/*' -name '*.ts')\";};_"
 
-alias s='cd ~/dev/search/'
-alias c='cd ~/dev/counselor/'
-alias l='cd ~/dev/ledger/'
+# alias s='cd ~/dev/search/'
+# alias c='cd ~/dev/counselor/'
+# alias l='cd ~/dev/ledger/'
 
 alias mmake="AWS_ACCESS_KEY_ID='a' AWS_SECRET_ACCESS_KEY='a' make"
 # alias codebuild-local='/Users/johnskilbeck/dev/aws-codebuild-docker-images/local_builds/codebuild_build.sh -i amazon/aws-codebuild-local'
@@ -103,3 +108,11 @@ alias codebuild-local='/Users/johnskilbeck/dev/aws-codebuild-docker-images/local
 #alias ks='vim deploy/bin/k8s'
 #alias k8s.dashboard='echo "go to url: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default" && ssh -L 8001:localhost:8080 -N k8s'
 #alias orc='java -jar /Users/skilbjo/dev/data-engineering/src/orc-tools-1.6.0-uber.jar'
+
+# -- temp ------------------------------------------------------
+# alias sa='make clean && node_modules/.bin/openapi bundle --output openapi.json definition/openapi.yaml && node_modules/.bin/openapi-generator generate -o openapi -t openapi-generator/templates/typescript -g typescript-fetch -p typescriptThreePlus=true -i openapi.json -p enumNameSuffix='' -p modelPropertyNaming=snake_case && tsc && cp -R definition/schemas dist/'
+# alias sa='make clean && node_modules/.bin/openapi bundle --output openapi.json definition/openapi.yaml && node_modules/.bin/openapi-generator generate -o openapi -t openapi-generator/templates/typescript -g typescript-fetch -p typescriptThreePlus=true -i openapi.json -p enumNameSuffix='' -p modelPropertyNaming=snake_case  && tsc'
+# alias build='make clean && npm run build'
+alias zoom='sudo killall VDCAssistant'
+
+alias p='cd ~/dev/provider/'

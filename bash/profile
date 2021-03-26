@@ -63,6 +63,9 @@ osx() {
   alias llein='LEIN_FAST_TRAMPOLINE=true lein trampoline'
   alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'
 
+  ## - unix / macos --
+  alias nproc='sysctl -n hw.logicalcpu'
+
   # -- env vars -------------------------------------------------
   export EVENT_NOKQUEUE='1'                 # tmux kqueue error
   export WORKON_HOME="$HOME/.virtualenvs"
@@ -212,6 +215,11 @@ skilbjo() {
 
 work() {
   skilbjo
+
+  export GOPATH="$HOME/go"
+  export PROVIDER_HOME_DIRECTORY='/Users/johnskilbeck/dev/provider'
+  . "${PROVIDER_HOME_DIRECTORY}/scripts/dev/.bash_psql"
+  export TZ='UTC'
 }
 
 _aws() {

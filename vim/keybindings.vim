@@ -124,6 +124,10 @@ snoremap <C-A>        <C-C>gggH<C-O>G
 xnoremap <C-A>        <C-C>ggVG
 " }}}
 
+" . (dot) command replays a macro {{{
+nmap <expr> q QStart()
+" }}}
+
 " -- visual-mode mappings ------------------------------------
 
 " Make shifted cursor keys work to select text {{{
@@ -161,6 +165,12 @@ inoremap <C-S>        <C-o>:update<CR>
 noremap  <C-x>        :exit<CR>
 vnoremap <C-x>        <C-C>:exit<CR>
 inoremap <C-x>        <C-o>:exit<CR>
+" }}}
+
+" Control+G shows fillpath {{{
+noremap  <C-g>        :echo expand('%:p')<CR>
+vnoremap <C-g>        <Esc>:echo expand('%:p')<CR>
+inoremap <C-g>        <Esc>:echo expand('%:p')<CR>
 " }}}
 
 " -- command-mode mappings ------------------------------------

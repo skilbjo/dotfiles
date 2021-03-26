@@ -131,7 +131,7 @@ nmap <leader>R cqp(require 'clojure.tools.namespace.repl) (clojure.tools.namespa
 
 " -- Typescript {{{
 " -- vim-prettier {{{
-autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
 " autocmd VimLeavePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
 " }}}
 
