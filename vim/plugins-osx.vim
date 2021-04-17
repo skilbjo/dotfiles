@@ -9,11 +9,8 @@
 
 """ Typescript
 """"" But only if on macOS
-NeoBundle 'neoclide/coc.nvim', { 'branch' : 'release' }           " code completion
-NeoBundle 'neoclide/coc-tsserver'       " typescript server
-NeoBundle 'neoclide/coc-eslint'         " javascript linter
-NeoBundle 'neoclide/coc-prettier'       " not as good as eslint, but some projects use this
-" NeoBundle 'neoclide/coc-json'           " stuff
+NeoBundle 'neoclide/coc.nvim', {'branch': 'release'}           " code completion
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-prettier', 'coc-tslint', 'coc-python' ]
 
 "NeoBundle 'airblade/vim-rooter'
 
@@ -22,6 +19,3 @@ NeoBundle 'neoclide/coc-prettier'       " not as good as eslint, but some projec
 " NeoBundle 'leafgarland/typescript-vim'    " typescript syntax
 " NeoBundle 'maxmellon/vim-jsx-pretty'      " JS and JSX syntax
 " NeoBundle 'prettier/vim-prettier'       " prettier
-
-" """ Python
-NeoBundle 'neoclide/coc-python'         " python server

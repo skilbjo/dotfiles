@@ -94,9 +94,9 @@ osx() {
 
   # -- addtl completion python virtualenvwrapper+node nvm -----
   set +u
-  source_if_exists /usr/local/bin/virtualenvwrapper.sh
-  source_if_exists /usr/local/opt/nvm/nvm.sh
-  source_if_exists /usr/local/opt/nvm/etc/bash_completion.d/nvm
+  source_if_exists "$(brew --prefix)/bin/virtualenvwrapper.sh"
+  source_if_exists "$(brew --prefix)/opt/nvm/nvm.sh"
+  source_if_exists "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
   set -u
 
   # -- custom functions ---------------------------------------
@@ -186,7 +186,15 @@ os_specific() {
   all_os
 
   case "$(uname)" in
-    ('Darwin')  osx ;;
+    ('Darwin')
+      if [[ $(uname -m) == 'arm64' ]]; then
+        export PATH="/opt/homebrew/bin:${PATH}";
+        export SHELL="$(brew --prefix)/bin/bash"
+        export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+        export PUPPETEER_EXECUTABLE_PATH="$(which chromium)"
+      fi;
+
+      osx ;;
     ('Linux')   linux ;;
     ('FreeBSD') freebsd ;;
   esac
@@ -216,9 +224,19 @@ skilbjo() {
 work() {
   skilbjo
 
-  export GOPATH="$HOME/go"
-  export PROVIDER_HOME_DIRECTORY='/Users/johnskilbeck/dev/provider'
-  . "${PROVIDER_HOME_DIRECTORY}/scripts/dev/.bash_psql"
+  case "$(uname -m)" in
+    arm64 )
+      export PATH="/opt/homebrew/bin:/opt/homebrew/sbin/${PATH}"
+      ssh-add -K ~/.ssh/id_ed25519 2>/dev/null || ssh-add ~/.ssh/id_ed25519
+      ;;
+
+    x86_64 )
+      export GOPATH="$HOME/go"
+      export PROVIDER_HOME_DIRECTORY='/Users/johnskilbeck/dev/provider'
+      . "${PROVIDER_HOME_DIRECTORY}/scripts/dev/.bash_psql"
+      PROVIDER_DEV_SERVER_MEMORY_LIMIT=16384 ;;
+    esac
+
   export TZ='UTC'
 }
 

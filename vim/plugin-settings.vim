@@ -14,21 +14,13 @@ if !exists('g:airline_symbols')
 endif
 
 "" unicode symbols
-"let g:airline_left_sep=''
-"let g:airline_right_sep=''
-"let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
 let g:airline_symbols.linenr = '␊'
 let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
-"let g:airline_symbols.space = "\ua0"
 ""}}}
 
 " -- PaperColor
@@ -48,22 +40,9 @@ let NERDSpaceDelims=1
 let g:NERDTreeMouseMode = 3
 let g:NERDChristmasTree = 1
 "Open NerdTREE on current buffer's folder
-"nnoremap <silent><F3>  :NERDTreeFind<CR>
+nnoremap <silent><F2>  :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
-
-" -- Syntastic {{{
-""" Turning this off for now, because I'm using w0rp/ale
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_javascript_checkers = ['jshint']"
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"  }}}
 
 " -- AutoComplPop {{{                 " this conflicts with neoclide-coc
 "inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
@@ -134,12 +113,10 @@ nmap <leader>R cqp(require 'clojure.tools.namespace.repl) (clojure.tools.namespa
 
 " -- Typescript {{{
 " -- vim-prettier {{{
-" autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
-" autocmd VimLeavePre *.js,*.jsx,*.ts,*.tsx,*.md PrettierAsync
 " }}}
 
 " -- neoclide-coc {{{
-let g:coc_global_extensions = [ 'coc-tsserver' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-prettier', 'coc-tslint' ]
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -162,9 +139,10 @@ inoremap <expr><CR> pumvisible() ? "\<C-Y>" : "\<CR>"
   "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 "endif
 
-"if (&ft=='js' || &ft=='jsx' || &ft=='ts' || &ft=='tsx' || &ft=='py')
-autocmd FileType js,ts,javascript,typescript,python nnoremap <silent> K :call <SID>show_documentation()<CR>
-"endif
+augroup typescriptLint
+  autocmd FileType typescript,typescriptreact
+    \ autocmd! BufWritePre * :CocCommand tslint.fixAllProblems
+augroup END
 
 " plugin specific fns; these cannot be put in functions.vim
 function! s:check_back_space() abort
@@ -179,6 +157,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+autocmd FileType javascript,typescript,typescriptreact,javascriptreact nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-@> coc#refresh()
@@ -186,11 +165,7 @@ inoremap <silent><expr> <c-@> coc#refresh()
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-"nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-"xmap <leader>f  <Plug>(coc-format-selected)
-"nmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>rn <Plug>(coc-rename)
 
 "augroup mygroup
   "autocmd!
@@ -200,8 +175,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
   "autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 "augroup end
 " }}}
-
-
 
 " -- Research -------- -----------------------------------------------
 " -- EasyAlign

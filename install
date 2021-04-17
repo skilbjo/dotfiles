@@ -88,6 +88,7 @@ user(){
   ln -s ~/Documents/Dropbox/dotfiles/tmux/settings.tmux ~/.tmux/settings.tmux
   ln -s ~/Documents/Dropbox/dotfiles/tmux/theme.tmux ~/.tmux/theme.tmux
   ln -s ~/Documents/Dropbox/dotfiles/tmux/osx.tmux ~/.tmux/osx.tmux
+  ln -s ~/Documents/Dropbox/dotfiles/tmux/osx-arm.tmux ~/.tmux/osx-arm.tmux
   ln -s ~/Documents/Dropbox/dotfiles/tmux/linux.tmux ~/.tmux/linux.tmux
   ln -s ~/Documents/Dropbox/dotfiles/tmux/freebsd.tmux ~/.tmux/freebsd.tmux
 

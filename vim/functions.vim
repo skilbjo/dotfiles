@@ -8,11 +8,6 @@ function! LoadClojurePlugins()
 :endfunction
 
 " Fn key
-function! PrettierAsync()
-  PrettierAsync
-:endfunction
-
-" Fn key
 function! TrimWhiteSpace()
   %s/\s*$//
   ''
@@ -56,34 +51,4 @@ function! DetectEnv()             " format files based on shebang, ie:
   if len(tokens) >= 2
     setfiletype tokens[1]
   endif
-endfun
-
-" https://vi.stackexchange.com/a/12590
-fun! QRepeat(_)
-    call feedkeys('@'.s:qreg)
-endfun
-
-fun! QSetRepeat(_)
-    set opfunc=QRepeat
-endfun
-
-fun! QStop()
-    set opfunc=QSetRepeat
-    return 'g@l'
-endfun
-
-nno <expr> <plug>qstop QStop()
-ino <expr> <plug>qstop "\<c-o>".QStop()
-
-let s:qrec = 0
-fun! QStart()
-    if s:qrec == 1
-        let s:qrec = 0
-        return "q\<plug>qstop"
-    endif
-    let s:qreg = nr2char(getchar())
-    if s:qreg =~# '[0-9a-zA-Z"]'
-        let s:qrec = 1
-    endif
-    return 'q'.s:qreg
 endfun

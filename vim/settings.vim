@@ -49,10 +49,6 @@ set incsearch
 set hlsearch
 
 " -- window appearance ------------------------------------------
-" set winheight=5
-" set winheight=999
-" set winminheight=5
-
 if exists('+colorcolumn')
   set colorcolumn=80   " Show margin
 endif
@@ -87,4 +83,4 @@ autocmd BufWritePre * :call TrimWhiteSpace()
 autocmd BufWritePre * :retab
 
 " Indent on save hook
-"autocmd BufWritePre <buffer> :call Indent()
+autocmd BufWritePre <buffer> :call Indent()

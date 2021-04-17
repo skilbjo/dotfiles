@@ -116,3 +116,4 @@ alias codebuild-local='/Users/johnskilbeck/dev/aws-codebuild-docker-images/local
 alias zoom='sudo killall VDCAssistant'
 
 alias p='cd ~/dev/provider/'
+alias ttest='npm run dev:integration_test -- --'

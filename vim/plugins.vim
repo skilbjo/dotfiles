@@ -23,9 +23,7 @@ NeoBundle 'scrooloose/nerdtree'          " file system explorer
 NeoBundle 'tpope/vim-repeat.git'         " can use the . command for plugin maps
 NeoBundle 'tpope/vim-surround'           " :ysiW to surround word in quotes
 NeoBundle 'tpope/vim-fugitive'          " run git commands in vim: :Gblame, etc
-"NeoBundle 'ervandew/supertab'
 "NeoBundle 'vim-scripts/AutoComplPop'     " autocomplete
-"NeoBundle 'w0rp/ale'                     " vim linter
 NeoBundle 'kien/ctrlp.vim'                " fuzzy file finder
 
 "" Lanugage specific
@@ -45,12 +43,8 @@ endif
 
 " " Decided not to use, for now
 "NeoBundle 'mhinz/vim-signify'           " superior git gutter
-"NeoBundle 'scrooloose/syntastic'        " linter framework
-"NeoBundle 'jreybert/vimagit'            " git / magit in vim
 
 " " Research
-" NeoBundle 'fholgado/minibufexpl.vim'
-" NeoBundle 'flazz/vim-colorschemes'
 " NeoBundle 'metakirby5/codi.vim'       " quasi-repl, evaluates your code
 
 " Required:

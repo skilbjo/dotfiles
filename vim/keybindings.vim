@@ -9,18 +9,11 @@ inoremap <leader>~    `
 inoremap <leader>1    `
 inoremap …            ;
 inoremap Ú            :
-nnoremap <Bslash> ;
-nnoremap \| ,
+nnoremap <Bslash>     ;
+nnoremap \|           ,
 " }}}
 
 " -- wordmovement -----------------------------------------------
-" Arrow keys movement <Ctrl>-<Left> , <Ctrl>-<Right> {{{
-" http://superuser.com/questions/123937/how-to-jump-to-the-beginning-or-end-of-line-in-vim-os-x ; http://stackoverflow.com/questions/5345612/vim-in-mac-os-x-terminal-move-cursor-word-by-word; http://superuser.com/questions/614553/is-there-any-way-to-go-word-by-word-using-ctrl/614555#614555; http://stackoverflow.com/questions/81272/is-there-any-way-in-the-os-x-terminal-to-move-the-cursor-word-by-word; http://superuser.com/questions/635482/why-does-optionleft-arrow-work-in-vim-but-not-right-arrow-on-mac-os-x; http://apple.stackexchange.com/questions/1626/os-x-terminal-equivalent-of-ctrlleft-ctrlright
-"nnoremap <C-Left> B
-map <C-Right>         E
-imap <C-Right>        <C-o>E
-" }}}
-
 " Option Left = ESC b, Option Right = ESC f {{{
 map <ESC>f            el
 map <ESC>b            b
@@ -68,19 +61,9 @@ inoremap <C-n>        <C-w><C-w>
 " -- functions --------------------------------------------------
 " {{{
 "<F2 is NERDTree
-"map  <F2>             :Require!<CR>  " why is this here? I forgot
-"map! <F2>             :Require!<CR>
-map  <F3>             :call PrettierAsync()<CR>
-map! <F3>             :call PrettierAsync()<CR>
-map  <F4>             :call LoadClojurePlugins()<CR>
-map! <F4>             :call LoadClojurePlugins()<CR>
-" nnoremap <silent><F3>  :NERDTreeToggle<CR>
-" map  <F4>             :call TrimWhiteSpace()<CR>
-" map! <F4>             :call TrimWhiteSpace()<CR>
-" map  <F5>             :retab<CR>
-" map! <F5>             :retab<CR>
-map  <F8>             :call Indent()<CR>
-map! <F8>             :call Indent()<CR>
+nnoremap <silent><F1>  :NERDTreeToggle<CR>
+map  <F3>             :call LoadClojurePlugins()<CR>
+map! <F3>             :call LoadClojurePlugins()<CR>
 map  <F9>             :noh<return><esc>
 map! <F9>             :noh<return><esc>
 "<F10 is nopaste - FYI only
@@ -125,7 +108,7 @@ xnoremap <C-A>        <C-C>ggVG
 " }}}
 
 " . (dot) command replays a macro {{{
-nmap <expr> q QStart()
+" nmap <expr> q QStart()
 " }}}
 
 " -- visual-mode mappings ------------------------------------
