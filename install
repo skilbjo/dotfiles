@@ -301,11 +301,6 @@ function tmux {
   ln -s $db/tmux/plugins.tmux plugins.tmux
 }
 
-function sublime_text {
-  echo "/Users/john.skilbeck/Library/Application Support/Sublime Text 3/Packages/User"
-}
-
-
 remove_existing
 bash
 git

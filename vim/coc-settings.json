@@ -1,19 +1,7 @@
 {
-  "eslint.enable": true,
-  "eslint.autoFixOnSave": false,
-  "eslint.codeActionsOnSave.mode": "all",
-  "eslint.format.enable": true,
+  "eslint.autoFixOnSave": true,
   "eslint.alwaysShowStatus": true,
-  "tslint.enable": false,
-  "tslint.autoFixOnSave": false, // blah
-  "prettier.formatterPriority": 1,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact"
-  ],
+  "prettier.formatterPriority": -1,
   "python.jediEnabled": true,
   "python.linting.enabled": true,
   "python.pythonPath": "/Users/skilbjo/.virtualenvs/interview/bin/python"

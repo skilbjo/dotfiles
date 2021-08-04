@@ -96,10 +96,10 @@ _aws() {
 
 computer_specific() {
   case "$(whoami)" in
-    johnskilbeck | 'john.skilbeck' ) work ;;
-    skilbjo )                        skilbjo ;;
-    root)                            root ;;
-    ec2-user)                        _aws;;
+    johnskilbeck ) work ;;
+    skilbjo )      skilbjo ;;
+    root)          root ;;
+    ec2-user)      _aws;;
   esac
 }
 

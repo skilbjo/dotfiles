@@ -155,3 +155,32 @@ uri-decode() {
   printf '%b' "${url_encoded//%/\\x}"
   echo ''
 }
+
+# https://github.com/nvm-sh/nvm#automatically-call-nvm-use
+cdnvm() {
+  cd "$@";
+  nvm_path="$(nvm_find_up .nvmrc | tr -d '\n')"
+  entry_version="$(node --version)"
+
+  # If there are no .nvmrc file, use the default nvm version
+  if [[ ! $nvm_path = *[^[:space:]]* ]]; then
+    local default_version=$(nvm version default);
+    local nvm_version=$(<"$nvm_path"/.nvmrc)
+
+    if [[ $entry_version != $nvm_version ]]; then
+      nvm use "$nvm_version";
+    fi
+  else
+    local nvm_version=$(<"$nvm_path"/.nvmrc)
+
+    if [[ $entry_version != $nvm_version ]]; then
+      # echo "$entry_version"
+      # echo "$nvm_version"
+      # echo [[ $entry_version != $nvm_version ]]
+      nvm use "$nvm_version";
+    fi
+  fi
+}
+
+alias cd='cdnvm'
+cd $PWD

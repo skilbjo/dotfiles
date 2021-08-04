@@ -10,7 +10,8 @@
 """ Typescript
 """"" But only if on macOS
 NeoBundle 'neoclide/coc.nvim', {'branch': 'release'}           " code completion
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-prettier', 'coc-tslint', 'coc-python' ]
+" let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-prettier', 'coc-python' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-python' ]
 
 "NeoBundle 'airblade/vim-rooter'
 

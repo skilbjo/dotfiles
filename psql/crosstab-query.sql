@@ -23,8 +23,8 @@ end
 $$
 
 -- 2. analyst part
-drop view jskilbeck.market_trends;
-create or replace view jskilbeck.market_trends as (
+drop view skilbjo.market_trends;
+create or replace view skilbjo.market_trends as (
   select
     b."NAICS Industry" as industry,
     b."Primary State"  as state,
@@ -40,11 +40,11 @@ create or replace view jskilbeck.market_trends as (
     1,2
 );
 
-select * from cross_tab_query('jskilbeck.market_trends','industry','state','sum(count)','integer');
+select * from cross_tab_query('skilbjo.market_trends','industry','state','sum(count)','integer');
 
 select * from crosstab (
-  'select industry,state,sum(count) from jskilbeck.market_trends group by 1,2 order by 1,2',
-  'select distinct state from jskilbeck.market_trends order by 1'
+  'select industry,state,sum(count) from skilbjo.market_trends group by 1,2 order by 1,2',
+  'select distinct state from skilbjo.market_trends order by 1'
   )
   as ct (
   industry varchar,AK integer,AL integer,AR integer,AZ integer,CA integer,CO integer,CT integer,DC integer,DE integer,FL integer,GA integer,HI integer,IA integer,ID integer,IL integer,"IN" integer,KS integer,KY integer,LA integer,MA integer,MD integer,ME integer,MI integer,MN integer,MO integer,MS integer,MT integer,NC integer,ND integer,NE integer,NH integer,NJ integer,NM integer,NY integer,OH integer,OK integer,"OR" integer,PA integer,RI integer,SC integer,SD integer,TN integer,TX integer,UT integer,VA integer,VT integer,WA integer,WI integer,WV integer,WY integer

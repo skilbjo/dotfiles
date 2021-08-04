@@ -13,7 +13,7 @@ sec  rsa2048/[key]
      trust: ultimate      validity: ultimate
 ssb  rsa2048/[key]
      created: 2018-06-23  expired: 2020-06-22  usage: E
-[ultimate] (1). skilbjo <john.skilbeck@gmail.com>
+[ultimate] (1). skilbjo <email>
 gpg: WARNING: Your encryption subkey expires soon.
 gpg: You may want to change its expiration date too.
 ```

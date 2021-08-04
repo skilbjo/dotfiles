@@ -12,7 +12,7 @@ fi
 
 # -- path, command prompt ---------------------------------------
 export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin'
-export PATH="$PATH:/Users/johnskilbeck/.local/bin" # pipx ensurepath
+export PATH="/usr/local/opt/ruby/bin:$PATH" # ruby-only
 
 # -- helpful functions ------------------------------------------
 source_if_exists() {
@@ -51,7 +51,7 @@ all_os() {
 
 osx() {
   # -- fns ------------------------------------------------------
-  start_docker
+  # start_docker
 
   # -- alias ----------------------------------------------------
   ## - docker --------
@@ -95,7 +95,8 @@ osx() {
   # -- addtl completion python virtualenvwrapper+node nvm -----
   set +u
   source_if_exists "$(brew --prefix)/bin/virtualenvwrapper.sh"
-  source_if_exists "$(brew --prefix)/opt/nvm/nvm.sh"
+  source_if_exists "$(brew --prefix nvm)/nvm.sh"
+  # source_if_exists "$(brew --prefix)/opt/nvm/nvm.sh"
   source_if_exists "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
   set -u
 
@@ -189,10 +190,10 @@ os_specific() {
     ('Darwin')
       if [[ $(uname -m) == 'arm64' ]]; then
         export PATH="/opt/homebrew/bin:${PATH}";
-        export SHELL="$(brew --prefix)/bin/bash"
         export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
         export PUPPETEER_EXECUTABLE_PATH="$(which chromium)"
       fi;
+        export SHELL="$(brew --prefix)/bin/bash"
 
       osx ;;
     ('Linux')   linux ;;
@@ -226,14 +227,14 @@ work() {
 
   case "$(uname -m)" in
     arm64 )
-      export PATH="/opt/homebrew/bin:/opt/homebrew/sbin/${PATH}"
+      export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}"
+      ssh-add -k ~/.ssh/karthik-bastion.pem 2>/dev/null
       ssh-add -K ~/.ssh/id_ed25519 2>/dev/null || ssh-add ~/.ssh/id_ed25519
       ;;
 
     x86_64 )
+      export PATH="/usr/local/bin:${PATH}"
       export GOPATH="$HOME/go"
-      export PROVIDER_HOME_DIRECTORY='/Users/johnskilbeck/dev/provider'
-      . "${PROVIDER_HOME_DIRECTORY}/scripts/dev/.bash_psql"
       PROVIDER_DEV_SERVER_MEMORY_LIMIT=16384 ;;
     esac
 
@@ -246,10 +247,10 @@ _aws() {
 
 computer_specific() {
   case "$(whoami)" in
-    johnskilbeck | 'john.skilbeck' ) work ;;
-    skilbjo )                        skilbjo ;;
-    pi )                             pi ;;
-    ec2-user )                       _aws ;;
+    johnskilbeck ) work ;;
+    skilbjo )      skilbjo ;;
+    pi )           pi ;;
+    ec2-user )     _aws ;;
   esac
 }
 

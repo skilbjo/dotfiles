@@ -66,10 +66,10 @@ let g:ctrlp_cmd = 'CtrlP'
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|.DS_Store)$'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)|dist|node_modules$',
-  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'file': '\v\.(exe|so|dll|.DS_Store)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
 " }}}
@@ -116,7 +116,7 @@ nmap <leader>R cqp(require 'clojure.tools.namespace.repl) (clojure.tools.namespa
 " }}}
 
 " -- neoclide-coc {{{
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-prettier', 'coc-tslint' ]
+" let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-prettier', 'coc-python' ]
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -139,10 +139,10 @@ inoremap <expr><CR> pumvisible() ? "\<C-Y>" : "\<CR>"
   "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 "endif
 
-augroup typescriptLint
-  autocmd FileType typescript,typescriptreact
-    \ autocmd! BufWritePre * :CocCommand tslint.fixAllProblems
-augroup END
+" augroup typescriptLint  # only for projects on tslint
+  " autocmd FileType typescript,typescriptreact
+    " \ autocmd! BufWritePre * :CocCommand tslint.executeAutoFix
+" augroup END
 
 " plugin specific fns; these cannot be put in functions.vim
 function! s:check_back_space() abort

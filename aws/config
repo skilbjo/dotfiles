@@ -4,26 +4,11 @@ region = us-east-1
 [personal]
 region = us-east-1
 
+[pay-api-dev]
+region = us-east-1
+
 [finch]
 region = us-west-2
-
-[stedi]
-region = us-east-1
-
-[stedi/dev-long-term]
-region = us-east-1
-
-[stedi/build-long-term]
-region = us-east-1
-
-[stedi/principal-long-term]
-region = us-east-1
-
-[stedi/dev]
-region = us-east-1
-
-[stedi/build]
-region = us-east-1
 
 [stedi/principal]
 region = us-east-1

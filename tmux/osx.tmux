@@ -1,5 +1,7 @@
 ## Settings
 set-option -g default-shell /usr/local/bin/bash
+# set-option -g default-command "reattach-to-user-namespace -l $SHELL"
+# set-option -g default-shell /usr/local/bin/bash || set-option -g default-shell /opt/homebrew/bin/bash
 #set -g default-command "login-shell" || #set-option -g default-shell $SHELL
 
 # tmux 2.5

@@ -25,7 +25,7 @@ cmap <ESC>b           <Home>
 
 " Nativation
 map 1           $
-map 2           ^
+" map 2           ^
 "map 2           $
 map 9           ^
 "map 3           ^
