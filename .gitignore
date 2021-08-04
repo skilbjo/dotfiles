@@ -10,3 +10,4 @@ k8s/create-secrets
 k8s/secrets/
 k8s/send-and-apply-secret
 aws/credentials
+git/gitconfig
