@@ -17,7 +17,7 @@ alias vim='vim -p'
 alias ack='ack --smart-case'
 alias man='function _(){ /usr/bin/man "$1" | col -xb | vim -;};_'
 #alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 --rm-cache-dir "$1" & cd -;};_'
-alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 "$1" & cd -;};_'
+alias ytdl='function _(){ cd ~/Desktop/; yt-dlp -x --audio-format mp3 "$1" & cd -;};_'
 alias p='vim ~/.profilelocal && . ~/.profilelocal'
 alias bell="echo -ne '\007'; echo -ne '\007'; echo -ne '\007'"
 alias max='du -ma | sort -nr | head -n 20'
@@ -25,12 +25,14 @@ alias max='du -ma | sort -nr | head -n 20'
 # -- Shortcuts --------------------------------------------------
 alias x='exit'
 # alias s='cd ~/dev/skilbjo/'
-alias a='cd ~/dev/aeon/'
-alias m='cd ~/dev/markets-etl/'
-alias i='cd ~/dev/interview/'
-alias b='cd ~/dev/bash-etl/'
+# alias a='cd ~/dev/aeon/'
+# alias m='cd ~/dev/markets-etl/'
+# alias i='cd ~/dev/interview/'
+# alias b='cd ~/dev/bash-etl/'
 alias d='cd ~/dev'
+# alias f='cd ~/dev/pay-api'
 alias dk='cd ~/Desktop'
+alias k='cd ~/code/kick'
 
 # -- PostgresSQL ------------------------------------------------
 alias "psql.dw"='function _psql(){ psql "$db_uri" -c "$1"; };_psql'
@@ -69,6 +71,7 @@ alias 'vbox.debian.ssh'='ssh -p2222 localhost'  # vboxmanage modifyvm debian --n
 
 # -- macOS networking -------------------------------------------
 alias 'netstat.osx'='echo "Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)" && netstat -an | grep LISTEN'
+alias 'netstat.osx1'='sudo lsof -iTCP -sTCP:LISTEN -n -P'
 alias 'telnet-https'='openssl s_client -connect skilbjo.duckdns.org:443'
 
 # -- application specific ---------------------------------------
@@ -84,17 +87,23 @@ alias 'serverless'='/Users/skilbjo/dev/scratch/serverless/my-first-app/node_modu
 #alias aws-mfa='/Users/skilbjo/.virtualenvs/stedi/bin/aws-mfa'
 #alias awscurl='/Users/skilbjo/.virtualenvs/stedi/bin/awscurl'
 
-alias 'tsc'='/Users/skilbjo/dev/server/node_modules/.bin/tsc'
-alias 'cdk'='/Users/skilbjo/dev/server/node_modules/.bin/cdk'
+alias 'cdk'='/Users/skilbjo/dev/aws-lib/node_modules/.bin/cdk'
 alias 'tsfiles'="function _(){/usr/bin/find . -type f ! -path '*/node_modules/*' ! -path '*/target/*' ! -path '*/cdk.out/*' -name '*.ts'};_"
 
 # alias s='cd ~/dev/search/'
 # alias c='cd ~/dev/counselor/'
 # alias l='cd ~/dev/ledger/'
 
-alias mmake="AWS_ACCESS_KEY_ID='a' AWS_SECRET_ACCESS_KEY='a' make"
 # alias codebuild-local='/Users/skilbjo/dev/aws-codebuild-docker-images/local_builds/codebuild_build.sh -i amazon/aws-codebuild-local'
-alias codebuild-local='/Users/skilbjo/dev/aws-codebuild-docker-images/local_builds/codebuild_build.sh'
+# alias codebuild-local='/Users/skilbjo/dev/aws-codebuild-docker-images/local_builds/codebuild_build.sh'
+
+alias auth='/Users/johnskilbeck/dev/api-server/dev-resources/authorize'
+alias nodemon='nodemon --max-http-header-size=16384'
+
+alias node='node --experimental-repl-await' # fetch not until n17+: --experimental-fetch'
+
+alias gz="node -e 'const zlib = require(\"zlib\"); console.log( zlib.gzipSync( process.argv[1] ).toString(\"base64\") );'"
+alias ugz="node -e 'const zlib = require(\"zlib\"); console.log( zlib.gunzipSync(Buffer.from(process.argv[1], \"base64\")).toString(\"utf-8\") );'"
 
 # -- work, no longer used ---------------------------------------
 #alias ks='vim deploy/bin/k8s'
@@ -106,3 +115,4 @@ alias codebuild-local='/Users/skilbjo/dev/aws-codebuild-docker-images/local_buil
 # alias sa='make clean && node_modules/.bin/openapi bundle --output openapi.json definition/openapi.yaml && node_modules/.bin/openapi-generator generate -o openapi -t openapi-generator/templates/typescript -g typescript-fetch -p typescriptThreePlus=true -i openapi.json -p enumNameSuffix='' -p modelPropertyNaming=snake_case  && tsc'
 # alias build='make clean && npm run build'
 alias zoom='sudo killall VDCAssistant'
+alias java_home='/usr/libexec/java_home'

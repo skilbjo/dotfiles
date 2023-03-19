@@ -116,8 +116,6 @@ nmap <leader>R cqp(require 'clojure.tools.namespace.repl) (clojure.tools.namespa
 " }}}
 
 " -- neoclide-coc {{{
-" let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-prettier', 'coc-python' ]
-
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -126,12 +124,28 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gc  <Plug>(coc-codeaction)
 nmap <silent> gf  <Plug>(coc-fix-current)
 
-"inoremap <expr><Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"      # if you want to tab to select it (my old behavior)
+" this was commented
+" inoremap <expr><Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"      " if you want to tab to select it (my old behavior)
+
+" all of these should be enabled
 inoremap <expr><C-@> pumvisible() ? "\<C-Y>" : "\<Tab>"       " <C-space> interpreted as <C-@> by vim
 inoremap <expr><leader><Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"  " tab to select it
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr><CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+
+" experimenting
+" inoremap <silent><expr> <c-@> coc#refresh()
+" inoremap <silent><expr> <C-Space> coc#refresh()
+" inoremap <silent><expr> <Nul> coc#refresh()
+" inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+" inoremap <silent><expr> <TAB>
+      " \ coc#pum#visible() ? coc#pum#next(1):
+      " \ <SID>check_back_space() ? "\<TAB>" :
+      " \ coc#refresh()
+" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" inoremap <expr> <silent> <c-@> coc#refresh()
+" inoremap <expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 "if exists('*complete_info')
   "inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"

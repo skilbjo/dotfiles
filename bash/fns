@@ -4,8 +4,9 @@ set -u
 # -- general ----------------------------------------------------
 kmsd(){
   # https://stackoverflow.com/a/53735748/2490091
+  # call it like: `pbpaste | kmsd`
   aws kms decrypt \
-    --profile skilbjo-long-term \
+    --profile personal \
     --ciphertext-blob fileb://<( \
       cat /dev/stdin | \
       sed 's/.*kmscrypt:://' | \
@@ -21,8 +22,9 @@ kmsd(){
 
 kmse(){
   # https://stackoverflow.com/a/53735748/2490091
+  # call it like: `pbpaste | kmse`
   aws kms encrypt \
-    --profile skilbjo-long-term \
+    --profile personal \
     --key-id "$aws_kms_key" \
     --plaintext "$(cat /dev/stdin)" \
     --region us-east-1 \

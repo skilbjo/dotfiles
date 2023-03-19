@@ -1,7 +1,10 @@
 {
   "eslint.autoFixOnSave": true,
   "eslint.alwaysShowStatus": true,
+  "eslint.fixOnSaveTimeout": 3000,
   "prettier.formatterPriority": -1,
+  "coc.preferences.willSaveHandlerTimeout": 5000,
+  "suggest.noselect": true,
   "python.jediEnabled": true,
   "python.linting.enabled": true,
   "python.pythonPath": "/Users/skilbjo/.virtualenvs/interview/bin/python"

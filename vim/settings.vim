@@ -15,11 +15,12 @@ set showmatch
 set wildmenu                    " enable tab completion menu
 set wildmode=longest:full,full  " complete till longest common string, then full
 set wildignore+=.git            " ignore the .git directory
-set wildignore+=*.DS_Store      " ignore Mac finder/spotlight crap
+set wildignore+=*.DS_Store      " ignore Mac finder/spotlight
 
 if has('mouse')
   set mouse=a
-  set ttymouse=xterm2
+  set ttymouse=sgr
+  " set ttymouse=xterm2
 endif
 
 set nocompatible
@@ -77,7 +78,7 @@ silent !stty -ixon
 " Restore default behaviour when leaving vim
 autocmd VimLeave * silent !stty ixon
 
-autocmd BufNewFile,BufRead * call DetectEnv()
+" autocmd BufNewFile,BufRead * call DetectEnv() # invalid argument `split(getline(1))` - must be a recent change to vim ? anyways, since i dont program in clojure anymore, seems not needed
 
 autocmd BufWritePre * :call TrimWhiteSpace()
 autocmd BufWritePre * :retab

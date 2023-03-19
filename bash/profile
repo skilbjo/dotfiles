@@ -63,6 +63,9 @@ osx() {
   alias llein='LEIN_FAST_TRAMPOLINE=true lein trampoline'
   alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'
 
+  ## - node ----------
+  export NODE_OPTIONS='--experimental-repl-await'
+
   ## - unix / macos --
   alias nproc='sysctl -n hw.logicalcpu'
 

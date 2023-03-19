@@ -10,6 +10,9 @@ Add these keycodes to the Terminal profile:
 
 <img src="./macOS-tools/terminal.app.png" alt="terminal.app">
 
+### disable this
+<img src="./macOS-tools/keyboard-shortcuts-disable.png" alt="terminal.app">
+
 ### Show keycodes
   - `$ xxd`
   - `$ cat >/dev/null`
