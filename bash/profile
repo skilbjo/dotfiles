@@ -64,7 +64,8 @@ osx() {
   alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'
 
   ## - node ----------
-  export NODE_OPTIONS='--experimental-repl-await'
+  # export NODE_OPTIONS='--experimental-repl-await'
+  export NODE_OPTIONS='--max-old-space-size=8192 --experimental-repl-await'
 
   ## - unix / macos --
   alias nproc='sysctl -n hw.logicalcpu'
@@ -231,6 +232,7 @@ work() {
   case "$(uname -m)" in
     arm64 )
       export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}"
+      export PATH="/opt/homebrew/opt/libpq/bin:$PATH" # for `brew install libpq` only; without installing local postgres server. only on work laptop
       ssh-add -k ~/.ssh/karthik-bastion.pem 2>/dev/null
       ssh-add -K ~/.ssh/id_ed25519 2>/dev/null || ssh-add ~/.ssh/id_ed25519
       ;;
