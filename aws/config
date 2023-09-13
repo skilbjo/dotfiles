@@ -7,59 +7,9 @@ region = us-east-1
 [pay-api-dev]
 region = us-east-1
 
-[finch]
-region = us-west-2
-
-[stedi/principal]
+[profile buildaccount-admin]
+sso_start_url = https://d-90676dd9b4.awsapps.com/start/
+sso_region = us-east-1
+sso_account_id = 770924742941
+sso_role_name = Administrator
 region = us-east-1
-[profile stedi-readonly-750013235764]
-sso_start_url = https://stedi-sso.awsapps.com/start
-sso_region = us-east-1
-sso_account_id = 750013235764
-sso_role_name = stedi-readonly
-region = us-east-1
-
-[profile transactions-dev]
-sso_start_url = https://stedi-sso.awsapps.com/start
-sso_region = us-east-1
-sso_account_id = 750013235764
-sso_role_name = stedi-operator
-region = us-east-1
-credential_process = aws-sso-credential-process --profile transactions-dev
-[profile transactions-prod]
-sso_start_url = https://stedi-sso.awsapps.com/start
-sso_region = us-east-1
-sso_account_id = 379991880042
-sso_role_name = stedi-support
-region = us-east-1
-credential_process = aws-sso-credential-process --profile transactions-prod
-[profile transaction-dev]
-sso_start_url = https://stedi-sso.awsapps.com/start
-[profile transactions-preprod]
-sso_start_url = https://stedi-sso.awsapps.com/start
-sso_region = us-east-1
-sso_account_id = 128928701646
-sso_role_name = stedi-operator
-region = us-east-1
-credential_process = aws-sso-credential-process --profile transactions-preprod
-[profile transactions-build]
-sso_start_url = https://stedi-sso.awsapps.com/start
-sso_region = us-east-1
-sso_account_id = 349822171934
-sso_role_name = stedi-operator
-credential_process = aws-sso-credential-process --profile transactions-build
-[profile transaction-build]
-sso_start_url = https://stedi-sso.awsapps.com/start
-[profile transactions-dev-build]
-sso_start_url = https://stedi-sso.awsapps.com/start
-sso_region = us-east-1
-sso_account_id = 479958604927
-sso_role_name = stedi-operator
-credential_process = aws-sso-credential-process --profile transactions-dev-build
-[profile hi-app-prod-DeveloperAccess]
-region = us-east-1
-output = json
-sso_start_url = https://humaninterest.awsapps.com/start
-sso_region = us-east-1
-sso_account_id = 686902466324
-sso_role_name = DeveloperAccess
