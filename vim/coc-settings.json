@@ -1,7 +1,7 @@
 {
   "eslint.autoFixOnSave": true,
   "eslint.alwaysShowStatus": true,
-  "eslint.fixOnSaveTimeout": 3000,
+  "eslint.fixOnSaveTimeout": 9000,
   "prettier.formatterPriority": -1,
   "coc.preferences.willSaveHandlerTimeout": 5000,
   "suggest.noselect": true,

@@ -22,14 +22,6 @@ source_if_exists() {
 }
 
 set -u
-start_docker() {
-  if [[ $(docker-machine ls | grep "default" | grep -c "Running") -eq 1 ]]; then
-    eval "$(docker-machine env default)"
-  else
-    docker-machine start
-    eval "$(docker-machine env default)"
-  fi
-}
 
 # -- environment vars & dotfiles --------------------------------
 export EDITOR='vim'
@@ -59,13 +51,8 @@ osx() {
   alias "docker.rm.this"="function _(){ docker images | grep \"$1\" | awk '{print \$3}' | grep -v IMAGE | xargs docker rmi; };_"
   set -u
 
-  ## - clojure -------
-  alias llein='LEIN_FAST_TRAMPOLINE=true lein trampoline'
-  alias tramp='LEIN_FAST_TRAMPOLINE=true lein trampoline'
-
   ## - node ----------
-  # export NODE_OPTIONS='--experimental-repl-await'
-  export NODE_OPTIONS='--max-old-space-size=8192 --experimental-repl-await'
+  export NODE_OPTIONS='--max-old-space-size=10240 --experimental-repl-await'
 
   ## - unix / macos --
   alias nproc='sysctl -n hw.logicalcpu'
@@ -233,14 +220,12 @@ work() {
     arm64 )
       export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}"
       export PATH="/opt/homebrew/opt/libpq/bin:$PATH" # for `brew install libpq` only; without installing local postgres server. only on work laptop
-      ssh-add -k ~/.ssh/karthik-bastion.pem 2>/dev/null
       ssh-add -K ~/.ssh/id_ed25519 2>/dev/null || ssh-add ~/.ssh/id_ed25519
       ;;
 
     x86_64 )
       export PATH="/usr/local/bin:${PATH}"
       export GOPATH="$HOME/go"
-      PROVIDER_DEV_SERVER_MEMORY_LIMIT=16384 ;;
     esac
 
   export TZ='UTC'

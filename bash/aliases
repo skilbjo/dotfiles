@@ -105,6 +105,10 @@ alias node='node --experimental-repl-await' # fetch not until n17+: --experiment
 alias gz="node -e 'const zlib = require(\"zlib\"); console.log( zlib.gzipSync( process.argv[1] ).toString(\"base64\") );'"
 alias ugz="node -e 'const zlib = require(\"zlib\"); console.log( zlib.gunzipSync(Buffer.from(process.argv[1], \"base64\")).toString(\"utf-8\") );'"
 
+# -- work -------------------------------------------------------
+alias s='cd ~/dev/server'
+alias ss='du -hs * | gsort -h'
+
 # -- work, no longer used ---------------------------------------
 #alias ks='vim deploy/bin/k8s'
 #alias k8s.dashboard='echo "go to url: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default" && ssh -L 8001:localhost:8080 -N k8s'
