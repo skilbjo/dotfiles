@@ -23,8 +23,9 @@ NeoBundle 'scrooloose/nerdtree'          " file system explorer
 NeoBundle 'tpope/vim-repeat.git'         " can use the . command for plugin maps
 NeoBundle 'tpope/vim-surround'           " :ysiW to surround word in quotes
 NeoBundle 'tpope/vim-fugitive'           " run git commands in vim: :Gblame, etc
-"NeoBundle 'vim-scripts/AutoComplPop'     " autocomplete
-NeoBundle 'kien/ctrlp.vim'                " fuzzy file finder
+"NeoBundle 'vim-scripts/AutoComplPop'    " autocomplete
+NeoBundle 'kien/ctrlp.vim'               " fuzzy file finder
+NeoBundle 'madox2/vim-ai'                " openai
 
 "" Lanugage specific
 """ Clojure
