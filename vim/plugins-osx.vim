@@ -20,3 +20,7 @@ let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-y
 " NeoBundle 'leafgarland/typescript-vim'    " typescript syntax
 " NeoBundle 'maxmellon/vim-jsx-pretty'      " JS and JSX syntax
 " NeoBundle 'prettier/vim-prettier'       " prettier
+
+""" AI
+" NeoBundle 'madox2/vim-ai'                " openai needs paid API key
+NeoBundle 'Exafunction/codeium.vim'      " codeium

@@ -1,9 +1,9 @@
 {
   "eslint.autoFixOnSave": true,
   "eslint.alwaysShowStatus": true,
-  "eslint.fixOnSaveTimeout": 9000,
+  "eslint.fixOnSaveTimeout": 20000,
   "prettier.formatterPriority": -1,
-  "coc.preferences.willSaveHandlerTimeout": 5000,
+  "coc.preferences.willSaveHandlerTimeout": 20000,
   "suggest.noselect": true,
   "python.jediEnabled": true,
   "python.linting.enabled": true,

@@ -80,13 +80,13 @@ nnoremap N            Nzz
 
 " Quick save {{{
 map <leader>s         :w<CR>
-imap <leader>s        <ESC>:w<CR>
+inoremap <leader>s        <ESC>:w<CR><ESC>
 map <leader>w         :w<CR>
-imap <leader>w        <ESC>:w<CR>
+inoremap <leader>w        <ESC>:w<CR><ESC>
 map <leader>q         :q!<CR>
-imap <leader>q        <ESC>:q!<CR>
+inoremap <leader>q        <ESC>:q!<CR><ESC>
 map <leader>x         :x<CR>
-imap <leader>x        <ESC>:x<CR>
+inoremap <leader>x        <ESC>:x<CR><ESC>
 " }}}
 
 " Insert mode {{{
@@ -150,7 +150,7 @@ vnoremap <C-x>        <C-C>:exit<CR>
 inoremap <C-x>        <C-o>:exit<CR>
 " }}}
 
-" Control+G shows fillpath {{{
+" Control+G shows filepath {{{
 noremap  <C-g>        :echo expand('%:p')<CR>
 vnoremap <C-g>        <Esc>:echo expand('%:p')<CR>
 inoremap <C-g>        <Esc>:echo expand('%:p')<CR>

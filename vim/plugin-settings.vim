@@ -29,6 +29,31 @@ set background=light
 let g:PaperColor_Light_Override = { 'background' : '#ffffff' }
 colorscheme PaperColor
 
+" -- AI ----------------------------------------------------------
+let g:codeium_disable_bindings = 1
+" imap <script><silent><nowait><expr><C-r>        codeium#Accept() .  "\<Esc>\:w\<CR>\<Esc>"
+" imap <expr><C-r>        codeium#Accept() .  "\<Esc>\:w\<CR>"
+" imap <script><silent><nowait><expr><C-r>        codeium#Accept() .  "\<Esc>\:w\<CR>"
+" inoremap <script><expr><C-f>        codeium#Accept() .  "\<Esc>\:w\<CR>\<Esc>"
+inoremap <script><expr><C-f>        codeium#Accept()
+" the following mappings really fuck things up so just leave disabled
+"   it really fucks up insert mode
+" imap <C-]>      <Cmd>call codeium#CycleCompletions(-1)<CR>
+" imap <C-[>      <Cmd>call codeium#CycleCompletions(1)<CR>
+imap <C-m>      <Cmd>call codeium#Clear()<Cr>
+nmap <C-m>      <Cmd>call codeium#Clear()<Cr>
+" imap <C-r>      <Cmd>call codeium#Clear()<Cr>
+" nmap <C-r>      <Cmd>call codeium#Clear()<Cr>
+
+" inoremap <C-y>      <Cmd>call codeium#Accept()<CR>
+" inoremap <C-]>      <Cmd>call codeium#CycleCompletions(-1)<CR>
+" inoremap <C-[>      <Cmd>call codeium#CycleCompletions(1)<CR>
+" set statusline+=\{…\}%3{codeium#GetStatusString()}
+" imap <script><silent><nowait><expr><C-r>        codeium#Accept() . "\<Esc>\:w<CR>\<Esc>"
+" inoremap <script><silent><nowait><expr><C-r>        codeium#Accept() . "\<Esc>\:w<CR>\<Esc>"
+" inoremap <script><silent><nowait><expr><C-r>        codeium#Accept() .  "\<Leader>s"
+" imap <script><silent><nowait><expr><C-r>        codeium#Accept() .  "\<Leader>s"
+
 " -- Utility -----------------------------------------------------
 " -- NerdTREE Comment {{{
 map ÷ <Leader>c<Space>

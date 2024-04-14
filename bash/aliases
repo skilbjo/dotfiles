@@ -30,9 +30,8 @@ alias x='exit'
 # alias i='cd ~/dev/interview/'
 # alias b='cd ~/dev/bash-etl/'
 alias d='cd ~/dev'
-# alias f='cd ~/dev/pay-api'
+alias c='cd ~/code'
 alias dk='cd ~/Desktop'
-alias k='cd ~/code/kick'
 
 # -- PostgresSQL ------------------------------------------------
 alias "psql.dw"='function _psql(){ psql "$db_uri" -c "$1"; };_psql'
