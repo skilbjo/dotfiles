@@ -14,13 +14,15 @@ alias ll='ls -lh'
 alias la='ls -la'
 alias mkdir='mkdir -p'
 alias vim='vim -p'
-alias ack='ack --smart-case'
+alias ack='ack --smart-case --ignore-dir=venv --ignore-dir=dist'
 alias man='function _(){ /usr/bin/man "$1" | col -xb | vim -;};_'
 #alias ytdl='function _(){ cd ~/Desktop/; youtube-dl -x --audio-format mp3 --rm-cache-dir "$1" & cd -;};_'
 alias ytdl='function _(){ cd ~/Desktop/; yt-dlp -x --audio-format mp3 "$1" & cd -;};_'
 alias p='vim ~/.profilelocal && . ~/.profilelocal'
 alias bell="echo -ne '\007'; echo -ne '\007'; echo -ne '\007'"
 alias max='du -ma | sort -nr | head -n 20'
+alias jqq='python3 -c "import json, ast; print(json.dumps(ast.literal_eval(input()), indent=2))"'
+alias s='source venv/bin/activate'
 
 # -- Shortcuts --------------------------------------------------
 alias x='exit'
@@ -31,6 +33,7 @@ alias x='exit'
 # alias b='cd ~/dev/bash-etl/'
 alias d='cd ~/dev'
 alias c='cd ~/code'
+alias a='cd ~/affix'
 alias dk='cd ~/Desktop'
 
 # -- PostgresSQL ------------------------------------------------
@@ -52,7 +55,7 @@ alias "docker.ls"="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{
 
 alias "docker.psql.start"="docker run --name postgres -p 5432:5432 --detach kiasaki/alpine-postgres:9.5"
 alias "docker.psql.stop"="docker rm postgres"
-alias "psql.start"="brew services start postgresql@10"
+alias "psql.start"="brew services start postgresql@14"
 alias "psql.stop"="brew services stop postgresql@10"
 
 #alias "docker.stop.all"="docker ps -qa | xargs docker rm -f"
@@ -79,14 +82,11 @@ alias aws.p='~/bin/aws --profile personal-long-term --region us-east-1'
 alias aws.s='~/bin/aws --profile stedi --region us-east-1'
 
 alias 'sbcl'='rlwrap sbcl'
-alias 'netlify'='/Users/skilbjo/dev/aeon/node_modules/netlify-cli/bin/run'
-alias 'serverless'='/Users/skilbjo/dev/scratch/serverless/my-first-app/node_modules/serverless/bin/serverless'
 
 # -- work --------------- ---------------------------------------
 #alias aws-mfa='/Users/skilbjo/.virtualenvs/stedi/bin/aws-mfa'
 #alias awscurl='/Users/skilbjo/.virtualenvs/stedi/bin/awscurl'
 
-alias 'cdk'='/Users/skilbjo/dev/aws-lib/node_modules/.bin/cdk'
 alias 'tsfiles'="function _(){/usr/bin/find . -type f ! -path '*/node_modules/*' ! -path '*/target/*' ! -path '*/cdk.out/*' -name '*.ts'};_"
 
 # alias s='cd ~/dev/search/'
@@ -105,8 +105,9 @@ alias gz="node -e 'const zlib = require(\"zlib\"); console.log( zlib.gzipSync( p
 alias ugz="node -e 'const zlib = require(\"zlib\"); console.log( zlib.gunzipSync(Buffer.from(process.argv[1], \"base64\")).toString(\"utf-8\") );'"
 
 # -- work -------------------------------------------------------
-alias s='cd ~/dev/server'
-alias ss='du -hs * | gsort -h'
+# alias s='cd ~/dev/server'
+alias ss='gdu -hs * | gsort -h'
+alias sss='du -hs * | gsort -h'
 
 # -- work, no longer used ---------------------------------------
 #alias ks='vim deploy/bin/k8s'

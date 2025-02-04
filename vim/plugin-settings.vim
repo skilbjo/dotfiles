@@ -93,7 +93,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|.DS_Store)$'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)|dist|node_modules$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn)|dist|cdk.out|target|node_modules|venv$',
   \ 'file': '\v\.(exe|so|dll|.DS_Store)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }

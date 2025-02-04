@@ -1,11 +1,19 @@
 {
+  "eslint.enable": true,
   "eslint.autoFixOnSave": true,
+  "eslint.format.enable": true,
+  "eslint.probe": [
+    "javascript",
+    "json",
+    "markdown",
+    "typescript",
+    "html"
+  ],
   "eslint.alwaysShowStatus": true,
-  "eslint.fixOnSaveTimeout": 20000,
+  "eslint.fixOnSaveTimeout": 10000,
   "prettier.formatterPriority": -1,
-  "coc.preferences.willSaveHandlerTimeout": 20000,
+  "coc.preferences.willSaveHandlerTimeout": 10000,
   "suggest.noselect": true,
   "python.jediEnabled": true,
-  "python.linting.enabled": true,
-  "python.pythonPath": "/Users/skilbjo/.virtualenvs/interview/bin/python"
+  "python.linting.enabled": true
 }

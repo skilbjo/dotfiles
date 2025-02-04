@@ -1,10 +1,18 @@
 [default]
 region = us-east-1
 
-[personal]
+[sso-session sst]
+sso_start_url = https://d-9067b2a0c0.awsapps.com/start/#
+sso_region = us-east-1
+sso_registration_scopes = sso:account:access
+
+[profile sst]
+sso_session = sst
+sso_account_id = 273354653041
+sso_role_name = Administrator
 region = us-east-1
 
-[pay-api-dev]
+[personal]
 region = us-east-1
 
 [profile buildaccount-admin]
