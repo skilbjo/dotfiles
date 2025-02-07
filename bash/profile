@@ -14,6 +14,7 @@ fi
 export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:~/.cargo/bin'
 export PATH="/usr/local/opt/ruby/bin:$PATH" # ruby-only
 export PATH="/Users/skilbjo/.cargo/bin:$PATH" # rust-only
+export PATH="/Users/johnskilbeck/.rd/bin:$PATH" # rancher/deel
 
 # -- helpful functions ------------------------------------------
 source_if_exists() {
@@ -237,9 +238,8 @@ work() {
 
   case "$(uname -m)" in
     arm64 )
-      export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}"
       export PATH="/opt/homebrew/opt/libpq/bin:$PATH" # for `brew install libpq` only; without installing local postgres server. only on work laptop
-      ssh-add -K ~/.ssh/id_ed25519 2>/dev/null || ssh-add ~/.ssh/id_ed25519
+      # ssh-add -K ~/.ssh/id_ed25519 2>/dev/null || ssh-add ~/.ssh/id_ed25519
       ;;
 
     x86_64 )
