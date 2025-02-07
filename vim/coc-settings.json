@@ -12,8 +12,12 @@
   "eslint.alwaysShowStatus": true,
   "eslint.fixOnSaveTimeout": 10000,
   "prettier.formatterPriority": -1,
-  "coc.preferences.willSaveHandlerTimeout": 10000,
+  "coc.preferences.willSaveHandlerTimeout": 5000,
   "suggest.noselect": true,
-  "python.jediEnabled": true,
-  "python.linting.enabled": true
+  "python.linting.enabled": true,
+  "workspace.ignoredFolders": [
+    "$HOME",
+    "$HOME/.cargo/**",
+    "$HOME/.rustup/**"
+  ]
 }
