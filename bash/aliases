@@ -86,6 +86,7 @@ alias 'sbcl'='rlwrap sbcl'
 # -- work --------------- ---------------------------------------
 #alias aws-mfa='/Users/skilbjo/.virtualenvs/stedi/bin/aws-mfa'
 #alias awscurl='/Users/skilbjo/.virtualenvs/stedi/bin/awscurl'
+alias awslogin='aws sso login --profile shared'
 
 alias 'tsfiles'="function _(){/usr/bin/find . -type f ! -path '*/node_modules/*' ! -path '*/target/*' ! -path '*/cdk.out/*' -name '*.ts'};_"
 
