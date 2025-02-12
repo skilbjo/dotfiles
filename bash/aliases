@@ -23,6 +23,7 @@ alias bell="echo -ne '\007'; echo -ne '\007'; echo -ne '\007'"
 alias max='du -ma | sort -nr | head -n 20'
 alias jqq='python3 -c "import json, ast; print(json.dumps(ast.literal_eval(input()), indent=2))"'
 alias s='source venv/bin/activate'
+alias coffee='caffeinate -u -t $((6 * 60 * 60))'
 
 # -- Shortcuts --------------------------------------------------
 alias x='exit'
