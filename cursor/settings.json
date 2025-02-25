@@ -31,6 +31,154 @@
           "after": [
               "<ESC>"
           ]
+      },
+      {
+          "before": [
+              "<C-n>"
+          ],
+          "commands": [
+              "workbench.action.navigateEditorGroups"
+          ]
+      },
+      {
+          "before": [
+              "<leader>",
+              "w"
+          ],
+          "commands": [
+              "workbench.action.files.save",
+              "extension.vim_escape"
+          ]
+      },
+      {
+          "before": [
+              "<leader>",
+              "q"
+          ],
+          "commands": [
+              "workbench.action.closeActiveEditor",
+              "extension.vim_escape"
+          ]
+      },
+      {
+          "before": [
+              "<leader>",
+              "x"
+          ],
+          "commands": [
+              "workbench.action.files.save",
+              "workbench.action.closeActiveEditor",
+              "extension.vim_escape"
+          ]
+      }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+      {
+          "before": [
+              "K"
+          ],
+          "commands": [
+              "editor.action.showHover"
+          ]
+      },
+      {
+          "before": [
+              "1"
+          ],
+          "after": [
+              "$"
+          ]
+      },
+      {
+          "before": [
+              "9"
+          ],
+          "after": [
+              "^"
+          ]
+      },
+      {
+          "before": [
+              "<leader>",
+              "t"
+          ],
+          "commands": [
+              "workbench.action.splitEditorRight",
+              "workbench.action.focusRightGroup"
+          ]
+      },
+      {
+          "before": [
+              "<leader>",
+              "h"
+          ],
+          "commands": [
+              "workbench.action.splitEditorDown",
+              "workbench.action.focusBelowGroup"
+          ]
+      },
+      {
+          "before": [
+              "<C-n>"
+          ],
+          "commands": [
+              "workbench.action.navigateEditorGroups"
+          ]
+      },
+      {
+          "before": [
+              "<leader>",
+              "s"
+          ],
+          "commands": [
+              "workbench.action.files.save"
+          ]
+      },
+      {
+          "before": [
+              "<leader>",
+              "w"
+          ],
+          "commands": [
+              "workbench.action.files.save"
+          ]
+      },
+      {
+          "before": [
+              "<leader>",
+              "q"
+          ],
+          "commands": [
+              "workbench.action.closeActiveEditor"
+          ]
+      },
+      {
+          "before": [
+              "<leader>",
+              "x"
+          ],
+          "commands": [
+              "workbench.action.files.save",
+              "workbench.action.closeActiveEditor"
+          ]
+      }
+  ],
+  "vim.visualModeKeyBindings": [
+      {
+          "before": [
+              "<Tab>"
+          ],
+          "commands": [
+              "editor.action.indentLines"
+          ]
+      },
+      {
+          "before": [
+              "<S-Tab>"
+          ],
+          "commands": [
+              "editor.action.outdentLines"
+          ]
       }
   ]
 }
