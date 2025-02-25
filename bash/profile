@@ -236,6 +236,8 @@ skilbjo() {
 work() {
   skilbjo
 
+  export AWS_PROFILE=shared
+
   case "$(uname -m)" in
     arm64 )
       # export PATH="/opt/homebrew/opt/libpq/bin:$PATH" # for `brew install libpq` only; without installing local postgres server. only on work laptop
