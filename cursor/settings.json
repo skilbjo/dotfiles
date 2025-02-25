@@ -3,26 +3,27 @@
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.defaultProfile.osx": "bash",
   "packageManager": "npm",
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "/Users/skilbjo/.vimrc",
+  "vim.foldfix": true,
+  "vim.leader": ",",
+  "diffEditor.maxComputationTime": 0,
+  "files.autoSave": "onWindowChange",
+  "editor.tabSize": 2,
+  "vim.useSystemClipboard": true,
 
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "/Users/skilbjo/.vimrc",
-    "vim.foldfix": true,
-    "vim.leader": ",",
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "<leader>",
-                "s"
-            ],
-            "commands": [
-                "workbench.action.files.save"
-            ],
-            "after": [
-                "<ESC>"
-            ]
-        }
-    ],
-    "diffEditor.maxComputationTime": 0,
-    "files.autoSave": "onWindowChange",
-    "editor.tabSize": 2
+  "vim.insertModeKeyBindings": [
+      {
+          "before": [
+              "<leader>",
+              "s"
+          ],
+          "commands": [
+              "workbench.action.files.save"
+          ],
+          "after": [
+              "<ESC>"
+          ]
+      }
+  ]
 }
