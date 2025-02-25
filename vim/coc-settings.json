@@ -4,9 +4,11 @@
   "eslint.format.enable": true,
   "eslint.probe": [
     "javascript",
+    "javascriptreact",
     "json",
     "markdown",
     "typescript",
+    "typescriptreact",
     "html"
   ],
   "eslint.alwaysShowStatus": true,

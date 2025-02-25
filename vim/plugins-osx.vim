@@ -20,6 +20,8 @@ let g:coc_global_extensions = [
   \ 'coc-pyright',
   \ 'coc-rust-analyzer'
   \ ]
+" coc-deno seems to conflict with frontend projects, because we don't use deno
+" let's disable
 " let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-prettier', 'coc-python', 'coc-deno' , 'coc-yaml',   ]
 
 "NeoBundle 'airblade/vim-rooter'

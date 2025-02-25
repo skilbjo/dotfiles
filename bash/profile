@@ -14,7 +14,6 @@ fi
 export PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:~/.cargo/bin'
 export PATH="/usr/local/opt/ruby/bin:$PATH" # ruby-only
 export PATH="/Users/skilbjo/.cargo/bin:$PATH" # rust-only
-export PATH="/Users/johnskilbeck/.rd/bin:$PATH" # rancher/deel
 
 # -- helpful functions ------------------------------------------
 source_if_exists() {
@@ -250,10 +249,6 @@ work() {
 
   export TZ='UTC'
   export AWS_PROFILE=shared
-
-  ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-  export PATH="/Users/johnskilbeck/.rd/bin:$PATH"
-  ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 }
 
 _aws() {
