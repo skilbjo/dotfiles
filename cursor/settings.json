@@ -11,6 +11,13 @@
   "files.autoSave": "onWindowChange",
   "editor.tabSize": 2,
   "vim.useSystemClipboard": true,
+  "vim.handleKeys": {
+      "<C-a>": false
+  },
+  "editor.action.selectAll": {
+      "when": "editorFocus"
+  },
+
 
   "vim.insertModeKeyBindings": [
       {
