@@ -92,7 +92,7 @@ let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_user_command = 'find %s -type d \( -name node_modules -o -name .husky -o -name .git -o -name target -o -name cdk.out -o -name dist -o -name .next -o -name .vitepress -o -name coverage \) -prune -o -type f ! -name ".*" ! -name "package-lock.json" ! -name ".DS_Store" -print'
+let g:ctrlp_user_command = 'find %s -type d \( -name node_modules -o -name .husky -o -name .git -o -name target -o -name cdk.out -o -name dist -o -name .next -o -name .vitepress -o -name venv \) -prune -o -type f ! -name ".*" ! -name "package-lock.json" ! -name ".DS_Store" -print'
 
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|.DS_Store)$'
 let g:ctrlp_custom_ignore = {

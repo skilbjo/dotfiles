@@ -260,6 +260,7 @@ _aws() {
 computer_specific() {
   case "$(whoami)" in
     johnskilbeck ) work ;;
+    john.skilbeck ) work ;;
     skilbjo )      skilbjo ;;
     pi )           pi ;;
     ec2-user )     _aws ;;
