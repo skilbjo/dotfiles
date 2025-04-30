@@ -40,7 +40,42 @@ git() {
   fi
 }
 
-# -- stedi ------------------------------------------------------
+# -- ai ---------------------------------------------------------
+ask() {
+  local user_prompt="$*"
+  local system_prompt='Respond concisely and in plain text only, no markdown formatting or special characters'
+
+  local result
+  result=$(curl -s https://openrouter.ai/api/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+    -d '{
+      "model": "google/gemini-2.0-flash-exp:free",
+      "messages": [
+        {
+          "role": "system",
+          "content": [
+            {
+              "type": "text",
+              "text": "'"${system_prompt//\"/\\\"}"'"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "'"${user_prompt//\"/\\\"}"'"
+            }
+          ]
+        }
+      ]
+    }' | jq -r '.choices[0].message.content')
+  echo "$result"
+}
+
+# -- work -------------------------------------------------------
 logs(){
   local log_group_name="$1"
   local log_stream_name="$2"
@@ -48,7 +83,7 @@ logs(){
   log_group_name='/aws/lambda/platform-txn-CounselorSer-ServiceSqsHandleTransact-QRF9BTCXUTXZ'
   log_stream_name='2020/07/02/[$LATEST]7ffab4e9f53e4a8f992d3edcaf9aef3f'
 
-  aws --profile stedi/dev --region us-east-1 \
+  aws --profile xhrdev --region us-east-1 \
     logs \
     get-log-events \
     --log-group-name "$log_group_name" \
@@ -67,7 +102,7 @@ query_logs(){
 
   log_group_name='/aws/lambda/platform-txn-CounselorSer-ServiceSqsHandleTransact-QRF9BTCXUTXZ'
   query='fields @timestamp, @message | sort @timestamp desc | limit 20'
-  query_id="$(aws --profile stedi/principal --region us-east-1 \
+  query_id="$(aws --profile xhrdev --region us-east-1 \
     logs \
     start-query \
     --start-time 1593736067 \
@@ -75,7 +110,7 @@ query_logs(){
     --log-group-name "$log_group_name" \
     --query-string "$query" | jq '.queryId')"
 
-  aws --profile stedi/principal --region us-east-1 \
+  aws --profile xhrdev --region us-east-1 \
     logs \
     get-query-results \
     --query-id "$query_id"
@@ -90,27 +125,23 @@ assume-role(){
 }
 
 assume-aws-dev(){
-  assume-role stedi/dev wheel 43200
+  assume-role xhrdev 43200
 }
 
 assume-aws-build(){
-  assume-role stedi/build ro 14400
+  assume-role xhrdev ro 14400
 }
 
 assume-aws-build-wheel(){
-  assume-role stedi/build wheel 3600
+  assume-role xhrdev wheel 3600
 }
 
 assume-aws-prod(){
-  assume-role stedi/principal ro 14400
+  assume-role xhrdev ro 14400
 }
 
 assume-aws-prod-wheel(){
-  assume-role stedi/principal wheel 3600
-}
-
-deploy-to-dev(){
-  AWS_DISCRIMINANT_QUALIFIER=john npx cdk deploy --profile stedi/dev john-CounselorServiceInteg
+  assume-role xhrdev wheel 3600
 }
 
 ## google cloud
@@ -130,7 +161,7 @@ sso(){
 }
 
 
-# -- fnch -------------------------------------------------------
+# -- work0 ------------------------------------------------------
 uri-encode() {
   # uri-encode <string>
   old_lc_collate=$LC_COLLATE

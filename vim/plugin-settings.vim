@@ -197,7 +197,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-autocmd FileType javascript,typescript,typescriptreact,javascriptreact nnoremap <silent> K :call <SID>show_documentation()<CR>
+autocmd FileType javascript,typescript,typescriptreact,javascriptreact,python nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-@> coc#refresh()
