@@ -45,12 +45,16 @@ ask() {
   local user_prompt="$*"
   local system_prompt='Respond concisely and in plain text only, no markdown formatting or special characters'
 
-  local result
-  result=$(curl -s https://openrouter.ai/api/v1/chat/completions \
+  local model='google/gemini-2.0-flash-exp:free'
+  local model='deepseek/deepseek-chat-v3-0324:free'
+  local model='meta-llama/llama-4-scout:free'
+
+  local model_to_use="$model"
+  local result=$(curl -s https://openrouter.ai/api/v1/chat/completions \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $OPENROUTER_API_KEY" \
     -d '{
-      "model": "google/gemini-2.0-flash-exp:free",
+      "model": "'"${model_to_use}"'",
       "messages": [
         {
           "role": "system",
@@ -71,8 +75,10 @@ ask() {
           ]
         }
       ]
-    }' | jq -r '.choices[0].message.content')
-  echo "$result"
+    }')
+  local answer="$(echo $result | jq -r '.choices[0].message.content')"
+  # echo "$result"
+  echo "$answer"
 }
 
 # -- work -------------------------------------------------------
