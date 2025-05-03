@@ -85,8 +85,7 @@ alias aws.s='~/bin/aws --profile stedi --region us-east-1'
 alias 'sbcl'='rlwrap sbcl'
 
 # -- work --------------- ---------------------------------------
-#alias aws-mfa='/Users/skilbjo/.virtualenvs/stedi/bin/aws-mfa'
-#alias awscurl='/Users/skilbjo/.virtualenvs/stedi/bin/awscurl'
+alias colima.start='colima start --cpu 8 --memory 16 --vz-rosetta --disk 500 --dns 8.8.8.8 --kubernetes'
 alias awslogin='aws sso login --profile shared'
 
 alias 'tsfiles'="function _(){/usr/bin/find . -type f ! -path '*/node_modules/*' ! -path '*/target/*' ! -path '*/cdk.out/*' -name '*.ts'};_"
