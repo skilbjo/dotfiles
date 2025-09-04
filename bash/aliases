@@ -25,6 +25,8 @@ alias jqq='python3 -c "import json, ast; print(json.dumps(ast.literal_eval(input
 alias s='source venv/bin/activate'
 alias coffee='caffeinate -u -t $((6 * 60 * 60))'
 alias ol='open http://localhost:3000'
+alias gemini='gemini --yolo'
+alias claude='claude --dangerously-skip-permissions --continue'
 
 # -- Shortcuts --------------------------------------------------
 alias x='exit'
