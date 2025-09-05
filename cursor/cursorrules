@@ -53,6 +53,7 @@ TypeScript/JS:
 - always use named arguments; the pattern of a single argument options POJO
 - never use `index.ts` files for anything other than barrel files
 - do not add stupid comments that are not necessary
+- when writing catch blocks, use `catch (err)`, never `catch (error)`.
 React:
 - never use `React.something`, just import "something" directly
 Packages:
