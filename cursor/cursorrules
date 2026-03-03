@@ -54,6 +54,7 @@ TypeScript/JS:
 - never use `index.ts` files for anything other than barrel files
 - do not add stupid comments that are not necessary
 - when writing catch blocks, use `catch (err)`, never `catch (error)`.
+- drop the unnecessary curly braces for one-line if statements, and else blocks
 React:
 - never use `React.something`, just import "something" directly
 Packages:

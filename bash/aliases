@@ -26,7 +26,9 @@ alias s='source venv/bin/activate'
 alias coffee='caffeinate -u -t $((6 * 60 * 60))'
 alias ol='open http://localhost:3000'
 alias gemini='gemini --yolo'
-alias claude='claude --dangerously-skip-permissions --continue'
+alias codex='codex --yolo'
+alias claude='claude --dangerously-skip-permissions'
+alias claudec='claude --dangerously-skip-permissions --continue'
 
 # -- Shortcuts --------------------------------------------------
 alias x='exit'

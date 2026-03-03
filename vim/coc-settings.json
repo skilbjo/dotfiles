@@ -11,6 +11,7 @@
     "typescriptreact",
     "html"
   ],
+  "eslint.experimental.useFlatConfig": true,
   "eslint.alwaysShowStatus": true,
   "eslint.fixOnSaveTimeout": 10000,
   "prettier.formatterPriority": -1,
